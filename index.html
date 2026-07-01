@@ -235,6 +235,8 @@ svg.map.grabbing{cursor:grabbing}
 .subcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
 .subhead{font-size:16px;margin-bottom:4px}
 .subrule{color:var(--muted);font-size:14px;margin-bottom:6px}
+.when{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.when::before{content:"→ "}
 .node.ch.cat{background:var(--panel); border-color:var(--accent)}
 .link.cat{stroke:var(--accent); opacity:.5}
 
@@ -1028,46 +1030,45 @@ function grenzHtml(){ return String.raw`
 
 /* Referenz-Seiten (eigene Ergänzungen, Route #/ref/<key>) */
 function konvSummenHtml(){ return String.raw`
-  <p class="sub">Für eine Reihe \(\sum_{k} a_k\). Test-Reihenfolge: erst \(a_k\to0\)? dann Quotient/Wurzel, sonst Vergleich.</p>
+  <p class="sub">Für eine Reihe \(\sum_{k} a_k\). Test-Reihenfolge: erst \(a_k\to0\)?, dann Quotient/Wurzel, sonst Vergleich. Beispiel und „Einsetzen, wenn …" stehen direkt beim Kriterium.</p>
   <div class="twocol">
     <div class="refblock">
       <h3>Kriterien</h3>
       <table class="reftable">
-        <tr><td><b>Notwendig:</b> \(a_k\to0\)</td><td class="cond">sonst divergent</td></tr>
-        <tr><td><b>Absolut:</b> \(\sum|a_k|\) konv. \(\Rightarrow\sum a_k\) konv.</td></tr>
-        <tr><td><b>Majorante:</b> \(|a_k|\le b_k,\ \sum b_k\) konv. \(\Rightarrow\) konv.</td></tr>
-        <tr><td><b>Minorante:</b> \(0\le c_k\le a_k,\ \sum c_k\) div. \(\Rightarrow\) div.</td></tr>
-        <tr><td><b>Quotient:</b> \(L=\lim\left|\frac{a_{k+1}}{a_k}\right|\)</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
-        <tr><td><b>Wurzel:</b> \(L=\limsup_{k}\sqrt[k]{|a_k|}\)</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
+        <tr><td><b>Notwendig:</b> \(a_k\to0\)<span class="when">Immer zuerst prüfen: gilt \(a_k\not\to0\) → sofort divergent, fertig.</span></td><td class="cond">sonst div.</td></tr>
+        <tr><td><b>Absolut:</b> \(\sum|a_k|\) konv. \(\Rightarrow\sum a_k\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln oder komplexen Gliedern — erst \(\sum|a_k|\) testen.</span></td></tr>
+        <tr><td><b>Majorante:</b> \(|a_k|\le b_k,\ \sum b_k\) konv. \(\Rightarrow\) konv.<span class="when">Einsetzen, wenn sich \(|a_k|\) gegen p-Reihe oder geometrische Reihe abschätzen lässt.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\sum\frac{\ln k}{k^{2}}\): ab großem \(k\) ist \(\ln k\le\sqrt{k}\):</p>\[\frac{\ln k}{k^{2}}\le\frac{1}{k^{3/2}}\quad\Rightarrow\quad\text{konvergent }(p=\tfrac32>1).\]`,"Beispiel: Σ ln k / k²")}</td></tr>
+        <tr><td><b>Minorante:</b> \(0\le c_k\le a_k,\ \sum c_k\) div. \(\Rightarrow\) div.<span class="when">Einsetzen für Divergenz-Nachweise — meist mit der harmonischen Reihe als Minorante.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\sum\frac{1}{\sqrt{k(k+1)}}\): wegen \(k(k+1)\le (k+1)^{2}\):</p>\[\frac{1}{\sqrt{k(k+1)}}\ge\frac{1}{k+1}\quad\Rightarrow\quad\text{divergent (harmonische Minorante).}\]`,"Beispiel: Σ 1/√(k(k+1))")}</td></tr>
+        <tr><td><b>Quotient:</b> \(L=\lim\left|\frac{a_{k+1}}{a_k}\right|\)<span class="when">Einsetzen bei Fakultäten \(k!\) und Potenzen \(q^{k}\) — alles, was sich beim Schritt \(k\to k{+}1\) gut kürzt.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\sum \frac{k}{2^{k}}\):</p>\[\frac{a_{k+1}}{a_k}=\frac{k+1}{2k}\to\frac{1}{2}<1\ \Rightarrow\ \text{konvergent.}\]`,"Beispiel: Σ k/2^k")}</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
+        <tr><td><b>Wurzel:</b> \(L=\limsup_{k}\sqrt[k]{|a_k|}\)<span class="when">Einsetzen, wenn \(a_k\) selbst eine \(k\)-te Potenz \((\dots)^{k}\) ist — die Wurzel räumt den Exponenten ab.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\sum\Big(\tfrac{k}{k+1}\Big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`,"Beispiel: Σ (k/(k+1))^(k²)")}</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
       </table>
       <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
     </div>
     <div class="refblock">
       <h3>Spezielle Kriterien</h3>
       <table class="reftable">
-        <tr><td><b>Leibniz</b> (alternierend): \(a_k=(-1)^{k}b_k\), \(b_k\ge0\) monoton \(\downarrow 0\) \(\Rightarrow\) konv.</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
-        <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{\infty}\!f\) gleiches Verhalten.</td></tr>
-        <tr><td><b>p-Reihe:</b> \(\sum \frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)</td></tr>
-        <tr><td><b>Geometrisch:</b> \(\sum q^{k}\) konv. \(\Leftrightarrow |q|<1\)</td></tr>
+        <tr><td><b>Leibniz</b> (alternierend): \(a_k=(-1)^{k}b_k\), \(b_k\ge0\) monoton \(\downarrow 0\) \(\Rightarrow\) konv.<span class="when">Einsetzen bei \((-1)^{k}\cdot(\text{monoton fallende Nullfolge})\) — der Rettungsanker, wenn absolute Konvergenz scheitert.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\sum\frac{(-1)^{k+1}}{k}\): \(b_k=\tfrac1k\downarrow0\ \Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert.</p>`,"Beispiel: Σ (−1)^(k+1)/k")}</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
+        <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{\infty}\!f\) gleiches Verhalten.<span class="when">Einsetzen, wenn \(f\) leicht integrierbar ist — Klassiker: \(\sum\frac{1}{k\ln k}\) div., denn \(\int\frac{dx}{x\ln x}=\ln\ln x\to\infty\).</span></td></tr>
+        <tr><td><b>p-Reihe:</b> \(\sum \frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Der Standard-Vergleichspartner für Majorante/Minorante.</span></td></tr>
+        <tr><td><b>Geometrisch:</b> \(\sum q^{k}\) konv. \(\Leftrightarrow |q|<1\)<span class="when">Vergleichspartner bei exponentiell fallenden Gliedern.</span></td></tr>
       </table>
-      <h3 style="margin-top:16px">Beispiele</h3>
-      ${exBox(String.raw`<p>Quotient für \(\sum \frac{k}{2^{k}}\):</p>\[\frac{a_{k+1}}{a_k}=\frac{k+1}{2k}\to\frac{1}{2}<1\ \Rightarrow\ \text{konvergent.}\]`)}
-      ${exBox(String.raw`<p>Wurzel für \(\sum\big(\tfrac{k}{k+1}\big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`)}
-      ${exBox(String.raw`<p>Leibniz für \(\sum\frac{(-1)^{k+1}}{k}\):</p><p>\(b_k=\tfrac1k\downarrow0\Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert (harmonisch).</p>`)}
     </div>
   </div>
   <div class="refblock">
     <h3>Tricks: typische Majoranten, Minoranten &amp; Umformungen</h3>
     <table class="reftable">
       <tr><td><b>Vergleichs-Skala:</b> \(\sum\frac{1}{k^{p}}\) (konv. \(\Leftrightarrow p>1\)), \(\sum q^{k}\) (\(|q|<1\)), \(\sum k^{a}q^{k}\) konv. für \(|q|<1\) (jedes \(a\))</td></tr>
-      <tr><td><b>„Nur höchste Potenzen zählen":</b> \(\dfrac{P(k)}{Q(k)}\sim\dfrac{c}{k^{\deg Q-\deg P}}\) → Grenzwertvergleich mit \(\frac{1}{k^{p}}\)</td></tr>
+      <tr><td><b>„Nur höchste Potenzen zählen":</b> \(\dfrac{P(k)}{Q(k)}\sim\dfrac{c}{k^{\deg Q-\deg P}}\) → Grenzwertvergleich mit \(\frac{1}{k^{p}}\)
+        ${exBox(String.raw`<p>\(\displaystyle\sum\frac{2k+3}{k^{3}-k+1}\). Höchste Potenzen: \(\sim\frac{2}{k^{2}}\). Prüfen mit \(b_k=\frac{1}{k^{2}}\):</p>\[\frac{a_k}{b_k}=\frac{(2k+3)k^{2}}{k^{3}-k+1}\longrightarrow 2\in(0,\infty)\ \Rightarrow\ \text{wie }\sum\frac{1}{k^{2}}\ \text{konvergent.}\]`,"Beispiel: Grenzwertvergleich")}</td></tr>
       <tr><td><b>Beschränktes wegschätzen:</b> \(|\sin k|,|\cos k|\le1\) → \(\Big|\dfrac{\sin k}{k^{2}}\Big|\le\dfrac{1}{k^{2}}\)</td></tr>
       <tr><td><b>Logs sind klein:</b> \(\ln k\le C_\varepsilon\,k^{\varepsilon}\) → z. B. \(\dfrac{\ln k}{k^{2}}\le\dfrac{C\,k^{1/2}}{k^{2}}=\dfrac{C}{k^{3/2}}\) (konv.)</td></tr>
       <tr><td><b>Minoranten für Divergenz:</b> \(\dfrac{1}{\sqrt{k}}\ge\dfrac{1}{k}\); \(\dfrac{k+1}{k^{2}+5}\sim\dfrac{1}{k}\) (div.)</td></tr>
     </table>
-    ${exBox(String.raw`<p><b>Grenzwertvergleich:</b> \(\displaystyle\sum\frac{2k+3}{k^{3}-k+1}\). Höchste Potenzen: \(\sim\frac{2}{k^{2}}\). Prüfen mit \(b_k=\frac{1}{k^{2}}\):</p>\[\frac{a_k}{b_k}=\frac{(2k+3)k^{2}}{k^{3}-k+1}\longrightarrow 2\in(0,\infty)\ \Rightarrow\ \text{wie }\sum\frac{1}{k^{2}}\ \text{konvergent.}\]`)}
-    ${exBox(String.raw`<p><b>Minorante:</b> \(\displaystyle\sum\frac{1}{\sqrt{k(k+1)}}\). Wegen \(k(k+1)\le (k+1)^{2}\):</p>\[\frac{1}{\sqrt{k(k+1)}}\ge\frac{1}{k+1}\quad\Rightarrow\quad\text{divergent (harmonische Minorante).}\]`)}
-    ${exBox(String.raw`<p><b>Majorante mit Log:</b> \(\displaystyle\sum\frac{\ln k}{k^{2}}\). Ab großem \(k\) ist \(\ln k\le\sqrt{k}\):</p>\[\frac{\ln k}{k^{2}}\le\frac{1}{k^{3/2}}\quad\Rightarrow\quad\text{konvergent }(p=\tfrac32>1).\]`)}
   </div>
   <div class="refblock">
     <h3>Summierbarkeit divergenter Reihen</h3>
@@ -1083,33 +1084,33 @@ function konvSummenHtml(){ return String.raw`
   </div>`; }
 
 function konvIntegraleHtml(){ return String.raw`
-  <p class="sub">Uneigentliche Integrale: unbeschränktes Intervall \(\int_a^{\infty}\) oder Singularität am Rand.</p>
+  <p class="sub">Uneigentliche Integrale: unbeschränktes Intervall \(\int_a^{\infty}\) oder Singularität am Rand. Beispiel und „Einsetzen, wenn …" stehen direkt beim Kriterium.</p>
   <div class="twocol">
     <div class="refblock">
-      <h3>Definition & p-Test</h3>
+      <h3>Definition &amp; p-Test</h3>
       <table class="reftable">
         <tr><td>\(\displaystyle\int_a^{\infty}\!f=\lim_{R\to\infty}\int_a^{R}\!f\)</td></tr>
         <tr><td>Singularität bei \(b\): \(\displaystyle\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}\!f\)</td></tr>
-        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)</td></tr>
-        <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)</td></tr>
+        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Erster Reflex: Verhalten am kritischen Rand mit \(x^{-p}\) vergleichen.</span></td></tr>
+        <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)<span class="when">Achtung: bei \(0\) genau umgekehrt zu \(\infty\)!</span>
+          ${exBox(String.raw`\[\int_1^{\infty}\frac{dx}{x^{2}}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=2\ (\text{konv., }p=\tfrac12<1)\]`,"Beispiele: p-Test")}</td></tr>
       </table>
       <h3 style="margin-top:16px">Kriterien</h3>
       <table class="reftable">
-        <tr><td><b>Majorante:</b> \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.</td></tr>
-        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.</td></tr>
-        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.</td></tr>
+        <tr><td><b>Majorante:</b> \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen, wenn sich \(f\) gegen \(x^{-p}\) oder \(e^{-x}\) abschätzen lässt.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}e^{-x^{2}}dx\) konvergiert: für \(x\ge1\) ist \(x^{2}\ge x\), also</p>\[e^{-x^{2}}\le e^{-x},\qquad \int_1^{\infty}e^{-x}\,dx=e^{-1}<\infty.\]`,"Beispiel: ∫ e^(−x²)")}</td></tr>
+        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.<span class="when">Einsetzen, wenn nur das führende Verhalten am kritischen Rand zählt (Polynome, Wurzeln).</span></td></tr>
+        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln — z. B. \(\int_1^{\infty}\frac{\sin x}{x^{2}}dx\): \(\big|\frac{\sin x}{x^{2}}\big|\le\frac{1}{x^{2}}\).</span></td></tr>
       </table>
     </div>
     <div class="refblock">
       <h3>Cauchy-Hauptwert (v.p.)</h3>
-      <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral divergiert.</p>
+      <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral divergiert.<br>Einsetzen, wenn ein Pol <b>im Inneren</b> liegt oder \(\pm\infty\) symmetrisch behandelt werden soll.</p>
       <table class="reftable">
         <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{\infty}\!f=\lim_{R\to\infty}\int_{-R}^{R}\!f\)</td></tr>
-        <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)</td></tr>
+        <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)
+          ${exBox(String.raw`<p>Hauptwert von \(\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)):</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\Big(\underbrace{\int_{-1}^{-\varepsilon}}_{\ln\varepsilon}+\underbrace{\int_{\varepsilon}^{1}}_{-\ln\varepsilon}\Big)\frac{dx}{x}=0\]<p>Das gewöhnliche Integral divergiert — nur der Hauptwert ist \(0\).</p>`,"Beispiel: v.p. ∫ dx/x")}</td></tr>
       </table>
-      <h3 style="margin-top:16px">Beispiele</h3>
-      ${exBox(String.raw`<p>\(p\)-Test:</p>\[\int_1^{\infty}\frac{dx}{x^{2}}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=2\ (\text{konv., }p=\tfrac12<1)\]`)}
-      ${exBox(String.raw`<p>Hauptwert von \(\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)):</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\Big(\underbrace{\int_{-1}^{-\varepsilon}}_{\ln\varepsilon}+\underbrace{\int_{\varepsilon}^{1}}_{-\ln\varepsilon}\Big)\frac{dx}{x}=0\]<p>Das gewöhnliche Integral divergiert — nur der Hauptwert ist \(0\).</p>`)}
     </div>
   </div>`; }
 
@@ -1119,8 +1120,8 @@ function potenzreihenHtml(){ return String.raw`
     <div class="refblock">
       <h3>Konvergenzradius \(R\)</h3>
       <table class="reftable">
-        <tr><td><b>Cauchy-Hadamard:</b> \(\displaystyle \frac{1}{R}=\limsup_{k}\sqrt[k]{|a_k|}\)</td></tr>
-        <tr><td><b>Quotienten-Form:</b> \(\displaystyle R=\lim_{k}\left|\frac{a_k}{a_{k+1}}\right|\) (falls existent)</td></tr>
+        <tr><td><b>Cauchy-Hadamard:</b> \(\displaystyle \frac{1}{R}=\limsup_{k}\sqrt[k]{|a_k|}\)<span class="when">Funktioniert <b>immer</b> (limsup existiert stets) — einsetzen bei \(k\)-ten Potenzen und Lücken-Reihen.</span></td></tr>
+        <tr><td><b>Quotienten-Form:</b> \(\displaystyle R=\lim_{k}\left|\frac{a_k}{a_{k+1}}\right|\) (falls existent)<span class="when">Einsetzen bei Fakultäten und einfachen Brüchen — nur wenn (fast) alle \(a_k\neq0\), sonst Wurzel-Form nehmen.</span></td></tr>
         <tr><td>\(|x-x_0|<R\): absolut konvergent</td><td class="cond">innen</td></tr>
         <tr><td>\(|x-x_0|>R\): divergent</td><td class="cond">außen</td></tr>
         <tr><td>\(|x-x_0|=R\): Randverhalten <b>einzeln</b> prüfen</td></tr>
