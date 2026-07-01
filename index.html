@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analysis · Differential- &amp; Integralrechnung (Kap. 3–4)</title>
+<!--
+  Interaktive Lern-Übersicht zu Kap. 3 (Differentialrechnung) und Kap. 4 (Integralrechnung)
+  aus dem Skript "Analysis 1" von T. Weidl (Uni Stuttgart).
+
+  STAND: Gerüst / Struktur (Phase 1). Inhalte der Themen-Karten sind Platzhalter.
+  AUFBAU:  Inhalt = Daten (siehe Konstante CH), Layout = Code.
+           Ein Thema mit Inhalt füllen = im passenden Knoten das Feld `body` setzen.
+  Siehe WORKFLOW.md im selben Ordner.
+-->
+<style>
+:root{
+  --bg:#f4f6fb; --panel:#ffffff; --ink:#1b2430; --muted:#64748b; --line:#e2e8f0;
+  --accent:#4f46e5;
+  --ch3:#2563eb; --ch3-soft:#dbeafe;
+  --ch4:#0d9488; --ch4-soft:#ccfbf1;
+  --root:#334155;
+  --ok:#16a34a; --warn:#d97706;
+  --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.08);
+  --radius:14px;
+}
+[data-theme="dark"]{
+  --bg:#0f141b; --panel:#161d27; --ink:#e6edf6; --muted:#93a1b3; --line:#26303d;
+  --accent:#818cf8;
+  --ch3:#60a5fa; --ch3-soft:#1e293b;
+  --ch4:#2dd4bf; --ch4-soft:#11302d;
+  --root:#cbd5e1;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:var(--bg); color:var(--ink); font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  display:flex; flex-direction:column; min-height:100%;
+}
+a{color:var(--accent)}
+button{font:inherit; cursor:pointer}
+.btn{
+  background:var(--panel); color:var(--ink); border:1px solid var(--line);
+  border-radius:10px; padding:6px 12px; box-shadow:var(--shadow);
+}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent); color:#fff; border-color:transparent}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky; top:0; z-index:30; background:var(--panel);
+  border-bottom:1px solid var(--line); box-shadow:var(--shadow);
+}
+.hwrap{max-width:1200px; margin:0 auto; padding:10px 18px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px}
+.brand .logo{
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:800;
+  background:linear-gradient(135deg,var(--ch3),var(--ch4));
+}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.spacer{flex:1}
+.search{position:relative}
+.search input{
+  width:240px; max-width:46vw; padding:8px 12px 8px 32px; border-radius:10px; border:1px solid var(--line);
+  background:var(--bg); color:var(--ink);
+}
+.search .ic{position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--muted)}
+.results{
+  position:absolute; top:108%; left:0; right:0; background:var(--panel); border:1px solid var(--line);
+  border-radius:12px; box-shadow:var(--shadow); max-height:320px; overflow:auto; display:none; z-index:40;
+}
+.results.show{display:block}
+.results a{display:block; padding:9px 12px; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.results a:last-child{border-bottom:0}
+.results a:hover,.results a.active{background:var(--bg)}
+.results .tag{font-size:11px;color:var(--muted)}
+.progwrap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.progbar{width:120px;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.progbar > i{display:block;height:100%;background:linear-gradient(90deg,var(--ch3),var(--ch4));width:0}
+
+/* ---------- Main / layout ---------- */
+main{flex:1; width:100%; max-width:1200px; margin:0 auto; padding:18px}
+.crumbs{display:flex; gap:6px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13px; margin-bottom:14px}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.crumbs .sep{opacity:.5}
+
+.titlebar{display:flex; align-items:flex-start; gap:14px; flex-wrap:wrap; margin-bottom:10px}
+.titlebar h1{font-size:23px; margin:0}
+.titlebar .num{
+  font-variant-numeric:tabular-nums; font-weight:800; color:#fff; padding:3px 9px; border-radius:9px; font-size:14px;
+}
+.lead{color:var(--muted); margin:2px 0 16px}
+
+.viewtoggle{display:inline-flex; border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:var(--shadow)}
+.viewtoggle button{background:var(--panel); border:0; padding:6px 12px; color:var(--muted)}
+.viewtoggle button.on{background:var(--accent); color:#fff}
+
+/* ---------- Mindmap ---------- */
+.mapbox{position:relative; border:1px solid var(--line); border-radius:var(--radius); background:
+  radial-gradient(circle at 1px 1px, var(--line) 1px, transparent 0) 0 0/22px 22px, var(--panel);
+  box-shadow:var(--shadow); overflow:hidden}
+.mapbox.lg{height:72vh; min-height:460px}
+.mapbox.sm{height:48vh; min-height:300px}
+svg.map{width:100%; height:100%; display:block; cursor:grab; touch-action:none}
+svg.map.grabbing{cursor:grabbing}
+.maptools{position:absolute; right:12px; bottom:12px; display:flex; gap:6px; z-index:5}
+.maptools .btn{padding:6px 10px}
+.maphint{position:absolute; left:12px; top:12px; font-size:12px; color:var(--muted); background:var(--panel);
+  border:1px solid var(--line); border-radius:8px; padding:4px 9px; z-index:5; opacity:.92}
+
+/* node = foreignObject content */
+.node{
+  height:100%; border-radius:12px; padding:7px 11px; display:flex; align-items:center; gap:7px;
+  border:1px solid var(--line); background:var(--panel); box-shadow:var(--shadow); cursor:pointer;
+  font-size:13px; line-height:1.25; user-select:none; overflow:hidden;
+}
+.node:hover{border-color:var(--accent); transform:translateY(-1px)}
+.node .lbl{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical; overflow:hidden}
+.node .badge{font-weight:800; font-size:11px; padding:1px 6px; border-radius:6px; color:#fff; background:var(--accent); white-space:nowrap}
+.node .tw{margin-left:auto; color:var(--muted); font-size:11px; white-space:nowrap}
+.node.root{background:var(--root); color:#fff; border-color:transparent; font-weight:700}
+.node.ch{font-weight:700}
+.node.ch3{background:var(--ch3-soft)} .node.ch3 .badge{background:var(--ch3)}
+.node.ch4{background:var(--ch4-soft)} .node.ch4 .badge{background:var(--ch4)}
+.node .done{color:var(--ok)}
+.link{fill:none; stroke:var(--line); stroke-width:2}
+.link.ch3{stroke:var(--ch3)} .link.ch4{stroke:var(--ch4)}
+
+/* ---------- Card grid (alternative Übersicht) ---------- */
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px}
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:14px;
+  box-shadow:var(--shadow); text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:6px;
+  transition:transform .08s, border-color .08s;
+}
+.card:hover{transform:translateY(-2px); border-color:var(--accent)}
+.card .ct{font-weight:600}
+.card .cn{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums}
+.card .cf{margin-top:auto; display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted)}
+.pill{font-size:11px; padding:2px 8px; border-radius:99px; border:1px solid var(--line)}
+.pill.todo{color:var(--warn)} .pill.done{color:var(--ok); border-color:var(--ok)}
+
+/* ---------- Topic card (Ebene 2) ---------- */
+.topic{display:grid; grid-template-columns:1fr; gap:14px; max-width:880px}
+.tsec{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.tsec > h3{margin:0; padding:11px 16px; font-size:14px; border-bottom:1px solid var(--line); display:flex; gap:8px; align-items:center}
+.tsec .body{padding:14px 16px}
+.tsec.warnh > h3{color:var(--warn)}
+.tsec.linkh > h3{color:var(--ch3)}
+.placeholder{
+  border:1px dashed var(--line); border-radius:10px; padding:14px; color:var(--muted);
+  background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(127,127,127,.04) 10px,rgba(127,127,127,.04) 20px);
+}
+.topnav{display:flex; justify-content:space-between; gap:10px; margin-top:6px}
+.srcline{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:2px 0 4px; font-size:13px; color:var(--muted)}
+.chk{display:inline-flex; align-items:center; gap:8px; cursor:pointer; user-select:none;
+  border:1px solid var(--line); border-radius:10px; padding:7px 12px; background:var(--panel); box-shadow:var(--shadow)}
+.chk input{width:16px;height:16px}
+.chk.on{border-color:var(--ok); color:var(--ok)}
+
+.note{background:var(--ch3-soft); border:1px solid var(--line); border-radius:var(--radius); padding:12px 14px; font-size:13.5px; color:var(--ink)}
+
+/* ---------- Start: Themen-Liste ---------- */
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start}
+@media (max-width:860px){ .cols{grid-template-columns:1fr} }
+.chcol{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+.chhead{margin:0; padding:12px 16px; font-size:15px; color:#fff; display:flex; align-items:center; gap:10px}
+.chhead.ch3{background:linear-gradient(135deg,var(--ch3),#1e40af)}
+.chhead.ch4{background:linear-gradient(135deg,var(--ch4),#0f766e)}
+.chhead .cc{margin-left:auto; font-weight:500; font-size:12px; opacity:.92; white-space:nowrap}
+.seclist{display:flex; flex-direction:column}
+.secrow{display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border-top:1px solid var(--line); text-decoration:none; color:var(--ink)}
+.secrow:hover{background:var(--bg)}
+.secrow .snum{flex:none; font-variant-numeric:tabular-nums; font-weight:800; color:#fff; border-radius:8px; padding:3px 8px; font-size:12.5px; min-width:44px; text-align:center}
+.srbody{flex:1; min-width:0; display:flex; flex-direction:column}
+.srtitle{font-weight:600; line-height:1.3}
+.srtitle .done{color:#fff; background:var(--ok); border-radius:99px; font-size:11px; padding:1px 7px; margin-left:7px; vertical-align:middle}
+.kws{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px}
+.kw{font-size:11px; padding:2px 8px; border-radius:99px; background:var(--bg); border:1px solid var(--line); color:var(--muted); white-space:nowrap}
+.srgo{flex:none; align-self:center; color:var(--muted); font-size:18px}
+.secrow:hover .srgo{color:var(--accent)}
+
+/* ---------- Schnellzugriff-Kacheln & Gruppen-Header ---------- */
+.grp{font-size:15px; margin:22px 0 4px; display:flex; align-items:center; gap:8px}
+.sub{color:var(--muted); font-size:13px; margin:0 0 10px}
+.reftiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:12px; margin:6px 0}
+.reftile{display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:var(--radius); text-decoration:none; color:#fff; box-shadow:var(--shadow); font-weight:600; transition:transform .08s}
+.reftile:hover{transform:translateY(-2px)}
+.reftile .ti{font-size:26px; line-height:1}
+.reftile small{display:block; font-weight:500; opacity:.92; font-size:12px; margin-top:2px}
+.reftile.i1{background:linear-gradient(135deg,var(--ch4),#0f766e)}
+.reftile.i2{background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.reftile.i3{background:linear-gradient(135deg,#f59e0b,#d97706)}
+.reftile.i4{background:linear-gradient(135deg,#fb7185,#e11d48)}
+.matgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px}
+.matcard{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:7px}
+.matcard .mct{font-weight:600}
+.matcard .mcl{display:flex; flex-wrap:wrap; gap:12px; font-size:14px}
+.matcard .mcl a{text-decoration:none}
+.matcard .mcph{font-size:12px; color:var(--muted); border-top:1px dashed var(--line); padding-top:7px}
+.reftile.i5{background:linear-gradient(135deg,#22d3ee,#0891b2)}
+.reftile.i6{background:linear-gradient(135deg,#a78bfa,#7c3aed)}
+.reftile.i7{background:linear-gradient(135deg,#f472b6,#db2777)}
+.reftile.i8{background:linear-gradient(135deg,#34d399,#059669)}
+.reftile.i9{background:linear-gradient(135deg,#fbbf24,#ea580c)}
+.reftile.i10{background:linear-gradient(135deg,#e879f9,#c026d3)}
+.example{margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg);overflow:hidden}
+.example>summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--accent);list-style:none;user-select:none}
+.example>summary::-webkit-details-marker{display:none}
+.example>summary::before{content:"\25B8  "}
+.example[open]>summary::before{content:"\25BE  "}
+.example[open]>summary{border-bottom:1px solid var(--line)}
+.exbody{padding:10px 14px;overflow-x:auto}
+.exbody p{margin:6px 0;color:var(--muted)}
+.subgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.subgrid{grid-template-columns:1fr}}
+.subcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.subhead{font-size:16px;margin-bottom:4px}
+.subrule{color:var(--muted);font-size:14px;margin-bottom:6px}
+.node.ch.cat{background:var(--panel); border-color:var(--accent)}
+.link.cat{stroke:var(--accent); opacity:.5}
+
+/* ---------- Referenz-Seiten (Spickzettel) ---------- */
+.twocol{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start}
+@media(max-width:760px){ .twocol{grid-template-columns:1fr} }
+.refblock{margin:0 0 16px}
+.refblock h3{font-size:14px; margin:0 0 8px; color:var(--accent)}
+.fml{font-family:"Cambria Math","Latin Modern Math","STIX Two Math",Georgia,serif; font-size:16px}
+.reftable{width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.reftable td{padding:8px 13px; border-bottom:1px solid var(--line); vertical-align:middle}
+.reftable tr:last-child td{border-bottom:0}
+.reftable td.lhs{white-space:nowrap}
+.reftable td.cond{color:var(--muted); font-size:12px; text-align:right; white-space:nowrap; font-family:system-ui,sans-serif}
+.frac{display:inline-flex; flex-direction:column; text-align:center; vertical-align:middle; margin:0 .18em}
+.frac>span{padding:0 .4em; display:block}
+.frac>span:first-child{border-bottom:1.5px solid currentColor}
+footer{max-width:1200px;margin:0 auto;padding:14px 18px;color:var(--muted);font-size:12px}
+.kbd{font:12px/1 ui-monospace,Consolas,monospace; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; padding:2px 6px; background:var(--panel)}
+@media (max-width:600px){ .search input{width:160px} .progwrap{display:none} }
+</style>
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<script src="assets/katex/katex.min.js"></script>
+<script src="assets/katex/auto-render.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div class="brand">
+      <div class="logo">∫</div>
+      <div>Analysis · Kap. 3–4
+        <small>Differential- &amp; Integralrechnung · Übersicht fürs Team</small>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="search">
+      <span class="ic">🔍</span>
+      <input id="search" type="text" placeholder="Thema suchen…" autocomplete="off">
+      <div class="results" id="results"></div>
+    </div>
+    <div class="progwrap" title="Als „verstanden“ markierte Themen">
+      <div class="progbar"><i id="progfill"></i></div>
+      <span id="progtext">0 / 0</span>
+    </div>
+    <button class="btn" id="theme" title="Hell/Dunkel umschalten">🌙</button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  Quelle der Gliederung: Skript „Analysis 1“, Prof. T. Weidl (Uni Stuttgart) · Eigene Erklärungen werden ergänzt ·
+  Fortschritt wird lokal in diesem Browser gespeichert.
+</footer>
+
+<script>
+"use strict";
+
+/* =========================================================================
+   1) DATEN  —  hier wächst der Inhalt.
+   Jeder Knoten kann später ein Feld `body:{...}` bekommen (siehe renderTopic).
+   topics:  [id, Titel, Quelldatei]
+   ========================================================================= */
+const SRCDIR = "assets/skript_html_files/";
+const CH = [
+ { id:"3", title:"Differentialrechnung von Funktionen einer Variablen", key:"ch3",
+   sections:[
+    {id:"3.1",  t:"Zur Definition der Ableitung", src:"skriptse28.html", topics:[
+       {id:"3.1.1", title:"Die Ableitung einer Funktion", src:"skriptsu111.html", body:{
+ kernidee: String.raw`Die Ableitung misst die <b>momentane Änderungsrate</b> — die Steigung der Tangente. Man zoomt in den Graphen hinein, bis er gerade aussieht; diese Steigung ist \(f'(x_0)\).`,
+ satz: String.raw`\[f'(x_0)=\lim_{h\to0}\frac{f(x_0+h)-f(x_0)}{h}\]Existiert dieser Grenzwert (endlich), heißt \(f\) in \(x_0\) <b>differenzierbar</b>. Es gilt: differenzierbar \(\Rightarrow\) stetig (aber nicht umgekehrt).`,
+ zusammenhang: String.raw`Fundament für alles Weitere: Ableitungsregeln, Monotonie (\(f'>0\)), Extrema (\(f'=0\)), Krümmung (\(f''\)), Taylor. Der Differenzenquotient ist die diskrete Version, die Ableitung sein Grenzwert.`,
+ beispiel: String.raw`Für \(f(x)=x^2\):\[\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}=2x+h\ \longrightarrow\ 2x\quad(h\to0).\]Also \(f'(x)=2x\).`,
+ falle: String.raw`<b>\(|x|\) ist in \(0\) nicht differenzierbar</b> (Knick: links Steigung \(-1\), rechts \(+1\)). Differenzierbarkeit ist echt stärker als Stetigkeit.`
+}},
+       ["3.1.2","Ableitungen in reellen und komplexen Variablen","skriptsu112.html"],
+       ["3.1.2b","Diskussion: reelle vs. komplexe Ableitung","skriptli2.html"],
+       {id:"3.1.3", title:"Geometrische Interpretation der Ableitung", src:"skriptsu113.html", body:{
+ kernidee: String.raw`\(f'(x_0)\) ist die <b>Steigung der Tangente</b> in \((x_0,f(x_0))\). Positiv → Graph steigt, negativ → fällt, null → waagrechte Tangente.`,
+ satz: String.raw`Tangente an \(f\) in \(x_0\):\[t(x)=f(x_0)+f'(x_0)\,(x-x_0).\]Sie ist die <b>beste lineare Näherung</b> von \(f\) nahe \(x_0\) (Fehler von der Ordnung \(o(x-x_0)\)).`,
+ zusammenhang: String.raw`Brücke zu den Landau-Symbolen (3.2) und zum Differential (3.9). Die zweite Ableitung \(f''\) beschreibt die Krümmung (Konvexität, 3.11).`,
+ beispiel: String.raw`\(f(x)=\sqrt{x}\) in \(x_0=1\): \(f'(x)=\frac{1}{2\sqrt{x}}\), also \(f'(1)=\tfrac12\). Tangente \(t(x)=1+\tfrac12(x-1)\) liefert die Schätzung \(\sqrt{1{,}1}\approx 1{,}05\).`,
+ falle: String.raw`Tangente \(\neq\) Sekante: die Tangente berührt lokal in <i>einem</i> Punkt, die Sekante schneidet <i>zwei</i>. Für \(h\to0\) geht die Sekantensteigung in die Tangentensteigung über.`
+}}]},
+    {id:"3.2",  t:"Die Landau-Symbole o und O", src:"skriptse29.html", topics:[
+       ["3.2.1","Definition der Landau-Symbole","skriptsu114.html"],
+       ["3.2.2","Eigenschaften der Landau-Symbole","skriptsu115.html"],
+       ["3.2.3","Beispiele für o und O","skriptsu116.html"],
+       ["3.2.4","Anwendungen der Landau-Symbolik","skriptsu117.html"]]},
+    {id:"3.3",  t:"Das Rechnen mit Ableitungen", src:"skriptse30.html", topics:[
+       {id:"3.3.1", title:"Linearität, Produkt- und Kettenregel", src:"skriptsu118.html", body:{
+ kernidee: String.raw`Drei Bausteine, mit denen man fast alles ableitet: <b>linear</b> durchziehen, Produkte über die <b>Produktregel</b>, Verkettungen über die <b>Kettenregel</b>.`,
+ satz: String.raw`\[(af+bg)'=af'+bg'\]\[(fg)'=f'g+fg'\]\[(f\circ g)'(x)=f'(g(x))\cdot g'(x)\]`,
+ zusammenhang: String.raw`Die Kettenregel ist der Motor der Substitution beim Integrieren (4.6) und der impliziten Ableitung (3.3.3). Aus der Produktregel folgt die Leibniz-Formel für höhere Ableitungen (3.7).`,
+ beispiel: String.raw`Kette: \(\big(\sin(x^2)\big)'=\cos(x^2)\cdot 2x\). Produkt: \(\big(x^2 e^x\big)'=2xe^x+x^2e^x=(x^2+2x)e^x\).`,
+ falle: String.raw`<b>Innere Ableitung nicht vergessen!</b> \((\sin(2x))'=2\cos(2x)\), nicht \(\cos(2x)\). Das ist der häufigste Flüchtigkeitsfehler überhaupt.`
+}},
+       {id:"3.3.2", title:"Die Quotientenregel", src:"skriptsu119.html", body:{
+ kernidee: String.raw`Ableitung eines Bruchs \(\frac{f}{g}\). Merkspruch: „<b>NAZ minus ZAN, über N-Quadrat</b>" (Nenner·Abl. Zähler minus Zähler·Abl. Nenner, geteilt durch Nenner-Quadrat).`,
+ satz: String.raw`\[\left(\frac{f}{g}\right)'=\frac{f'g-fg'}{g^{2}}\qquad(g\neq0)\]`,
+ zusammenhang: String.raw`Folgt aus Produkt- und Kettenregel via \(\frac{f}{g}=f\cdot g^{-1}\). Liefert z. B. \((\tan x)'=\frac{1}{\cos^{2}x}\).`,
+ beispiel: String.raw`\[\left(\frac{x}{x^{2}+1}\right)'=\frac{1\cdot(x^{2}+1)-x\cdot 2x}{(x^{2}+1)^{2}}=\frac{1-x^{2}}{(x^{2}+1)^{2}}.\]`,
+ falle: String.raw`<b>Reihenfolge im Zähler</b> (\(f'g-fg'\), nicht umgekehrt) — das Vorzeichen ist die typische Falle. Und im Nenner steht \(g^{2}\), nicht \(g\).`
+}},
+       ["3.3.3","Ableitung impliziter Funktionen","skriptsu120.html"]]},
+    {id:"3.4",  t:"Ableitungen einiger wichtiger Funktionen", src:"skriptse31.html", topics:[
+       ["3.4.1","Polynome und ganzzahlige Potenzen","skriptsu121.html"],
+       ["3.4.2","Exponential- und Winkelfunktionen","skriptsu122.html"],
+       ["3.4.3","Ableitung der Logarithmusfunktion","skriptsu123.html"],
+       ["3.4.4","Umkehrfunktionen der trigonometrischen Funktionen","skriptsu124.html"]]},
+    {id:"3.5",  t:"Sätze von Fermat & Rolle; Formeln von Cauchy & Lagrange", src:"skriptse32.html", topics:[
+       {id:"3.5.1", title:"Der Satz von Fermat", src:"skriptsu125.html", body:{
+ kernidee: String.raw`An einem <b>inneren Extremum</b> einer differenzierbaren Funktion ist die Tangente waagrecht: \(f'=0\). Das ist die notwendige Bedingung fürs Suchen von Hoch-/Tiefpunkten.`,
+ satz: String.raw`Hat \(f\) in einem <i>inneren</i> Punkt \(x_0\) ein lokales Extremum und ist dort differenzierbar, so gilt\[f'(x_0)=0.\]\(x_0\) heißt dann <b>kritischer</b> (stationärer) Punkt.`,
+ zusammenhang: String.raw`Startpunkt der ganzen Kette: <b>Fermat \(\Rightarrow\) Rolle \(\Rightarrow\) Mittelwertsatz</b>. Liefert die „Kandidaten" für Extrema (3.10.3).`,
+ beispiel: String.raw`\(f(x)=x^{2}\) hat sein Minimum in \(0\), und tatsächlich \(f'(0)=0\). ✓`,
+ falle: String.raw`Nur <b>notwendig, nicht hinreichend</b>: \(f(x)=x^{3}\) hat \(f'(0)=0\), aber kein Extremum (Sattelpunkt). Und nur für <b>innere</b> Punkte — am Rand von \([a,b]\) kann ein Extremum ohne \(f'=0\) liegen.`
+}},
+       {id:"3.5.2", title:"Der Satz von Rolle", src:"skriptsu126.html", body:{
+ kernidee: String.raw`Wenn eine glatte Kurve bei \(a\) und \(b\) auf <b>gleicher Höhe</b> beginnt und endet, muss sie dazwischen mindestens einmal eine <b>waagrechte Tangente</b> haben.`,
+ satz: String.raw`\(f\) stetig auf \([a,b]\), differenzierbar auf \((a,b)\), \(f(a)=f(b)\). Dann gibt es ein \(\xi\in(a,b)\) mit\[f'(\xi)=0.\]`,
+ zusammenhang: String.raw`Spezialfall des Mittelwertsatzes (3.5.4) für \(f(a)=f(b)\); bewiesen über Fermat (Extremum im Inneren). Zentrales Werkzeug für Nullstellen-Argumente.`,
+ beispiel: String.raw`\(f(x)=x^{2}-x\) auf \([0,1]\): \(f(0)=f(1)=0\). \(f'(x)=2x-1=0\) bei \(\xi=\tfrac12\). ✓`,
+ falle: String.raw`<b>Alle drei Voraussetzungen nötig.</b> \(f(x)=|x|\) auf \([-1,1]\) erfüllt \(f(-1)=f(1)\), aber nie \(f'=0\) — weil in \(0\) nicht differenzierbar.`
+}},
+       {id:"3.5.3", title:"Die Formel von Cauchy (verallg. MWS)", src:"skriptsu127.html", body:{
+ kernidee: String.raw`Der Mittelwertsatz für <b>zwei Funktionen gleichzeitig</b> — er vergleicht ihre Änderungsraten. Die Grundlage für l'Hospital.`,
+ satz: String.raw`\(f,g\) stetig auf \([a,b]\), differenzierbar auf \((a,b)\), \(g'\neq0\). Dann gibt es \(\xi\in(a,b)\) mit\[\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}.\]`,
+ zusammenhang: String.raw`Mit \(g(x)=x\) wird daraus der gewöhnliche MWS (3.5.4). Direkter Beweismotor der <b>Regel von l'Hospital</b> (3.12).`,
+ beispiel: String.raw`Der Quotient der beiden Sekantensteigungen (von \(f\) und \(g\)) wird an einer gemeinsamen Stelle \(\xi\) vom Quotient der Tangentensteigungen getroffen.`,
+ falle: String.raw`Es ist <b>nicht</b> „MWS für \(f\) geteilt durch MWS für \(g\)" — das gäbe zwei verschiedene Stellen. Cauchy garantiert <b>ein gemeinsames</b> \(\xi\).`
+}},
+       {id:"3.5.4", title:"Die Formel von Lagrange (MWS)", src:"skriptsu128.html", body:{
+ kernidee: String.raw`Zwischen \(a\) und \(b\) gibt es eine Stelle, an der die <b>Tangente parallel zur Sekante</b> ist — die momentane Änderungsrate trifft irgendwo die durchschnittliche.`,
+ satz: String.raw`\(f\) stetig auf \([a,b]\), differenzierbar auf \((a,b)\). Dann gibt es \(\xi\in(a,b)\) mit\[f'(\xi)=\frac{f(b)-f(a)}{b-a}.\]`,
+ zusammenhang: String.raw`<b>Das Arbeitspferd</b> der Differentialrechnung: liefert Monotonie (\(f'>0\Rightarrow\) streng wachsend, 3.10.2), Konstanz (\(f'\equiv0\Rightarrow f\) konstant), Schranken und das Taylor-Restglied.`,
+ beispiel: String.raw`\(f(x)=x^{2}\) auf \([0,2]\): Sekantensteigung \(\frac{4-0}{2-0}=2\). Aus \(f'(\xi)=2\xi=2\) folgt \(\xi=1\). ✓`,
+ falle: String.raw`Der Satz sichert die <b>Existenz</b> von \(\xi\), gibt aber <b>keine Formel</b> dafür — man weiß nur, <i>dass</i> es existiert. Voraussetzungen genau einhalten (stetig auf \([a,b]\), differenzierbar auf \((a,b)\)).`
+}}]},
+    {id:"3.6",  t:"Der Hauptsatz der Differentialrechnung", src:"skriptse33.html", topics:[
+       ["3.6.1","Formulierung des Satzes","skriptsu129.html"],
+       ["3.6.2","Beweis – Schritt 1","skriptsu130.html"],
+       ["3.6.3","Beweis – Schritt 2","skriptsu131.html"],
+       ["3.6.4","Beweis – Schritt 3","skriptsu132.html"],
+       ["3.6.5","Beweis – Schritt 4","skriptsu133.html"]]},
+    {id:"3.7",  t:"Höhere Ableitungen; Formel von Leibniz", src:"skriptse34.html", topics:[
+       ["3.7.1","Ableitungen höherer Ordnung","skriptsu134.html"],
+       ["3.7.2","Der Satz von Leibniz","skriptsu135.html"]]},
+    {id:"3.8",  t:"Der Satz von Taylor", src:"skriptse35.html", topics:[]},
+    {id:"3.9",  t:"Das Differential einer Funktion", src:"skriptse36.html", topics:[
+       ["3.9.1","Das Differential erster Ordnung","skriptsu136.html"],
+       ["3.9.2","Differentiale höherer Ordnung","skriptsu137.html"],
+       ["3.9.3","Invarianz des Differentials erster Ordnung","skriptsu138.html"]]},
+    {id:"3.10", t:"Monotonie und Extremwerte von Funktionen", src:"skriptse37.html", topics:[
+       ["3.10.1","Konstante Funktionen","skriptsu139.html"],
+       {id:"3.10.2", title:"Monotone Funktionen", src:"skriptsu140.html", body:{
+ kernidee: String.raw`<b>Vorzeichen von \(f'\) = Wachstumsrichtung.</b> \(f'>0\) heißt steigend, \(f'<0\) fallend. Das ist das Monotonie-Kriterium.`,
+ satz: String.raw`Auf einem Intervall gilt\[f'\ge0\iff f\ \text{monoton wachsend},\qquad f'>0\Rightarrow f\ \text{streng wachsend}\](analog für fallend). Beweis über den Mittelwertsatz.`,
+ zusammenhang: String.raw`Direkte Folge des Mittelwertsatzes (3.5.4). Grundlage der Extremwert-Bestimmung (3.10.3, Vorzeichenwechsel von \(f'\)) und der Kurvendiskussion (3.13).`,
+ beispiel: String.raw`\(f(x)=x^{3}\): \(f'(x)=3x^{2}\ge0\) überall \(\Rightarrow\) streng wachsend, obwohl \(f'(0)=0\).`,
+ falle: String.raw`\(f'>0\) ist <b>hinreichend, nicht notwendig</b> für streng wachsend (siehe \(x^{3}\)). „Streng wachsend" verträgt einzelne Nullstellen von \(f'\).`
+}},
+       {id:"3.10.3", title:"Extremwerte einer Funktion", src:"skriptsu141.html", body:{
+ kernidee: String.raw`Extrema findet man in zwei Schritten: <b>Kandidaten</b> über \(f'=0\) (Fermat), dann <b>entscheiden</b> über den Vorzeichenwechsel von \(f'\) oder das Vorzeichen von \(f''\).`,
+ satz: String.raw`Notwendig: \(f'(x_0)=0\). Hinreichend:\[f'(x_0)=0,\ f''(x_0)>0\ \Rightarrow\ \text{lok. Minimum},\]\[f'(x_0)=0,\ f''(x_0)<0\ \Rightarrow\ \text{lok. Maximum}.\]`,
+ zusammenhang: String.raw`Kombiniert Fermat (3.5.1), Monotonie (3.10.2) und Krümmung (3.11). Bei \(f''(x_0)=0\) entscheidet der Vorzeichenwechsel von \(f'\) (oder die nächste nicht-verschwindende Ableitung).`,
+ beispiel: String.raw`\(f(x)=x^{3}-3x\): \(f'(x)=3x^{2}-3=0\Rightarrow x=\pm1\). Mit \(f''(x)=6x\): \(f''(1)=6>0\) (Min), \(f''(-1)=-6<0\) (Max).`,
+ falle: String.raw`\(f''(x_0)=0\) bedeutet <b>nicht</b> automatisch „kein Extremum": \(f(x)=x^{4}\) hat \(f'(0)=f''(0)=0\) und trotzdem ein Minimum. Dann Vorzeichenwechsel von \(f'\) prüfen.`
+}}]},
+    {id:"3.11", t:"Konvexe und konkave Funktionen", src:"skriptse38.html", topics:[
+       ["3.11.1","Definition und äquivalente Beschreibungen","skriptsu142.html"],
+       ["3.11.2","Differenzierbare konvexe/konkave Funktionen","skriptsu143.html"],
+       {id:"3.11.3", title:"Wendepunkte", src:"skriptsu144.html", body:{
+ kernidee: String.raw`Ein <b>Wendepunkt</b> ist, wo die Krümmung ihr Vorzeichen wechselt — von Links- auf Rechtskurve (konvex \(\leftrightarrow\) konkav).`,
+ satz: String.raw`Notwendig: \(f''(x_0)=0\). Hinreichend: \(f''(x_0)=0\) und \(f''\) wechselt dort das Vorzeichen (z. B. wenn \(f^{(3)}(x_0)\neq0\)).`,
+ zusammenhang: String.raw`\(f''\) verhält sich zur Konvexität (3.11) wie \(f'\) zur Monotonie (3.10). Ein Wendepunkt ist ein Extremum von \(f'\) — die steilste/flachste Stelle.`,
+ beispiel: String.raw`\(f(x)=x^{3}\): \(f''(x)=6x=0\) bei \(x=0\); \(f''\) wechselt von \(-\) nach \(+\) \(\Rightarrow\) Wendepunkt in \(0\).`,
+ falle: String.raw`\(f''(x_0)=0\) allein reicht nicht: \(f(x)=x^{4}\) hat \(f''(0)=0\), aber <b>keinen</b> Wendepunkt (Krümmung wechselt nicht). Der Vorzeichenwechsel ist entscheidend.`
+}}]},
+    {id:"3.12", t:"Unbestimmtheiten 0/0 und ∞/∞ (l’Hospital)", src:"skriptse39.html", topics:[
+       {id:"3.12.1", title:"Unbestimmtheiten vom Typ 0/0", src:"skriptsu145.html", body:{
+ kernidee: String.raw`Bei \(\frac{0}{0}\) darf man <b>Zähler und Nenner getrennt ableiten</b> und den Grenzwert erneut versuchen — er bleibt gleich (falls der neue existiert). Das ist die Regel von l'Hospital.`,
+ satz: String.raw`Ist \(\lim\frac{f}{g}\) vom Typ \(\frac{0}{0}\) und existiert \(\lim\frac{f'}{g'}\), so\[\lim\frac{f(x)}{g(x)}=\lim\frac{f'(x)}{g'(x)}.\]`,
+ zusammenhang: String.raw`Bewiesen über den verallgemeinerten Mittelwertsatz von <b>Cauchy</b> (3.5.3). Erklärt viele Standardgrenzwerte (siehe Spickzettel „Grenzwerte").`,
+ beispiel: String.raw`\[\lim_{x\to0}\frac{\sin x}{x}=\lim_{x\to0}\frac{\cos x}{1}=1\quad(\text{Typ }0/0).\]`,
+ falle: String.raw`<b>Nur bei \(\frac{0}{0}\) oder \(\frac{\infty}{\infty}\) anwenden</b> — vorher den Typ prüfen! Und es ist \(\frac{f'}{g'}\), <b>nicht</b> die Quotientenregel \(\left(\frac{f}{g}\right)'\).`
+}},
+       ["3.12.2","Unbestimmtheiten vom Typ ∞/∞","skriptsu146.html"]]},
+    {id:"3.13", t:"Weitere Anwendungen zur Kurvendiskussion", src:"skriptse40.html", topics:[
+       ["3.13.1","Normale und Tangente einer Kurve","skriptsu147.html"],
+       ["3.13.2","Differentiation parametrischer Kurven","skriptsu148.html"],
+       ["3.13.3","Geradlinige Asymptoten","skriptsu149.html"]]},
+    {id:"3.14", t:"Der Satz von Darboux", src:"skriptse41.html", topics:[]},
+    {id:"3.15", t:"Nullstellenberechnung", src:"skriptse42.html", topics:[
+       ["3.15.1","Die Regula falsi","skriptsu150.html"],
+       ["3.15.2","Das Newton-Verfahren","skriptsu151.html"]]}
+   ]},
+ { id:"4", title:"Integralrechnung in einer Variablen", key:"ch4",
+   sections:[
+    {id:"4.1",  t:"Das Riemann-Integral; integrierbare Funktionen", src:"skriptse43.html", topics:[
+       ["4.1.1","Grundlegende Definitionen","skriptsu152.html"],
+       ["4.1.2","Stetigkeitsmodul und Integrierbarkeit","skriptsu153.html"],
+       ["4.1.3","Integrierbarkeit stetiger/monotoner Funktionen","skriptsu154.html"],
+       ["4.1.4","Obere und untere Darboux-Summen","skriptsu155.html"],
+       ["4.1.5","Struktur des Raumes ℛ[a,b]","skriptsu156.html"],
+       ["4.1.6","Lebesgue-Kriterium der Integrierbarkeit","skriptsu157.html"]]},
+    {id:"4.2",  t:"Linearität, Additivität und Monotonie des Integrals", src:"skriptse44.html", topics:[
+       ["4.2.1","Linearität des Integrals","skriptsu158.html"],
+       ["4.2.2","Additivität bzgl. des Bereichs","skriptsu159.html"],
+       ["4.2.3","Monotonie des Integrals","skriptsu160.html"]]},
+    {id:"4.3",  t:"Newton-Leibniz; Stammfunktionen", src:"skriptse45.html", topics:[
+       ["4.3.1","Die Formel von Newton-Leibniz","skriptsu161.html"],
+       ["4.3.2","Stammfunktion & Hauptsatz der Diff.-/Int.-rechnung","skriptsu162.html"],
+       ["4.3.3","Existenz von Stammfunktionen","skriptsu163.html"]]},
+    {id:"4.4",  t:"Integration rationaler Funktionen", src:"skriptse46.html", topics:[
+       ["4.4.1","Polynomdivision mit Rest","skriptsu164.html"],
+       ["4.4.2","Schriftliches Dividieren von Polynomen","skriptsu165.html"],
+       ["4.4.3","Zerlegung des Restterms (Partialbruch)","skriptsu166.html"],
+       ["4.4.4","Berechnung der Koeffizienten A₍ⱼₖ₎","skriptsu167.html"],
+       ["4.4.5","Die Formel von Ostrogradskij","skriptsu168.html"]]},
+    {id:"4.5",  t:"Die Mittelwertsätze der Integralrechnung", src:"skriptse47.html", topics:[
+       ["4.5.1","Erster Mittelwertsatz","skriptsu169.html"],
+       ["4.5.2","Zweiter Mittelwertsatz","skriptsu170.html"]]},
+    {id:"4.6",  t:"Partielle Integration und Substitution", src:"skriptse48.html", topics:[
+       ["4.6.1","Partielle Integration","skriptsu171.html"],
+       ["4.6.2","Substitution der Integrationsvariablen","skriptsu172.html"]]},
+    {id:"4.7",  t:"Das Restglied in der Taylor-Formel", src:"skriptse49.html", topics:[
+       ["4.7.1","Restglied – Formulierung und Beweis","skriptsu173.html"],
+       ["4.7.2","Modifikationen der Restgliedformel","skriptsu174.html"],
+       ["4.7.3","Eine Anwendung","skriptsu175.html"]]},
+    {id:"4.8",  t:"Numerische Integration (Interpolation)", src:"skriptse50.html", topics:[
+       ["4.8.1","Lagrangesche Interpolationsformel","skriptsu176.html"],
+       ["4.8.2","Rechteckformel (P₀)","skriptsu177.html"],
+       ["4.8.3","Trapezformel (P₁)","skriptsu178.html"],
+       ["4.8.4","Simpson-Regel (P₂)","skriptsu179.html"]]},
+    {id:"4.9",  t:"Anwendungen I: Länge und Krümmung einer Kurve", src:"skriptse51.html", topics:[
+       ["4.9.1","Der Begriff der Jordan-Kurve","skriptsu180.html"],
+       ["4.9.2","Bogenlänge einer Jordan-Kurve","skriptsu181.html"],
+       ["4.9.3","Parametrisierung durch die Bogenlänge","skriptsu182.html"],
+       ["4.9.4","Tangential- und Krümmungsvektor","skriptsu183.html"],
+       ["4.9.5","Berechnung des Krümmungsvektors","skriptsu184.html"],
+       ["4.9.6","Krümmung einer Kurve in ℝ³ und ℝ²","skriptsu185.html"]]},
+    {id:"4.10", t:"Anwendungen II: Fläche, Volumen, Schwerpunkt", src:"skriptse52.html", topics:[
+       ["4.10.1","Flächeninhalt ebener Figuren","skriptsu186.html"],
+       ["4.10.2","Volumen rotationssymmetrischer Körper","skriptsu187.html"],
+       ["4.10.3","Oberflächeninhalt rotationssymmetrischer Körper","skriptsu188.html"],
+       ["4.10.4","Schwerpunkt einer Kurve","skriptsu189.html"],
+       ["4.10.5","Schwerpunkt einer Fläche","skriptsu190.html"]]},
+    {id:"4.11", t:"Analytischer Beweis des Fundamentalsatzes der Algebra", src:"skriptse53.html", topics:[
+       ["4.11.1","Beweis des Fundamentalsatzes der Algebra","skriptsu191.html"],
+       ["4.11.2","Beweis von Lemma 4.11.1","skriptsu192.html"],
+       ["4.11.3","Beweis von Lemma 4.11.2","skriptsu193.html"]]}
+   ]}
+];
+
+/* Stichwörter pro Abschnitt — kurze Orientierung in der Start-Themenliste */
+const KW = {
+ "3.1":["Differenzenquotient","Tangente","reell vs. komplex"],
+ "3.2":["o-klein","O-groß","Asymptotik"],
+ "3.3":["Produktregel","Kettenregel","Quotientenregel","implizit"],
+ "3.4":["exp, sin, cos","ln","arcsin/arctan"],
+ "3.5":["Fermat","Rolle","Mittelwertsatz"],
+ "3.6":["Formulierung","Beweis in 4 Schritten"],
+ "3.7":["n-te Ableitung","Leibniz-Formel"],
+ "3.8":["Taylorpolynom","Approximation"],
+ "3.9":["df = f′·dx","höhere Differentiale","Invarianz"],
+ "3.10":["Monotonie","Extrema","f′-Kriterium"],
+ "3.11":["konvex/konkav","Wendepunkte","f″-Kriterium"],
+ "3.12":["0/0","∞/∞","l’Hospital"],
+ "3.13":["Tangente & Normale","parametrische Kurven","Asymptoten"],
+ "3.14":["Zwischenwertsatz für f′"],
+ "3.15":["Regula falsi","Newton-Verfahren"],
+ "4.1":["Ober-/Untersumme","integrierbar","Lebesgue-Kriterium"],
+ "4.2":["Linearität","Additivität","Monotonie"],
+ "4.3":["Newton-Leibniz","Stammfunktion","Hauptsatz"],
+ "4.4":["Polynomdivision","Partialbruch","Ostrogradskij"],
+ "4.5":["1. Mittelwertsatz","2. Mittelwertsatz"],
+ "4.6":["partielle Integration","Substitution"],
+ "4.7":["Restglied","Lagrange-/Integralform"],
+ "4.8":["Interpolation","Trapez","Simpson"],
+ "4.9":["Bogenlänge","Krümmung","Jordan-Kurve"],
+ "4.10":["Fläche","Volumen","Schwerpunkt"],
+ "4.11":["Fundamentalsatz der Algebra"]
+};
+
+/* Querschnitt-Index "Nach Typ": Kategorie -> [Themen-ID, Anzeigename].
+   Klick auf einen Eintrag springt zur passenden Themen-Karte. */
+const CAT = {
+ "Definitionen": [
+   ["3.1.1","Ableitung"],["3.2.1","Landau-Symbole o, O"],["3.7.1","Höhere Ableitungen"],
+   ["3.9.1","Differential df"],["3.11.1","Konvex / konkav"],["3.11.3","Wendepunkt"],
+   ["4.1.1","Riemann-Integral"],["4.1.2","Stetigkeitsmodul"],["4.1.4","Ober-/Untersumme (Darboux)"],
+   ["4.3.2","Stammfunktion"],["4.9.1","Jordan-Kurve"],["4.9.2","Bogenlänge"],["4.9.4","Krümmungsvektor"]
+ ],
+ "Sätze & Formeln": [
+   ["3.5.1","Satz von Fermat"],["3.5.2","Satz von Rolle"],["3.5.3","Formel von Cauchy (verallg. MWS)"],
+   ["3.5.4","Mittelwertsatz (Lagrange)"],["3.6.1","Hauptsatz der Differentialrechnung"],
+   ["3.7.2","Satz von Leibniz"],["3.8","Satz von Taylor"],["3.14","Satz von Darboux"],
+   ["4.3.1","Formel von Newton-Leibniz"],["4.3.2","Hauptsatz Diff.- & Integralrechnung"],
+   ["4.4.5","Formel von Ostrogradskij"],["4.5.1","1. Mittelwertsatz (Integral)"],
+   ["4.5.2","2. Mittelwertsatz (Integral)"],["4.7.1","Taylor mit Restglied"],["4.11.1","Fundamentalsatz der Algebra"]
+ ],
+ "Kriterien": [
+   ["3.10.2","Monotonie-Kriterium (f′)"],["3.10.3","Extremwert-Kriterium"],
+   ["3.11.2","Konvexitäts-Kriterium (f″)"],["3.11.3","Wendepunkt-Kriterium"],
+   ["4.1.3","Integrierbarkeit (stetig/monoton)"],["4.1.6","Lebesgue-Kriterium"]
+ ],
+ "Regeln & Techniken": [
+   ["3.3.1","Produkt- & Kettenregel"],["3.3.2","Quotientenregel"],["3.3.3","Implizite Differentiation"],
+   ["3.12.1","l’Hospital (0/0)"],["3.12.2","l’Hospital (∞/∞)"],["4.4.1","Polynomdivision"],
+   ["4.4.3","Partialbruchzerlegung"],["4.6.1","Partielle Integration"],["4.6.2","Substitution"]
+ ],
+ "Verfahren (numerisch)": [
+   ["3.15.1","Regula falsi"],["3.15.2","Newton-Verfahren"],["4.8.1","Lagrange-Interpolation"],
+   ["4.8.2","Rechteckformel"],["4.8.3","Trapezformel"],["4.8.4","Simpson-Regel"]
+ ],
+ "Anwendungen": [
+   ["3.13.1","Tangente & Normale"],["3.13.2","Parametrische Kurven"],["3.13.3","Asymptoten"],
+   ["4.9.2","Bogenlänge"],["4.9.6","Krümmung κ"],["4.10.1","Flächeninhalt"],
+   ["4.10.2","Volumen (Rotation)"],["4.10.4","Schwerpunkt"]
+ ]
+};
+
+/* =========================================================================
+   2) Baum aufbauen: Eltern-Referenzen, Index, flache Reihenfolge (prev/next)
+   ========================================================================= */
+const byId = new Map();
+const flat = [];           // alle "Blätter" (Themen, oder Abschnitt ohne Themen) in Reihenfolge
+CH.forEach(ch=>{
+  byId.set(ch.id, ch);
+  ch.kind="chapter"; ch.parent=null;
+  ch.sections.forEach(se=>{
+    se.kind="section"; se.parent=ch; se.title=se.t; se.kw = KW[se.id]||[];
+    se.topics = (se.topics||[]).map(a=> Array.isArray(a) ? {id:a[0], title:a[1], src:a[2], kind:"topic", parent:se} : Object.assign({kind:"topic", parent:se}, a));
+    byId.set(se.id, se);
+    if(se.topics.length===0){ flat.push(se); }       // Abschnitt ist selbst ein Blatt
+    se.topics.forEach(tp=>{ byId.set(tp.id, tp); flat.push(tp); });
+  });
+});
+const TOTAL = flat.length;
+
+/* =========================================================================
+   3) Fortschritt (localStorage)
+   ========================================================================= */
+const PKEY="ana34-progress-v1";
+let done = {};
+try{ done = JSON.parse(localStorage.getItem(PKEY)||"{}"); }catch(e){ done={}; }
+function isDone(id){ return !!done[id]; }
+function setDone(id,v){ if(v) done[id]=1; else delete done[id]; localStorage.setItem(PKEY, JSON.stringify(done)); updateProgress(); }
+function doneCount(){ return flat.reduce((n,l)=> n + (isDone(l.id)?1:0), 0); }
+function sectionDone(se){ const ls = se.topics.length? se.topics : [se]; return ls.every(l=>isDone(l.id)); }
+function updateProgress(){
+  const d=doneCount();
+  document.getElementById("progtext").textContent = d+" / "+TOTAL;
+  document.getElementById("progfill").style.width = (TOTAL? (100*d/TOTAL):0)+"%";
+}
+
+/* =========================================================================
+   4) Theme-Toggle
+   ========================================================================= */
+const TKEY="ana34-theme";
+function applyTheme(t){ document.documentElement.setAttribute("data-theme", t);
+  document.getElementById("theme").textContent = t==="dark"?"☀️":"🌙"; localStorage.setItem(TKEY,t); }
+applyTheme(localStorage.getItem(TKEY)|| (matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+document.getElementById("theme").onclick=()=>applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark");
+
+/* =========================================================================
+   5) Hilfen
+   ========================================================================= */
+const esc = s => String(s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function go(id){ location.hash = "#/"+id; }
+function chapterOf(node){ let n=node; while(n && n.kind!=="chapter") n=n.parent; return n; }
+function crumbHtml(node){
+  const parts=[`<a href="#/">Start</a>`];
+  const chain=[]; let n=node; while(n){ chain.unshift(n); n=n.parent; }
+  chain.forEach((nd,i)=>{
+    parts.push('<span class="sep">›</span>');
+    const label = (nd.kind==="chapter"? "Kap. "+nd.id : nd.id) + "  " + (nd.title|| "");
+    if(i===chain.length-1) parts.push(`<span>${esc(label)}</span>`);
+    else parts.push(`<a href="#/${nd.id}">${esc(nd.kind==="chapter"?("Kap. "+nd.id):nd.id)}</a>`);
+  });
+  return `<nav class="crumbs">${parts.join(" ")}</nav>`;
+}
+function srcLink(file, label){ return file? `<a href="${SRCDIR}${file}" target="_blank" rel="noopener">${label||"Originalseite im Skript ↗"}</a>` : ""; }
+function fileLink(rel, label){ const href="assets/analysis2_sources_for_claude/"+rel.split('/').map(encodeURIComponent).join('/'); return `<a href="${href}" target="_blank" rel="noopener">${label}</a>`; }
+function exBox(inner){ return `<details class="example"><summary>Beispiel — Rechenweg anzeigen</summary><div class="exbody">${inner}</div></details>`; }
+
+/* Material: Übungsblätter & Vortragsübungen (Dateien in assets/analysis2_sources_for_claude/) */
+const UEB = {
+ blaetter:[
+   {n:"01", sheet:"Uebungsblaetter/Blatt01.pdf", sol:"Uebungsblaetter/Lösung Blatt01.pdf"},
+   {n:"02", sheet:"Uebungsblaetter/Blatt02.pdf", sol:"Uebungsblaetter/Lösung Blatt02.pdf"},
+   {n:"03", sheet:"Uebungsblaetter/Blatt03.pdf", sol:"Uebungsblaetter/Lösung Blatt03.pdf"},
+   {n:"04", sheet:"Uebungsblaetter/Blatt04.pdf", sol:"Uebungsblaetter/Lösung Blatt04.pdf"},
+   {n:"05", sheet:"Uebungsblaetter/Blatt05.pdf", sol:"Uebungsblaetter/Lösung Blatt05.pdf"},
+   {n:"06", sheet:"Uebungsblaetter/Blatt06.pdf", sol:"Uebungsblaetter/Lösung Blatt06.pdf"},
+   {n:"07", sheet:"Uebungsblaetter/Blatt07.pdf", sol:"Uebungsblaetter/Lösung Blatt07.pdf"},
+   {n:"08", sheet:"Uebungsblaetter/Blatt08.pdf", sol:"Uebungsblaetter/Lösung Blatt08.pdf"},
+   {n:"09", sheet:"Uebungsblaetter/Blatt09.pdf", sol:"Uebungsblaetter/Lösung Blatt09.pdf"},
+   {n:"10", sheet:"Uebungsblaetter/Blatt10.pdf", sol:null},
+   {n:"15 · Ana 1", sheet:"Uebungsblaetter/Blatt15 (Analysis 1).pdf", sol:"Uebungsblaetter/Lösung Blatt15 (Analysis 1).pdf"}
+ ],
+ vortrag:[
+   {n:"1", sheet:"Vortragsuebung/Vortragsübungsblatt_1.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_1.pdf"},
+   {n:"2", sheet:"Vortragsuebung/Vortragsübungsblatt_2.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_2.pdf"},
+   {n:"3", sheet:"Vortragsuebung/Vortragsübungsblatt_3.pdf", sol:null},
+   {n:"4", sheet:"Vortragsuebung/Vortragsübungsblatt_4.pdf", sol:null}
+ ]
+};
+function blattCard(b, kind){
+  const links=[ fileLink(b.sheet,"📄 Aufgaben") ];
+  if(b.sol) links.push(fileLink(b.sol,"✅ Lösung"));
+  return `<div class="matcard"><div class="mct">${kind} ${b.n}</div><div class="mcl">${links.join("")}</div><div class="mcph">Aufgaben &amp; Themen: folgt</div></div>`;
+}
+function uebHtml(){
+  return `
+   <div class="refblock"><h3>Übungsblätter</h3>
+     <div class="matgrid">${UEB.blaetter.map(b=>blattCard(b,"Blatt")).join("")}</div>
+   </div>
+   <div class="refblock"><h3>Vortragsübungen</h3>
+     <div class="matgrid">${UEB.vortrag.map(b=>blattCard(b,"Vortragsübung")).join("")}</div>
+   </div>
+   <div class="note">Aufgaben mit den passenden Themen verknüpfen — kommt in einer späteren Runde.</div>`;
+}
+function intHtml(){ return String.raw`
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Grundintegrale</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\int x^{n}\,dx=\frac{x^{n+1}}{n+1}+C\)</td><td class="cond">\(n\neq-1\)</td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{x}=\ln|x|+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int e^{x}\,dx=e^{x}+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int a^{x}\,dx=\frac{a^{x}}{\ln a}+C\)</td><td class="cond">\(a>0,\ a\neq1\)</td></tr>
+        <tr><td>\(\displaystyle\int \ln x\,dx=x\ln x-x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \sin x\,dx=-\cos x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \cos x\,dx=\sin x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \tan x\,dx=-\ln|\cos x|+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{\cos^{2}x}=\tan x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{\sin^{2}x}=-\cot x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{1+x^{2}}=\arctan x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{\sqrt{1-x^{2}}}=\arcsin x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \sinh x\,dx=\cosh x+C\)</td><td class="cond"></td></tr>
+        <tr><td>\(\displaystyle\int \cosh x\,dx=\sinh x+C\)</td><td class="cond"></td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Mit Konstante \(a\)</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\int \frac{dx}{a^{2}+x^{2}}=\frac{1}{a}\arctan\frac{x}{a}+C\)</td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{\sqrt{a^{2}-x^{2}}}=\arcsin\frac{x}{a}+C\)</td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{\sqrt{x^{2}+a^{2}}}=\ln\!\big(x+\sqrt{x^{2}+a^{2}}\big)+C\)</td></tr>
+        <tr><td>\(\displaystyle\int \frac{dx}{x^{2}-a^{2}}=\frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Beispiele</h3>
+      ${exBox(String.raw`<p>Mit \(a=2\):</p>\[\int \frac{dx}{4+x^{2}}=\frac{1}{2}\arctan\frac{x}{2}+C\]`)}
+      ${exBox(String.raw`<p>Partialbruch:</p>\[\frac{1}{x^{2}-1}=\frac{1}{2}\Big(\frac{1}{x-1}-\frac{1}{x+1}\Big)\]\[\int\frac{dx}{x^{2}-1}=\frac{1}{2}\ln\left|\frac{x-1}{x+1}\right|+C\]`)}
+    </div>
+  </div>`; }
+
+function subHtml(){ return String.raw`
+  <p class="sub">Jede Substitution mit ausklappbarem Rechenweg.</p>
+  <div class="subgrid">
+    <div class="subcard">
+      <div class="subhead">\(\sqrt{a^{2}-x^{2}}\)</div>
+      <div class="subrule">Setze \(x=a\sin t,\ dx=a\cos t\,dt\)</div>
+      ${exBox(String.raw`<p>Mit \(x=\sin t\):</p>\[\int\sqrt{1-x^{2}}\,dx=\int\cos^{2}t\,dt=\int\frac{1+\cos 2t}{2}\,dt=\frac{t}{2}+\frac{\sin 2t}{4}+C\]<p>Rücksubstitution \(t=\arcsin x,\ \sin 2t=2x\sqrt{1-x^{2}}\):</p>\[=\tfrac{1}{2}\big(\arcsin x+x\sqrt{1-x^{2}}\big)+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">\(\sqrt{a^{2}+x^{2}}\)</div>
+      <div class="subrule">Setze \(x=a\sinh t\) (oder \(x=a\tan t\))</div>
+      ${exBox(String.raw`<p>Mit \(x=\sinh t\):</p>\[\int\frac{dx}{\sqrt{x^{2}+1}}=\int\frac{\cosh t}{\cosh t}\,dt=\int dt=t+C=\operatorname{arsinh}x+C=\ln\!\big(x+\sqrt{x^{2}+1}\big)+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">\(\sqrt{x^{2}-a^{2}}\)</div>
+      <div class="subrule">Setze \(x=a\cosh t\)</div>
+      ${exBox(String.raw`<p>Mit \(x=\cosh t\), \(x\ge1\):</p>\[\int\frac{dx}{\sqrt{x^{2}-1}}=\int dt=t+C=\operatorname{arcosh}x+C=\ln\!\big(x+\sqrt{x^{2}-1}\big)+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">\(R(\sin x,\cos x)\) rational</div>
+      <div class="subrule">Weierstraß \(t=\tan\frac{x}{2}\): \(\sin x=\frac{2t}{1+t^{2}},\ \cos x=\frac{1-t^{2}}{1+t^{2}},\ dx=\frac{2}{1+t^{2}}dt\)</div>
+      ${exBox(String.raw`<p>Mit \(t=\tan\frac{x}{2}\):</p>\[\int\frac{dx}{\sin x}=\int\frac{2/(1+t^{2})}{2t/(1+t^{2})}\,dt=\int\frac{dt}{t}=\ln|t|+C=\ln\left|\tan\frac{x}{2}\right|+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">\(\displaystyle\int f(g(x))\,g'(x)\,dx\)</div>
+      <div class="subrule">Setze \(u=g(x),\ du=g'(x)\,dx\)</div>
+      ${exBox(String.raw`<p>Mit \(u=x^{2}\), \(du=2x\,dx\):</p>\[\int 2x\cos(x^{2})\,dx=\int\cos u\,du=\sin u+C=\sin(x^{2})+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">\(\displaystyle\int\frac{f'(x)}{f(x)}\,dx=\ln|f(x)|+C\)</div>
+      <div class="subrule">Zähler = Ableitung des Nenners</div>
+      ${exBox(String.raw`\[\int\frac{2x}{x^{2}+1}\,dx=\ln(x^{2}+1)+C\]`)}
+    </div>
+    <div class="subcard">
+      <div class="subhead">Lineare Subst. \(\displaystyle\int f(ax+b)\,dx\)</div>
+      <div class="subrule">\(=\frac{1}{a}F(ax+b)+C\)</div>
+      ${exBox(String.raw`\[\int e^{3x+1}\,dx=\frac{1}{3}e^{3x+1}+C\]`)}
+    </div>
+  </div>`; }
+
+function addHtml(){ return String.raw`
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Summen &amp; Differenzen</h3>
+      <table class="reftable">
+        <tr><td>\(\sin(x\pm y)=\sin x\cos y\pm\cos x\sin y\)</td></tr>
+        <tr><td>\(\cos(x\pm y)=\cos x\cos y\mp\sin x\sin y\)</td></tr>
+        <tr><td>\(\tan(x\pm y)=\dfrac{\tan x\pm\tan y}{1\mp\tan x\tan y}\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Doppelwinkel</h3>
+      <table class="reftable">
+        <tr><td>\(\sin 2x=2\sin x\cos x\)</td></tr>
+        <tr><td>\(\cos 2x=\cos^{2}x-\sin^{2}x=1-2\sin^{2}x=2\cos^{2}x-1\)</td></tr>
+        <tr><td>\(\tan 2x=\dfrac{2\tan x}{1-\tan^{2}x}\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Halbwinkel</h3>
+      <table class="reftable">
+        <tr><td>\(\sin^{2}\dfrac{x}{2}=\dfrac{1-\cos x}{2}\)</td></tr>
+        <tr><td>\(\cos^{2}\dfrac{x}{2}=\dfrac{1+\cos x}{2}\)</td></tr>
+        <tr><td>\(\tan\dfrac{x}{2}=\dfrac{1-\cos x}{\sin x}=\dfrac{\sin x}{1+\cos x}\)</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Pythagoras &amp; Umrechnung</h3>
+      <table class="reftable">
+        <tr><td>\(\sin^{2}x+\cos^{2}x=1\)</td></tr>
+        <tr><td>\(1+\tan^{2}x=\dfrac{1}{\cos^{2}x}\)</td></tr>
+        <tr><td>\(1+\cot^{2}x=\dfrac{1}{\sin^{2}x}\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Produkt → Summe</h3>
+      <table class="reftable">
+        <tr><td>\(\sin x\cos y=\tfrac{1}{2}\big[\sin(x{+}y)+\sin(x{-}y)\big]\)</td></tr>
+        <tr><td>\(\cos x\cos y=\tfrac{1}{2}\big[\cos(x{-}y)+\cos(x{+}y)\big]\)</td></tr>
+        <tr><td>\(\sin x\sin y=\tfrac{1}{2}\big[\cos(x{-}y)-\cos(x{+}y)\big]\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Summe → Produkt</h3>
+      <table class="reftable">
+        <tr><td>\(\sin x+\sin y=2\sin\dfrac{x+y}{2}\cos\dfrac{x-y}{2}\)</td></tr>
+        <tr><td>\(\cos x+\cos y=2\cos\dfrac{x+y}{2}\cos\dfrac{x-y}{2}\)</td></tr>
+        <tr><td>\(\cos x-\cos y=-2\sin\dfrac{x+y}{2}\sin\dfrac{x-y}{2}\)</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="refblock">
+    <h3>Euler-Formel &amp; Anwendung</h3>
+    <table class="reftable">
+      <tr><td>\(e^{ix}=\cos x+i\sin x\)</td><td>\(\cos x=\dfrac{e^{ix}+e^{-ix}}{2},\quad \sin x=\dfrac{e^{ix}-e^{-ix}}{2i}\)</td></tr>
+    </table>
+    ${exBox(String.raw`<p>Doppelwinkel beim Integrieren:</p>\[\int\sin^{2}x\,dx=\int\frac{1-\cos 2x}{2}\,dx=\frac{x}{2}-\frac{\sin 2x}{4}+C\]`)}
+  </div>`; }
+
+function reihenHtml(){ return String.raw`
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Wichtige Reihen</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\sum_{k=0}^{n}q^{k}=\frac{1-q^{n+1}}{1-q}\)</td><td class="cond">\(q\neq1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}q^{k}=\frac{1}{1-q}\)</td><td class="cond">\(|q|<1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{x^{k}}{k!}=e^{x}\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}=\cos x\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!}=\sin x\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}x^{k}=\ln(1+x)\)</td><td class="cond">\(-1<x\le1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}x^{2k+1}=\arctan x\)</td><td class="cond">\(|x|\le1\)</td></tr>
+        <tr><td>\(\displaystyle(1+x)^{\alpha}=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^{k}\)</td><td class="cond">\(|x|<1\)</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Konvergenz-Fakten</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k}=\infty\)</td><td class="cond">harmonisch</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)</td><td class="cond">p-Reihe</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^{2}}=\frac{\pi^{2}}{6}\)</td><td class="cond">Basel</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}=\ln 2\)</td><td class="cond">Leibniz</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}=\frac{\pi}{4}\)</td><td class="cond">Leibniz</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Beispiele</h3>
+      ${exBox(String.raw`<p>Geometrisch, \(q=\tfrac12\):</p>\[\sum_{k=1}^{\infty}\Big(\tfrac{1}{2}\Big)^{k}=\frac{1/2}{1-1/2}=1\]`)}
+      ${exBox(String.raw`<p>Quotientenkriterium für \(\sum\frac{x^{k}}{k!}\):</p>\[\left|\frac{a_{k+1}}{a_{k}}\right|=\frac{|x|}{k+1}\to 0<1\quad(k\to\infty)\ \Rightarrow\ \text{konvergent }\forall x\]`)}
+    </div>
+  </div>`; }
+
+function grenzHtml(){ return String.raw`
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Bei \(x\to0\)</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{\tan x}{x}=1\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^{2}}=\frac{1}{2}\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{e^{x}-1}{x}=1\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{\ln(1+x)}{x}=1\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{\arcsin x}{x}=1\)</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Bei \(x\to\infty\), \(n\to\infty\)</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\lim_{n\to\infty}\Big(1+\frac{1}{n}\Big)^{n}=e\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to\infty}\Big(1+\frac{a}{x}\Big)^{x}=e^{a}\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to\infty}\frac{x^{n}}{e^{x}}=0\)</td><td class="cond">\(n\) fest</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to\infty}\frac{\ln x}{x}=0\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0^{+}}x\ln x=0\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{n\to\infty}\sqrt[n]{n}=1,\ \lim_{n\to\infty}\sqrt[n]{a}=1\)</td><td class="cond">\(a>0\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{n\to\infty}\frac{\sqrt[n]{n!}}{n}=\frac{1}{e}\)</td><td class="cond">Stirling</td></tr>
+      </table>
+      <p class="sub" style="margin-top:8px">Merke: <b>exp \(\gg\) Potenz \(\gg\) Logarithmus</b>.</p>
+      <h3 style="margin-top:8px">Beispiele</h3>
+      ${exBox(String.raw`<p>Über die \(\cos\)-Reihe:</p>\[\frac{1-\cos x}{x^{2}}=\frac{\frac{x^{2}}{2}-\frac{x^{4}}{24}+\cdots}{x^{2}}=\frac{1}{2}-\frac{x^{2}}{24}+\cdots\to\frac{1}{2}\quad(x\to0)\]`)}
+      ${exBox(String.raw`<p>Über die \(e^{x}\)-Reihe:</p>\[\frac{e^{x}-1}{x}=\frac{x+\frac{x^{2}}{2}+\cdots}{x}=1+\frac{x}{2}+\cdots\to 1\quad(x\to0)\]`)}
+    </div>
+  </div>`; }
+
+/* Referenz-Seiten (eigene Ergänzungen, Route #/ref/<key>) */
+function konvSummenHtml(){ return String.raw`
+  <p class="sub">Für eine Reihe \(\sum_{k} a_k\). Test-Reihenfolge: erst \(a_k\to0\)? dann Quotient/Wurzel, sonst Vergleich.</p>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Kriterien</h3>
+      <table class="reftable">
+        <tr><td><b>Notwendig:</b> \(a_k\to0\)</td><td class="cond">sonst divergent</td></tr>
+        <tr><td><b>Absolut:</b> \(\sum|a_k|\) konv. \(\Rightarrow\sum a_k\) konv.</td></tr>
+        <tr><td><b>Majorante:</b> \(|a_k|\le b_k,\ \sum b_k\) konv. \(\Rightarrow\) konv.</td></tr>
+        <tr><td><b>Minorante:</b> \(0\le c_k\le a_k,\ \sum c_k\) div. \(\Rightarrow\) div.</td></tr>
+        <tr><td><b>Quotient:</b> \(L=\lim\left|\frac{a_{k+1}}{a_k}\right|\)</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
+        <tr><td><b>Wurzel:</b> \(L=\limsup_{k}\sqrt[k]{|a_k|}\)</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
+      </table>
+      <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
+    </div>
+    <div class="refblock">
+      <h3>Spezielle Kriterien</h3>
+      <table class="reftable">
+        <tr><td><b>Leibniz</b> (alternierend): \(a_k=(-1)^{k}b_k\), \(b_k\ge0\) monoton \(\downarrow 0\) \(\Rightarrow\) konv.</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
+        <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{\infty}\!f\) gleiches Verhalten.</td></tr>
+        <tr><td><b>p-Reihe:</b> \(\sum \frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)</td></tr>
+        <tr><td><b>Geometrisch:</b> \(\sum q^{k}\) konv. \(\Leftrightarrow |q|<1\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Beispiele</h3>
+      ${exBox(String.raw`<p>Quotient für \(\sum \frac{k}{2^{k}}\):</p>\[\frac{a_{k+1}}{a_k}=\frac{k+1}{2k}\to\frac{1}{2}<1\ \Rightarrow\ \text{konvergent.}\]`)}
+      ${exBox(String.raw`<p>Wurzel für \(\sum\big(\tfrac{k}{k+1}\big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`)}
+      ${exBox(String.raw`<p>Leibniz für \(\sum\frac{(-1)^{k+1}}{k}\):</p><p>\(b_k=\tfrac1k\downarrow0\Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert (harmonisch).</p>`)}
+    </div>
+  </div>`; }
+
+function konvIntegraleHtml(){ return String.raw`
+  <p class="sub">Uneigentliche Integrale: unbeschränktes Intervall \(\int_a^{\infty}\) oder Singularität am Rand.</p>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Definition & p-Test</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\int_a^{\infty}\!f=\lim_{R\to\infty}\int_a^{R}\!f\)</td></tr>
+        <tr><td>Singularität bei \(b\): \(\displaystyle\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}\!f\)</td></tr>
+        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)</td></tr>
+        <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Kriterien</h3>
+      <table class="reftable">
+        <tr><td><b>Majorante:</b> \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.</td></tr>
+        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.</td></tr>
+        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Cauchy-Hauptwert (v.p.)</h3>
+      <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral divergiert.</p>
+      <table class="reftable">
+        <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{\infty}\!f=\lim_{R\to\infty}\int_{-R}^{R}\!f\)</td></tr>
+        <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Beispiele</h3>
+      ${exBox(String.raw`<p>\(p\)-Test:</p>\[\int_1^{\infty}\frac{dx}{x^{2}}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=2\ (\text{konv., }p=\tfrac12<1)\]`)}
+      ${exBox(String.raw`<p>Hauptwert von \(\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)):</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\Big(\underbrace{\int_{-1}^{-\varepsilon}}_{\ln\varepsilon}+\underbrace{\int_{\varepsilon}^{1}}_{-\ln\varepsilon}\Big)\frac{dx}{x}=0\]<p>Das gewöhnliche Integral divergiert — nur der Hauptwert ist \(0\).</p>`)}
+    </div>
+  </div>`; }
+
+function potenzreihenHtml(){ return String.raw`
+  <p class="sub">Potenzreihe \(\displaystyle\sum_{k=0}^{\infty} a_k (x-x_0)^{k}\) um den Entwicklungspunkt \(x_0\).</p>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Konvergenzradius \(R\)</h3>
+      <table class="reftable">
+        <tr><td><b>Cauchy-Hadamard:</b> \(\displaystyle \frac{1}{R}=\limsup_{k}\sqrt[k]{|a_k|}\)</td></tr>
+        <tr><td><b>Quotienten-Form:</b> \(\displaystyle R=\lim_{k}\left|\frac{a_k}{a_{k+1}}\right|\) (falls existent)</td></tr>
+        <tr><td>\(|x-x_0|<R\): absolut konvergent</td><td class="cond">innen</td></tr>
+        <tr><td>\(|x-x_0|>R\): divergent</td><td class="cond">außen</td></tr>
+        <tr><td>\(|x-x_0|=R\): Randverhalten <b>einzeln</b> prüfen</td></tr>
+      </table>
+      <p class="sub" style="margin-top:8px">Konvention: \(\tfrac{1}{0}=\infty,\ \tfrac{1}{\infty}=0\).</p>
+    </div>
+    <div class="refblock">
+      <h3>Eigenschaften & Beispiele</h3>
+      <table class="reftable">
+        <tr><td>Innerhalb \((x_0-R,\,x_0+R)\) darf man <b>gliedweise differenzieren/integrieren</b> (gleicher Radius \(R\)); die Summe ist dort beliebig oft differenzierbar.</td></tr>
+      </table>
+      <h3 style="margin-top:12px">Beispiele</h3>
+      ${exBox(String.raw`<p>\(\sum \frac{x^{k}}{k!}\) (Quotienten-Form):</p>\[R=\lim_k\left|\frac{a_k}{a_{k+1}}\right|=\lim_k (k+1)=\infty\quad(\,=e^{x}\,).\]`)}
+      ${exBox(String.raw`<p>\(\sum \frac{x^{k}}{k}\): \(R=1\), aber der Rand ist verschieden:</p>\[x=-1:\ \sum\frac{(-1)^{k}}{k}\ \text{konv. (Leibniz)};\qquad x=1:\ \sum\frac{1}{k}\ \text{div. (harmonisch)}.\]`)}
+      ${exBox(String.raw`<p>Extremfälle:</p>\[\sum k!\,x^{k}:\ R=0\ (\text{nur }x=0);\qquad \sum \frac{x^{k}}{k^{2}}:\ R=1,\ \text{Rand konvergiert }(p=2).\]`)}
+    </div>
+  </div>`; }
+
+const REF = {
+ integrale: { title:"Standardintegrale", icon:"∫", color:"var(--ch4)",
+   note:"Die wichtigsten Grundintegrale. Integrationskonstante + C nicht vergessen.", html: intHtml() },
+ substitutionen: { title:"Standard-Substitutionen", icon:"↦", color:"#0891b2",
+   note:"Welche Substitution wann — jeweils mit ausklappbarem Rechenweg.", html: subHtml() },
+ additions: { title:"Additionstheoreme", icon:"△", color:"var(--accent)",
+   note:"Die wichtigsten trigonometrischen Identitäten.", html: addHtml() },
+ reihen: { title:"Standardreihen", icon:"Σ", color:"#7c3aed",
+   note:"Häufige Reihen samt Konvergenzbereich, mit Beispielen.", html: reihenHtml() },
+ grenzwerte: { title:"Standardgrenzwerte", icon:"lim", color:"#db2777",
+   note:"Grenzwerte, die man auswendig können sollte.", html: grenzHtml() },
+ konv_summen: { title:"Konvergenzkriterien — Reihen", icon:"∑", color:"#059669",
+   note:"Wann konvergiert eine Reihe? Alle Kriterien mit Beispielen.", html: konvSummenHtml() },
+ konv_integrale: { title:"Konvergenzkriterien — Integrale", icon:"∫", color:"#ea580c",
+   note:"Uneigentliche Integrale, p-Test und Cauchy-Hauptwert (v.p.).", html: konvIntegraleHtml() },
+ potenzreihen: { title:"Potenzreihen", icon:"xⁿ", color:"#c026d3",
+   note:"Konvergenzradius, Randverhalten, gliedweise Ableitung.", html: potenzreihenHtml() },
+ uebungen: { title:"Übungsblätter & Vortragsübungen", icon:"📝", color:"#d97706",
+   note:"Alle Übungs- und Vortragsübungsblätter mit Lösungen (sofern vorhanden).", html: uebHtml() }
+};
+
+/* =========================================================================
+   6) Mindmap-Renderer (generisch, klappbarer Horizontal-Baum)
+   tree = {id,title,kcls,kind:'root'|'ch'|'leaf', children:[...], collapsed?, route?}
+   onLeaf(node) -> Navigation; Knoten mit children & kind 'ch' klappen auf/zu.
+   ========================================================================= */
+function Mindmap(svg, tree, opts){
+  opts = Object.assign({nodeW:236, nodeH:50, hGap:64, vGap:14}, opts||{});
+  const NS="http://www.w3.org/2000/svg";
+  let tx=0, ty=0, scale=1;
+  const vp = document.createElementNS(NS,"g"); svg.appendChild(vp);
+
+  function layout(){
+    let leaf=0, maxD=0; const pos=new Map();
+    (function assign(n,d){
+      maxD=Math.max(maxD,d);
+      const kids = (n.collapsed? [] : (n.children||[]));
+      if(!kids.length){ const y=leaf*(opts.nodeH+opts.vGap)+opts.nodeH/2; leaf++; pos.set(n,{x:d*(opts.nodeW+opts.hGap),y}); return y; }
+      let f=null,l=0; kids.forEach(k=>{ const ky=assign(k,d+1); if(f===null)f=ky; l=ky; });
+      const y=(f+l)/2; pos.set(n,{x:d*(opts.nodeW+opts.hGap),y}); return y;
+    })(tree,0);
+    return {pos, w:(maxD)*(opts.nodeW+opts.hGap)+opts.nodeW, h:Math.max(leaf,1)*(opts.nodeH+opts.vGap)};
+  }
+
+  let dims;
+  function render(){
+    vp.textContent="";
+    const {pos,w,h}=layout(); dims={w,h};
+    // Links
+    pos.forEach((p,n)=>{
+      if(n.collapsed) return;
+      (n.children||[]).forEach(c=>{
+        const cp=pos.get(c); if(!cp) return;
+        const x1=p.x+opts.nodeW, y1=p.y, x2=cp.x, y2=cp.y, mx=(x1+x2)/2;
+        const path=document.createElementNS(NS,"path");
+        path.setAttribute("d",`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+        path.setAttribute("class","link "+(n.cls||""));
+        vp.appendChild(path);
+      });
+    });
+    // Nodes
+    pos.forEach((p,n)=>{
+      const fo=document.createElementNS(NS,"foreignObject");
+      fo.setAttribute("x",p.x); fo.setAttribute("y",p.y-opts.nodeH/2);
+      fo.setAttribute("width",opts.nodeW); fo.setAttribute("height",opts.nodeH);
+      const div=document.createElement("div");
+      let cls="node "+(n.kind==='root'?'root':'')+" "+(n.kind==='ch'?'ch '+(n.cls||''):'');
+      div.className=cls.trim();
+      const expander = (n.kind==='ch' && n.children&&n.children.length)? `<span class="tw">${n.collapsed?'▸':'▾'}</span>`:'';
+      const badge = n.badge? `<span class="badge">${esc(n.badge)}</span>`:'';
+      const dn = (n.kind==='leaf' && n.done)? `<span class="done">✓</span>`:'';
+      div.innerHTML = `${badge}<span class="lbl">${esc(n.title)}</span>${dn}${expander}`;
+      div.title = n.title;
+      div.onclick=(ev)=>{ ev.stopPropagation();
+        if(n.kind==='ch' && n.children && n.children.length){ n.collapsed=!n.collapsed; render(); }
+        else if(n.route){ go(n.route); }
+      };
+      fo.appendChild(div); vp.appendChild(fo);
+    });
+    apply();
+  }
+  function apply(){ vp.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`); }
+  function fit(){
+    const r=svg.getBoundingClientRect(); const pad=28;
+    const s=Math.min((r.width-2*pad)/dims.w,(r.height-2*pad)/dims.h, 1.15);
+    scale=isFinite(s)&&s>0? s:1;
+    tx=(r.width-dims.w*scale)/2; ty=(r.height-dims.h*scale)/2; apply();
+  }
+  // Pan / Zoom
+  let drag=null;
+  svg.addEventListener("pointerdown",e=>{ if(e.target.closest(".node"))return; drag={x:e.clientX,y:e.clientY,tx,ty}; svg.classList.add("grabbing"); svg.setPointerCapture(e.pointerId); });
+  svg.addEventListener("pointermove",e=>{ if(!drag)return; tx=drag.tx+(e.clientX-drag.x); ty=drag.ty+(e.clientY-drag.y); apply(); });
+  svg.addEventListener("pointerup",e=>{ drag=null; svg.classList.remove("grabbing"); });
+  svg.addEventListener("pointercancel",()=>{ drag=null; svg.classList.remove("grabbing"); });
+  svg.addEventListener("wheel",e=>{ e.preventDefault(); const r=svg.getBoundingClientRect();
+    const mx=e.clientX-r.left, my=e.clientY-r.top; const f=e.deltaY<0?1.12:1/1.12;
+    const ns=Math.max(.25,Math.min(2.2,scale*f)); const k=ns/scale;
+    tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply();
+  },{passive:false});
+
+  render(); requestAnimationFrame(fit);
+  return {fit, zoom:f=>{ const r=svg.getBoundingClientRect(); const mx=r.width/2,my=r.height/2;
+    const ns=Math.max(.25,Math.min(2.2,scale*f)); const k=ns/scale; tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply(); }};
+}
+
+/* =========================================================================
+   7) Views
+   ========================================================================= */
+const app=document.getElementById("app");
+let currentMap=null;
+
+function renderHome(){
+  currentMap=null;
+  const cols = CH.map(ch=>{
+    const rows = ch.sections.map(se=>{
+      const d = sectionDone(se);
+      const chips = (se.kw||[]).map(k=>`<span class="kw">${esc(k)}</span>`).join("");
+      return `<a class="secrow" href="#/${se.id}">
+        <span class="snum" style="background:var(--${ch.key})">${se.id}</span>
+        <span class="srbody">
+          <span class="srtitle">${esc(se.title)}${d?'<span class="done">✓ durch</span>':''}</span>
+          <span class="kws">${chips}</span>
+        </span>
+        <span class="srgo">→</span>
+      </a>`;
+    }).join("");
+    return `<section class="chcol">
+      <h2 class="chhead ${ch.key}"><span>Kap. ${ch.id} — ${esc(ch.title)}</span><span class="cc">${ch.sections.length} Abschnitte</span></h2>
+      <div class="seclist">${rows}</div>
+    </section>`;
+  }).join("");
+  app.innerHTML = `
+    <div class="titlebar"><h1>Alle Themen — Kapitel 3 &amp; 4</h1></div>
+    <p class="lead">Spring über die <b>Schnellzugriffe</b>, die <b>Typ-Mindmap</b> oder die <b>Kapitel-Liste</b> direkt zum Thema. In jedem Abschnitt wartet dann eine Mindmap mit den Unterthemen.</p>
+
+    <h2 class="grp">⚡ Spickzettel</h2>
+    <div class="reftiles">
+      <a class="reftile i1" href="#/ref/integrale"><span class="ti">∫</span><span>Standardintegrale<small>Grundintegrale + Beispiele</small></span></a>
+      <a class="reftile i5" href="#/ref/substitutionen"><span class="ti">↦</span><span>Standard-Substitutionen<small>mit Rechenweg-Beispielen</small></span></a>
+      <a class="reftile i2" href="#/ref/additions"><span class="ti">△</span><span>Additionstheoreme<small>Doppel- &amp; Halbwinkel usw.</small></span></a>
+      <a class="reftile i6" href="#/ref/reihen"><span class="ti">Σ</span><span>Standardreihen<small>Potenzreihen · Konvergenz</small></span></a>
+      <a class="reftile i7" href="#/ref/grenzwerte"><span class="ti">lim</span><span>Standardgrenzwerte<small>auswendig können</small></span></a>
+      <a class="reftile i8" href="#/ref/konv_summen"><span class="ti">∑</span><span>Konvergenz — Reihen<small>Quotient · Wurzel · Leibniz · Integral</small></span></a>
+      <a class="reftile i9" href="#/ref/konv_integrale"><span class="ti">∫</span><span>Konvergenz — Integrale<small>uneigentlich · p-Test · v.p.</small></span></a>
+      <a class="reftile i10" href="#/ref/potenzreihen"><span class="ti">xⁿ</span><span>Potenzreihen<small>Konvergenzradius · Rand</small></span></a>
+    </div>
+
+    <h2 class="grp">📦 Übungen</h2>
+    <div class="reftiles">
+      <a class="reftile i3" href="#/ref/uebungen"><span class="ti">📝</span><span>Übungsblätter &amp; Vortragsübungen<small>Blatt 01–15 · mit Lösungen</small></span></a>
+    </div>
+
+    <h2 class="grp">🗂️ Schnellzugriff nach Typ</h2>
+    <p class="sub">Kategorie anklicken zum Aufklappen, Eintrag anklicken zum Hinspringen — Definitionen · Sätze · Kriterien · Regeln · Verfahren · Anwendungen.</p>
+    <div class="mapbox sm">
+      <div class="maphint">🖱️ ziehen &amp; zoomen · Kategorie klicken = auf/zu</div>
+      <svg class="map" id="svgcat"></svg>
+      <div class="maptools"><button class="btn" id="cfit">Einpassen</button></div>
+    </div>
+
+    <h2 class="grp">📚 Nach Kapitel</h2>
+    <div class="cols">${cols}</div>
+
+    <div class="note" style="margin-top:16px">
+      <b>Stand:</b> Struktur/Gerüst — Navigation, Mindmaps und Spickzettel stehen; die ausführlichen Erklärungen der Themen folgen.
+    </div>`;
+
+  const catTree = { id:"types", title:"Nach Typ", kind:"root",
+    children: Object.keys(CAT).map(name=>({
+      id:"cat:"+name, title:name, kind:"ch", cls:"cat", badge:String(CAT[name].length), collapsed:true,
+      children: CAT[name].map(it=>({ id:it[0], title:it[1], kind:"leaf", cls:"cat", route:it[0] }))
+    })) };
+  const cm = Mindmap(document.getElementById("svgcat"), catTree, {nodeW:230});
+  currentMap = cm;
+  document.getElementById("cfit").onclick=()=>cm.fit();
+}
+
+function renderRef(key){
+  currentMap=null;
+  const r=REF[key]; if(!r){ renderHome(); return; }
+  app.innerHTML = `
+    <nav class="crumbs"><a href="#/">Start</a> <span class="sep">›</span> <span>Schnellzugriff</span> <span class="sep">›</span> <span>${esc(r.title)}</span></nav>
+    <div class="titlebar"><span class="num" style="background:${r.color}">${r.icon}</span><h1>${esc(r.title)}</h1></div>
+    ${r.note?`<p class="lead">${r.note}</p>`:''}
+    ${r.html}`;
+}
+
+function renderSection(se){
+  currentMap=null;
+  const ch=chapterOf(se);
+  // Abschnitt ohne Unterthemen -> direkt als Themen-Karte behandeln
+  if(se.topics.length===0){ return renderTopic(se); }
+
+  app.innerHTML = `
+    ${crumbHtml(se)}
+    <div class="titlebar">
+      <span class="num" style="background:var(--${ch.key})">${se.id}</span>
+      <h1>${esc(se.title)}</h1>
+    </div>
+    <div class="srcline">
+      <span>${se.topics.length} Unterthemen</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin:6px 0 14px">
+      <span style="color:var(--muted);font-size:13px">Übersicht als</span>
+      <div class="viewtoggle" id="vt">
+        <button data-v="map" class="on">Mindmap</button>
+        <button data-v="list">Liste</button>
+      </div>
+    </div>
+    <div id="secview"></div>`;
+
+  const host=document.getElementById("secview");
+  function showMap(){
+    host.innerHTML = `<div class="mapbox sm"><svg class="map" id="svgsec"></svg>
+      <div class="maptools"><button class="btn" id="sfit">Einpassen</button></div></div>`;
+    const tree={ id:se.id, title:se.id+"  "+se.title, kind:"root",
+      children: se.topics.map(tp=>({id:tp.id,title:tp.id+"  "+tp.title,kind:"leaf",cls:ch.key,route:tp.id,done:isDone(tp.id)})) };
+    const m=Mindmap(document.getElementById("svgsec"), tree, {nodeW:250});
+    document.getElementById("sfit").onclick=()=>m.fit();
+  }
+  function showList(){
+    host.innerHTML = `<div class="grid">`+ se.topics.map(tp=>`
+      <a class="card" href="#/${tp.id}">
+        <span class="cn">${tp.id}</span>
+        <span class="ct">${esc(tp.title)}</span>
+        <span class="cf"><span class="pill ${isDone(tp.id)?'done':'todo'}">${isDone(tp.id)?'✓ verstanden':'offen'}</span></span>
+      </a>`).join("") + `</div>`;
+  }
+  document.querySelectorAll("#vt button").forEach(b=> b.onclick=()=>{
+    document.querySelectorAll("#vt button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+    b.dataset.v==="map"?showMap():showList();
+  });
+  showMap();
+}
+
+function renderTopic(tp){
+  currentMap=null;
+  const ch=chapterOf(tp);
+  const idx=flat.indexOf(tp);
+  const prev=idx>0?flat[idx-1]:null, next=idx<flat.length-1?flat[idx+1]:null;
+  const ph = '<div class="placeholder">Inhalt folgt — wird in der nächsten Runde ergänzt.</div>';
+  // Falls später tp.body gesetzt ist, wird es hier verwendet; sonst Platzhalter.
+  const b = tp.body || {};
+  function sec(cls,icon,title,html){ return `<section class="tsec ${cls||''}"><h3>${icon} ${title}</h3><div class="body">${html||ph}</div></section>`; }
+
+  app.innerHTML = `
+    ${crumbHtml(tp)}
+    <div class="titlebar">
+      <span class="num" style="background:var(--${ch.key})">${tp.id}</span>
+      <h1>${esc(tp.title)}</h1>
+    </div>
+    <div class="srcline">
+      <label class="chk ${isDone(tp.id)?'on':''}" id="chk">
+        <input type="checkbox" ${isDone(tp.id)?'checked':''}> verstanden
+      </label>
+    </div>
+    <div class="topic">
+      ${sec("", "💡", "Kernidee", b.kernidee)}
+      ${sec("", "📐", "Definition / Satz", b.satz)}
+      ${sec("linkh", "🔗", "Zusammenhang (roter Faden)", b.zusammenhang)}
+      ${sec("", "✏️", "Beispiel", b.beispiel)}
+      ${sec("warnh", "⚠️", "Klausur-Falle", b.falle)}
+    </div>
+    <div class="topnav">
+      <span>${prev?`<a class="btn" href="#/${prev.id}">← ${esc(prev.id)}</a>`:''}</span>
+      <span>${next?`<a class="btn" href="#/${next.id}">${esc(next.id)} →</a>`:''}</span>
+    </div>`;
+
+  const chk=document.getElementById("chk");
+  chk.querySelector("input").onchange=(e)=>{ setDone(tp.id, e.target.checked); chk.classList.toggle("on", e.target.checked); };
+}
+
+/* =========================================================================
+   8) Router
+   ========================================================================= */
+function typeset(){ if(window.renderMathInElement){ try{ renderMathInElement(app,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#dc2626"}); }catch(e){} } }
+function route(){
+  const h=location.hash.replace(/^#\/?/,"");
+  if(!h){ renderHome(); }
+  else if(h.indexOf("ref/")===0){ renderRef(h.slice(4)); }
+  else { const node=byId.get(h);
+    if(!node || node.kind==="chapter"){ renderHome(); }
+    else if(node.kind==="section"){ renderSection(node); }
+    else { renderTopic(node); }
+  }
+  window.scrollTo(0,0);
+  typeset();
+}
+window.addEventListener("hashchange", route);
+window.addEventListener("resize", ()=>{ if(currentMap) currentMap.fit(); });
+
+/* =========================================================================
+   9) Suche
+   ========================================================================= */
+const searchEl=document.getElementById("search"), resEl=document.getElementById("results");
+const searchIndex=[];
+byId.forEach(n=>{ if(n.kind==="section"||n.kind==="topic") searchIndex.push(n); });
+Object.keys(REF).forEach(k=> searchIndex.push({id:"ref/"+k, title:REF[k].title, kind:"ref"}));
+let activeRes=-1, curRes=[];
+function runSearch(q){
+  q=q.trim().toLowerCase();
+  if(!q){ resEl.classList.remove("show"); return; }
+  curRes = searchIndex.filter(n=> (n.id+" "+n.title).toLowerCase().includes(q)).slice(0,12);
+  activeRes=-1;
+  resEl.innerHTML = curRes.length? curRes.map((n,i)=>`
+     <a href="#/${n.id}" data-i="${i}"><span class="tag">${n.kind==="section"?"Abschnitt":n.kind==="ref"?"Referenz":"Thema"} ${n.kind==="ref"?"":n.id}</span><br>${esc(n.title)}</a>
+   `).join("") : `<a><span class="tag">Kein Treffer</span></a>`;
+  resEl.classList.add("show");
+}
+searchEl.addEventListener("input",()=>runSearch(searchEl.value));
+searchEl.addEventListener("keydown",e=>{
+  if(!resEl.classList.contains("show")||!curRes.length) return;
+  if(e.key==="ArrowDown"){ e.preventDefault(); activeRes=Math.min(curRes.length-1,activeRes+1); }
+  else if(e.key==="ArrowUp"){ e.preventDefault(); activeRes=Math.max(0,activeRes-1); }
+  else if(e.key==="Enter"){ if(activeRes>=0){ e.preventDefault(); go(curRes[activeRes].id); searchEl.value=""; resEl.classList.remove("show"); searchEl.blur(); } return; }
+  else return;
+  resEl.querySelectorAll("a").forEach((a,i)=>a.classList.toggle("active",i===activeRes));
+});
+resEl.addEventListener("click",e=>{ const a=e.target.closest("a"); if(a&&a.dataset.i!==undefined){ searchEl.value=""; resEl.classList.remove("show"); } });
+document.addEventListener("click",e=>{ if(!e.target.closest(".search")) resEl.classList.remove("show"); });
+
+/* ---- Start ---- */
+updateProgress();
+route();
+</script>
+</body>
+</html>
