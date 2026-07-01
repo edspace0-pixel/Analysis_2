@@ -206,6 +206,9 @@ svg.map.grabbing{cursor:grabbing}
 .reftile.i8{background:linear-gradient(135deg,#34d399,#059669)}
 .reftile.i9{background:linear-gradient(135deg,#fbbf24,#ea580c)}
 .reftile.i10{background:linear-gradient(135deg,#e879f9,#c026d3)}
+.reftile.i11{background:linear-gradient(135deg,#2dd4bf,#0d9488)}
+.reftile.i12{background:linear-gradient(135deg,#38bdf8,#0369a1)}
+.reftile.i13{background:linear-gradient(135deg,#c084fc,#9333ea)}
 .example{margin:8px 0;border:1px solid var(--line);border-radius:10px;background:var(--bg);overflow:hidden}
 .example>summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--accent);list-style:none;user-select:none}
 .example>summary::-webkit-details-marker{display:none}
@@ -767,6 +770,33 @@ function addHtml(){ return String.raw`
       <tr><td>\(e^{ix}=\cos x+i\sin x\)</td><td>\(\cos x=\dfrac{e^{ix}+e^{-ix}}{2},\quad \sin x=\dfrac{e^{ix}-e^{-ix}}{2i}\)</td></tr>
     </table>
     ${exBox(String.raw`<p>Doppelwinkel beim Integrieren:</p>\[\int\sin^{2}x\,dx=\int\frac{1-\cos 2x}{2}\,dx=\frac{x}{2}-\frac{\sin 2x}{4}+C\]`)}
+  </div>
+  <div class="refblock">
+    <h3>Hyperbelfunktionen \(\sinh,\cosh,\tanh\)</h3>
+    <p class="sub">\(\sinh x=\frac{e^{x}-e^{-x}}{2},\quad \cosh x=\frac{e^{x}+e^{-x}}{2},\quad \tanh x=\frac{\sinh x}{\cosh x}\). Fast wie trig — aber auf die Vorzeichen achten!</p>
+    <div class="twocol">
+      <div class="refblock">
+        <h3>Additionstheoreme</h3>
+        <table class="reftable">
+          <tr><td>\(\sinh(x\pm y)=\sinh x\cosh y\pm\cosh x\sinh y\)</td></tr>
+          <tr><td>\(\cosh(x\pm y)=\cosh x\cosh y\pm\sinh x\sinh y\)</td></tr>
+          <tr><td>\(\tanh(x\pm y)=\dfrac{\tanh x\pm\tanh y}{1\pm\tanh x\tanh y}\)</td></tr>
+          <tr><td>\(\sinh 2x=2\sinh x\cosh x\)</td></tr>
+          <tr><td>\(\cosh 2x=\cosh^{2}x+\sinh^{2}x=2\cosh^{2}x-1\)</td></tr>
+        </table>
+      </div>
+      <div class="refblock">
+        <h3>Identitäten & Ableitungen</h3>
+        <table class="reftable">
+          <tr><td>\(\cosh^{2}x-\sinh^{2}x=1\)</td><td class="cond">„Pythagoras"</td></tr>
+          <tr><td>\(1-\tanh^{2}x=\dfrac{1}{\cosh^{2}x}\)</td></tr>
+          <tr><td>\((\sinh x)'=\cosh x,\ (\cosh x)'=\sinh x\)</td></tr>
+          <tr><td>\((\tanh x)'=\dfrac{1}{\cosh^{2}x}=1-\tanh^{2}x\)</td></tr>
+          <tr><td>\(\cosh(ix)=\cos x,\ \sinh(ix)=i\sin x\)</td><td class="cond">Brücke zu trig</td></tr>
+        </table>
+      </div>
+    </div>
+    ${exBox(String.raw`<p>Vorzeichen-Merker: bei \(\cosh(x+y)\) steht ein <b>Plus</b> (nicht Minus wie bei \(\cos\)), und \(\cosh^{2}-\sinh^{2}=1\) (nicht \(+\)). Check über die Definition:</p>\[\cosh^{2}x-\sinh^{2}x=\frac{(e^{x}+e^{-x})^{2}-(e^{x}-e^{-x})^{2}}{4}=\frac{4}{4}=1.\]`)}
   </div>`; }
 
 function reihenHtml(){ return String.raw`
@@ -859,6 +889,18 @@ function konvSummenHtml(){ return String.raw`
       ${exBox(String.raw`<p>Wurzel für \(\sum\big(\tfrac{k}{k+1}\big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`)}
       ${exBox(String.raw`<p>Leibniz für \(\sum\frac{(-1)^{k+1}}{k}\):</p><p>\(b_k=\tfrac1k\downarrow0\Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert (harmonisch).</p>`)}
     </div>
+  </div>
+  <div class="refblock">
+    <h3>Summierbarkeit divergenter Reihen</h3>
+    <p class="sub">Divergente Reihen bekommen über gemittelte/geglättete Grenzwerte einen sinnvollen „Wert". Beide Verfahren sind <b>regulär</b>: eine schon konvergente Reihe behält ihren Wert.</p>
+    <table class="reftable">
+      <tr><td><b>Cesàro (C,1)</b> — über die <b>Partialsummen</b>: bilde \(s_n=a_0+\cdots+a_n\), dann ihr Mittel \(\displaystyle\sigma_n=\frac{s_0+s_1+\cdots+s_n}{n+1}\). Cesàro-Summe \(=\lim_{n\to\infty}\sigma_n\).</td></tr>
+      <tr><td><b>Abel / Poisson-Abel</b> — über die <b>Potenzreihe</b>: bilde \(f(x)=\sum_k a_k x^{k}\) (\(|x|<1\)), dann lasse \(x\to1^{-}\). Abel-Summe \(=\lim_{x\to1^{-}}f(x)\).</td></tr>
+      <tr><td><b>Hierarchie:</b> konvergent \(\Rightarrow\) Cesàro \(\Rightarrow\) Abel (jeweils derselbe Wert). Also: <b>aus Cesàro folgt Abel</b> (Satz von Frobenius) — Abel ist das stärkste Verfahren. Rückrichtung nur mit Tauber-Bedingung (z. B. \(a_k\to0\)).</td></tr>
+    </table>
+    <h3 style="margin-top:12px">Beispiel: Grandi-Reihe \(1-1+1-1+\cdots\)</h3>
+    ${exBox(String.raw`<p>Partialsummen springen: \(s_0=1,\ s_1=0,\ s_2=1,\ s_3=0,\dots\) — <b>divergent</b>.</p><p><b>Cesàro</b> (Mittel der \(s_n\)):</p>\[\sigma_0=1,\ \sigma_1=\tfrac12,\ \sigma_2=\tfrac23,\ \sigma_3=\tfrac12,\ \sigma_4=\tfrac35,\ \dots\ \longrightarrow\ \tfrac12.\]<p><b>Abel</b> (Potenzreihe, dann \(x\to1^{-}\)):</p>\[\sum_{k=0}^{\infty}(-1)^{k}x^{k}=\frac{1}{1+x}\ \longrightarrow\ \frac{1}{2}\quad(x\to1^{-}).\]<p>Beide liefern denselben Wert \(\tfrac12\) — passt zur Hierarchie.</p>`)}
+    ${exBox(String.raw`<p>\(1-2+3-4+\cdots=\sum_k(-1)^{k}(k+1)\): Cesàro schafft es <i>nicht</i> (die Mittel \(\sigma_n\) konvergieren nicht), aber <b>Abel</b> schon:</p>\[\sum_{k=0}^{\infty}(-1)^{k}(k+1)x^{k}=\frac{1}{(1+x)^{2}}\ \longrightarrow\ \frac{1}{4}\quad(x\to1^{-}).\]<p>Schön sichtbar: Abel summiert „mehr" als Cesàro.</p>`)}
   </div>`; }
 
 function konvIntegraleHtml(){ return String.raw`
@@ -918,6 +960,121 @@ function potenzreihenHtml(){ return String.raw`
     </div>
   </div>`; }
 
+function entwickelnHtml(){ return String.raw`
+  <p class="sub">Eine glatte Funktion lokal durch Polynome/Potenzreihen ersetzen — samt Fehler (Restglied).</p>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Taylor-Polynom & -Reihe</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle T_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^{k}\)</td></tr>
+        <tr><td>Taylorreihe: \(n\to\infty\); um \(x_0=0\) heißt sie Maclaurin-Reihe.</td></tr>
+      </table>
+      <h3 style="margin-top:14px">Restglied \(R_n=f-T_n\)</h3>
+      <table class="reftable">
+        <tr><td><b>Lagrange:</b> \(\displaystyle R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}\)</td><td class="cond">\(\xi\) zw. \(x_0,x\)</td></tr>
+        <tr><td><b>Integral:</b> \(\displaystyle R_n(x)=\frac{1}{n!}\int_{x_0}^{x}f^{(n+1)}(t)\,(x-t)^{n}\,dt\)</td></tr>
+      </table>
+      ${exBox(String.raw`<p>\(\sin x\) um \(0\): \(T_3(x)=x-\frac{x^{3}}{6}\).</p><p>Da bei \(\sin\) der \(x^{4}\)-Term fehlt (\(T_3=T_4\)), gilt sogar</p>\[|R_3(x)|\le\frac{|x|^{5}}{120}\quad(\text{denn }|f^{(5)}|=|\cos|\le1).\]`)}
+    </div>
+    <div class="refblock">
+      <h3>Klassische Reihen (um \(0\))</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle e^{x}=\sum\frac{x^{k}}{k!}\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\frac{1}{1-x}=\sum x^{k}\)</td><td class="cond">\(|x|<1\)</td></tr>
+        <tr><td>\(\displaystyle\ln(1+x)=\sum\frac{(-1)^{k+1}}{k}x^{k}\)</td><td class="cond">\(-1<x\le1\)</td></tr>
+        <tr><td>\(\displaystyle\arctan x=\sum\frac{(-1)^{k}}{2k+1}x^{2k+1}\)</td><td class="cond">\(|x|\le1\)</td></tr>
+        <tr><td>\(\displaystyle(1+x)^{\alpha}=\sum\binom{\alpha}{k}x^{k}\)</td><td class="cond">\(|x|<1\)</td></tr>
+      </table>
+      <h3 style="margin-top:14px">Trick: als Potenzreihe schreiben</h3>
+      <p class="sub">Aus der geometrischen Reihe per <b>Substitution</b> und gliedweisem <b>Ableiten/Integrieren</b>.</p>
+      ${exBox(String.raw`<p>\(\frac{1}{1+x^{2}}\) via \(x\to-x^{2}\) in \(\frac{1}{1-x}\):</p>\[\frac{1}{1+x^{2}}=\sum_{k=0}^{\infty}(-1)^{k}x^{2k}.\]<p>Gliedweise integrieren \(\Rightarrow \arctan x=\sum\frac{(-1)^{k}}{2k+1}x^{2k+1}\).</p>`)}
+      ${exBox(String.raw`<p>Ableiten von \(\frac{1}{1-x}=\sum x^{k}\):</p>\[\frac{1}{(1-x)^{2}}=\sum_{k=0}^{\infty}(k+1)x^{k}.\]`)}
+    </div>
+  </div>
+  <div class="refblock">
+    <h3>Lagrange-Interpolation</h3>
+    <p class="sub">Eindeutiges Polynom vom Grad \(\le n\) durch \(n+1\) Punkte \((x_i,y_i)\).</p>
+    <table class="reftable">
+      <tr><td>\(\displaystyle p(x)=\sum_{i=0}^{n} y_i\,L_i(x),\qquad L_i(x)=\prod_{j\neq i}\frac{x-x_j}{x_i-x_j}\)</td></tr>
+      <tr><td>\(L_i(x_i)=1,\quad L_i(x_j)=0\ (j\neq i)\)</td><td class="cond">Basis-Eigenschaft</td></tr>
+    </table>
+    ${exBox(String.raw`<p>Polynom durch \((0,1),(1,3),(2,7)\):</p>\[p(x)=1\cdot\frac{(x-1)(x-2)}{2}+3\cdot\frac{x(x-2)}{-1}+7\cdot\frac{x(x-1)}{2}=x^{2}+x+1.\]<p>Check: \(p(0)=1,\ p(1)=3,\ p(2)=7\). ✓</p>`)}
+  </div>`; }
+
+function vertauschenHtml(){ return String.raw`
+  <p class="sub">Wann darf man \(\lim\) mit \(\lim\), \(\int\) oder \(\frac{d}{dx}\) vertauschen? Kurz: bei <b>gleichmäßiger</b> Konvergenz. Die Idee: nicht nur jeder Punkt für sich, sondern der <b>ganze Graph</b> muss sich der Grenzfunktion nähern.</p>
+  <div class="refblock">
+    <h3>So prüft man gleichmäßige Konvergenz</h3>
+    <table class="reftable">
+      <tr><td>1. <b>Grenzfunktion</b> punktweise bestimmen: \(f(x)=\lim_{n\to\infty}f_n(x)\) (für jedes \(x\) einzeln).</td></tr>
+      <tr><td>2. <b>Fehlerfunktion</b> bilden: \(e_n(x)=f_n(x)-f(x)\).</td></tr>
+      <tr><td>3. <b>Supremum</b> über \(x\) nehmen: \(M_n=\sup_{x\in D}|e_n(x)|\) (Maximum oft über \(e_n'(x)=0\) suchen).</td></tr>
+      <tr><td>4. Ist \(M_n\to0\)? &nbsp;<b>Ja</b> \(\Rightarrow\) gleichmäßig. &nbsp;<b>Nein</b> \(\Rightarrow\) nur punktweise.</td></tr>
+    </table>
+    <p class="sub" style="margin-top:6px">Bild: gleichmäßig heißt, ab einem \(N\) liegt der ganze Graph von \(f_n\) im \(\varepsilon\)-Schlauch um \(f\) — <b>ein</b> \(N(\varepsilon)\) für alle \(x\). Punktweise darf \(N=N(\varepsilon,x)\) von \(x\) abhängen.</p>
+  </div>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Punktweise vs. gleichmäßig</h3>
+      <table class="reftable">
+        <tr><td><b>Punktweise:</b> \(\forall x:\ f_n(x)\to f(x)\). Das \(N=N(\varepsilon,x)\) darf von \(x\) abhängen.</td></tr>
+        <tr><td><b>Gleichmäßig:</b> \(\displaystyle\sup_{x\in D}|f_n(x)-f(x)|\to0\). Ein \(N(\varepsilon)\) für <b>alle</b> \(x\).</td></tr>
+        <tr><td>gleichmäßig \(\Rightarrow\) punktweise (nicht umgekehrt).</td></tr>
+        <tr><td><b>Weierstraß-M-Test</b> (Reihen): \(|f_k|\le M_k,\ \sum M_k<\infty \Rightarrow \sum f_k\) gleichm. konv.</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Was gleichmäßige Konvergenz erlaubt</h3>
+      <table class="reftable">
+        <tr><td><b>\(\lim\)–\(\lim\) (Stetigkeit):</b> \(\displaystyle\lim_{x\to x_0}\lim_{n}f_n=\lim_{n}\lim_{x\to x_0}f_n\)</td><td class="cond">\(f_n\) stetig + <b>gleichm.</b></td></tr>
+        <tr><td><b>\(\lim\)–\(\int\):</b> \(\displaystyle\lim_{n}\int_a^b f_n=\int_a^b\lim_{n}f_n\)</td><td class="cond"><b>gleichm.</b> auf \([a,b]\)</td></tr>
+        <tr><td><b>\(\lim\)–\(\tfrac{d}{dx}\):</b> \(\big(\lim f_n\big)'=\lim f_n'\)</td><td class="cond"><b>\(f_n'\) gleichm.</b> + \(f_n(x_0)\) konv.</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="refblock">
+    <h3>Gegenbeispiele (nur punktweise!)</h3>
+    ${exBox(String.raw`<p>\(f_n(x)=x^{n}\) auf \([0,1]\). <b>1. Grenzfunktion:</b></p>\[f(x)=\lim_{n}x^{n}=\begin{cases}0,&0\le x<1\\1,&x=1\end{cases}\]<p><b>2.–3. Fehler-Supremum:</b> \(\displaystyle\sup_{0\le x<1}|x^{n}-0|=1\) (Wert wird für \(x\to1\) erreicht).</p><p><b>4.</b> \(M_n=1\not\to0\) \(\Rightarrow\) <b>nur punktweise</b>. Deshalb darf der Grenzwert unstetig sein, obwohl alle \(f_n\) stetig sind.</p>`)}
+    ${exBox(String.raw`<p>Integral nicht vertauschbar: \(f_n=n\) auf \((0,\tfrac1n)\), sonst \(0\).</p>\[\int_0^1 f_n\,dx=1\ \text{für alle }n,\quad\text{aber}\quad f_n(x)\to0\ \text{punktweise}\]\[\Rightarrow\ \lim_n\int_0^1 f_n\,dx=1\neq0=\int_0^1\lim_n f_n\,dx.\]`)}
+  </div>`; }
+
+function kurvenHtml(){ return String.raw`
+  <p class="sub">Bogenlänge \(L\) und Krümmung \(\kappa\) je nach Darstellung. \(\kappa\) misst, wie schnell sich die Richtung dreht; \(\rho=1/\kappa\) ist der Krümmungsradius.</p>
+  <div class="twocol">
+    <div class="refblock">
+      <h3>Bogenlänge \(L\)</h3>
+      <table class="reftable">
+        <tr><td>Graph \(y=f(x),\ x\in[a,b]\): \(\displaystyle L=\int_a^b\sqrt{1+f'(x)^{2}}\,dx\)</td></tr>
+        <tr><td>Parametrisch \((x(t),y(t))\): \(\displaystyle L=\int_a^b\sqrt{\dot x^{2}+\dot y^{2}}\,dt\)</td></tr>
+        <tr><td>Polar \(r=r(\varphi),\ \varphi\in[\alpha,\beta]\): \(\displaystyle L=\int_\alpha^\beta\sqrt{r^{2}+r'^{2}}\,d\varphi\)</td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>Krümmung \(\kappa\)</h3>
+      <table class="reftable">
+        <tr><td>Graph \(y=f(x)\): \(\displaystyle \kappa=\frac{|f''|}{\big(1+f'^{2}\big)^{3/2}}\)</td></tr>
+        <tr><td>Parametrisch: \(\displaystyle \kappa=\frac{|\dot x\ddot y-\dot y\ddot x|}{\big(\dot x^{2}+\dot y^{2}\big)^{3/2}}\)</td></tr>
+        <tr><td>Polar \(r(\varphi)\): \(\displaystyle \kappa=\frac{\big|r^{2}+2r'^{2}-r\,r''\big|}{\big(r^{2}+r'^{2}\big)^{3/2}}\)</td></tr>
+      </table>
+      <p class="sub" style="margin-top:8px">Krümmungsradius \(\rho=\dfrac{1}{\kappa}\).</p>
+    </div>
+  </div>
+  <div class="refblock">
+    <h3>Vektorielle Schreibweise</h3>
+    <p class="sub">Für eine Kurve \(\mathbf r(t)\) (Ortsvektor); \(\times\) ist das Kreuzprodukt.</p>
+    <table class="reftable">
+      <tr><td>Krümmung: \(\displaystyle \kappa(t)=\frac{\|\mathbf r'(t)\times\mathbf r''(t)\|}{\|\mathbf r'(t)\|^{3}}\)</td><td class="cond">in \(\mathbb R^{2},\mathbb R^{3}\)</td></tr>
+      <tr><td>Einheits-Tangente: \(\displaystyle \mathbf T(t)=\frac{\mathbf r'(t)}{\|\mathbf r'(t)\|}\)</td></tr>
+      <tr><td>Hauptnormale \(\displaystyle \mathbf N=\frac{\mathbf T'}{\|\mathbf T'\|}\); außerdem \(\displaystyle \kappa=\frac{\|\mathbf T'(t)\|}{\|\mathbf r'(t)\|}=\Big\|\frac{d\mathbf T}{ds}\Big\|\)</td></tr>
+    </table>
+    <p class="sub" style="margin-top:6px">In \(\mathbb R^{2}\) ist \(\mathbf r'\times\mathbf r''=\dot x\ddot y-\dot y\ddot x\) (Skalar) — daraus wird direkt die Parameter-Formel oben.</p>
+  </div>
+  <div class="refblock">
+    <h3>Beispiele</h3>
+    ${exBox(String.raw`<p>Kreis \(r=R\) (polar), \(r'=0\):</p>\[L=\int_0^{2\pi}\sqrt{R^{2}}\,d\varphi=2\pi R,\qquad \kappa=\frac{|R^{2}+0-0|}{(R^{2})^{3/2}}=\frac{1}{R}.\]<p>Also \(\rho=R\) — genau der Kreisradius. ✓</p>`)}
+    ${exBox(String.raw`<p>Parabel \(y=x^{2}\): \(f'=2x,\ f''=2\).</p>\[\kappa(x)=\frac{2}{(1+4x^{2})^{3/2}};\qquad \kappa(0)=2,\ \rho(0)=\tfrac12.\]<p>Im Scheitel am stärksten gekrümmt, außen zunehmend flacher.</p>`)}
+  </div>`; }
+
 const REF = {
  integrale: { title:"Standardintegrale", icon:"∫", color:"var(--ch4)",
    note:"Die wichtigsten Grundintegrale. Integrationskonstante + C nicht vergessen.", html: intHtml() },
@@ -935,6 +1092,12 @@ const REF = {
    note:"Uneigentliche Integrale, p-Test und Cauchy-Hauptwert (v.p.).", html: konvIntegraleHtml() },
  potenzreihen: { title:"Potenzreihen", icon:"xⁿ", color:"#c026d3",
    note:"Konvergenzradius, Randverhalten, gliedweise Ableitung.", html: potenzreihenHtml() },
+ entwickeln: { title:"Funktionen entwickeln", icon:"Tₙ", color:"#0d9488",
+   note:"Taylorreihe & Restglied (Lagrange/Integral), Funktionen als Potenzreihe, Lagrange-Interpolation.", html: entwickelnHtml() },
+ vertauschen: { title:"Grenzwerte vertauschen", icon:"⇄", color:"#0369a1",
+   note:"Punktweise vs. gleichmäßige Konvergenz — wann darf man Grenzwerte/Integrale/Ableitungen tauschen?", html: vertauschenHtml() },
+ kurven: { title:"Kurven · Länge · Krümmung", icon:"κ", color:"#9333ea",
+   note:"Bogenlänge und Krümmung in kartesischen, parametrischen und Polarkoordinaten.", html: kurvenHtml() },
  uebungen: { title:"Übungsblätter & Vortragsübungen", icon:"📝", color:"#d97706",
    note:"Alle Übungs- und Vortragsübungsblätter mit Lösungen (sofern vorhanden).", html: uebHtml() }
 };
@@ -1063,6 +1226,9 @@ function renderHome(){
       <a class="reftile i8" href="#/ref/konv_summen"><span class="ti">∑</span><span>Konvergenz — Reihen<small>Quotient · Wurzel · Leibniz · Integral</small></span></a>
       <a class="reftile i9" href="#/ref/konv_integrale"><span class="ti">∫</span><span>Konvergenz — Integrale<small>uneigentlich · p-Test · v.p.</small></span></a>
       <a class="reftile i10" href="#/ref/potenzreihen"><span class="ti">xⁿ</span><span>Potenzreihen<small>Konvergenzradius · Rand</small></span></a>
+      <a class="reftile i11" href="#/ref/entwickeln"><span class="ti">Tₙ</span><span>Funktionen entwickeln<small>Taylor · Restglied · Interpolation</small></span></a>
+      <a class="reftile i12" href="#/ref/vertauschen"><span class="ti">⇄</span><span>Grenzwerte vertauschen<small>punktweise vs. gleichmäßig</small></span></a>
+      <a class="reftile i13" href="#/ref/kurven"><span class="ti">κ</span><span>Kurven · Länge · Krümmung<small>kartesisch & polar</small></span></a>
     </div>
 
     <h2 class="grp">📦 Übungen</h2>
