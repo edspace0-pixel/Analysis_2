@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu138.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+<head><title>Die Invarianz des Differentials erster Ordnung.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 6714--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu137.html" >prev</a>] [<a 
+href="skriptsu137.html#tailskriptsu137.html" >prev-tail</a>] [<a 
+href="#tailskriptsu138.html">tail</a>] [<a 
+href="skriptse36.html#skriptsu138.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.9.3</span>&#x00A0;&#x00A0;<a 
+ id="x180-1790003.9.3"></a>Die Invarianz des Differentials erster Ordnung.</h4>
+<!--l. 6716--><p class="noindent" >Zusätzlich zur Funktion <!--l. 6716--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>X</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+betrachten wir die Abbildung <!--l. 6717--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>Y</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>X</mi></math>,
+wobei <!--l. 6717--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>X</mi></math> und
+<!--l. 6717--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>Y</mi> </math> offene
+Mengen in <!--l. 6718--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>K</mi></math>
+sind. Es sei <!--l. 6718--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>X</mi> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mi 
+>Y</mi> </math>
+mit <!--l. 6719--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. Die
+Funktionen <!--l. 6719--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+und <!--l. 6719--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math> seien in
+den Punkten <!--l. 6720--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+bzw. <!--l. 6720--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+differenzierbar. Wie oben beschrieben ist das Differential erster Ordnung von
+<!--l. 6721--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>X</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> in
+<!--l. 6722--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+gegeben durch<table class="equation"><tr><td> <a 
+ id="x180-179001r40"></a>
+<!--l. 6722--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                 <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><mi 
+>d</mi><mi 
+>x</mi><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(3.40)</td></tr></table>
+<!--l. 6724--><p class="noindent" >Hierbei betrachtet man <!--l. 6724--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math> als
+&#8220;unabhängige&#8221; Variable und <!--l. 6725--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>d</mi><mi 
+>x</mi></math>
+als Verschiebung dieser Variablen.
+<!--l. 6727--><p class="noindent" >Nun sei <!--l. 6727--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>Y</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> gegeben durch
+<!--l. 6727--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. Das Differential dieser
+Funktion im Punkt <!--l. 6728--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+ist gleich
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 6728--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                <mi 
+>d</mi><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>F</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow></mfrac> </mrow></mfenced></mrow><mrow 
+><mi 
+>y</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><mi 
+>d</mi><mi 
+>y</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6729--><p class="nopar" > Da nach der Kettenregel
+<div class="math-display"><!--l. 6730--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+><msub><mrow 
+>
+                   <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>F</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow></mfrac> </mrow></mfenced></mrow><mrow 
+><mi 
+>y</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow>
+</mrow></math></div>
+<!--l. 6731--><p class="nopar" > gilt, so erhält man daraus
+<div class="math-display"><!--l. 6732--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                             <mi 
+>d</mi><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>y</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6733--><p class="nopar" > Gleichzeitig ist das Differential der Funktion <!--l. 6734--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+im Punkt <!--l. 6735--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+gegeben durch
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 6735--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                            <mi 
+>d</mi><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>y</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6736--><p class="nopar" > Daraus folgt<table class="equation"><tr><td> <a 
+ id="x180-179002r41"></a>
+<!--l. 6737--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                       <mi 
+>d</mi><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><mi 
+>d</mi><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(3.41)</td></tr></table>
+<!--l. 6739--><p class="noindent" >Hier ist <!--l. 6739--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math> eine durch die
+Beziehung <!--l. 6739--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> abhängige
+Variable und <!--l. 6740--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>d</mi><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+steht für das Differential dieser Abhängigkeit.
+<!--l. 6742--><p class="noindent" >Vergleicht man (<a 
+href="#x180-179001r40">3.40<!--tex4ht:ref: eq:diff1ox --></a>) und (<a 
+href="#x180-179002r41">3.41<!--tex4ht:ref: eq:diff1oxy --></a>) so erkennt man, dass sich das Differential in
+beiden Fällen nach dem formal denselben Ausdruck berechnet, gleich ob man
+<!--l. 6744--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math> als
+unabhängige oder abhängige Variable betrachtet. Diese Eigenschaft bezeichnet man als die
+<span id="textcolor183"><span 
+class="ptmri8t-x-x-120">Invarianz des Differentials der ersten Ordnung</span></span>.
+<!--l. 6749--><p class="noindent" >Das Differential erster Ordnung ist die lineare Approximation einer Abbildung. Deshalb
+drückt diese Invarianz folgendes aus: Die lineare Approximation einer Komposition von
+Abbildungen ist gleich der Komposition der linearen Approximationen der einzelnen
+Abbildungen.
+<!--l. 6754--><p class="noindent" >Die genannte Invarianz erstreckt sich <span 
+class="ptmri8t-x-x-120">nicht </span>auf Differentiale höherer Ordnung: Dazu betrachten wir
+das zweite Differential<table class="equation"><tr><td> <a 
+ id="x180-179003r42"></a>
+                                                                                     
+                                                                                     
+<!--l. 6755--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                <msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>
+</math></td><td class="eq-no">(3.42)</td></tr></table>
+<!--l. 6757--><p class="noindent" >von <!--l. 6757--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>X</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> als Funktion der unabhängigen
+Variablen <!--l. 6758--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>. Für eine abhängige
+Variable <!--l. 6758--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> berechnet sich das
+zweite Differential von <!--l. 6759--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>Y</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+als
+<!--tex4ht:inline--><!--l. 6760--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3"><msub><mrow 
+>   <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+    <mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>      </mrow></mfenced> </mrow><mrow 
+><mi 
+>y</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow></mfrac><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+>
+<mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>y</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>       </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">        </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfenced separators="" 
+open="["  close="]" ><mrow><msubsup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+>
+<mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfenced> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>    </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">        </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>x</mi><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+>
+<mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>y</mi><mi 
+>y</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">        </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>d</mi><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>                      </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(3.43)</mtext><mtext 
+   id="x180-179004r3.43"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>                 </mtr></mtable>
+</math>
+<!--l. 6764--><p class="nopar" >
+<!--l. 6765--><p class="noindent" >Die Ausdrücke in (<a 
+href="#x180-179003r42">3.42<!--tex4ht:ref: eq:diff2ordx --></a>) und (<a 
+href="#x180-179004r3.43">3.43<!--tex4ht:ref: eq:diff2oxy --></a>) sind verschieden, die Form des zweiten Differentials hängt
+also von der Wahl der &#8220;unabhängigen&#8221; Variablen ab!
+                                                                                     
+                                                                                     
+<!--l. 6770--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu137.html" >prev</a>] [<a 
+href="skriptsu137.html#tailskriptsu137.html" >prev-tail</a>] [<a 
+href="skriptsu138.html" >front</a>] [<a 
+href="skriptse36.html#skriptsu138.html" >up</a>] </p></div>
+<!--l. 6770--><p class="noindent" ><a 
+ id="tailskriptsu138.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu138.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+</html> 

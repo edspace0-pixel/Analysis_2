@@ -1,0 +1,1206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu167.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+<head><title>Zur Berechnung der Koeffizienten Ajk.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 8369--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu168.html" >next</a>] [<a 
+href="skriptsu166.html" >prev</a>] [<a 
+href="skriptsu166.html#tailskriptsu166.html" >prev-tail</a>] [<a 
+href="#tailskriptsu167.html">tail</a>] [<a 
+href="skriptse46.html#skriptsu167.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.4.4</span>&#x00A0;&#x00A0;<a 
+ id="x220-2190004.4.4"></a>Zur Berechnung der Koeffizienten <!--l. 8369--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi><mi 
+>k</mi></mrow></msub 
+></math>.</h4>
+<!--l. 8371--><p class="noindent" >Aus der Darstellung
+<div class="math-display"><!--l. 8371--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                          <mfrac><mrow 
+><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>l</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+<mrow 
+><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>N</mi></mrow></munderover 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>r</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+>
+         </mrow></munderover 
+>     <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi><mi 
+>r</mi></mrow></msub 
+></mrow>
+<mrow 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>r</mi></mrow></msup 
+></mrow></mfrac>
+</mrow></math></div>
+<!--l. 8372--><p class="nopar" > erkennt man, dass der Term <!--l. 8373--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" >   <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></msub 
+></mrow>
+<mrow 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-bin">&minus;</mo><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></msup 
+></mrow></mfrac></math>
+jeweils den Hauptteil der Singularitt des Quotienten für
+<!--l. 8374--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></math> trägt.
+Deshalb kann man den zugehörigen Koeffizienten folgendermaßen berechnen
+<div class="math-display"><!--l. 8376--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                            <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+><mo 
+class="MathClass-rel">=</mo></mrow></msub 
+><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&rarr;</mo><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></munder 
+><mfrac><mrow 
+><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>l</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></msup 
+></mrow> 
+        <mrow 
+><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac>      <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+                                                                                     
+                                                                                     
+<!--l. 8377--><p class="nopar" > Besonders interessant ist dieser Weg im Fall <!--l. 8378--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></math>,
+denn dann gilt wegen <!--l. 8379--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+<div class="math-display"><!--l. 8379--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                        <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&rarr;</mo><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></munder 
+>      <mfrac><mrow 
+><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>l</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+><mfrac><mrow 
+><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-bin">&minus;</mo><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+      <mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-bin">&minus;</mo><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></mfrac>      </mrow></mfrac> <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>l</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+><msubsup><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mi 
+>n</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8380--><p class="nopar" >
+<!--l. 8383--><p class="noindent" >Weitere praktische Methoden zur Berechnung dieser Koeffizienten illustrieren wir nun an einem
+Beispiel.
+<!--l. 8386--><p class="noindent" >Es sei
+<div class="math-display"><!--l. 8386--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                              <mfrac><mrow 
+><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+<mrow 
+><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo>       <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow> 
+<mrow 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8387--><p class="nopar" > Wir suchen die Koeffizienten <!--l. 8388--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></math>
+in der Darstellung<table class="equation"><tr><td> <a 
+ id="x220-219001r25"></a>
+<!--l. 8388--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                            <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow>
+
+<mrow 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow> 
+ <mrow 
+><mi 
+>x</mi></mrow></mfrac>  <mo 
+class="MathClass-bin">+</mo>   <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo>   <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.25)</td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 8390--><p class="noindent" >Kommen alle Faktoren im Nenner nur in der ersten Potenz vor, so kann man mit dem Nenner
+multiplizieren und erhält<table class="equation"><tr><td> <a 
+ id="x220-219002r26"></a>
+<!--l. 8391--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                <msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.26)</td></tr></table>
+<!--l. 8393--><p class="noindent" >Setzt man nun <!--l. 8393--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math> nacheinander
+gleich den Nullstellen <!--l. 8393--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>,
+<!--l. 8394--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></math> und
+<!--l. 8394--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></math>, so
+erhält man
+<!--tex4ht:inline--><!--l. 8394--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1">  <mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&sdot;</mo> <mn>1</mn><mo 
+class="MathClass-punc">,</mo>    </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">  <mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>2</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo> <mn>1</mn> <mo 
+class="MathClass-bin">&sdot;</mo> <mn>2</mn><mo 
+class="MathClass-punc">,</mo>       </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>2</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&sdot;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&minus;</mo><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                                              </mtr></mtable>
+</math>
+<!--l. 8397--><p class="nopar" >
+und folglich
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8398--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                               <mi 
+>A</mi> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8399--><p class="nopar" > Damit  berechnet  sich  das  unbestimmte  Integral  von
+<!--l. 8400--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-bin">&#x2215;</mo><msub><mrow 
+><mi 
+>Q</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+als<span class="footnote-mark"><a 
+href="#fn6x4" id="fn6x4-bk"><sup class="textsuperscript">6</sup></a></span><a 
+ id="x220-219004f6"></a>
+<!--tex4ht:inline--><!--l. 8404--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits-->   <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow> 
+<mrow 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac><mi 
+>d</mi><mi 
+>x</mi></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--><mfenced separators="" 
+open="("  close=")" ><mrow><mo 
+class="MathClass-bin">&minus;</mo><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>x</mi></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo>    <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo>    <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></mfrac></mrow></mfenced> <mi 
+>d</mi><mi 
+>x</mi>            </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">                     </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mo 
+class="MathClass-bin">&minus;</mo><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow> 
+ <mrow 
+><mi 
+>x</mi></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow></mfrac>        </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">                     </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mo 
+class="MathClass-bin">&minus;</mo><mo class="qopname"> ln</mo><!--nolimits--> <mo 
+class="MathClass-rel">|</mo><mi 
+>x</mi><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-bin">+</mo><mo class="qopname"> ln</mo><!--nolimits--> <mo 
+class="MathClass-rel">|</mo><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-bin">+</mo><mo class="qopname"> ln</mo><!--nolimits--> <mo 
+class="MathClass-rel">|</mo><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-bin">+</mo> <mstyle 
+class="mbox"><mtext  >const</mtext></mstyle><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                   </mtr></mtable>
+</math>
+<!--l. 8407--><p class="nopar" >
+<!--l. 8410--><p class="noindent" ><span 
+class="ptmri8t-x-x-120">Das Handauflegen. </span>Die oben beschriebene Technik kann man durch
+das sogenannte &#8220;Handauflegen&#8221; ersetzen: Um z.B. den Koeffizienten
+<!--l. 8412--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></math> bei dem Summanden
+<!--l. 8412--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow>
+ <mrow 
+><mi 
+>x</mi></mrow></mfrac> </math> zu bestimmen, zieht
+man den Faktor <!--l. 8413--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>x</mi></mrow></mfrac></math>
+aus dem Ausdruck auf der linken Seite von (<a 
+href="#x220-219001r25">4.25<!--tex4ht:ref: eq:ratfunkabc --></a>) heraus
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8414--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                             <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow>
+
+<mrow 
+><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mi 
+>x</mi></mrow></mfrac> <mo 
+class="MathClass-bin">&sdot;</mo>   <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow> 
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8415--><p class="nopar" > Der Koeffizient <!--l. 8416--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>A</mi></math> gleicht dann dem
+Wert des verbleibenden Faktors <!--l. 8417--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" >     <mfrac><mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow>
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac></math>
+in der zu <!--l. 8417--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></math> zugehörigen
+Nullstelle <!--l. 8418--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>,
+d.h.
+<div class="math-display"><!--l. 8418--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                             <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo>       <mfrac><mrow 
+><msubsup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow><mrow 
+><mn>2</mn></mrow></msubsup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow> 
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8419--><p class="nopar" > Um  also  den  Koeffizienten  zu  einem  Summanden
+<!--l. 8420--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow>
+<mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-bin">&minus;</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></mfrac></math> zu finden, so &#8220;legt man
+die Hand auf&#8221; den Faktor <!--l. 8421--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+im Nenner der zu zerlegenden rationalen Funktion und setzt im verbleibenden Ausdruck
+<!--l. 8423--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></math>.
+<!--l. 8425--><p class="noindent" ><span 
+class="ptmri8t-x-x-120">Der Koeffizientenvergleich. </span>Eine weitere Methode, welche auch bei Nullstellen höherer Ordnung
+zum Ziel führt, ist der sogenannte Koeffizientenvergleich. Dazu multipliziert man den Ausdruck
+(<a 
+href="#x220-219002r26">4.26<!--tex4ht:ref: eq:ratfunka1a2a3 --></a>) aus und sammelt auf beiden Seiten der Gleichung die Koeffizienten bei gleichen Potenzen von
+<!--l. 8429--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>:
+                                                                                     
+                                                                                     
+<!--tex4ht:inline--><!--l. 8429--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>x</mi> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>0</mn> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+>     </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">  <mn>1</mn> <mo 
+class="MathClass-punc">:</mo></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&minus;</mo><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+>         </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                                                          </mtr></mtable>
+</math>
+<!--l. 8432--><p class="nopar" >
+Das entstehende Gleichungssystem löst man dann mit einem Standardverfahren.
+<div class="newtheorem">
+<!--l. 8435--><p class="noindent" ><span class="head">
+<a 
+ id="x220-219007r3"></a>
+<span 
+class="ptmri8t-x-x-120">Remark </span>4.4.3<span 
+class="ptmri8t-x-x-120">.</span>  </span>Falls  alle  Koeffizienten  der  rationalen  Funktion  reell  sind,  so  treten  im  Fall
+einfacher Nullstellen immer Paare von Summanden zu komplex konjugierten Nullstellen mit
+komplex konjugierten Koeffizienten auf
+<div class="math-display"><!--l. 8438--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                             <mfrac><mrow 
+><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow>
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo>   <mfrac><mrow 
+><mover accent="false" 
+class="mml-overline"><mrow><msub><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+accent="true">¯</mo></mover></mrow> 
+<mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo><mover accent="false" 
+class="mml-overline"><mrow><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+accent="true">¯</mo></mover></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo>     <mfrac><mrow 
+><mi 
+>r</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi></mrow> 
+<mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>p</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>q</mi></mrow></mfrac>
+</mrow></math></div>
+<!--l. 8439--><p class="nopar" > mit <!--l. 8440--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>p</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>q</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>r</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>s</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>&#x211D;</mi></math>.
+Das unbestimmte Integral dieses Ausdruckes nimmt die Form
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8441--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+          <mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits-->  <mfrac><mrow 
+><mi 
+>r</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi></mrow> 
+<mrow 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>p</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>q</mi></mrow></mfrac><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&lambda;</mi><mo class="qopname"> ln</mo><!--nolimits--><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>p</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>q</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&mu;</mi><mo class="qopname"> arctan</mo><!--nolimits-->   <mfrac><mrow 
+><mn>2</mn><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>p</mi></mrow> 
+<mrow 
+><msqrt><mrow><mn>4</mn><mi 
+>q</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msup><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></msqrt></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo> <mstyle 
+class="mbox"><mtext  >const</mtext></mstyle>
+</mrow></math></div>
+<!--l. 8442--><p class="nopar" >                       an.                                        Die                                        Konstanten
+<!--l. 8443--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&lambda;</mi></math>
+und
+<!--l. 8443--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&mu;</mi></math>
+berechnet man durch Differentiation und Koeffizientenvergleich.
+</div>
+                                                                                     
+                                                                                     
+<div class="footnotes"><!--l. 8404--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn6x4-bk" id="fn6x4">
+<sup class="textsuperscript">6</sup></a></span><span 
+class="ptmr8t-">Die hier benutzte Linearit</span><span 
+class="ptmr8t-">ä</span><span 
+class="ptmr8t-">t des unbestimmten Integrales ist eine sofortige Konsequenz der Linearit</span><span 
+class="ptmr8t-">ä</span><span 
+class="ptmr8t-">t der</span>
+   <span 
+class="ptmr8t-">Ableitung.</span>                                                                          </div> <!--l. 8447--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu168.html" >next</a>]
+[<a 
+href="skriptsu166.html" >prev</a>] [<a 
+href="skriptsu166.html#tailskriptsu166.html" >prev-tail</a>] [<a 
+href="skriptsu167.html" >front</a>] [<a 
+href="skriptse46.html#skriptsu167.html" >up</a>] </p></div>
+<!--l. 8447--><p class="noindent" ><a 
+ id="tailskriptsu167.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu167.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+</html> 

@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu189.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Der Schwerpunkt einer Kurve.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9695--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu190.html" >next</a>] [<a 
+href="skriptsu188.html" >prev</a>] [<a 
+href="skriptsu188.html#tailskriptsu188.html" >prev-tail</a>] [<a 
+href="#tailskriptsu189.html">tail</a>] [<a 
+href="skriptse52.html#skriptsu189.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.10.4</span>&#x00A0;&#x00A0;<a 
+ id="x248-2470004.10.4"></a>Der Schwerpunkt einer Kurve.</h4>
+<!--l. 9697--><p class="noindent" >Für ein System von Massepunkten <!--l. 9697--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">}</mo></mrow></math>
+mit den zugehörigen Massen <!--l. 9698--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>m</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>sind
+die Koordinaten des Schwerpunktes durch
+<div class="math-display"><!--l. 9698--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                    <msub><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi></mrow></munder 
+><msub><mrow 
+><mi 
+>m</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+     <mrow 
+><mi 
+>M</mi></mrow></mfrac>    <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi></mrow></munder 
+><msub><mrow 
+><mi 
+>m</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+     <mrow 
+><mi 
+>M</mi></mrow></mfrac>    <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>M</mi> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &sum;</mo>
+   </mrow><mrow 
+><mi 
+>k</mi></mrow></munder 
+><msub><mrow 
+><mi 
+>m</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+>
+</mrow></math></div>
+<!--l. 9699--><p class="nopar" > gegeben. beträgt man dies auf eine homogene Kurve, so ist zu beachten, dass die
+Masse eines Kurvenstücks proportional zu seiner Länge sein soll. Dies motiviert
+folgende Definition des Schwerpunktes für eine in natürlicher Parametrisierung
+<!--l. 9703--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> gegebenen
+Jordanschen Kurve <!--l. 9704--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&Gamma;</mi></math>
+der Klasse <!--l. 9704--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>
+<div class="math-display"><!--l. 9704--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <msub><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mn>0</mn></mrow><mrow 
+><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msubsup 
+><mi 
+>x</mi><mi 
+>d</mi><mi 
+>s</mi></mrow> 
+   <mrow 
+><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac>    <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mn>0</mn></mrow><mrow 
+><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msubsup 
+><mi 
+>y</mi><mi 
+>d</mi><mi 
+>s</mi></mrow> 
+   <mrow 
+><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac>    <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+                                                                                     
+                                                                                     
+<!--l. 9705--><p class="nopar" > Daraus erhält man unter anderem die Gleichung<table class="equation"><tr><td> <a 
+ id="x248-247001r81"></a>
+<!--l. 9706--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                           <mn>2</mn><mi 
+>&pi;</mi><msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo> <mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mi 
+>&pi;</mi><msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mn>0</mn></mrow><mrow 
+><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Gamma;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msubsup 
+><mi 
+>y</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>s</mi><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.81)</td></tr></table>
+<!--l. 9708--><p class="noindent" >Es sei nun <!--l. 9708--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>y</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>.
+Dann steht auf der rechten Seite dieser Formel der Inhalt der Oberfläche, die man bei der Rotation der
+Kurve <!--l. 9710--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&Gamma;</mi></math> um
+die <!--l. 9710--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+erhält. Links steht das Produkt des Umfangs des Kreises, welchen der Schwerpunkt der Kurve bei
+dieser Rotation überstreicht und die Länge der Kurve. Damit beschreibt (<a 
+href="#x248-247001r81">4.81<!--tex4ht:ref: eq:Guldin1 --></a>) die erste
+<span id="textcolor222">Guldinsche</span> Regel:
+<div class="newtheorem">
+<!--l. 9715--><p class="noindent" ><span class="head">
+<a 
+ id="x248-247002r9"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 4.10.9.</span>  </span><span 
+class="ptmri8t-x-x-120">Der   Inhalt   der   Oberfl</span><span 
+class="ptmri8t-x-x-120">ä</span><span 
+class="ptmri8t-x-x-120">che,   welche   durch   die   Rotation   einer   die</span>
+<!--l. 9716--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math><span 
+class="ptmri8t-x-x-120">-Achse</span>
+<span 
+class="ptmri8t-x-x-120">nicht             durchschneidenden             Jordanschen             Kurve             der             Klasse</span>
+<!--l. 9717--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>
+<span 
+class="ptmri8t-x-x-120">um die </span><!--l. 9718--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math><span 
+class="ptmri8t-x-x-120">-Achse</span>
+<span 
+class="ptmri8t-x-x-120">gebildet wird, ist gleich dem Produkt aus dem Umfang des Kreises, welchen der Schwerpunkt</span>
+<span 
+class="ptmri8t-x-x-120">der Kurve bei dieser Rotation </span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">berstreicht, mit der L</span><span 
+class="ptmri8t-x-x-120">ä</span><span 
+class="ptmri8t-x-x-120">nge der Kurve selbst.</span>
+</div>
+<div class="newtheorem">
+<!--l. 9722--><p class="noindent" ><span class="head">
+<a 
+ id="x248-247003r10"></a>
+<span 
+class="ptmb8t-x-x-120">Example 4.10.10.</span>  </span>Wir betrachten den Torus
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9723--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                 <mi 
+>R</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>z</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mspace width="0.3em" class="thinspace"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&and;</mo><msup><mrow 
+><mfenced separators="" 
+open="("  close=")" ><mrow><msqrt><mrow><msup><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>2</mn> </mrow> </msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>z</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></msqrt> <mo 
+class="MathClass-bin">&minus;</mo> <mn>2</mn></mrow></mfenced> </mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></mrow></mfenced> <mo 
+class="MathClass-punc">,</mo>
+</mrow></math></div>
+<!--l. 9724--><p class="nopar" > welcher durch die Rotation des Kreises
+<div class="math-display"><!--l. 9725--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                  <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>y</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn>
+</mrow></math></div>
+<!--l. 9726--><p class="nopar" > um die <!--l. 9727--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+erzeugt    wird.    Der    Schwerpunkt    der    Kreislinie    liegt    natürlich    im    Mittelpunkt
+<!--l. 9728--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+des          Kreises          und          die          Länge          der          Kreiskurve          beträgt
+<!--l. 9729--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>2</mn><mi 
+>&pi;</mi></math>.
+Bei der Rotation um die <!--l. 9729--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+überstreicht der Schwerpunkt den Umfang <!--l. 9730--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>2</mn><mi 
+>&pi;</mi> <mo 
+class="MathClass-bin">&sdot;</mo> <mn>2</mn> <mo 
+class="MathClass-rel">=</mo> <mn>4</mn><mi 
+>&pi;</mi></math>.
+Damit besitzt nach der ersten Guldinschen Regel dieser Torus den Oberflächeninhalt
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9731--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                <mi 
+>O</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>R</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>4</mn><mi 
+>&pi;</mi> <mo 
+class="MathClass-bin">&sdot;</mo> <mn>2</mn><mi 
+>&pi;</mi> <mo 
+class="MathClass-rel">=</mo> <mn>8</mn><msup><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9732--><p class="nopar" >
+</div>
+                                                                                     
+                                                                                     
+<!--l. 9736--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu190.html" >next</a>] [<a 
+href="skriptsu188.html" >prev</a>] [<a 
+href="skriptsu188.html#tailskriptsu188.html" >prev-tail</a>] [<a 
+href="skriptsu189.html" >front</a>] [<a 
+href="skriptse52.html#skriptsu189.html" >up</a>] </p></div>
+<!--l. 9736--><p class="noindent" ><a 
+ id="tailskriptsu189.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu189.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

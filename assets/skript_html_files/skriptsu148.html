@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu148.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+<head><title>Die Differentiation parametrischer Darstellungen von Kurven.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 7327--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu149.html" >next</a>] [<a 
+href="skriptsu147.html" >prev</a>] [<a 
+href="skriptsu147.html#tailskriptsu147.html" >prev-tail</a>] [<a 
+href="#tailskriptsu148.html">tail</a>] [<a 
+href="skriptse40.html#skriptsu148.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.13.2</span>&#x00A0;&#x00A0;<a 
+ id="x194-1930003.13.2"></a>Die Differentiation parametrischer Darstellungen von Kurven.</h4>
+<!--l. 7329--><p class="noindent" >Wir betrachten die beiden differenzierbare Funktionen
+<!--l. 7329--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math> und
+<!--l. 7330--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&psi;</mi> <mo 
+class="MathClass-punc">:</mo> <mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>. Wir nehmen an, dass
+die Funktion <!--l. 7331--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>y</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> in der
+parametrischen Darstellung <!--l. 7331--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&psi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+und <!--l. 7332--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>y</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&psi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> gegeben
+ist. Dabei gelte <!--l. 7332--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo><mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>,
+<!--l. 7333--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&psi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&isin;</mo><mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math> sowie
+<!--l. 7333--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>y</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+<!--l. 7335--><p class="noindent" >Sind die Ableitungen <!--l. 7335--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mover 
+class="stackrel"><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac> </mrow></mfenced> </mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+><mo 
+class="MathClass-rel">&ne;</mo><mn>0</mn></math>
+sowie <!--l. 7336--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mover 
+class="stackrel"><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac> </mrow></mfenced> </mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+></math> bekannt, so
+berechnet man <!--l. 7337--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+></math>
+mit Hilfe der Kettenregel
+<div class="math-display"><!--l. 7338--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+             <mover 
+class="stackrel"><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&psi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+    <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>    </mrow></mfenced></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo><msub><mrow 
+><mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>&psi;</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac> </mrow></mfenced></mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo><mover 
+class="stackrel"><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow>
+</mrow></math></div>
+<!--l. 7339--><p class="nopar" > als
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 7340--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+><msub><mrow 
+>
+                                  <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>y</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mover 
+class="stackrel"><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+><mover 
+class="stackrel"><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow></mrow></mover><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 7341--><p class="nopar" >
+                                                                                     
+                                                                                     
+<!--l. 7345--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu149.html" >next</a>] [<a 
+href="skriptsu147.html" >prev</a>] [<a 
+href="skriptsu147.html#tailskriptsu147.html" >prev-tail</a>] [<a 
+href="skriptsu148.html" >front</a>] [<a 
+href="skriptse40.html#skriptsu148.html" >up</a>] </p></div>
+<!--l. 7345--><p class="noindent" ><a 
+ id="tailskriptsu148.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu148.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+</html> 

@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu162.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+<head><title>Die Stammfunktion und der Hauptsatz der Differential- und Integralrechnung.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 8140--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu163.html" >next</a>] [<a 
+href="skriptsu161.html" >prev</a>] [<a 
+href="skriptsu161.html#tailskriptsu161.html" >prev-tail</a>] [<a 
+href="#tailskriptsu162.html">tail</a>] [<a 
+href="skriptse45.html#skriptsu162.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.3.2</span>&#x00A0;&#x00A0;<a 
+ id="x214-2130004.3.2"></a>Die Stammfunktion und der Hauptsatz der Differential- und Integralrechnung.</h4>
+<div class="newtheorem">
+<!--l. 8142--><p class="noindent" ><span class="head">
+<a 
+ id="x214-213001r3"></a>
+<span 
+class="ptmb8t-x-x-120">Definition 4.3.3.</span>  </span>Die Funktion <!--l. 8143--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math> heisst
+genau dann <span id="textcolor201"><span 
+class="ptmri8t-x-x-120">Stammfunktion</span></span> von <!--l. 8144--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>,
+wenn die folgenden drei Bedingungen erfüllt sind:
+<!--tex4ht:inline--><!--l. 8145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> </mtd><mtd 
+class="eqnarray-2">       <mi 
+>F</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo>     </mtd><mtd 
+class="eqnarray-3">  </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(4.17)</mtext><mtext 
+   id="x214-213002r4.17"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> </mtd><mtd 
+class="eqnarray-2">  <mi 
+>F</mi><mspace width="0.3em" class="thinspace"/><mstyle 
+class="mbox"><mtext  >ist&#x00A0;&#x00A0;in</mtext></mstyle><mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mspace width="0.3em" class="thinspace"/><mstyle 
+class="mbox"><mtext  >differenzierbar</mtext></mstyle><mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-3">  </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(4.18)</mtext><mtext 
+   id="x214-213002r4.18"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> </mtd><mtd 
+class="eqnarray-2">          <msup><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><msub><mrow 
+><mo 
+class="MathClass-rel">|</mo></mrow><mrow 
+>
+</mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></mrow></msub 
+><mo 
+class="MathClass-punc">.</mo>       </mtd><mtd 
+class="eqnarray-3">  </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(4.19)</mtext><mtext 
+   id="x214-213002r4.19"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>                                                      </mtr></mtable>
+</math>
+<!--l. 8148--><p class="nopar" >
+<!--l. 8149--><p class="noindent" >Man nennt <!--l. 8149--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></math> auch das
+<span id="textcolor202"><span 
+class="ptmri8t-x-x-120">unbestimmte Integral</span></span> von <!--l. 8150--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+oder die <span id="textcolor203"><span 
+class="ptmri8t-x-x-120">Aufleitung</span></span> von <!--l. 8151--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>.
+                                                                                     
+                                                                                     
+</div>
+<div class="newtheorem">
+<!--l. 8153--><p class="noindent" ><span class="head">
+<a 
+ id="x214-213003r4"></a>
+<span 
+class="ptmri8t-x-x-120">Remark </span>4.3.4<span 
+class="ptmri8t-x-x-120">.</span>  </span>Die Stammfunktion <!--l. 8154--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math>
+von <!--l. 8154--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+ist,       falls       sie       existiert,       bis       auf       eine       Konstante       bestimmt.       Erfüllt
+<!--l. 8155--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math>
+die         Bedingungen         (<a 
+href="#x214-213002r4.17">4.17<!--tex4ht:ref: eq:defstamm1 --></a>)         -         (<a 
+href="#x214-213002r4.19">4.19<!--tex4ht:ref: eq:defstamm3 --></a>),         so         gilt         gleiches         für
+<!--l. 8156--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>C</mi></math>.
+Umgekehrt seien <!--l. 8157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math>
+und <!--l. 8157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mover 
+accent="true"><mrow 
+><mi 
+>F</mi></mrow><mo 
+class="MathClass-op">&#x0303;</mo></mover></math>
+Stammfunktionen von <!--l. 8157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>.
+Dann gilt <!--l. 8157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>G</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>F</mi> <mo 
+class="MathClass-bin">&minus;</mo><mover 
+accent="true"><mrow 
+><mi 
+>F</mi></mrow><mo 
+class="MathClass-op">&#x0303;</mo></mover> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+sowie <!--l. 8158--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>G</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>
+für <!--l. 8158--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Für beliebige zwei Punkte <!--l. 8158--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+gilt damit nach dem Hauptsatz der Differentialrechnung
+<div class="math-display"><!--l. 8159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                 <mn>0</mn> <mo 
+class="MathClass-rel">&le;</mo><mo 
+class="MathClass-rel">|</mo><mi 
+>G</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>G</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-rel">&le;</mo><munder class="msub"><mrow 
+><mo class="qopname"> sup</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>G</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-rel">|</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-rel">|</mo> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8160--><p class="nopar" >                Folglich                            ist                            die                            Funktion
+<!--l. 8161--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>G</mi></math>
+konstant.
+</div>
+<!--l. 8163--><p class="noindent" >Der folgende Satz ist eine Modifikation von Satz <a 
+href="skriptsu161.html#x213-212001r1">4.3.1<!--tex4ht:ref: thm:NewLeibnitz --></a> und wird als <span 
+class="ptmri8t-x-x-120">Hauptsatz der Differential- und</span>
+<span 
+class="ptmri8t-x-x-120">Integralrechnung </span>bezeichnet. Er stellt eine grundlegende Beziehung zwischen zwei in ihrem
+Charakter zunächst völlig verschiedenen Operationen dar: Zum einen der Berechnung eines
+bestimmten Integrales als Grenzwert einer Summe (oder, wie wir später sehen werden, als
+Berechnung eines Flächeninhaltes) sowie auf der anderen Seite der Umkehrung der Differentiation
+durch die Bestimmung der Stammfunktion.
+                                                                                     
+                                                                                     
+<div class="newtheorem">
+<!--l. 8172--><p class="noindent" ><span class="head">
+<a 
+ id="x214-213004r5"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 4.3.5.</span>  </span><span 
+class="ptmri8t-x-x-120">Die Funktion </span><!--l. 8173--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>R</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+<span 
+class="ptmri8t-x-x-120">besitze eine Stammfunktion </span><!--l. 8174--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math><span 
+class="ptmri8t-x-x-120">.</span>
+<span 
+class="ptmri8t-x-x-120">Dann gilt</span>
+<div class="math-display"><!--l. 8174--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                             <msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8175--><p class="nopar" >
+</div>
+<!--l. 8178--><p class="noindent" >
+<div class="proof">
+<!--l. 8179--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Es             genügt             Satz             <a 
+href="skriptsu161.html#x213-212001r1">4.3.1<!--tex4ht:ref: thm:NewLeibnitz --></a>             auf             die             Funktion
+<!--l. 8179--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&#x1E1E;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+anzuwenden,                                     der                                     Wert                                     von
+<!--l. 8180--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&#x1E1E;</mi></math>
+in  den  Randpunkten  ist  ja  nach  Anmerkung  <a 
+href="skriptsu161.html#x213-212004r2">4.3.2<!--tex4ht:ref: rem:abLeibNew --></a>  für  die  Berechnung  der  bestimmten
+Integrals unbedeutend.                                                                                                               &#x25A1;
+</div>
+                                                                                     
+                                                                                     
+<!--l. 8185--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu163.html" >next</a>] [<a 
+href="skriptsu161.html" >prev</a>] [<a 
+href="skriptsu161.html#tailskriptsu161.html" >prev-tail</a>] [<a 
+href="skriptsu162.html" >front</a>] [<a 
+href="skriptse45.html#skriptsu162.html" >up</a>] </p></div>
+<!--l. 8185--><p class="noindent" ><a 
+ id="tailskriptsu162.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu162.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:20 GMT -->
+</html> 

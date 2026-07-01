@@ -1,0 +1,719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu187.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Das Volumen rotationssymmetrischer Korper</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9589--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu188.html" >next</a>] [<a 
+href="skriptsu186.html" >prev</a>] [<a 
+href="skriptsu186.html#tailskriptsu186.html" >prev-tail</a>] [<a 
+href="#tailskriptsu187.html">tail</a>] [<a 
+href="skriptse52.html#skriptsu187.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.10.2</span>&#x00A0;&#x00A0;<a 
+ id="x246-2450004.10.2"></a>Das Volumen rotationssymmetrischer Körper</h4>
+<!--l. 9591--><p class="noindent" >Das Volumen <!--l. 9591--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>Y</mi> </mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+einer Menge <!--l. 9591--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>Y</mi> <mo 
+class="MathClass-rel">&sub;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></math>
+lässt sich, ähnlich wie oben für den Flächeninhalt beschrieben, als Grenzwert der Volumina
+eingeschriebener und umschreibender Polyeder einführen. Wir werden dies nicht im Detail
+ausführen und verweisen auf Fichtenholz Band 2. Wir werden uns dem allgemeinen Volumenbegriff
+im zweiten Teil dieses Vorlesungszyklus zuwenden und betrachten hier nur rotationssymmetrische
+Körper.
+<!--l. 9599--><p class="noindent" >Wir gehen davon aus, dass das Volumen eines Zylinders durch das
+Produkt aus seiner Grundfläche und seiner Höhe gegeben ist. Es sei
+<!--l. 9601--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math> eine stetige, nichtnegative
+Funktion und <!--l. 9602--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>Y</mi> </math>
+sei der durch Rotation des Graphen dieser Funktion um die
+<!--l. 9603--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+entstehende Körper
+<div class="math-display"><!--l. 9603--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                      <mi 
+>Y</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>z</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mspace width="0.3em" class="thinspace"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&and;</mo> <msup><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>z</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced> <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9604--><p class="nopar" > Für eine Zerlegung <!--l. 9605--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&delta;</mi> <mo 
+class="MathClass-rel">=</mo> <msubsup><mrow 
+><mrow ><mo 
+class="MathClass-open">{</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></msubsup 
+></math>
+von <!--l. 9605--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+setzen wir
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9606--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                <msub><mrow 
+><mi 
+>m</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> inf</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>M</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> sup</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9607--><p class="nopar" > Wir betrachten die Vereinigung von Zylindern
+<div class="math-display"><!--l. 9608--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                       <msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x22C3;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-punc">,</mo><mspace width="2em" class="qquad"/><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+>
+<mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x22C3;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-punc">,</mo>
+</mrow></math></div>
+<!--l. 9609--><p class="nopar" > wobei
+<!--tex4ht:inline--><!--l. 9610--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfenced separators="" 
+open="{"  close="}" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>z</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mspace width="0.3em" class="thinspace"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&and;</mo> <msup><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>z</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">&le;</mo> <msubsup><mrow 
+><mi 
+>m</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mn>2</mn></mrow></msubsup 
+></mrow></mfenced> <mo 
+class="MathClass-punc">,</mo> </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfenced separators="" 
+open="{"  close="}" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>z</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mspace width="0.3em" class="thinspace"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&and;</mo> <msup><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>z</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">&le;</mo> <msubsup><mrow 
+><mi 
+>M</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mn>2</mn></mrow></msubsup 
+></mrow></mfenced> <mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                                       </mtr></mtable>
+</math>
+                                                                                     
+                                                                                     
+<!--l. 9612--><p class="nopar" >
+Wegen <!--l. 9613--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">&sub;</mo> <mi 
+>Y</mi> <mo 
+class="MathClass-rel">&sub;</mo> <msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+>
+<mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></math> soll
+<!--l. 9614--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>Y</mi> </mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+>
+<mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> gelten. Die Volumina
+der Körper <!--l. 9615--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></math>
+und <!--l. 9615--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></math> gleichen
+den Summen der Volumina der entsprechenden Zylinder, welche ihrerseits auf Darboux-Summen des
+Integrales <!--l. 9617--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>J</mi> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi></math>
+führen
+<!--tex4ht:inline--><!--l. 9618--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mi 
+>m</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mn>2</mn></mrow></msubsup 
+><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><mi 
+>s</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-punc">,</mo><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo> </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>&delta;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>Z</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msubsup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mi 
+>M</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow><mrow 
+><mn>2</mn></mrow></msubsup 
+><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-punc">,</mo><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                  </mtr></mtable>
+</math>
+<!--l. 9620--><p class="nopar" >
+<!--l. 9623--><p class="noindent" >Da <!--l. 9623--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>s</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-punc">,</mo><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>J</mi></math> und
+<!--l. 9623--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mo 
+class="MathClass-punc">,</mo><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>J</mi></math> für
+<!--l. 9624--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&lambda;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn></math>, so
+folgt<table class="equation"><tr><td> <a 
+ id="x246-245003r78"></a>
+<!--l. 9624--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                              <mi 
+>V</mi> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>Y</mi> </mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.78)</td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 9629--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu188.html" >next</a>] [<a 
+href="skriptsu186.html" >prev</a>] [<a 
+href="skriptsu186.html#tailskriptsu186.html" >prev-tail</a>] [<a 
+href="skriptsu187.html" >front</a>] [<a 
+href="skriptse52.html#skriptsu187.html" >up</a>] </p></div>
+<!--l. 9629--><p class="noindent" ><a 
+ id="tailskriptsu187.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu187.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

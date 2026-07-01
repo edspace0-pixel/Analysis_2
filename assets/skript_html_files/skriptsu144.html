@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu144.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+<head><title>Wendepunkte von Funktionen.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 7040--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu143.html" >prev</a>] [<a 
+href="skriptsu143.html#tailskriptsu143.html" >prev-tail</a>] [<a 
+href="#tailskriptsu144.html">tail</a>] [<a 
+href="skriptse38.html#skriptsu144.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.11.3</span>&#x00A0;&#x00A0;<a 
+ id="x188-1870003.11.3"></a>Wendepunkte von Funktionen.</h4>
+<!--l. 7042--><p class="noindent" >Für eine differenzierbare konvexe Funktion <!--l. 7042--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+gilt nach Satz <a 
+href="skriptsu142.html#x186-185007r3">3.11.3<!--tex4ht:ref: thm:konvmonh --></a>
+<!--tex4ht:inline--><!--l. 7043--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mi 
+>h</mi> <mo 
+class="MathClass-rel">&#x003C;</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mi 
+>h</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                                        </mtr></mtable>
+</math>
+<!--l. 7045--><p class="nopar" >
+für <!--l. 7046--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+und <!--l. 7046--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Dies impliziert
+                                                                                     
+                                                                                     
+<!--tex4ht:inline--><!--l. 7046--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mi 
+>h</mi> <mo 
+class="MathClass-rel">&#x003C;</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mi 
+>h</mi> <mo 
+class="MathClass-rel">&#x003C;</mo> <mn>0</mn><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                                            </mtr></mtable>
+</math>
+<!--l. 7048--><p class="nopar" >
+Der Graph einer konvexen Funktion auf dem Intervall
+<!--l. 7049--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math> liegt damit
+immer über oder auf jeder Tangente, welche in diesem Intervall an diesen Graph gelegt wird. Umgekehrt
+liegt der Graph einer konkaven Funktion immer unter oder auf jeder solchen Tangente. Wechselt in einem
+Punkt <!--l. 7053--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+die Funktion von konvexem zu konkavem Verhalten, so durchdringt die Tangente in diesem Punkt die
+Kurve: Auf einer Seite liegt die Tangente über und auf der anderen Seite unter dem Graphen der
+Funktion.
+<div class="newtheorem">
+<!--l. 7058--><p class="noindent" ><span class="head">
+<a 
+ id="x188-187003r7"></a>
+<span 
+class="ptmb8t-x-x-120">Definition 3.11.7.</span>  </span>Eine                                               im                                               Intervall
+<!--l. 7059--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+differenzierbare                                                                                                             Funktion
+<!--l. 7059--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+besitzt                                                               im                                                               Punkt
+<!--l. 7060--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+genau                  dann                  einen                  <span id="textcolor186"><span 
+class="ptmri8t-x-x-120">Wendepunkt</span></span>,                  wenn                  ein
+<!--l. 7061--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&#x03B5;</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></math>
+existiert,                                                               so                                                               dass
+<!--l. 7061--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+in
+<!--l. 7061--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+konvex                                      (konkav)                                      und                                      in
+<!--l. 7062--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+konkav       (konvex)       ist.       Die       Tangente       an       den       Graph       der       Funktion
+<!--l. 7063--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+im                                                                                                                             Wendepunkt
+                                                                                     
+                                                                                     
+<!--l. 7063--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+heisst <span id="textcolor187"><span 
+class="ptmri8t-x-x-120">Wendetangente</span></span>.
+</div>
+<div class="newtheorem">
+<!--l. 7066--><p class="noindent" ><span class="head">
+<a 
+ id="x188-187004r8"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.11.8.</span>  </span><span 
+class="ptmri8t-x-x-120">Die stetig</span><span class="footnote-mark"><a 
+href="#fn13x3" id="fn13x3-bk"><sup class="textsuperscript">13</sup></a></span><a 
+ id="x188-187005f13"></a>
+<span 
+class="ptmri8t-x-x-120">differenzierbare Funktion </span><!--l. 7072--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+<span 
+class="ptmri8t-x-x-120">besitze im Punkt </span><!--l. 7073--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">einen Wendepunkt. Dann nimmt die Ableitung </span><!--l. 7073--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+<span 
+class="ptmri8t-x-x-120">im Punkt </span><!--l. 7074--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+<span 
+class="ptmri8t-x-x-120">ein lokales Extremum an.</span>
+</div>
+<!--l. 7076--><p class="noindent" >
+<div class="proof">
+<!--l. 7077--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Ein                                                                                                             Wendepunkt
+<!--l. 7077--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+teilt ein konvexes von einem konkaven Kurvenstck. Nach Satz <a 
+href="skriptsu143.html#x187-186001r5">3.11.5<!--tex4ht:ref: thm:konvdiff --></a> ist dies gleichbedeutend
+damit,                                                                                                                                    dass
+<!--l. 7079--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+das                                 Monotonieverhalten                                 im                                 Punkt
+<!--l. 7079--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+ändert, d.h.
+<div class="math-display"><!--l. 7079--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+               <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mspace width="0.3em" class="thinspace"/><mo 
+class="MathClass-punc">,</mo><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mspace width="0.3em" class="thinspace"/>
+</mrow></math></div>
+                                                                                     
+                                                                                     
+<!--l. 7080--><p class="nopar" > oder
+<div class="math-display"><!--l. 7081--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+               <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mspace width="0.3em" class="thinspace"/><mo 
+class="MathClass-punc">,</mo><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mspace width="0.3em" class="thinspace"/><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 7082--><p class="nopar" > In beiden Fällen ist aufgrund der Stetigkeit <!--l. 7083--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+ein lokaler Extremwert für <!--l. 7084--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>.
+                                                                                    &#x25A1;
+</div>
+<div class="newtheorem">
+<!--l. 7086--><p class="noindent" ><span class="head">
+<a 
+ id="x188-187006r9"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.11.9.</span>  </span><span 
+class="ptmri8t-x-x-120">Die                    zweifach                    differenzierbare                    Funktion</span>
+<!--l. 7087--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+<span 
+class="ptmri8t-x-x-120">besitze im Punkt </span><!--l. 7088--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">einen Wendepunkt. Dann gilt </span><!--l. 7088--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math><span 
+class="ptmri8t-x-x-120">.</span>
+</div>
+<!--l. 7090--><p class="noindent" >
+<div class="proof">
+<!--l. 7091--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Nach dem Satz von Fermat ist <!--l. 7091--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>
+eine  notwendige  Bedingung  dafür,  dass  die  differenzierbare  (und  damit  stetige)  Funktion
+<!--l. 7093--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>,
+wie im Satz <a 
+href="#x188-187004r8">3.11.8<!--tex4ht:ref: thm:notwbedwendp --></a> bewiesen, im Wendepunkt <!--l. 7094--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+ein lokales Extremum annimmt.                                                                                                &#x25A1;
+                                                                                     
+                                                                                     
+</div>
+<!--l. 7096--><p class="noindent" >Man kann nun Satz <a 
+href="skriptsu141.html#x184-183006r9">3.10.9<!--tex4ht:ref: thm:lokmaxnord --></a> für den Fall von Wendepunkten modifizieren.
+<div class="newtheorem">
+<!--l. 7099--><p class="noindent" ><span class="head">
+<a 
+ id="x188-187007r10"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.11.10.</span>  </span><span 
+class="ptmri8t-x-x-120">Die                                                                                                             in</span>
+<!--l. 7100--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">differenzierbare                                                                                                              Funktion</span>
+<!--l. 7100--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+<span 
+class="ptmri8t-x-x-120">besitze</span>
+<!--l. 7101--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>
+<span 
+class="ptmri8t-x-x-120">Ableitungen                                                          im                                                          Punkt</span>
+<!--l. 7101--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">und es gelte</span>
+<div class="math-display"><!--l. 7101--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                               <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-op">&hellip;</mo> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn>
+</mrow></math></div>
+<!--l. 7102--><p class="nopar" > <span 
+class="ptmri8t-x-x-120">sowie </span><!--l. 7103--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">&ne;</mo><mn>0</mn></math><span 
+class="ptmri8t-x-x-120">,</span>
+<span 
+class="ptmri8t-x-x-120">wobei </span><!--l. 7103--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>n</mi></math>
+<span 
+class="ptmri8t-x-x-120">eine gerade nat</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">rliche Zahl ist. Dann besitzt </span><!--l. 7104--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+<span 
+class="ptmri8t-x-x-120">in </span><!--l. 7104--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+<span 
+class="ptmri8t-x-x-120">einen Wendepunkt.</span>
+</div>
+<!--l. 7106--><p class="noindent" >
+<div class="proof">
+<!--l. 7107--><p class="noindent" ><span class="head">
+                                                                                     
+                                                                                     
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Es sei <!--l. 7107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mi 
+>k</mi></math>
+mit <!--l. 7107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>k</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>&#x2115;</mi></math>.
+O.B.d.A. sei <!--l. 7107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></math>.
+Wendet man den Satz von Taylor für <!--l. 7108--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+></math>
+im Punkt <!--l. 7108--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+an, so erhält man
+<div class="math-display"><!--l. 7109--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                  <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn><mi 
+>k</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">!</mo></mrow></mfrac> <msup><mrow 
+><mi 
+>h</mi></mrow><mrow 
+><mn>2</mn><mi 
+>k</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>o</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>h</mi></mrow><mrow 
+><mn>2</mn><mi 
+>k</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>h</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 7110--><p class="nopar" > Daraus folgt, dass <!--l. 7111--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x003C;</mo> <mn>0</mn></math>
+für <!--l. 7111--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo> <mn>0</mn><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+und <!--l. 7112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></math>
+für <!--l. 7112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+für genügend kleines <!--l. 7113--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&#x03B5;</mi> <mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn></math>.
+Nach Satz <a 
+href="skriptsu140.html#x183-182001r2">3.10.2<!--tex4ht:ref: thm:monoton --></a> ist <!--l. 7113--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+damit monoton fallend in <!--l. 7114--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+und monoton wachsend für <!--l. 7114--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Also ist <!--l. 7115--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+in <!--l. 7115--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>&#x03B5;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+konkav und in <!--l. 7115--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B5;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+konvex. Damit ist <!--l. 7116--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>c</mi></math>
+ein Wendepunkt.                                                                                                                        &#x25A1;
+</div>
+                                                                                     
+                                                                                     
+<div class="footnotes"><!--l. 7072--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn13x3-bk" id="fn13x3">
+<sup class="textsuperscript">13</sup></a></span><span 
+class="ptmr8t-">Mit     Hilfe     des     sp</span><span 
+class="ptmr8t-">ä</span><span 
+class="ptmr8t-">ter     formulierten     Satzes     von     Darboux     (Die     Ableitung     einer     in</span>
+   <!--l. 7072--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+   <span 
+class="ptmr8t-">differenzierbaren  Funktion  besitzt  keine  Sprungstellen.)  kann  man  zeigen,  dass  der  hier  formulierte  Satz</span>
+   <span 
+class="ptmr8t-">auch ohne diese Stetigkeitsbedingung gilt.</span>                                                  </div> <!--l. 7119--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu143.html" >prev</a>]
+[<a 
+href="skriptsu143.html#tailskriptsu143.html" >prev-tail</a>] [<a 
+href="skriptsu144.html" >front</a>] [<a 
+href="skriptse38.html#skriptsu144.html" >up</a>] </p></div>
+<!--l. 7119--><p class="noindent" ><a 
+ id="tailskriptsu144.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu144.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+</html> 

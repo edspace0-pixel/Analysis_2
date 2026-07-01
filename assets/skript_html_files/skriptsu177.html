@@ -1,0 +1,1313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu177.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Die Rechteckformel: Stuckweise Approximation mit P0.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 8903--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu178.html" >next</a>] [<a 
+href="skriptsu176.html" >prev</a>] [<a 
+href="skriptsu176.html#tailskriptsu176.html" >prev-tail</a>] [<a 
+href="#tailskriptsu177.html">tail</a>] [<a 
+href="skriptse50.html#skriptsu177.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.8.2</span>&#x00A0;&#x00A0;<a 
+ id="x234-2330004.8.2"></a>Die Rechteckformel: Stückweise Approximation mit
+<!--l. 8903--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>P</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>.</h4>
+<!--l. 8905--><p class="noindent" >Wir betrachten die äquidistante Zerlegung <!--l. 8905--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&delta;</mi> <mo 
+class="MathClass-rel">=</mo> <msubsup><mrow 
+><mrow ><mo 
+class="MathClass-open">{</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></msubsup 
+></math>,
+<div class="math-display"><!--l. 8905--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi><mi 
+>k</mi><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>k</mi> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&hellip;</mo><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>h</mi> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>b</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>a</mi></mrow> 
+  <mrow 
+><mi 
+>n</mi></mrow></mfrac>  <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8906--><p class="nopar" > Desweiteren sei
+<div class="math-display"><!--l. 8907--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                      <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+      <mrow 
+><mn>2</mn></mrow></mfrac>       <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>k</mi> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&hellip;</mo><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8908--><p class="nopar" > Wir approximieren auf jedem Intervall <!--l. 8909--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+die Funktion <!--l. 8910--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+durch eine konstante Funktion (ein Polynom vom Grad
+<!--l. 8911--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>0</mn></math>), und
+zwar
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8911--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <msub><mrow 
+><mi 
+>P</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>k</mi> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo><mo 
+class="MathClass-op">&hellip;</mo><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>1</mn><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8912--><p class="nopar" > In der Rechteckformel nähert man das bestimmte Integral von
+<!--l. 8913--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math> auf
+<!--l. 8914--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+folgendermaßen an:
+<!--tex4ht:inline--><!--l. 8914--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mo> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi>                             </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">            </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&asymp;</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msubsup><mrow 
+><mo> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><msub><mrow 
+><mi 
+>P</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi>                           </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">            </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&asymp;</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&sdot;</mo> <mi 
+>h</mi> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>b</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>a</mi></mrow> 
+  <mrow 
+><mi 
+>n</mi></mrow></mfrac>  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-punc">:</mo> <msubsup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>R</mi></mrow><mrow 
+><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>            </mtr></mtable>
+</math>
+<!--l. 8917--><p class="nopar" >
+Wir wollen nun den Fehler dieser Approximation abschätzen. Dazu nehmen wir an, dass
+<!--l. 8919--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-rel">&isin;</mo> <msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. Dann gilt nach
+(<a 
+href="skriptsu174.html#x230-229003r4.44">4.44<!--tex4ht:ref: eq:taylorrestmwsint --></a>) für <!--l. 8920--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math> bei einer
+Taylorentwicklung von <!--l. 8920--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+um den Punkt <!--l. 8921--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8921--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                 <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mn>2</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&#x03B8;</mi></mrow><mrow 
+>
+<mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>
+</mrow></math></div>
+<!--l. 8922--><p class="nopar" > mit einen geeigneten Punkt <!--l. 8923--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&#x03B8;</mi></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></msub 
+></math>
+zwischen <!--l. 8923--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>
+und <!--l. 8924--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>.
+Da die linke Seite als auch die ersten beiden Terme auf der rechten Seite auf
+<!--l. 8925--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>
+integrierbar sind, so ist auch der dritte Term der rechten Seite auf diesem Intervall integrierbar und es
+gilt
+<!--tex4ht:inline--><!--l. 8927--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mi 
+>h</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">                </mtd><mtd 
+class="eqnarray-2">    </mtd><mtd 
+class="eqnarray-3">  <mspace width="2em" class="qquad"/> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mn>2</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&#x03B8;</mi></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi><mo 
+class="MathClass-punc">.</mo> </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                             </mtr></mtable>
+</math>
+<!--l. 8929--><p class="nopar" >
+Da das Integral <!--l. 8930--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></math>
+wegen <!--l. 8930--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-bin">+</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+     <mrow 
+><mn>2</mn></mrow></mfrac>      </math>
+verschwindet, so folgt
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8931--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+         <mi 
+>R</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>h</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mn>2</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&#x03B8;</mi></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi>
+</mrow></math></div>
+<!--l. 8932--><p class="nopar" > mit
+<!--tex4ht:inline--><!--l. 8933--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mo 
+class="MathClass-rel">|</mo><mi 
+>R</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&le;</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>2</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo class="qopname">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><msubsup><mrow 
+><mo class="qopname">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi>                      </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">        </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&le;</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>2</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo class="qopname">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><msubsup><mrow 
+><mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>3</mn></mrow></mfrac><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></mrow></mfenced> </mrow><mrow 
+><msub><mrow 
+>
+<mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+>
+            </mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><mn>2</mn></mrow> 
+<mrow 
+><mn>3</mn><mo 
+class="MathClass-punc">!</mo></mrow></mfrac><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mi 
+>h</mi></mrow>
+<mrow 
+><mn>2</mn></mrow></mfrac></mrow></mfenced> </mrow><mrow 
+><mn>3</mn></mrow></msup 
+><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+>
+<mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo class="qopname">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>           </mtr></mtable>
+</math>
+<!--l. 8935--><p class="nopar" >
+Mit Hilfe der Dreiecksungleichung erhält man nun
+                                                                                     
+                                                                                     
+<!--tex4ht:inline--><!--l. 8936--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mfenced separators="" 
+open="|"  close="|" ><mrow><msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo><mfrac><mrow 
+><mi 
+>b</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>a</mi></mrow> 
+  <mrow 
+><mi 
+>n</mi></mrow></mfrac>  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfenced></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&le;</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mo 
+class="MathClass-rel">|</mo><mi 
+>R</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-rel">&le;</mo>            </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">                                    </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&le;</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mfrac><mrow 
+><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><msub><mrow 
+><mi 
+>&Delta;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo></mrow>
+    <mrow 
+><mn>2</mn><mn>4</mn></mrow></mfrac>         <msup><mrow 
+><mi 
+>h</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+>    </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">                                    </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">&le;</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>2</mn><mn>4</mn></mrow></mfrac> <mo 
+class="MathClass-bin">&sdot;</mo><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-bin">&sdot;</mo> <mi 
+>n</mi> <mo 
+class="MathClass-bin">&sdot;</mo><msup><mrow 
+><mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mi 
+>b</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>a</mi></mrow>
+  <mrow 
+><mi 
+>n</mi></mrow></mfrac>  </mrow></mfenced></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>          </mtr></mtable>
+</math>
+<!--l. 8939--><p class="nopar" >
+und schliesslich
+<div class="math-display"><!--l. 8940--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                 <mfenced separators="" 
+open="|"  close="|" ><mrow><msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msubsup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+>
+<mi 
+>R</mi></mrow><mrow 
+><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfenced> <mo 
+class="MathClass-rel">&le;</mo><munder class="msub"><mrow 
+><mo class="qopname"> max</mo> </mrow><mrow 
+>
+<mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow></munder 
+><mo 
+class="MathClass-rel">|</mo><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mo 
+class="MathClass-bin">&sdot;</mo><mfrac><mrow 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>a</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></mrow> 
+ <mrow 
+><mn>2</mn><mn>4</mn> <mo 
+class="MathClass-bin">&sdot;</mo> <msup><mrow 
+><mi 
+>n</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>  <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8941--><p class="nopar" > Damit verhält sich der Fehler bei der Anwendung der Rechteckformel wie
+<!--l. 8943--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>O</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>n</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>2</mn></mrow></msup 
+></mrow></mfenced></math>.
+                                                                                     
+                                                                                     
+<!--l. 8946--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu178.html" >next</a>] [<a 
+href="skriptsu176.html" >prev</a>] [<a 
+href="skriptsu176.html#tailskriptsu176.html" >prev-tail</a>] [<a 
+href="skriptsu177.html" >front</a>] [<a 
+href="skriptse50.html#skriptsu177.html" >up</a>] </p></div>
+<!--l. 8946--><p class="noindent" ><a 
+ id="tailskriptsu177.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu177.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

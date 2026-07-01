@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu183.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Der Tangential- und der Krummungsvektor.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9305--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu184.html" >next</a>] [<a 
+href="skriptsu182.html" >prev</a>] [<a 
+href="skriptsu182.html#tailskriptsu182.html" >prev-tail</a>] [<a 
+href="#tailskriptsu183.html">tail</a>] [<a 
+href="skriptse51.html#skriptsu183.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.9.4</span>&#x00A0;&#x00A0;<a 
+ id="x241-2400004.9.4"></a>Der Tangential- und der Krümmungsvektor.</h4>
+<!--l. 9307--><p class="noindent" >Es sei <!--l. 9307--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math> eine durch
+<!--l. 9307--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi><mspace width="2.66638pt" class="tmspace"/><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> erzeugte Jordansche
+Kurve der Klasse <!--l. 9308--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>
+und <!--l. 9308--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> sei
+deren kanonische Parametrisierung. Dann bezeichnet<table class="equation"><tr><td> <a 
+ id="x241-240001r67"></a>
+<!--l. 9309--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+             <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>   <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+   <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   <mo 
+class="MathClass-bin">&sdot;</mo><mfrac><mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+    <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>     <mo 
+class="MathClass-rel">=</mo>    <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo>
+</math></td><td class="eq-no">(4.67)</td></tr></table>
+<!--l. 9311--><p class="noindent" >der <span id="textcolor217"><span 
+class="ptmri8t-x-x-120">Tangentialvektor</span></span> an <!--l. 9311--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math>
+im Punkt <!--l. 9312--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+Dieser  besitzt  offensichtlich  die  konstante  Länge
+<!--l. 9313--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>1</mn></math>.<span class="footnote-mark"><a 
+href="#fn10x4" id="fn10x4-bk"><sup class="textsuperscript">10</sup></a></span><a 
+ id="x241-240002f10"></a>
+<!--l. 9319--><p class="noindent" >Ist <!--l. 9319--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math> eine Jordansche
+Kurve der Klasse <!--l. 9319--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math>,
+so ist die Abbildung <!--l. 9320--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&tau;</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+selbst differenzierbar und man kann den sogenannten Krümmungsvektor einführen
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9322--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                              <mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>     <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+   <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>  <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9323--><p class="nopar" > Dann gilt immer<table class="equation"><tr><td> <a 
+ id="x241-240003r68"></a>
+<!--l. 9324--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                              <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&perp;</mo> <mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>s</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.68)</td></tr></table>
+<!--l. 9326--><p class="noindent" >Zum Beweis von (<a 
+href="#x241-240003r68">4.68<!--tex4ht:ref: eq:taukappaorth --></a>) differenziert man die Identität
+<div class="math-display"><!--l. 9326--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                   <mn>1</mn> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>
+</mrow></math></div>
+<!--l. 9327--><p class="nopar" > und erhält sofort
+                                                                                     
+                                                                                     
+<!--tex4ht:inline--><!--l. 9328--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mn>0</mn></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><mi 
+>d</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac> <mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><mi 
+>d</mi></mrow> 
+<mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>                    </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">  </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&sum;</mo>
+  </mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><mn>2</mn><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfrac><mrow 
+><mi 
+>d</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>j</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><mn>2</mn><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+>
+<mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow><msub><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+><mi 
+>j</mi></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>&tau;</mi></mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">  </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">  <mn>2</mn><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msubsup><mrow 
+><mi 
+>&tau;</mi></mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow><mo 
+class="MathClass-punc">.</mo>                           </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                    </mtr></mtable>
+</math>
+<!--l. 9331--><p class="nopar" >
+Also verschwindet das Skalarprodukt <!--l. 9332--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow></math>
+und folglich stehen diese Vektoren orthogonal zueinander.
+<!--l. 9335--><p class="noindent" >Die Grösse <!--l. 9335--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>K</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></math> nennt man die
+<span id="textcolor218"><span 
+class="ptmri8t-x-x-120">Kr</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">mmung</span></span> einer Kurve im Punkt <!--l. 9336--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+und <!--l. 9336--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&rho;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mo 
+class="MathClass-bin">&#x2215;</mo><mi 
+>K</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+bezeichnet den <span id="textcolor219"><span 
+class="ptmri8t-x-x-120">Kr</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">mmungsradius</span></span> in diesem Punkt.
+                                                                                     
+                                                                                     
+<div class="footnotes"><!--l. 9317--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn10x4-bk" id="fn10x4">
+<sup class="textsuperscript">10</sup></a></span><span 
+class="ptmr8t-">In der kanonischen Parametrisierung durchluft demnach der Punkt</span>
+   <!--l. 9317--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> <span 
+class="ptmr8t-">die Kurve so, dass der</span>
+   <span 
+class="ptmr8t-">Betrag der Geschwindigkeit </span><!--l. 9317--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></math>
+   <span 
+class="ptmr8t-">stets gleich </span><!--l. 9317--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>1</mn></math>
+   <span 
+class="ptmr8t-">ist.</span>                                                                                </div> <!--l. 9340--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu184.html" >next</a>]
+[<a 
+href="skriptsu182.html" >prev</a>] [<a 
+href="skriptsu182.html#tailskriptsu182.html" >prev-tail</a>] [<a 
+href="skriptsu183.html" >front</a>] [<a 
+href="skriptse51.html#skriptsu183.html" >up</a>] </p></div>
+<!--l. 9340--><p class="noindent" ><a 
+ id="tailskriptsu183.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu183.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

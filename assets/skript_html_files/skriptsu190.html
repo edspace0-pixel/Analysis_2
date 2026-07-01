@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu190.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Der Schwerpunkt einer Flache.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9736--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu189.html" >prev</a>] [<a 
+href="skriptsu189.html#tailskriptsu189.html" >prev-tail</a>] [<a 
+href="#tailskriptsu190.html">tail</a>] [<a 
+href="skriptse52.html#skriptsu190.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.10.5</span>&#x00A0;&#x00A0;<a 
+ id="x249-2480004.10.5"></a>Der Schwerpunkt einer Fläche.</h4>
+<!--l. 9738--><p class="noindent" >Es sei <!--l. 9738--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>y</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> eine stetige
+nichtnegative Funktion auf <!--l. 9738--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+und <!--l. 9739--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&delta;</mi> <mo 
+class="MathClass-rel">=</mo> <msubsup><mrow 
+><mrow ><mo 
+class="MathClass-open">{</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">}</mo></mrow></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></msubsup 
+></math> sei eine
+Zerlegung von <!--l. 9739--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>.
+Dann liegt der Schwerpunkt des Rechtecks
+<div class="math-display"><!--l. 9740--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                              <msub><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow>
+</mrow></math></div>
+<!--l. 9741--><p class="nopar" > in dessen Mittelpunkt <!--l. 9742--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-bin">+</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msub 
+></mrow>
+      <mrow 
+><mn>2</mn></mrow></mfrac>      <mo 
+class="MathClass-punc">,</mo> <mfrac><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+   <mrow 
+><mn>2</mn></mrow></mfrac>   </mrow></mfenced></math>.
+Die Masse eines solchen Rechtecks sei proportional zu dessen Fläche
+<!--l. 9744--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>. Den gemeinsamen
+Schwerpunkt aller Rechtecke <!--l. 9745--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>
+erhält man, indem man deren jeweilige Masse im jeweiligen Schwerpunkt
+<!--l. 9746--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+konzentriert, und dann den Schwerpunkt des dabei entstehenden Systems von Massepunkten
+betrachtet
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9747--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+             <msubsup><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&delta;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mi 
+>k</mi></mrow></msub 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+      <mrow 
+><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi></mrow></munder 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></mfrac>      <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&delta;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></munderover 
+><mfrac><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+   <mrow 
+><mn>2</mn></mrow></mfrac>   <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow> 
+        <mrow 
+><munder class="msub"><mrow 
+><mo mathsize="big" 
+> &sum;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi></mrow></munder 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>&Delta;</mi><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></mfrac>        <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9748--><p class="nopar" > Im Grenzwert <!--l. 9749--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&lambda;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn></math>
+konvergieren diese Grössen folgendermaßen
+<!--tex4ht:inline--><!--l. 9750--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <msub><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+></mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+><mi 
+>&lambda;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">&rarr;</mo><mn>0</mn></mrow></munder 
+><msubsup><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&delta;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>x</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi></mrow>
+
+    <mrow 
+><mi 
+>A</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Omega;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac>    <mo 
+class="MathClass-punc">,</mo> </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+></mtd><mtd 
+class="eqnarray-2">   <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+><mi 
+>&lambda;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&delta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">&rarr;</mo><mn>0</mn></mrow></munder 
+><msubsup><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mi 
+>&delta;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>2</mn></mrow></mfrac><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi></mrow>
+
+    <mrow 
+><mi 
+>A</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Omega;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></mfrac>    <mo 
+class="MathClass-punc">,</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(4.82)</mtext><mtext 
+   id="x249-248001r4.82"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>                                             </mtr></mtable>
+</math>
+<!--l. 9752--><p class="nopar" >
+<!--l. 9753--><p class="noindent" >wobei
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9753--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                 <mi 
+>A</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Omega;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi>
+</mrow></math></div>
+<!--l. 9754--><p class="nopar" > für den Flächeninhalt des Gebietes
+<div class="math-display"><!--l. 9755--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <mi 
+>&Omega;</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">{</mo><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>y</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">|</mo><mspace width="0.3em" class="thinspace"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">&and;</mo> <mi 
+>y</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow><mo 
+class="MathClass-close">}</mo></mrow>
+</mrow></math></div>
+<!--l. 9756--><p class="nopar" > steht. Man nimmt dann <!--l. 9757--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>X</mi></mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> als
+den Schwerpunkt des Gebietes <!--l. 9758--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&Omega;</mi></math>
+an.
+<!--l. 9760--><p class="noindent" >Im Vergleich mit (<a 
+href="skriptsu187.html#x246-245003r78">4.78<!--tex4ht:ref: eq:volrotkoerper --></a>) führt uns Formel (<a 
+href="#x249-248001r4.82">4.82<!--tex4ht:ref: eq:schwpktflaeche --></a>) zur zweiten <span id="textcolor223">Guldinschen</span> Regel:
+<div class="math-display"><!--l. 9761--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                            <mn>2</mn><mi 
+>&pi;</mi><msub><mrow 
+><mi 
+>Y</mi> </mrow><mrow 
+><mi 
+>s</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">&sdot;</mo> <mi 
+>A</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&Omega;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&pi;</mi><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>d</mi><mi 
+>x</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9762--><p class="nopar" >
+<div class="newtheorem">
+                                                                                     
+                                                                                     
+<!--l. 9765--><p class="noindent" ><span class="head">
+<a 
+ id="x249-248002r11"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 4.10.11.</span>  </span><span 
+class="ptmri8t-x-x-120">Das            Volumen            eines            durch            Rotation            des</span>
+<span 
+class="ptmri8t-x-x-120">Graphen           einer           stetigen,           nichtnegativen           Funktion           um           die</span>
+<!--l. 9767--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math><span 
+class="ptmri8t-x-x-120">-Achse</span>
+<span 
+class="ptmri8t-x-x-120">erzeugten K</span><span 
+class="ptmri8t-x-x-120">ö</span><span 
+class="ptmri8t-x-x-120">rpers ist gleich dem Umfang, den der Schwerpunkt des vom Graphen und der</span>
+<!--l. 9768--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math><span 
+class="ptmri8t-x-x-120">-Achse</span>
+<span 
+class="ptmri8t-x-x-120">eingeschlossenen Gebietes bei der Rotation </span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">berstreicht multipliziert mit dem Fl</span><span 
+class="ptmri8t-x-x-120">ä</span><span 
+class="ptmri8t-x-x-120">cheninhalt</span>
+<span 
+class="ptmri8t-x-x-120">dieses Gebietes.</span>
+</div>
+<!--l. 9772--><p class="noindent" >Diese Regel erstreckt sich auch auf Körper, die durch Rotation einer geschlossenen Jordanschen Kurve, welche
+die <!--l. 9773--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+nicht durchschneidet, gebildet werden. Dabei sind dann der Schwerpunkt des von der Kurve
+eingeschlossenen Gebietes und die Fläche dieses eingeschlossenen Gebietes einzusetzen.
+<div class="newtheorem">
+<!--l. 9778--><p class="noindent" ><span class="head">
+<a 
+ id="x249-248003r12"></a>
+<span 
+class="ptmb8t-x-x-120">Example 4.10.12.</span>  </span>Wir betrachten den im Beispiel <a 
+href="skriptsu189.html#x248-247003r10">4.10.10<!--tex4ht:ref: ex:torus --></a> definierten Torus. Die Kreisfläche
+beträgt <!--l. 9780--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&pi;</mi></math>
+und    der    Schwerpunkt    der    Fläche    überstreicht    bei    der    Rotation    um    die
+<!--l. 9781--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi></math>-Achse
+wiederum einen Umfang von <!--l. 9781--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>4</mn><mi 
+>&pi;</mi></math>.
+Damit      beträgt      das      Volumen      des      vom      Torus      umschlossenen      Gebietes
+<!--l. 9782--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mn>4</mn><msup><mrow 
+><mi 
+>&pi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math>.
+</div>
+                                                                                     
+                                                                                     
+<!--l. 9785--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu189.html" >prev</a>] [<a 
+href="skriptsu189.html#tailskriptsu189.html" >prev-tail</a>] [<a 
+href="skriptsu190.html" >front</a>] [<a 
+href="skriptse52.html#skriptsu190.html" >up</a>] </p></div>
+<!--l. 9785--><p class="noindent" ><a 
+ id="tailskriptsu190.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu190.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

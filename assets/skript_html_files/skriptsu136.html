@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu136.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+<head><title>Das Differential erster Ordnung.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 6647--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu137.html" >next</a>] [<a 
+href="#tailskriptsu136.html">tail</a>] [<a 
+href="skriptse36.html#skriptsu136.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.9.1</span>&#x00A0;&#x00A0;<a 
+ id="x178-1770003.9.1"></a>Das Differential erster Ordnung.</h4>
+<!--l. 6649--><p class="noindent" >Es sei <!--l. 6649--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>K</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>&#x211D;</mi><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x2102;</mi></mrow><mo 
+class="MathClass-close">}</mo></mrow></math> und
+<!--l. 6649--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>X</mi></math> sei eine offene
+Teilmenge von <!--l. 6650--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>X</mi></math>.
+Die Funktion <!--l. 6650--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo> <mi 
+>X</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+sei im Punkt <!--l. 6651--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>X</mi></math>
+differenzierbar. Nach (<a 
+href="skriptsu117.html#x152-151004r15">3.15<!--tex4ht:ref: eq:ogrw3 --></a>) ist dies äquivalent zu<table class="equation"><tr><td> <a 
+ id="x178-177001r35"></a>
+<!--l. 6652--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                      <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>h</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>o</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>h</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(3.35)</td></tr></table>
+                                                                                     
+                                                                                     
+<!--l. 6654--><p class="noindent" >Bezeichnet man mit <!--l. 6654--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&Delta;</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+den <span id="textcolor180"><span 
+class="ptmri8t-x-x-120">Zuwachs</span></span> <!--l. 6655--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+der Funktion <!--l. 6655--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math> im
+Punkt <!--l. 6655--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math> bei einer
+Verschiebung <!--l. 6656--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi></math>
+des Argumentes, so ist
+<div class="math-display"><!--l. 6656--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                 <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-punc">:</mo><mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>h</mi>
+</mrow></math></div>
+<!--l. 6657--><p class="nopar" > der  lineare  Anteil  des  Zuwachses  von
+<!--l. 6658--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>.<span class="footnote-mark"><a 
+href="#fn12x3" id="fn12x3-bk"><sup class="textsuperscript">12</sup></a></span><a 
+ id="x178-177002f12"></a>Man
+bezeichnet diese lineare Abbildung
+<div class="math-display"><!--l. 6661--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                                  <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-bin">&sdot;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-punc">:</mo> <mi 
+>K</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+>
+</mrow></math></div>
+<!--l. 6662--><p class="nopar" > als das <span id="textcolor181"><span 
+class="ptmri8t-x-x-120">Differential von </span><!--l. 6664--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+<span 
+class="ptmri8t-x-x-120">im Punkt </span><!--l. 6664--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math></span>.
+Die Identität (<a 
+href="#x178-177001r35">3.35<!--tex4ht:ref: eq:difffprime --></a>) kann man dann als
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 6664--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <mi 
+>&Delta;</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>o</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>h</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo>
+</mrow></math></div>
+<!--l. 6665--><p class="nopar" > schreiben. Manchmal benutzt man auch die Notation
+<!--l. 6666--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mi 
+>x</mi></math> und
+schreibt
+<div class="math-display"><!--l. 6666--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                           <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>d</mi><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6667--><p class="nopar" > Dies motiviert die übliche Scheibweise <!--l. 6668--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>f</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>x</mi></mrow></mfrac></mrow></mfenced> </mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+></math>.
+                                                                                     
+                                                                                     
+<div class="footnotes"><!--l. 6661--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn12x3-bk" id="fn12x3">
+<sup class="textsuperscript">12</sup></a></span><span 
+class="ptmr8t-">In beiden Bezeichnungen betrachtet man </span><!--l. 6661--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></math>
+   <span 
+class="ptmr8t-">als fixierten Parameter und </span><!--l. 6661--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi></math>
+   <span 
+class="ptmr8t-">als die ver</span><span 
+class="ptmr8t-">ä</span><span 
+class="ptmr8t-">nderliche Variable.</span>                                                          </div> <!--l. 6671--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu137.html" >next</a>]
+[<a 
+href="skriptsu136.html" >front</a>] [<a 
+href="skriptse36.html#skriptsu136.html" >up</a>] </p></div>
+<!--l. 6671--><p class="noindent" ><a 
+ id="tailskriptsu136.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu136.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+</html> 

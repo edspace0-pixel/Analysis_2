@@ -1,0 +1,661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu143.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+<head><title>Differenzierbare konkave und konvexe Funktionen.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 6992--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu144.html" >next</a>] [<a 
+href="skriptsu142.html" >prev</a>] [<a 
+href="skriptsu142.html#tailskriptsu142.html" >prev-tail</a>] [<a 
+href="#tailskriptsu143.html">tail</a>] [<a 
+href="skriptse38.html#skriptsu143.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.11.2</span>&#x00A0;&#x00A0;<a 
+ id="x187-1860003.11.2"></a>Differenzierbare konkave und konvexe Funktionen.</h4>
+<!--l. 6994--><p class="noindent" >Angenommen die Funktion <!--l. 6994--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+ist konvex. Als links- bzw. rechtsseitiger Grenzwert monotoner beschränkter Funktionen existiert in
+jedem Punkt <!--l. 6996--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+jeweils die links- und die rechtsseitige Ableitung
+<div class="math-display"><!--l. 6996--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+          <munder class="msub"><mrow 
+><mo class="qopname">lim</mo> </mrow><mrow 
+><mi 
+>h</mi><mo 
+class="MathClass-rel">&rarr;</mo><mn>0</mn><mo 
+class="MathClass-bin">&minus;</mo><mn>0</mn></mrow></munder 
+><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+>
+<mi 
+>h</mi><mo 
+class="MathClass-rel">&rarr;</mo><mn>0</mn><mo 
+class="MathClass-bin">+</mo><mn>0</mn></mrow></munder 
+><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6997--><p class="nopar" > Die Ungleichung zwischen diesen einseitigen Ableitungen folgt direkt aus der Monotonie des Differenzenquotienten
+im Argument <!--l. 6999--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi></math>.
+Ist <!--l. 7000--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+differenzierbar, so kann man die Kriteria der Konvexitt und Konkavität folgendermaßen
+formulieren:
+<div class="newtheorem">
+<!--l. 7003--><p class="noindent" ><span class="head">
+<a 
+ id="x187-186001r5"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.11.5.</span>  </span><span 
+class="ptmri8t-x-x-120">Die                                                                                                    Funktion</span>
+<!--l. 7004--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+<span 
+class="ptmri8t-x-x-120">sei                                                                                                                                              in</span>
+<!--l. 7005--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">differenzierbar. Dann gelten folgende zwei Aussagen:</span>
+<!--l. 7007--><p class="noindent" ><span 
+class="ptmri8t-x-x-120">Die Funktion </span><!--l. 7007--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+                                                                                     
+                                                                                     
+<span 
+class="ptmri8t-x-x-120">ist genau dann konvex in </span><!--l. 7007--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">,</span>
+<span 
+class="ptmri8t-x-x-120">wenn </span><!--l. 7007--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+<span 
+class="ptmri8t-x-x-120">in </span><!--l. 7008--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">monoton w</span><span 
+class="ptmri8t-x-x-120">ä</span><span 
+class="ptmri8t-x-x-120">chst. Die Funktion </span><!--l. 7008--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+<span 
+class="ptmri8t-x-x-120">ist genau dann konkav in </span><!--l. 7009--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">,</span>
+<span 
+class="ptmri8t-x-x-120">wenn </span><!--l. 7009--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+<span 
+class="ptmri8t-x-x-120">in </span><!--l. 7009--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">monoton f</span><span 
+class="ptmri8t-x-x-120">ä</span><span 
+class="ptmri8t-x-x-120">llt.</span>
+</div>
+<!--l. 7011--><p class="noindent" >
+<div class="proof">
+<!--l. 7012--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Wir  betrachten  die  Frage  der  Konvexitt  und  benutzen  die  oben  eingeführten
+Bezeichnungen <!--l. 7013--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&sub;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Nach der Formel von Lagrange gibt es Punkte <!--l. 7014--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+und <!--l. 7014--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+mit
+<div class="math-display"><!--l. 7015--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                    <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+    <mrow 
+><mi 
+>x</mi> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow></mfrac>      <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+    <mrow 
+><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>x</mi></mrow></mfrac>    <mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 7016--><p class="nopar" > Angenommen, die Funktion <!--l. 7017--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+ist in <!--l. 7017--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+monoton wachsend. Dann gilt wegen <!--l. 7018--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003C;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+auch <!--l. 7018--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+woraus (<a 
+href="skriptsu142.html#x186-185003r45">3.45<!--tex4ht:ref: eq:proofkonvex --></a>) und somit die Konvexitt von <!--l. 7019--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+folgt.       Umgekehrt       folgt       für       konvexe       Funktionen       aus       Satz       <a 
+href="skriptsu142.html#x186-185004r2">3.11.2<!--tex4ht:ref: thm:konvmonx --></a>
+<!--l. 7021--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+für <!--l. 7021--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003C;</mo> <msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+und damit im Grenzwert <!--l. 7022--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn></math>
+                                                                                     
+                                                                                     
+auch <!--l. 7022--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&xi;</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+                                                                                    &#x25A1;
+</div>
+<div class="newtheorem">
+<!--l. 7024--><p class="noindent" ><span class="head">
+<a 
+ id="x187-186002r6"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.11.6.</span>  </span><span 
+class="ptmri8t-x-x-120">Die                                                                                                    Funktion</span>
+<!--l. 7025--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-punc">:</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-rel">&rarr;</mo> <mi 
+>&#x211D;</mi></math>
+<span 
+class="ptmri8t-x-x-120">sei                                                                                                                                              in</span>
+<!--l. 7025--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">zweifach differenzierbar. Dann gelten folgende zwei Aussagen:</span>
+<!--l. 7028--><p class="noindent" ><span 
+class="ptmri8t-x-x-120">Gilt </span><!--l. 7028--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>
+<span 
+class="ptmri8t-x-x-120">f</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">r alle </span><!--l. 7028--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo><mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">,</span>
+<span 
+class="ptmri8t-x-x-120">so ist die Funktion </span><!--l. 7029--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+<span 
+class="ptmri8t-x-x-120">konvex in </span><!--l. 7029--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">.</span>
+<!--l. 7031--><p class="noindent" ><span 
+class="ptmri8t-x-x-120">Gilt </span><!--l. 7031--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mn>0</mn></math>
+<span 
+class="ptmri8t-x-x-120">f</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">r alle </span><!--l. 7031--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo><mspace width="0.3em" class="thinspace"/></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">,</span>
+<span 
+class="ptmri8t-x-x-120">so ist die Funktion </span><!--l. 7032--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+<span 
+class="ptmri8t-x-x-120">konkav in </span><!--l. 7032--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math><span 
+class="ptmri8t-x-x-120">.</span>
+</div>
+<!--l. 7034--><p class="noindent" >
+<div class="proof">
+<!--l. 7035--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Wir            betrachten            die            Frage            der            Konvexitt.            Aus
+<!--l. 7035--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>
+folgt,                                                                                                                                      dass
+<!--l. 7036--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+monoton                  wächst.                  Nach                  Satz                  <a 
+href="#x187-186001r5">3.11.5<!--tex4ht:ref: thm:konvdiff --></a>                  ist
+<!--l. 7037--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+damit konvex.                                                                                                                             &#x25A1;
+</div>
+                                                                                     
+                                                                                     
+<!--l. 7040--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu144.html" >next</a>] [<a 
+href="skriptsu142.html" >prev</a>] [<a 
+href="skriptsu142.html#tailskriptsu142.html" >prev-tail</a>] [<a 
+href="skriptsu143.html" >front</a>] [<a 
+href="skriptse38.html#skriptsu143.html" >up</a>] </p></div>
+<!--l. 7040--><p class="noindent" ><a 
+ id="tailskriptsu143.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu143.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+</html> 

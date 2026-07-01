@@ -1,0 +1,782 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu184.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Zur Berechnung des Krummungsvektors.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9340--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu185.html" >next</a>] [<a 
+href="skriptsu183.html" >prev</a>] [<a 
+href="skriptsu183.html#tailskriptsu183.html" >prev-tail</a>] [<a 
+href="#tailskriptsu184.html">tail</a>] [<a 
+href="skriptse51.html#skriptsu184.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.9.5</span>&#x00A0;&#x00A0;<a 
+ id="x242-2410004.9.5"></a>Zur Berechnung des Krümmungsvektors.</h4>
+<!--l. 9342--><p class="noindent" >Die kanonische Parametrisierung ist der natürliche Weg zur Einführung des Tangential- und des
+Krümmungsvektors. Ist jedoch die Kurve zu Beginn in einer anderen Parametrisierung
+<!--l. 9344--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math>
+gegeben, so ist es für praktische Anwendungen wünschenswert, den Krümmungsvektor direkt
+durch <!--l. 9346--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math>
+und andere Ableitungen auszudrücken, ohne dabei den Umweg über die Bogenlänge der Kurve
+gehen zu müssen.
+<!--l. 9349--><p class="noindent" >Wir setzen voraus, dass <!--l. 9349--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> eine
+Jordansche Kurve der Klasse <!--l. 9350--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math>
+erzeugt, <!--l. 9350--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi></math> sei die kanonische
+Parametrisierung. Setzt man <!--l. 9351--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>s</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>,
+so gilt nach (<a 
+href="skriptsu182.html#x240-239001r66">4.66<!--tex4ht:ref: eq:natparamst --></a>)<table class="equation"><tr><td> <a 
+ id="x242-241001r69"></a>
+<!--l. 9351--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                               <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo> <mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.69)</td></tr></table>
+<!--l. 9353--><p class="noindent" >Weiter ist nach (<a 
+href="skriptsu183.html#x241-240001r67">4.67<!--tex4ht:ref: eq:tangvektor --></a>) der Tangentialvektor durch<table class="equation"><tr><td> <a 
+ id="x242-241002r70"></a>
+                                                                                     
+                                                                                     
+<!--l. 9353--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                    <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>S</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>   <mo 
+class="MathClass-rel">=</mo>    <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>  </mrow></mfrac>
+</math></td><td class="eq-no">(4.70)</td></tr></table>
+<!--l. 9355--><p class="noindent" >gegeben. Der Krümmungsvektor gleicht<table class="equation"><tr><td> <a 
+ id="x242-241003r71"></a>
+<!--l. 9355--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                        <mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>&tau;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>   <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mfrac><mrow 
+><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mo 
+class="MathClass-bin">&#x2218;</mo><mi 
+>S</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+     <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>     </mrow> 
+  <mrow 
+><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>  </mrow></mfrac>    <mo 
+class="MathClass-rel">=</mo>   <mfrac><mrow 
+><mfrac><mrow 
+><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi><mo 
+class="MathClass-bin">&#x2218;</mo><mi 
+>S</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+     <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>     </mrow> 
+<mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.71)</td></tr></table>
+<!--l. 9357--><p class="noindent" >Differenziert man (<a 
+href="#x242-241002r70">4.70<!--tex4ht:ref: eq:berkruemphit --></a>) in <!--l. 9357--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>t</mi></math>,
+so erhält man unter Berücksichtigung von (<a 
+href="#x242-241001r69">4.69<!--tex4ht:ref: eq:kruemmdsdt --></a>)
+<!--tex4ht:inline--><!--l. 9358--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1"> <mfrac><mrow 
+><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>S</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+      <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>    </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   <mo 
+class="MathClass-bin">&minus;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+   <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   </mrow>
+            <mrow 
+><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>  </mrow></mfenced> </mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>             </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1">           </mtd><mtd 
+class="eqnarray-2">  <mo 
+class="MathClass-rel">=</mo></mtd><mtd 
+class="eqnarray-3">   <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo><mo 
+class="MathClass-bin">&minus;</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+   <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   </mrow>
+            <mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>        <mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray">(4.72)</mtext><mtext 
+   id="x242-241004r4.72"  class="label" ></mtext><mtext 
+class="endlabel"></mtext></mtd>                                        </mtr></mtable>
+</math>
+                                                                                     
+                                                                                     
+<!--l. 9360--><p class="nopar" >
+<!--l. 9361--><p class="noindent" >Zur Berechnung von <!--l. 9361--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+   <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   </math>
+differenzieren wir zunächst die Identität
+<div class="math-display"><!--l. 9362--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+><msup><mrow 
+>
+                          <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>  </mrow></mfenced></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow>
+</mrow></math></div>
+<!--l. 9363--><p class="nopar" > und erhalten
+<div class="math-display"><!--l. 9364--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+            <mn>2</mn><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>   <mo 
+class="MathClass-bin">&sdot;</mo><mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+  <mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>     <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><mi 
+>d</mi></mrow> 
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac>  </mrow></mfenced></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo>  <mfrac><mrow 
+><mi 
+>d</mi></mrow> 
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow>
+</mrow></math></div>
+<!--l. 9365--><p class="nopar" > und damit wegen (<a 
+href="#x242-241001r69">4.69<!--tex4ht:ref: eq:kruemmdsdt --></a>)<table class="equation"><tr><td> <a 
+ id="x242-241005r73"></a>
+<!--l. 9366--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                <mfrac><mrow 
+><msup><mrow 
+><mi 
+>d</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+
+  <mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>  <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow></mrow> 
+ <mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac> <mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.73)</td></tr></table>
+<!--l. 9368--><p class="noindent" >Setzt man (<a 
+href="#x242-241005r73">4.73<!--tex4ht:ref: eq:kruemmd2sdt --></a>) in (<a 
+href="#x242-241004r4.72">4.72<!--tex4ht:ref: eq:kruemmtSdt --></a>) und dies wiederum in (<a 
+href="#x242-241003r71">4.71<!--tex4ht:ref: eq:kruemmks --></a>) ein, so ergibt sich abschliessend<table class="equation"><tr><td>
+<a 
+ id="x242-241006r74"></a>
+                                                                                     
+                                                                                     
+<!--l. 9369--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                 <mi 
+>&kappa;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">&minus;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">&#x27E8;</mo><mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mo 
+class="MathClass-op">&Prime;</mo></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">&#x27E9;</mo></mrow></mrow> 
+       <mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <msup><mrow 
+><mo 
+class="MathClass-rel">&#x2225;</mo></mrow><mrow 
+><mn>4</mn></mrow></msup 
+></mrow></mfrac>                      <mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>s</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.74)</td></tr></table>
+<!--l. 9371--><p class="noindent" >Dies ist der Krümmungsvektor an <!--l. 9371--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math>
+im Punkt <!--l. 9371--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+                                                                                     
+                                                                                     
+<!--l. 9374--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu185.html" >next</a>] [<a 
+href="skriptsu183.html" >prev</a>] [<a 
+href="skriptsu183.html#tailskriptsu183.html" >prev-tail</a>] [<a 
+href="skriptsu184.html" >front</a>] [<a 
+href="skriptse51.html#skriptsu184.html" >up</a>] </p></div>
+<!--l. 9374--><p class="noindent" ><a 
+ id="tailskriptsu184.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu184.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

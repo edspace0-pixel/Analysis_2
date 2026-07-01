@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu140.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+<head><title>Monotone Funktionen.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 6797--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu141.html" >next</a>] [<a 
+href="skriptsu139.html" >prev</a>] [<a 
+href="skriptsu139.html#tailskriptsu139.html" >prev-tail</a>] [<a 
+href="#tailskriptsu140.html">tail</a>] [<a 
+href="skriptse37.html#skriptsu140.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">3.10.2</span>&#x00A0;&#x00A0;<a 
+ id="x183-1820003.10.2"></a>Monotone Funktionen.</h4>
+<div class="newtheorem">
+<!--l. 6799--><p class="noindent" ><span class="head">
+<a 
+ id="x183-182001r2"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 3.10.2.</span>  </span><span 
+class="ptmri8t-x-x-120">Die Funktion </span><!--l. 6800--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+<span 
+class="ptmri8t-x-x-120">sei in </span><!--l. 6801--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">differenzierbar. Dann gilt</span>
+<!--tex4ht:inline--><!--l. 6801--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" >
+<mtable 
+class="eqnarray-star" columnalign="right center left" >
+<mtr><mtd 
+class="eqnarray-1">  <mi 
+>f</mi> <mi 
+>&uarr;</mi></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/> <mo 
+class="MathClass-rel">&hArr;</mo><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <msub><mrow 
+><mo 
+class="MathClass-op">&forall;</mo></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo>                                   </mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>
+</mtr><mtr><mtd 
+class="eqnarray-1"> <mi 
+>f</mi> <mi 
+>&uarr;</mi><mi 
+>&uarr;</mi></mtd><mtd 
+class="eqnarray-2">  <mspace width="1em" class="quad"/> <mo 
+class="MathClass-rel">&hArr;</mo><mspace width="1em" class="quad"/></mtd><mtd 
+class="eqnarray-3">  <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mo 
+class="MathClass-op">&forall;</mo></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="0.3em" class="thinspace"/> <mo 
+class="MathClass-bin">&and;</mo><mspace width="0.3em" class="thinspace"/><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-op">¬</mo><msub><mrow 
+><mo 
+class="MathClass-op">&exist;</mo></mrow><mrow 
+>
+<mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mo 
+class="MathClass-rel">&isin;</mo><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>&alpha;</mi><mo 
+class="MathClass-rel">&#x003C;</mo><mi 
+>&beta;</mi></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><msub><mrow 
+><mo 
+class="MathClass-op">&forall;</mo></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo></mtd><mtd 
+class="eqnarray-4"> <mtext class="eqnarray"></mtext></mtd>                     </mtr></mtable>
+</math>
+<!--l. 6803--><p class="nopar" >
+</div>
+<!--l. 6806--><p class="noindent" >
+<div class="proof">
+<!--l. 6807--><p class="noindent" ><span class="head">
+                                                                                     
+                                                                                     
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Wir         beweisen         zunächst         die         erste         Aussage         im         Fall
+<!--l. 6807--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&rArr;</mo></math>.
+Ist <!--l. 6808--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+monoton wachsend, so gilt
+<div class="math-display"><!--l. 6808--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+             <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>h</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn><mspace width="1em" class="quad"/><mstyle 
+class="mbox"><mtext  >für</mtext></mstyle><mspace width="1em" class="quad"/><mi 
+>h</mi><mo 
+class="MathClass-rel">&ne;</mo><mn>0</mn><mo 
+class="MathClass-punc">;</mo> <mspace width="1em" class="quad"/><mi 
+>x</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 6809--><p class="nopar" > Daraus folgt für beliebiges <!--l. 6810--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+im Grenzwert <!--l. 6810--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>h</mi> <mo 
+class="MathClass-rel">&rarr;</mo> <mn>0</mn></math>
+die Aussage <!--l. 6811--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><munder class="msub"><mrow 
+><mo class="qopname"> lim</mo> </mrow><mrow 
+>
+<mi 
+>h</mi><mo 
+class="MathClass-rel">&rarr;</mo><mn>0</mn></mrow></munder 
+><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi><mo 
+class="MathClass-punc">;</mo> <mi 
+>h</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>.
+Für die umgekehrte Implikation <!--l. 6812--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&lArr;</mo></math>
+merken    wir    an,    dass    es    nach    der    Formel    von    Langrange    für    beliebige
+<!--l. 6813--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+mit <!--l. 6814--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003C;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+einen Punkt <!--l. 6814--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&xi;</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+mit der Eigenschaft
+<div class="math-display"><!--l. 6814--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                            <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&xi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&minus;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow>
+</mrow></math></div>
+<!--l. 6815--><p class="nopar" >  gibt.    Beide    Faktoren    auf    der    rechten    Seite    sind    nichtnegativ,    damit    gilt
+<!--l. 6817--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+und <!--l. 6817--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mi 
+>&uarr;</mi></math>.
+<!--l. 6819--><p class="noindent" >Es sei nun <!--l. 6819--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+strikt    monoton    wachsend    und    wir    betrachten    zunächst    die    Implikationsrichtung
+                                                                                     
+                                                                                     
+<!--l. 6820--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&rArr;</mo></math>.
+Dann ist <!--l. 6820--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+auch    monoton    wachsend    und    damit    ist    nach    dem    eben    bewiesenen    Kriterium
+<!--l. 6821--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>
+eine notwendige Voraussetzung für <!--l. 6822--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mi 
+>&uarr;</mi><mi 
+>&uarr;</mi></math>.
+Angenommen es gäbe <!--l. 6823--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>,
+<!--l. 6823--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&alpha;</mi> <mo 
+class="MathClass-rel">&#x003C;</mo> <mi 
+>&beta;</mi></math>,
+so dass <!--l. 6823--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>
+für <!--l. 6824--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Nach Satz <a 
+href="skriptsu139.html#x182-181001r1">3.10.1<!--tex4ht:ref: thm:kofu --></a> ist die Funktion <!--l. 6825--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+in diesem Fall konstant auf <!--l. 6825--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>,
+was          der          strikten          Monotonie          widerspricht.          Für          den          Fall
+<!--l. 6826--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&lArr;</mo></math>
+merken wir an, dass wie oben gezeigt aus <!--l. 6827--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&ge;</mo> <mn>0</mn></math>
+die Monotonie von <!--l. 6828--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+folgt. Angenommen <!--l. 6828--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+ist nicht <span 
+class="ptmri8t-x-x-120">strikt </span>monoton wachsend. Dann existieren <!--l. 6829--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+mit <!--l. 6829--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">&#x003C;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+und <!--l. 6829--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+Wegen <!--l. 6830--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mi 
+>&uarr;</mi></math>
+gilt damit
+<div class="math-display"><!--l. 6830--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                            <msub><mrow 
+><mo 
+class="MathClass-op">&forall;</mo></mrow><mrow 
+><mi 
+>x</mi><mo 
+class="MathClass-rel">&isin;</mo><mrow ><mo 
+class="MathClass-open">[</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow></msub 
+><mspace width="0.3em" class="thinspace"/><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&le;</mo> <mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow>
+</mrow></math></div>
+<!--l. 6831--><p class="nopar" > und folglich <!--l. 6832--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>f</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>
+für <!--l. 6832--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo></mrow><mo 
+class="MathClass-close">]</mo></mrow><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>.
+Dies steht im Widerspruch zur Voraussetzung.                                                                         &#x25A1;
+</div>
+<div class="newtheorem">
+<!--l. 6835--><p class="noindent" ><span class="head">
+<a 
+ id="x183-182003r3"></a>
+                                                                                     
+                                                                                     
+<span 
+class="ptmb8t-x-x-120">Problem 3.10.3.</span>  </span>Formulieren  und  beweisen  Sie  die  entsprechende  Aussage  für  (strikt)
+monoton fallende Funktionen.
+</div>
+                                                                                     
+                                                                                     
+<!--l. 6840--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu141.html" >next</a>] [<a 
+href="skriptsu139.html" >prev</a>] [<a 
+href="skriptsu139.html#tailskriptsu139.html" >prev-tail</a>] [<a 
+href="skriptsu140.html" >front</a>] [<a 
+href="skriptse37.html#skriptsu140.html" >up</a>] </p></div>
+<!--l. 6840--><p class="noindent" ><a 
+ id="tailskriptsu140.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu140.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:19 GMT -->
+</html> 

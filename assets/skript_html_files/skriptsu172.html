@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu172.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Die Substitution der Integrationsvariablen. </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 8656--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu171.html" >prev</a>] [<a 
+href="skriptsu171.html#tailskriptsu171.html" >prev-tail</a>] [<a 
+href="#tailskriptsu172.html">tail</a>] [<a 
+href="skriptse48.html#skriptsu172.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.6.2</span>&#x00A0;&#x00A0;<a 
+ id="x227-2260004.6.2"></a>Die Substitution der Integrationsvariablen. </h4>
+<div class="newtheorem">
+<!--l. 8658--><p class="noindent" ><span class="head">
+<a 
+ id="x227-226001r2"></a>
+<span 
+class="ptmb8t-x-x-120">Theorem 4.6.2.</span>  </span><span 
+class="ptmri8t-x-x-120">Es sei </span><!--l. 8659--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math><span 
+class="ptmri8t-x-x-120">.</span>
+<span 
+class="ptmri8t-x-x-120">F</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">r die Funktion </span><!--l. 8659--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+<span 
+class="ptmri8t-x-x-120">gelte </span><!--l. 8660--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&alpha;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi></math><span 
+class="ptmri8t-x-x-120">,</span>
+<!--l. 8660--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>b</mi></math><span 
+class="ptmri8t-x-x-120">. Ausserdem</span>
+<span 
+class="ptmri8t-x-x-120">sei </span><!--l. 8660--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math> <span 
+class="ptmri8t-x-x-120">in</span>
+<!--l. 8661--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math> <span 
+class="ptmri8t-x-x-120">differenzierbar</span>
+<span 
+class="ptmri8t-x-x-120">und die Ableitung </span><!--l. 8661--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+<span 
+class="ptmri8t-x-x-120">sei stetig in </span><!--l. 8662--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ></mrow><mo 
+class="MathClass-close">]</mo></mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow></math>
+<span 
+class="ptmri8t-x-x-120">sowie stetig auf </span><!--l. 8662--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+<span 
+class="ptmri8t-x-x-120">fortsetzbar. Dann gilt</span><table class="equation"><tr><td> <a 
+ id="x227-226002r37"></a>
+<!--l. 8663--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                         <msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int; 
+<!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>&alpha;</mi></mrow><mrow 
+><mi 
+>&beta;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>t</mi><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.37)</td></tr></table>
+</div>
+<!--l. 8667--><p class="noindent" >
+<div class="proof">
+                                                                                     
+                                                                                     
+<!--l. 8668--><p class="noindent" ><span class="head">
+<span 
+class="ptmri8t-x-x-120">Beweis.</span> </span>Offensichtlich gilt <!--l. 8668--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+Da zudem <!--l. 8669--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+stetig auf <!--l. 8669--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+fortsetzbar ist, so folgt <!--l. 8670--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>C</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">,</mo> <mi 
+>&#x211D;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&sub;</mo> <mi 
+>R</mi><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>,
+d.h. das bestimmte Integral auf der rechten Seite von (<a 
+href="#x227-226002r37">4.37<!--tex4ht:ref: eq:thmsubstintvar --></a>) existiert.
+<!--l. 8674--><p class="noindent" >Als stetige Funktion besitzt <!--l. 8674--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+nach Satz <a 
+href="skriptsu163.html#x215-214001r6">4.3.6<!--tex4ht:ref: thm:stammfunktioncab --></a> eine Stammfunktion<table class="equation"><tr><td> <a 
+ id="x227-226003r38"></a>
+<!--l. 8675--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                            <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>x</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>s</mi><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>x</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.38)</td></tr></table>
+<!--l. 8677--><p class="noindent" >Die Funktion <!--l. 8677--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math>
+ist stetig und es gilt die Formel von Newton und Leibniz<table class="equation"><tr><td> <a 
+ id="x227-226004r39"></a>
+<!--l. 8678--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                              <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>b</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>s</mi><mo 
+class="MathClass-punc">.</mo>
+</math></td><td class="eq-no">(4.39)</td></tr></table>
+<!--l. 8682--><p class="noindent" >Setzt man in (<a 
+href="#x227-226003r38">4.38<!--tex4ht:ref: eq:substvarproof --></a>) <!--l. 8682--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>x</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+für gegebenes <!--l. 8683--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>,
+so gilt
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8683--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                              <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>F</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>s</mi><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8684--><p class="nopar" > Die Funktion <!--l. 8685--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></math> ist als Komposition
+stetiger Funktionen auf <!--l. 8686--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>&alpha;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math> stetig.
+Als Stammfunktion von <!--l. 8686--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>f</mi></math>
+ist <!--l. 8686--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi></math> differenzierbar
+und es gilt <!--l. 8687--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msubsup><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>f</mi></math>.
+Differenziert man <!--l. 8688--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></math>
+in <!--l. 8688--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>t</mi></math>,
+dann erhält man nach der Kettenregel
+<div class="math-display"><!--l. 8688--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                  <mfrac><mrow 
+><mi 
+>d</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>F</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+>
+<mi 
+>t</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+>
+<mi 
+>t</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8689--><p class="nopar" > Als stetige Funktion besitzt <!--l. 8690--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&sdot;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+></math>
+eine Stammfunktion, welche bis auf eine Konstante mit
+<!--l. 8691--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <mi 
+>&phi;</mi></math>
+übereinstimmt. Wiederum nach der Formel von Newton und Leibniz gilt damit
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 8693--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+               <msubsup><mrow 
+><mo 
+class="MathClass-op">&int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>&alpha;</mi></mrow><mrow 
+><mi 
+>&beta;</mi></mrow></msubsup 
+><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>d</mi><mi 
+>t</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&beta;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&alpha;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&minus;</mo> <mi 
+>F</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 8694--><p class="nopar" > Vergleicht man dies mit (<a 
+href="#x227-226004r39">4.39<!--tex4ht:ref: eq:fbfafsds --></a>), so erhält man (<a 
+href="#x227-226002r37">4.37<!--tex4ht:ref: eq:thmsubstintvar --></a>).                                                            &#x25A1;
+</div>
+                                                                                     
+                                                                                     
+<!--l. 8698--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu171.html" >prev</a>] [<a 
+href="skriptsu171.html#tailskriptsu171.html" >prev-tail</a>] [<a 
+href="skriptsu172.html" >front</a>] [<a 
+href="skriptse48.html#skriptsu172.html" >up</a>] </p></div>
+<!--l. 8698--><p class="noindent" ><a 
+ id="tailskriptsu172.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu172.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 

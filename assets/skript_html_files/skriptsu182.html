@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html xml:lang="de" > 
+
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu182.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+<head><title>Die Parametrisierung einer Kurve durch ihre Bogenlange.</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html,mathml,4,fn-in --> 
+<meta name="src" content="skript-2.html"> 
+<meta name="date" content="2013-11-05 22:12:00"> 
+<link rel="stylesheet" type="text/css" href="skript.css"> 
+</head><body 
+>
+<!--l. 9267--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu183.html" >next</a>] [<a 
+href="skriptsu181.html" >prev</a>] [<a 
+href="skriptsu181.html#tailskriptsu181.html" >prev-tail</a>] [<a 
+href="#tailskriptsu182.html">tail</a>] [<a 
+href="skriptse51.html#skriptsu182.html" >up</a>] </p></div>
+<h4 class="subsectionHead"><span class="titlemark">4.9.3</span>&#x00A0;&#x00A0;<a 
+ id="x240-2390004.9.3"></a>Die Parametrisierung einer Kurve durch ihre Bogenlänge.</h4>
+<!--l. 9269--><p class="noindent" >Wie oben bereits angedeutet ist die Wahl einer erzeugenden Funktion
+<!--l. 9270--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+zur Parametrisierung einer als Punktmenge gegebenen Kurve
+<!--l. 9271--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&Gamma;</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math>
+einer gewissen Willkürlichkeit unterworfen. Ist jedoch erst einmal eine
+<!--l. 9272--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>-Darstellung
+<!--l. 9273--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> gegeben, so kann
+man eine kanonische Parametrisierung konstruieren, welche sich auf geometrische (und damit von der konkreten
+Wahl von <!--l. 9275--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math>
+unabhängige) Daten der Kurve stützt.
+<!--l. 9278--><p class="noindent" >Es sei <!--l. 9278--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi></math> eine Parametrisierung
+der Klasse <!--l. 9278--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>. Damit gilt
+insbesondere <!--l. 9279--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-rel">&ne;</mo><mn>0</mn></math> für alle
+<!--l. 9279--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>. Wir betrachten nun
+die Bogenlänge <!--l. 9280--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> des
+Kurvenabschnittes <!--l. 9280--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>.
+Dann gilt
+                                                                                     
+                                                                                     
+<div class="math-display"><!--l. 9281--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                          <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><msubsup><mrow 
+><mo 
+class="MathClass-op"> &int;
+ <!--nolimits--></mo><!--nolimits--></mrow><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msubsup 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&tau;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo> <mi 
+>d</mi><mi 
+>&tau;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>t</mi> <mo 
+class="MathClass-rel">&isin;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9282--><p class="nopar" > Folglich ist <!--l. 9283--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>S</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>
+nach Lemma <a 
+href="skriptsu170.html#x224-223001r2">4.5.2<!--tex4ht:ref: lm:stettheta --></a> eine stetige Funktion, welche wegen Satz <a 
+href="skriptsu163.html#x215-214001r6">4.3.6<!--tex4ht:ref: thm:stammfunktioncab --></a> und Satz <a 
+href="skriptsu162.html#x214-213004r5">4.3.5<!--tex4ht:ref: thm:hauptsatzdiffint --></a><table class="equation"><tr><td> <a 
+ id="x240-239001r66"></a>
+<!--l. 9285--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                 <msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo><mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo><mo 
+class="MathClass-rel">&#x003E;</mo> <mn>0</mn>
+</math></td><td class="eq-no">(4.66)</td></tr></table>
+<!--l. 9287--><p class="noindent" >erfüllt, und damit nach Satz <a 
+href="skriptsu140.html#x183-182001r2">3.10.2<!--tex4ht:ref: thm:monoton --></a> streng monoton wächst. Also existiert eine nach Satz <a 
+href="skriptsu102.html#x130-129003r28">2.12.28<!--tex4ht:ref: thm:stetigf-1 --></a> stetige inverse
+Abbildung <!--l. 9289--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+>
+<mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">]</mo></mrow></math>. Diese
+ist in der Variablen <!--l. 9290--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>s</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+stetig differenzierbar wobei
+<div class="math-display"><!--l. 9290--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+><msub><mrow 
+>
+                    <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>  </mrow></mfenced></mrow><mrow 
+><mi 
+>s</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo>     <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><msub><mrow 
+> <mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>d</mi><mi 
+>S</mi></mrow>
+<mrow 
+><mi 
+>d</mi><mi 
+>t</mi></mrow></mfrac> </mrow></mfenced> </mrow><mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-rel">=</mo><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow></msub 
+></mrow></mfrac>  <mo 
+class="MathClass-rel">=</mo>       <mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9291--><p class="nopar" > Wir betrachten nun die Parametrisierung <!--l. 9292--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi> <mo 
+class="MathClass-punc">:</mo> <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>L</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&rarr;</mo> <msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>,
+bei der jeder Punkt <!--l. 9293--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&isin;</mo> <mi 
+>&Gamma;</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>&Gamma;</mi></mrow><mrow 
+><mi 
+>&phi;</mi></mrow></msub 
+></math>
+                                                                                     
+                                                                                     
+die Bogenlänge <!--l. 9294--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>s</mi></math> des
+Kurvenstücks von <!--l. 9294--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+bis <!--l. 9294--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+zugeordnet wird
+<div class="math-display"><!--l. 9294--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+                         <mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&phi;</mi> <mo 
+class="MathClass-bin">&#x2218;</mo> <msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&phi;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><mi 
+>s</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>t</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9295--><p class="nopar" > Man nennt dies auch die <span id="textcolor215"><span 
+class="ptmri8t-x-x-120">kanonische</span></span> oder die <span id="textcolor216"><span 
+class="ptmri8t-x-x-120">nat</span><span 
+class="ptmri8t-x-x-120">ü</span><span 
+class="ptmri8t-x-x-120">rliche Parametrisierung</span></span> einer
+Jordanschen Kurve. Als Komposition stetig differenzierbarer Funktionen ist
+<!--l. 9299--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi></math> selbst
+stetig differenzierbar, und es gilt
+<div class="math-display"><!--l. 9299--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" ><mrow 
+>
+            <mfrac><mrow 
+><mi 
+>d</mi><mi 
+>r</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow>
+  <mrow 
+><mi 
+>d</mi><mi 
+>s</mi></mrow></mfrac>   <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><msubsup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mo 
+class="MathClass-bin">&#x2218;</mo> <msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><msubsup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&minus;</mo><mn>1</mn></mrow></msup 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+>
+<mi 
+>s</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msubsup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo>    <mfrac><mrow 
+><msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+>
+<mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow> 
+<mrow 
+> <mo 
+class="MathClass-rel">&#x2225;</mo> <msup><mrow 
+><mi 
+>&phi;</mi></mrow><mrow 
+><mi 
+>&prime;</mi></mrow></msup 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2225;</mo></mrow></mfrac><mo 
+class="MathClass-rel">&ne;</mo><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>s</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">.</mo>
+</mrow></math></div>
+<!--l. 9300--><p class="nopar" > Damit gehört die Parametrisierung <!--l. 9301--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>r</mi></math>
+ebenfalls der Klasse <!--l. 9301--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><msup><mrow 
+><mi 
+>C</mi></mrow><mrow 
+><mn>1</mn></mrow></msup 
+></math>
+an.
+                                                                                     
+                                                                                     
+<!--l. 9305--><div class="crosslinks"><p class="noindent">[<a 
+href="skriptsu183.html" >next</a>] [<a 
+href="skriptsu181.html" >prev</a>] [<a 
+href="skriptsu181.html#tailskriptsu181.html" >prev-tail</a>] [<a 
+href="skriptsu182.html" >front</a>] [<a 
+href="skriptse51.html#skriptsu182.html" >up</a>] </p></div>
+<!--l. 9305--><p class="noindent" ><a 
+ id="tailskriptsu182.html"></a>  
+</body>
+<!-- Mirrored from pnp.mathematik.uni-stuttgart.de/iadm/Weidl/ana1-13-14/skript/skriptsu182.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jun 2026 21:14:21 GMT -->
+</html> 
