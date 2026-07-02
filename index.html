@@ -195,6 +195,7 @@ svg.map.grabbing{cursor:grabbing}
 .grp{font-size:15px; margin:22px 0 4px; display:flex; align-items:center; gap:8px}
 .sub{color:var(--muted); font-size:13px; margin:0 0 10px}
 .reftiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:12px; margin:6px 0}
+.grpsub{font-size:12px; font-weight:700; color:var(--muted); margin:14px 0 2px; text-transform:uppercase; letter-spacing:.6px}
 .reftile{display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:var(--radius); text-decoration:none; color:#fff; box-shadow:var(--shadow); font-weight:600; transition:transform .08s}
 .reftile:hover{transform:translateY(-2px)}
 .reftile .ti{font-size:26px; line-height:1}
@@ -937,22 +938,19 @@ function addHtml(){ return String.raw`
 function reihenHtml(){ return String.raw`
   <div class="twocol">
     <div class="refblock">
-      <h3>Wichtige Reihen</h3>
+      <h3>Endliche Summen</h3>
       <table class="reftable">
-        <tr><td>\(\displaystyle\sum_{k=m}^{n}q^{k}=\frac{q^{m}-q^{n+1}}{1-q}\)</td><td class="cond">\(q\neq1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}\)</td><td class="cond">Gauß-Summe</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=m}^{n}q^{k}=\frac{q^{m}-q^{n+1}}{1-q}\)</td><td class="cond">geometrisch, \(q\neq1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{n}\big(b_{k}-b_{k+1}\big)=b_{1}-b_{n+1}\)</td><td class="cond">Teleskop</td></tr>
+      </table>
+      <h3 style="margin-top:16px">Geometrische Reihe</h3>
+      <table class="reftable">
         <tr><td>\(\displaystyle\sum_{k=m}^{\infty}q^{k}=\frac{q^{m}}{1-q}\)</td><td class="cond">\(|q|<1\)</td></tr>
         <tr><td>Merke: \(\dfrac{\text{erster Summand}}{1-q}\) — der Start \(m\) steckt nur im Zähler</td><td class="cond"></td></tr>
-        <tr><td>\(\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}\)</td><td class="cond">Gauß-Summe</td></tr>
-        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{x^{k}}{k!}=e^{x}\)</td><td class="cond">\(\forall x\)</td></tr>
-        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}=\cos x\)</td><td class="cond">\(\forall x\)</td></tr>
-        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!}=\sin x\)</td><td class="cond">\(\forall x\)</td></tr>
-        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}x^{k}=\ln(1+x)\)</td><td class="cond">\(-1<x\le1\)</td></tr>
-        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}x^{2k+1}=\arctan x\)</td><td class="cond">\(|x|\le1\)</td></tr>
-        <tr><td>\(\displaystyle(1+x)^{\alpha}=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^{k}\)</td><td class="cond">\(|x|<1\)</td></tr>
       </table>
-    </div>
-    <div class="refblock">
-      <h3>Konvergenz-Fakten</h3>
+      ${exBox(String.raw`<p>Geometrisch, \(q=\tfrac12\), Start \(m=1\):</p>\[\sum_{k=1}^{\infty}\Big(\tfrac{1}{2}\Big)^{k}=\frac{1/2}{1-1/2}=1\]<p>Genau die Merkregel: erster Summand \(\tfrac12\) durch \(1-q=\tfrac12\).</p>`,"Beispiel: q = ½, Start m = 1")}
+      <h3 style="margin-top:16px">Werte &amp; Konvergenz-Fakten</h3>
       <table class="reftable">
         <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k}=\infty\)</td><td class="cond">harmonisch</td></tr>
         <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)</td><td class="cond">p-Reihe</td></tr>
@@ -960,9 +958,19 @@ function reihenHtml(){ return String.raw`
         <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}=\ln 2\)</td><td class="cond">Leibniz</td></tr>
         <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}=\frac{\pi}{4}\)</td><td class="cond">Leibniz</td></tr>
       </table>
-      <h3 style="margin-top:16px">Beispiele</h3>
-      ${exBox(String.raw`<p>Geometrisch, \(q=\tfrac12\):</p>\[\sum_{k=1}^{\infty}\Big(\tfrac{1}{2}\Big)^{k}=\frac{1/2}{1-1/2}=1\]`)}
-      ${exBox(String.raw`<p>Quotientenkriterium für \(\sum\frac{x^{k}}{k!}\):</p>\[\left|\frac{a_{k+1}}{a_{k}}\right|=\frac{|x|}{k+1}\to 0<1\quad(k\to\infty)\ \Rightarrow\ \text{konvergent }\forall x\]`)}
+    </div>
+    <div class="refblock">
+      <h3>Potenzreihen-Klassiker (um \(0\))</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{x^{k}}{k!}=e^{x}\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}=\cos x\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!}=\sin x\)</td><td class="cond">\(\forall x\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}x^{k}=\frac{1}{1-x}\)</td><td class="cond">\(|x|<1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}x^{k}=\ln(1+x)\)</td><td class="cond">\(-1<x\le1\)</td></tr>
+        <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}x^{2k+1}=\arctan x\)</td><td class="cond">\(|x|\le1\)</td></tr>
+        <tr><td>\(\displaystyle(1+x)^{\alpha}=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^{k}\)</td><td class="cond">\(|x|<1\)</td></tr>
+      </table>
+      ${exBox(String.raw`<p>Quotientenkriterium für \(\sum\frac{x^{k}}{k!}\):</p>\[\left|\frac{a_{k+1}}{a_{k}}\right|=\frac{|x|}{k+1}\to 0<1\quad(k\to\infty)\ \Rightarrow\ \text{konvergent }\forall x\]`,"Beispiel: warum e-Reihe überall konvergiert")}
     </div>
   </div>
   <div class="refblock">
@@ -993,8 +1001,10 @@ function grenzHtml(){ return String.raw`
       <table class="reftable">
         <tr><td>\(\displaystyle\lim_{x\to0}\frac{\sin x}{x}=1\)</td></tr>
         <tr><td>\(\displaystyle\lim_{x\to0}\frac{\tan x}{x}=1\)</td></tr>
-        <tr><td>\(\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^{2}}=\frac{1}{2}\)</td></tr>
-        <tr><td>\(\displaystyle\lim_{x\to0}\frac{e^{x}-1}{x}=1\)</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{1-\cos x}{x^{2}}=\frac{1}{2}\)
+          ${exBox(String.raw`<p>Über die \(\cos\)-Reihe:</p>\[\frac{1-\cos x}{x^{2}}=\frac{\frac{x^{2}}{2}-\frac{x^{4}}{24}+\cdots}{x^{2}}=\frac{1}{2}-\frac{x^{2}}{24}+\cdots\to\frac{1}{2}\quad(x\to0)\]`,"Herleitung über die cos-Reihe")}</td></tr>
+        <tr><td>\(\displaystyle\lim_{x\to0}\frac{e^{x}-1}{x}=1\)
+          ${exBox(String.raw`<p>Über die \(e^{x}\)-Reihe:</p>\[\frac{e^{x}-1}{x}=\frac{x+\frac{x^{2}}{2}+\cdots}{x}=1+\frac{x}{2}+\cdots\to 1\quad(x\to0)\]`,"Herleitung über die e-Reihe")}</td></tr>
         <tr><td>\(\displaystyle\lim_{x\to0}\frac{\ln(1+x)}{x}=1\)</td></tr>
         <tr><td>\(\displaystyle\lim_{x\to0}\frac{\arcsin x}{x}=1\)</td></tr>
       </table>
@@ -1011,29 +1021,49 @@ function grenzHtml(){ return String.raw`
         <tr><td>\(\displaystyle\lim_{n\to\infty}\frac{\sqrt[n]{n!}}{n}=\frac{1}{e}\)</td><td class="cond">Stirling</td></tr>
       </table>
       <p class="sub" style="margin-top:8px">Merke: <b>exp \(\gg\) Potenz \(\gg\) Logarithmus</b>.</p>
-      <h3 style="margin-top:8px">Beispiele</h3>
-      ${exBox(String.raw`<p>Über die \(\cos\)-Reihe:</p>\[\frac{1-\cos x}{x^{2}}=\frac{\frac{x^{2}}{2}-\frac{x^{4}}{24}+\cdots}{x^{2}}=\frac{1}{2}-\frac{x^{2}}{24}+\cdots\to\frac{1}{2}\quad(x\to0)\]`)}
-      ${exBox(String.raw`<p>Über die \(e^{x}\)-Reihe:</p>\[\frac{e^{x}-1}{x}=\frac{x+\frac{x^{2}}{2}+\cdots}{x}=1+\frac{x}{2}+\cdots\to 1\quad(x\to0)\]`)}
     </div>
   </div>
   <div class="refblock">
-    <h3>Häufige Umformungen</h3>
+    <h3>Häufige Umformungen — je mit Beispiel</h3>
     <table class="reftable">
-      <tr><td><b>Konjugiert erweitern</b> (3. binomische) bei \(\sqrt{\ }-\sqrt{\ }\)</td></tr>
-      <tr><td><b>Potenz-Trick:</b> \(f(x)^{g(x)}=e^{\,g(x)\ln f(x)}\) — nur den Exponenten untersuchen</td></tr>
-      <tr><td><b>Höchste Potenz ausklammern</b> bei rationalen Ausdrücken</td></tr>
-      <tr><td>\(\Big(1+\dfrac{a_n}{n}\Big)^{n}\to e^{a}\), falls \(a_n\to a\)</td></tr>
+      <tr><td><b>Konjugiert erweitern</b> (3. binomische) bei \(\sqrt{\ }-\sqrt{\ }\)
+        ${exBox(String.raw`\[\sqrt{n^{2}+n}-n=\frac{(n^{2}+n)-n^{2}}{\sqrt{n^{2}+n}+n}=\frac{n}{\sqrt{n^{2}+n}+n}=\frac{1}{\sqrt{1+\frac1n}+1}\ \longrightarrow\ \frac{1}{2}\]`,"Beispiel: √(n²+n) − n → ½")}</td></tr>
+      <tr><td><b>Potenz-Trick:</b> \(f(x)^{g(x)}=e^{\,g(x)\ln f(x)}\) — nur den Exponenten untersuchen
+        ${exBox(String.raw`<p>\(\displaystyle\lim_{x\to0^{+}}x^{x}\):</p>\[x^{x}=e^{x\ln x},\qquad x\ln x\to0\ (x\to0^{+})\ \Rightarrow\ x^{x}\to e^{0}=1\]`,"Beispiel: x^x → 1 für x→0⁺")}</td></tr>
+      <tr><td><b>Höchste Potenz ausklammern</b> bei rationalen Ausdrücken
+        ${exBox(String.raw`\[\frac{3n^{2}+n}{2n^{2}+5}=\frac{n^{2}\big(3+\frac1n\big)}{n^{2}\big(2+\frac{5}{n^{2}}\big)}=\frac{3+\frac1n}{2+\frac{5}{n^{2}}}\ \longrightarrow\ \frac{3}{2}\]`,"Beispiel: (3n²+n)/(2n²+5) → 3/2")}</td></tr>
+      <tr><td>\(\Big(1+\dfrac{a_n}{n}\Big)^{n}\to e^{a}\), falls \(a_n\to a\)
+        ${exBox(String.raw`\[\Big(\frac{n+2}{n}\Big)^{n}=\Big(1+\frac{2}{n}\Big)^{n}\ \longrightarrow\ e^{2}\]`,"Beispiel: ((n+2)/n)ⁿ → e²")}</td></tr>
     </table>
-    ${exBox(String.raw`<p><b>Konjugiert erweitern:</b></p>\[\sqrt{n^{2}+n}-n=\frac{(n^{2}+n)-n^{2}}{\sqrt{n^{2}+n}+n}=\frac{n}{\sqrt{n^{2}+n}+n}=\frac{1}{\sqrt{1+\frac1n}+1}\ \longrightarrow\ \frac{1}{2}\]`)}
-    ${exBox(String.raw`<p><b>Potenz-Trick:</b> \(\displaystyle\lim_{x\to0^{+}}x^{x}\):</p>\[x^{x}=e^{x\ln x},\qquad x\ln x\to0\ (x\to0^{+})\ \Rightarrow\ x^{x}\to e^{0}=1\]`)}
+  </div>
+  <div class="refblock">
+    <h3>Landau-Symbole \(o\) und \(O\)</h3>
+    <p class="sub">Vergleichen das Verhalten zweier Funktionen für \(x\to a\) — <b>immer dazu sagen, wohin \(x\) läuft!</b> Die Idee auf einen Blick:</p>
+    <div class="subgrid">
+      <div class="subcard">
+        <div class="subhead">\(f=o(g)\):\quad \(\displaystyle\lim_{x\to a}\left|\frac{f(x)}{g(x)}\right|=0\)</div>
+        <div class="subrule">Der Quotient geht gegen <b>null</b>: \(f\) wird <b>vernachlässigbar klein</b> gegen \(g\).</div>
+      </div>
+      <div class="subcard">
+        <div class="subhead">\(f=O(g)\):\quad \(\displaystyle\limsup_{x\to a}\left|\frac{f(x)}{g(x)}\right|<\infty\)</div>
+        <div class="subrule">Der Quotient bleibt <b>beschränkt</b> („kleiner \(\infty\)"): \(f\) wächst <b>höchstens wie</b> \(g\) — muss aber nicht gegen 0 gehen.</div>
+      </div>
+    </div>
+    <table class="reftable">
+      <tr><td><b>klein-o:</b> \(f=o(g)\) für \(x\to a\)<span class="when">Einsetzen für Restglieder: \(f(x)=T_n(x)+o\big((x-x_0)^{n}\big)\), z. B. \(\sin x=x+o(x)\) für \(x\to0\).</span>
+        ${exBox(String.raw`<p><b>Zutreffend:</b> \(x^{2}=o(x)\) für \(x\to0\), denn</p>\[\frac{x^{2}}{x}=x\ \longrightarrow\ 0\quad(x\to0).\]<p><b>Ähnlich, aber falsch:</b> \(x^{2}\) ist <b>nicht</b> \(o(x)\) für \(x\to\infty\) — gleicher Quotient, anderer Grenzpunkt:</p>\[\frac{x^{2}}{x}=x\ \longrightarrow\ \infty\quad(x\to\infty).\]<p>Und: \(\sin x=o(1)\) gilt <b>nicht</b> für \(x\to\infty\) (\(\sin x\not\to0\)), obwohl \(\sin x=O(1)\) stimmt.</p>`,"Beispiel & Gegenbeispiel: o")}</td></tr>
+      <tr><td><b>groß-O:</b> \(f=O(g)\) für \(x\to a\)<span class="when">Einsetzen für Schranken und Fehlerordnungen, z. B. Trapezregel-Fehler \(=O(h^{2})\).</span>
+        ${exBox(String.raw`<p><b>Zutreffend:</b> \(5x^{2}+3x=O(x^{2})\) für \(x\to\infty\), denn</p>\[\frac{5x^{2}+3x}{x^{2}}=5+\frac{3}{x}\ \longrightarrow\ 5\quad(\text{beschränkt}).\]<p><b>Ähnlich, aber falsch:</b> \(5x^{2}+3x\) ist <b>nicht</b> \(O(x)\) für \(x\to\infty\):</p>\[\frac{5x^{2}+3x}{x}=5x+3\ \longrightarrow\ \infty\quad(\text{unbeschränkt}).\]<p>Auch: \(\sin x=O(x)\) für \(x\to0\) (\(|\sin x|\le|x|\)) ✓ — aber \(\sqrt{x}\neq O(x)\) für \(x\to0^{+}\) (\(\frac{\sqrt x}{x}=\frac{1}{\sqrt x}\to\infty\)).</p>`,"Beispiel & Gegenbeispiel: O")}</td></tr>
+      <tr><td><b>Rechenregeln:</b> \(o(g)\pm o(g)=o(g)\); \(O(g)\cdot O(h)=O(gh)\); \(f=o(g)\Rightarrow f=O(g)\) — die Umkehrung gilt <b>nicht</b> (\(\sin x=O(1)\), aber \(\neq o(1)\), \(x\to\infty\)).</td></tr>
+    </table>
   </div>`; }
 
 /* Referenz-Seiten (eigene Ergänzungen, Route #/ref/<key>) */
 function konvSummenHtml(){ return String.raw`
-  <p class="sub">Für eine Reihe \(\sum_{k} a_k\). Test-Reihenfolge: erst \(a_k\to0\)?, dann Quotient/Wurzel, sonst Vergleich. Beispiel und „Einsetzen, wenn …" stehen direkt beim Kriterium.</p>
+  <p class="sub"><b>Fahrplan:</b> ① \(a_k\to0\)? Nein → divergent, fertig. &nbsp;② Struktur erkennen: \(k!\) oder \(q^{k}\) → <b>Quotient</b> · \((\dots)^{k}\) → <b>Wurzel</b> · alternierend → <b>Leibniz</b>. &nbsp;③ Sonst gegen p-Reihe/geometrische Reihe vergleichen (<b>Majorante/Minorante</b>).</p>
   <div class="twocol">
     <div class="refblock">
-      <h3>Kriterien</h3>
+      <h3>Basis-Checks &amp; Vergleichskriterien</h3>
       <table class="reftable">
         <tr><td><b>Notwendig:</b> \(a_k\to0\)<span class="when">Immer zuerst prüfen: gilt \(a_k\not\to0\) → sofort divergent, fertig.</span></td><td class="cond">sonst div.</td></tr>
         <tr><td><b>Absolut:</b> \(\sum|a_k|\) konv. \(\Rightarrow\sum a_k\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln oder komplexen Gliedern — erst \(\sum|a_k|\) testen.</span></td></tr>
@@ -1041,22 +1071,22 @@ function konvSummenHtml(){ return String.raw`
           ${exBox(String.raw`<p>\(\displaystyle\sum\frac{\ln k}{k^{2}}\): ab großem \(k\) ist \(\ln k\le\sqrt{k}\):</p>\[\frac{\ln k}{k^{2}}\le\frac{1}{k^{3/2}}\quad\Rightarrow\quad\text{konvergent }(p=\tfrac32>1).\]`,"Beispiel: Σ ln k / k²")}</td></tr>
         <tr><td><b>Minorante:</b> \(0\le c_k\le a_k,\ \sum c_k\) div. \(\Rightarrow\) div.<span class="when">Einsetzen für Divergenz-Nachweise — meist mit der harmonischen Reihe als Minorante.</span>
           ${exBox(String.raw`<p>\(\displaystyle\sum\frac{1}{\sqrt{k(k+1)}}\): wegen \(k(k+1)\le (k+1)^{2}\):</p>\[\frac{1}{\sqrt{k(k+1)}}\ge\frac{1}{k+1}\quad\Rightarrow\quad\text{divergent (harmonische Minorante).}\]`,"Beispiel: Σ 1/√(k(k+1))")}</td></tr>
+        <tr><td><b>p-Reihe:</b> \(\sum \frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Der Standard-Vergleichspartner für Majorante/Minorante.</span></td></tr>
+        <tr><td><b>Geometrisch:</b> \(\sum q^{k}\) konv. \(\Leftrightarrow |q|<1\)<span class="when">Vergleichspartner bei exponentiell fallenden Gliedern.</span></td></tr>
+      </table>
+    </div>
+    <div class="refblock">
+      <h3>An der Struktur von \(a_k\) erkennbar</h3>
+      <table class="reftable">
         <tr><td><b>Quotient:</b> \(L=\lim\left|\frac{a_{k+1}}{a_k}\right|\)<span class="when">Einsetzen bei Fakultäten \(k!\) und Potenzen \(q^{k}\) — alles, was sich beim Schritt \(k\to k{+}1\) gut kürzt.</span>
           ${exBox(String.raw`<p>\(\displaystyle\sum \frac{k}{2^{k}}\):</p>\[\frac{a_{k+1}}{a_k}=\frac{k+1}{2k}\to\frac{1}{2}<1\ \Rightarrow\ \text{konvergent.}\]`,"Beispiel: Σ k/2^k")}</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
         <tr><td><b>Wurzel:</b> \(L=\limsup_{k}\sqrt[k]{|a_k|}\)<span class="when">Einsetzen, wenn \(a_k\) selbst eine \(k\)-te Potenz \((\dots)^{k}\) ist — die Wurzel räumt den Exponenten ab.</span>
           ${exBox(String.raw`<p>\(\displaystyle\sum\Big(\tfrac{k}{k+1}\Big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`,"Beispiel: Σ (k/(k+1))^(k²)")}</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
-      </table>
-      <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
-    </div>
-    <div class="refblock">
-      <h3>Spezielle Kriterien</h3>
-      <table class="reftable">
         <tr><td><b>Leibniz</b> (alternierend): \(a_k=(-1)^{k}b_k\), \(b_k\ge0\) monoton \(\downarrow 0\) \(\Rightarrow\) konv.<span class="when">Einsetzen bei \((-1)^{k}\cdot(\text{monoton fallende Nullfolge})\) — der Rettungsanker, wenn absolute Konvergenz scheitert.</span>
           ${exBox(String.raw`<p>\(\displaystyle\sum\frac{(-1)^{k+1}}{k}\): \(b_k=\tfrac1k\downarrow0\ \Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert.</p>`,"Beispiel: Σ (−1)^(k+1)/k")}</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
         <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{\infty}\!f\) gleiches Verhalten.<span class="when">Einsetzen, wenn \(f\) leicht integrierbar ist — Klassiker: \(\sum\frac{1}{k\ln k}\) div., denn \(\int\frac{dx}{x\ln x}=\ln\ln x\to\infty\).</span></td></tr>
-        <tr><td><b>p-Reihe:</b> \(\sum \frac{1}{k^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Der Standard-Vergleichspartner für Majorante/Minorante.</span></td></tr>
-        <tr><td><b>Geometrisch:</b> \(\sum q^{k}\) konv. \(\Leftrightarrow |q|<1\)<span class="when">Vergleichspartner bei exponentiell fallenden Gliedern.</span></td></tr>
       </table>
+      <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
     </div>
   </div>
   <div class="refblock">
@@ -1072,46 +1102,60 @@ function konvSummenHtml(){ return String.raw`
   </div>
   <div class="refblock">
     <h3>Summierbarkeit divergenter Reihen</h3>
-    <p class="sub">Divergente Reihen bekommen über gemittelte/geglättete Grenzwerte einen sinnvollen „Wert". Beide Verfahren sind <b>regulär</b>: eine schon konvergente Reihe behält ihren Wert.</p>
+    <p class="sub">Divergente Reihen bekommen über gemittelte/geglättete Grenzwerte einen sinnvollen „Wert". Beide Verfahren sind <b>regulär</b>: eine schon konvergente Reihe behält ihren Wert. Durchgängiges Beispiel: die <b>Grandi-Reihe</b> \(1-1+1-1+\cdots\) (\(a_k=(-1)^{k}\)).</p>
     <table class="reftable">
-      <tr><td><b>Cesàro (C,1)</b> — über die <b>Partialsummen</b>: bilde \(s_n=a_0+\cdots+a_n\), dann ihr Mittel \(\displaystyle\sigma_n=\frac{s_0+s_1+\cdots+s_n}{n+1}\). Cesàro-Summe \(=\lim_{n\to\infty}\sigma_n\).</td></tr>
-      <tr><td><b>Abel / Poisson-Abel</b> — über die <b>Potenzreihe</b>: bilde \(f(x)=\sum_k a_k x^{k}\) (\(|x|<1\)), dann lasse \(x\to1^{-}\). Abel-Summe \(=\lim_{x\to1^{-}}f(x)\).</td></tr>
-      <tr><td><b>Hierarchie:</b> konvergent \(\Rightarrow\) Cesàro \(\Rightarrow\) Abel (jeweils derselbe Wert). Also: <b>aus Cesàro folgt Abel</b> (Satz von Frobenius) — Abel ist das stärkste Verfahren. Rückrichtung nur mit Tauber-Bedingung (z. B. \(a_k\to0\)).</td></tr>
+      <tr><td><b>Cesàro (C,1)</b> — über die <b>Partialsummen</b>: bilde \(s_n=a_0+\cdots+a_n\), dann ihr Mittel \(\displaystyle\sigma_n=\frac{s_0+s_1+\cdots+s_n}{n+1}\). Cesàro-Summe \(=\lim_{n\to\infty}\sigma_n\).<span class="when">Einsetzen, wenn die Partialsummen beschränkt hin- und herspringen — das Mitteln glättet die Sprünge.</span>
+        ${exBox(String.raw`<p><b>Schritt 1 — Partialsummen:</b> \(s_n=1,0,1,0,\dots\) (springt, divergent).</p><p><b>Schritt 2 — aufsummieren:</b> \(S_n=s_0+\cdots+s_n\): \(1,1,2,2,3,3,\dots\), allgemein \(S_{2m}=S_{2m+1}=m+1\).</p><p><b>Schritt 3 — mitteln:</b></p>\[\sigma_{2m}=\frac{m+1}{2m+1}\ \longrightarrow\ \frac12,\qquad \sigma_{2m+1}=\frac{m+1}{2m+2}=\frac12\ \text{(exakt!)}\]<p>Beide Teilfolgen \(\to\tfrac12\) \(\Rightarrow\) <b>Cesàro-Summe \(=\tfrac12\)</b>.</p>`,"Rechenbeispiel: Grandi nach Cesàro")}</td></tr>
+      <tr><td><b>Abel / Poisson-Abel</b> — über die <b>Potenzreihe</b>: bilde \(f(x)=\sum_k a_k x^{k}\) (\(|x|<1\)), dann lasse \(x\to1^{-}\). Abel-Summe \(=\lim_{x\to1^{-}}f(x)\).<span class="when">Einsetzen, wenn \(\sum a_k x^{k}\) eine geschlossene Form hat — meist geometrische Reihe oder deren Ableitung.</span>
+        ${exBox(String.raw`<p><b>Schritt 1 — Potenzreihe aufstellen:</b> mit \(a_k=(-1)^{k}\):</p>\[f(x)=\sum_{k=0}^{\infty}(-1)^{k}x^{k}=\sum_{k=0}^{\infty}(-x)^{k}\]<p><b>Schritt 2 — geschlossene Form</b> (geometrische Reihe mit \(q=-x\), \(|q|<1\)):</p>\[f(x)=\frac{1}{1-(-x)}=\frac{1}{1+x},\qquad |x|<1\]<p><b>Schritt 3 — Randlimes:</b></p>\[\lim_{x\to1^{-}}\frac{1}{1+x}=\frac12\ \Rightarrow\ \textbf{Abel-Summe }=\tfrac12\]<p>— gleicher Wert wie Cesàro, wie es Frobenius verlangt.</p>`,"Rechenbeispiel: Grandi nach Poisson-Abel")}</td></tr>
+      <tr><td><b>Hierarchie:</b> konvergent \(\Rightarrow\) Cesàro \(\Rightarrow\) Abel (jeweils derselbe Wert). Also: <b>aus Cesàro folgt Abel</b> (Satz von Frobenius) — Abel ist das stärkste Verfahren. Rückrichtung nur mit Tauber-Bedingung (z. B. \(a_k\to0\)).<span class="when">Merk-Beispiel dafür, dass Abel echt stärker ist: \(1-2+3-4+\cdots\).</span>
+        ${exBox(String.raw`<p>\(1-2+3-4+\cdots\), also \(a_k=(-1)^{k}(k+1)\).</p><p><b>Cesàro scheitert:</b> \(s_n=1,-1,2,-2,3,\dots\); aufsummiert \(S_{2m}=m+1,\ S_{2m+1}=0\), also</p>\[\sigma_{2m}=\frac{m+1}{2m+1}\to\frac12,\qquad \sigma_{2m+1}=0\to0\]<p>— zwei verschiedene Häufungswerte \(\Rightarrow\) \(\sigma_n\) divergiert, <b>nicht Cesàro-summierbar</b>.</p><p><b>Abel klappt:</b> Ableiten der geometrischen Reihe \(\sum_{k\ge0}u^{k}=\frac{1}{1-u}\) gibt \(\sum_{k\ge0}(k+1)u^{k}=\frac{1}{(1-u)^{2}}\). Mit \(u=-x\):</p>\[\sum_{k=0}^{\infty}(-1)^{k}(k+1)x^{k}=\frac{1}{(1+x)^{2}}\ \longrightarrow\ \frac14\quad(x\to1^{-})\]<p>\(\Rightarrow\) <b>Abel-Summe \(=\tfrac14\)</b> — Abel summiert echt „mehr" als Cesàro.</p>`,"Rechenbeispiel: 1 − 2 + 3 − 4 + ⋯")}</td></tr>
     </table>
-    <h3 style="margin-top:12px">Beispiel: Grandi-Reihe \(1-1+1-1+\cdots\)</h3>
-    ${exBox(String.raw`<p>Partialsummen springen: \(s_0=1,\ s_1=0,\ s_2=1,\ s_3=0,\dots\) — <b>divergent</b>.</p><p><b>Cesàro</b> (Mittel der \(s_n\)):</p>\[\sigma_0=1,\ \sigma_1=\tfrac12,\ \sigma_2=\tfrac23,\ \sigma_3=\tfrac12,\ \sigma_4=\tfrac35,\ \dots\ \longrightarrow\ \tfrac12.\]<p><b>Abel</b> (Potenzreihe, dann \(x\to1^{-}\)):</p>\[\sum_{k=0}^{\infty}(-1)^{k}x^{k}=\frac{1}{1+x}\ \longrightarrow\ \frac{1}{2}\quad(x\to1^{-}).\]<p>Beide liefern denselben Wert \(\tfrac12\) — passt zur Hierarchie.</p>`)}
-    ${exBox(String.raw`<p>\(1-2+3-4+\cdots=\sum_k(-1)^{k}(k+1)\): Cesàro schafft es <i>nicht</i> (die Mittel \(\sigma_n\) konvergieren nicht), aber <b>Abel</b> schon:</p>\[\sum_{k=0}^{\infty}(-1)^{k}(k+1)x^{k}=\frac{1}{(1+x)^{2}}\ \longrightarrow\ \frac{1}{4}\quad(x\to1^{-}).\]<p>Schön sichtbar: Abel summiert „mehr" als Cesàro.</p>`)}
   </div>`; }
 
 function konvIntegraleHtml(){ return String.raw`
-  <p class="sub">Uneigentliche Integrale: unbeschränktes Intervall \(\int_a^{\infty}\) oder Singularität am Rand. Beispiel und „Einsetzen, wenn …" stehen direkt beim Kriterium.</p>
+  <p class="sub"><b>Fahrplan:</b> ① Alle kritischen Stellen finden (\(\pm\infty\), Polstellen, Randsingularitäten) und das Integral dort <b>aufspalten</b>. &nbsp;② An jeder kritischen Stelle das Verhalten mit \(x^{-p}\) vergleichen (<b>p-Test</b>). &nbsp;③ Bei Vorzeichenwechseln: absolute Konvergenz. &nbsp;④ Pol im Inneren / symmetrische Grenzen: <b>Hauptwert</b>.</p>
   <div class="twocol">
     <div class="refblock">
-      <h3>Definition &amp; p-Test</h3>
+      <h3>Definition (immer über Grenzwerte)</h3>
       <table class="reftable">
-        <tr><td>\(\displaystyle\int_a^{\infty}\!f=\lim_{R\to\infty}\int_a^{R}\!f\)</td></tr>
-        <tr><td>Singularität bei \(b\): \(\displaystyle\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}\!f\)</td></tr>
-        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Erster Reflex: Verhalten am kritischen Rand mit \(x^{-p}\) vergleichen.</span></td></tr>
-        <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)<span class="when">Achtung: bei \(0\) genau umgekehrt zu \(\infty\)!</span>
-          ${exBox(String.raw`\[\int_1^{\infty}\frac{dx}{x^{2}}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=2\ (\text{konv., }p=\tfrac12<1)\]`,"Beispiele: p-Test")}</td></tr>
+        <tr><td>Unbeschränktes Intervall: \(\displaystyle\int_a^{\infty}\!f=\lim_{R\to\infty}\int_a^{R}\!f\)<span class="when">Existiert der Limes in \(\mathbb R\), heißt das Integral <b>konvergent</b>, sonst divergent.</span></td></tr>
+        <tr><td>Singularität am Rand \(b\): \(\displaystyle\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}\!f\)</td></tr>
+        <tr><td><b>Mehrere kritische Stellen → aufspalten:</b> \(\displaystyle\int_{-\infty}^{\infty}=\int_{-\infty}^{c}+\int_{c}^{\infty}\), Pol bei \(c\) innen: \(\int_a^{c}+\int_c^{b}\). <b>Jedes Teilintegral muss einzeln konvergieren</b> (unabhängige Grenzwerte!).</td></tr>
+        <tr><td><b>Warnung:</b> \(f(x)\to0\) allein reicht <b>nicht</b>: \(\displaystyle\int_1^{\infty}\frac{dx}{x}=\infty\), obwohl \(\tfrac1x\to0\).</td></tr>
       </table>
-      <h3 style="margin-top:16px">Kriterien</h3>
+      <h3 style="margin-top:16px">p-Test — der erste Reflex</h3>
       <table class="reftable">
-        <tr><td><b>Majorante:</b> \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen, wenn sich \(f\) gegen \(x^{-p}\) oder \(e^{-x}\) abschätzen lässt.</span>
-          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}e^{-x^{2}}dx\) konvergiert: für \(x\ge1\) ist \(x^{2}\ge x\), also</p>\[e^{-x^{2}}\le e^{-x},\qquad \int_1^{\infty}e^{-x}\,dx=e^{-1}<\infty.\]`,"Beispiel: ∫ e^(−x²)")}</td></tr>
-        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.<span class="when">Einsetzen, wenn nur das führende Verhalten am kritischen Rand zählt (Polynome, Wurzeln).</span></td></tr>
-        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln — z. B. \(\int_1^{\infty}\frac{\sin x}{x^{2}}dx\): \(\big|\frac{\sin x}{x^{2}}\big|\le\frac{1}{x^{2}}\).</span></td></tr>
+        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Bei \(\infty\) helfen <b>große</b> Exponenten (schneller Abfall).</span></td></tr>
+        <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)<span class="when">Bei \(0\) genau umgekehrt: <b>kleine</b> Exponenten sind harmlos. Grenzfall \(p=1\) divergiert an beiden Enden (\(\ln\)).</span>
+          ${exBox(String.raw`<p>Direkt nachrechnen (\(p\neq1\)): \(\int x^{-p}dx=\frac{x^{1-p}}{1-p}\).</p>\[\int_1^{\infty}\frac{dx}{x^{2}}=\Big[-\frac1x\Big]_1^{\infty}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\ln x\Big|_1^{\infty}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=\big[2\sqrt{x}\big]_0^{1}=2\ (\text{konv., }p=\tfrac12<1),\qquad \int_0^{1}\frac{dx}{x^{2}}=\infty\ (\text{div., }p=2>1)\]`,"Beispiele: p-Test an beiden Rändern")}</td></tr>
       </table>
     </div>
     <div class="refblock">
-      <h3>Cauchy-Hauptwert (v.p.)</h3>
-      <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral divergiert.<br>Einsetzen, wenn ein Pol <b>im Inneren</b> liegt oder \(\pm\infty\) symmetrisch behandelt werden soll.</p>
+      <h3>Vergleichs-Kriterien</h3>
       <table class="reftable">
-        <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{\infty}\!f=\lim_{R\to\infty}\int_{-R}^{R}\!f\)</td></tr>
-        <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)
-          ${exBox(String.raw`<p>Hauptwert von \(\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)):</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\Big(\underbrace{\int_{-1}^{-\varepsilon}}_{\ln\varepsilon}+\underbrace{\int_{\varepsilon}^{1}}_{-\ln\varepsilon}\Big)\frac{dx}{x}=0\]<p>Das gewöhnliche Integral divergiert — nur der Hauptwert ist \(0\).</p>`,"Beispiel: v.p. ∫ dx/x")}</td></tr>
+        <tr><td><b>Majorante</b> (für Konvergenz): \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen, wenn sich \(f\) gegen \(x^{-p}\) oder \(e^{-x}\) abschätzen lässt.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}e^{-x^{2}}dx\) konvergiert: für \(x\ge1\) ist \(x^{2}\ge x\), also</p>\[e^{-x^{2}}\le e^{-x},\qquad \int_1^{\infty}e^{-x}\,dx=e^{-1}<\infty.\]`,"Beispiel: ∫ e^(−x²)")}</td></tr>
+        <tr><td><b>Minorante</b> (für Divergenz): \(f\ge g\ge0,\ \int g\) div. \(\Rightarrow\int f\) div.<span class="when">Einsetzen für Divergenz-Nachweise — meist mit \(\tfrac{c}{x}\) als Minorante.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}\frac{dx}{\sqrt{x^{2}+1}}\) divergiert: für \(x\ge1\) ist \(x^{2}+1\le 2x^{2}\), also</p>\[\frac{1}{\sqrt{x^{2}+1}}\ \ge\ \frac{1}{\sqrt{2}\,x},\qquad \int_1^{\infty}\frac{dx}{\sqrt{2}\,x}=\infty.\]`,"Beispiel: ∫ dx/√(x²+1)")}</td></tr>
+        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.<span class="when">Einsetzen, wenn nur das führende Verhalten am kritischen Rand zählt (Polynome, Wurzeln) — erspart das Basteln expliziter Schranken.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}\frac{dx}{\sqrt{x^{3}+1}}\): führendes Verhalten \(x^{-3/2}\). Vergleich mit \(g=x^{-3/2}\):</p>\[\frac{f}{g}=\frac{x^{3/2}}{\sqrt{x^{3}+1}}=\frac{1}{\sqrt{1+x^{-3}}}\ \longrightarrow\ 1\in(0,\infty)\]<p>\(\Rightarrow\) verhält sich wie \(\int x^{-3/2}\) → <b>konvergent</b> (\(p=\tfrac32>1\)).</p>`,"Beispiel: ∫ dx/√(x³+1)")}</td></tr>
+        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln — z. B. \(\int_1^{\infty}\frac{\sin x}{x^{2}}dx\): \(\big|\frac{\sin x}{x^{2}}\big|\le\frac{1}{x^{2}}\).</span></td></tr>
       </table>
+      <h3 style="margin-top:16px">Beide Ränder kritisch</h3>
+      ${exBox(String.raw`<p>\(\displaystyle\int_0^{\infty}\frac{dx}{\sqrt{x}\,(1+x)}\) — kritisch bei \(0\) <b>und</b> \(\infty\). Aufspalten bei \(1\):</p><p>Bei \(0\): \(\dfrac{1}{\sqrt{x}(1+x)}\sim\dfrac{1}{\sqrt{x}}\) → konv. (\(p=\tfrac12<1\)).</p><p>Bei \(\infty\): \(\sim\dfrac{1}{x^{3/2}}\) → konv. (\(p=\tfrac32>1\)).</p><p>Beide Teile konvergieren → Integral konvergent (Substitution \(t=\sqrt{x}\) liefert sogar den Wert \(\pi\)).</p>`,"Beispiel: ∫₀^∞ dx/(√x·(1+x))")}
     </div>
+  </div>
+  <div class="refblock">
+    <h3>Cauchy-Hauptwert (v.p.)</h3>
+    <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral (mit unabhängigen Grenzwerten) divergiert. Einsetzen, wenn ein Pol <b>im Inneren</b> liegt oder \(\pm\infty\) symmetrisch behandelt werden soll.</p>
+    <table class="reftable">
+      <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{\infty}\!f=\lim_{R\to\infty}\int_{-R}^{R}\!f\)<span class="when">Eine gemeinsame Schranke \(R\) statt zwei unabhängiger — deshalb „schwächer" als echte Konvergenz: konvergent \(\Rightarrow\) v.p. existiert (gleicher Wert), aber nicht umgekehrt.</span></td></tr>
+      <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)<span class="when">Symmetrisches Ausschneiden des Pols — dieselbe \(\varepsilon\)-Breite links und rechts.</span>
+        ${exBox(String.raw`<p><b>Schritt für Schritt</b> für \(\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)) — beide Teilintegrale mit der Stammfunktion \(\ln|x|\) ausrechnen:</p>\[\int_{-1}^{-\varepsilon}\frac{dx}{x}=\ln|x|\Big|_{-1}^{-\varepsilon}=\ln\varepsilon-\ln1=\ln\varepsilon\]\[\int_{\varepsilon}^{1}\frac{dx}{x}=\ln|x|\Big|_{\varepsilon}^{1}=\ln1-\ln\varepsilon=-\ln\varepsilon\]<p>Summe: \(\ln\varepsilon-\ln\varepsilon=0\) für <b>jedes</b> \(\varepsilon>0\), also</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}0=0.\]<p>Das gewöhnliche Integral divergiert (jedes Teilintegral einzeln \(=\mp\infty\)) — nur im Hauptwert heben sich die \(\ln\varepsilon\)-Terme exakt weg.</p>`,"Rechenbeispiel: v.p. ∫₋₁¹ dx/x = 0")}
+        ${exBox(String.raw`<p><b>Unsymmetrische Grenzen</b> liefern einen echten Wert: \(\mathrm{v.p.}\!\int_{-1}^{2}\frac{dx}{x}\):</p>\[\int_{-1}^{-\varepsilon}\frac{dx}{x}=\ln\varepsilon,\qquad \int_{\varepsilon}^{2}\frac{dx}{x}=\ln2-\ln\varepsilon\]\[\Rightarrow\ \mathrm{v.p.}\!\int_{-1}^{2}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\big(\ln\varepsilon+\ln2-\ln\varepsilon\big)=\ln 2.\]<p>Die \(\ln\varepsilon\)-Terme heben sich weg; übrig bleibt \(\ln2\) — der Hauptwert „sieht" nur den unsymmetrischen Überhang \([1,2]\).</p>`,"Rechenbeispiel: v.p. ∫₋₁² dx/x = ln 2")}</td></tr>
+      <tr><td>Analog: \(\displaystyle\mathrm{v.p.}\!\int_{-\infty}^{\infty}x\,dx=0\), obwohl \(\int_{-\infty}^{\infty}x\,dx\) divergiert (\(\infty-\infty\)).</td></tr>
+    </table>
   </div>`; }
 
 function potenzreihenHtml(){ return String.raw`
@@ -1504,8 +1548,8 @@ const REF = {
    note:"Dreiecksungleichung, Cauchy-Schwarz, ε/2 & Co. — die Abschätzungen, die in jedem Beweis auftauchen.", html: beweiseHtml() },
  reihen: { title:"Standardreihen & Summen", icon:"Σ", color:"#7c3aed",
    note:"Häufige Reihen und endliche Summen — geometrisch (beliebiger Start), Gauß, Teleskop, Fourier.", html: reihenHtml() },
- grenzwerte: { title:"Standardgrenzwerte", icon:"lim", color:"#db2777",
-   note:"Grenzwerte, die man auswendig können sollte.", html: grenzHtml() },
+ grenzwerte: { title:"Grenzwerte & Landau-Symbole", icon:"lim", color:"#db2777",
+   note:"Standard-Limits, häufige Umformungen und die o/O-Notation mit Beispielen und Gegenbeispielen.", html: grenzHtml() },
  konv_summen: { title:"Konvergenzkriterien — Reihen", icon:"∑", color:"#059669",
    note:"Wann konvergiert eine Reihe? Alle Kriterien mit Beispielen.", html: konvSummenHtml() },
  konv_integrale: { title:"Konvergenzkriterien — Integrale", icon:"∫", color:"#ea580c",
@@ -1640,20 +1684,20 @@ function renderHome(){
 
     <h2 class="grp">⚡ Spickzettel</h2>
     <div class="reftiles">
-      <a class="reftile i1" href="#/ref/integrale"><span class="ti">∫</span><span>Standardintegrale<small>Grundintegrale + Beispiele</small></span></a>
-      <a class="reftile i5" href="#/ref/substitutionen"><span class="ti">↦</span><span>Substitutionen &amp; Tricks<small>Subst. · +1−1 · quad. Ergänzung · part. Int.</small></span></a>
-      <a class="reftile i2" href="#/ref/additions"><span class="ti">△</span><span>Additionstheoreme<small>Doppel- &amp; Halbwinkel usw.</small></span></a>
       <a class="reftile i16" href="#/ref/funktionswerte"><span class="ti">π</span><span>Wichtige Funktionswerte<small>sin/cos/tan · arcsin/arctan · ln</small></span></a>
+      <a class="reftile i2" href="#/ref/additions"><span class="ti">△</span><span>Additionstheoreme<small>Doppel- &amp; Halbwinkel usw.</small></span></a>
       <a class="reftile i15" href="#/ref/brueche"><span class="ti">⁄</span><span>Brüche &amp; Partialbruchzerlegung<small>Zuhalten · Grenzwert-Trick · Identitäten</small></span></a>
       <a class="reftile i17" href="#/ref/beweise"><span class="ti">≤</span><span>Tricks für Beweise<small>Dreiecks-UG · Cauchy-Schwarz · ε/2</small></span></a>
-      <a class="reftile i6" href="#/ref/reihen"><span class="ti">Σ</span><span>Standardreihen &amp; Summen<small>geometrisch · Gauß · Teleskop · Fourier</small></span></a>
-      <a class="reftile i7" href="#/ref/grenzwerte"><span class="ti">lim</span><span>Standardgrenzwerte<small>auswendig können</small></span></a>
-      <a class="reftile i8" href="#/ref/konv_summen"><span class="ti">∑</span><span>Konvergenz — Reihen<small>Quotient · Wurzel · Leibniz · Integral</small></span></a>
+      <a class="reftile i1" href="#/ref/integrale"><span class="ti">∫</span><span>Standardintegrale<small>Grundintegrale + Beispiele</small></span></a>
+      <a class="reftile i5" href="#/ref/substitutionen"><span class="ti">↦</span><span>Substitutionen &amp; Tricks<small>Subst. · +1−1 · quad. Ergänzung · part. Int.</small></span></a>
       <a class="reftile i9" href="#/ref/konv_integrale"><span class="ti">∫</span><span>Konvergenz — Integrale<small>uneigentlich · p-Test · v.p.</small></span></a>
+      <a class="reftile i6" href="#/ref/reihen"><span class="ti">Σ</span><span>Standardreihen &amp; Summen<small>geometrisch · Gauß · Teleskop · Fourier</small></span></a>
+      <a class="reftile i7" href="#/ref/grenzwerte"><span class="ti">lim</span><span>Grenzwerte &amp; Landau-Symbole<small>Standard-Limits · o und O</small></span></a>
+      <a class="reftile i8" href="#/ref/konv_summen"><span class="ti">∑</span><span>Konvergenz — Reihen<small>Quotient · Wurzel · Leibniz · Integral</small></span></a>
       <a class="reftile i10" href="#/ref/potenzreihen"><span class="ti">xⁿ</span><span>Potenzreihen<small>Konvergenzradius · Rand</small></span></a>
       <a class="reftile i11" href="#/ref/entwickeln"><span class="ti">Tₙ</span><span>Funktionen entwickeln<small>Taylor · Restglied · Interpolation</small></span></a>
       <a class="reftile i12" href="#/ref/vertauschen"><span class="ti">⇄</span><span>Grenzwerte vertauschen<small>punktweise vs. gleichmäßig</small></span></a>
-      <a class="reftile i13" href="#/ref/kurven"><span class="ti">κ</span><span>Kurven · Länge · Krümmung<small>kartesisch & polar</small></span></a>
+      <a class="reftile i13" href="#/ref/kurven"><span class="ti">κ</span><span>Kurven · Länge · Krümmung<small>kartesisch &amp; polar · Rektifizierbarkeit</small></span></a>
       <a class="reftile i14" href="#/ref/diffrechnung"><span class="ti">∇</span><span>Differentialrechnung<small>partiell · Jacobi/Hesse · ∇ · Fréchet</small></span></a>
     </div>
 
