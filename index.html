@@ -272,7 +272,7 @@ footer{max-width:1200px;margin:0 auto;padding:14px 18px;color:var(--muted);font-
     <div class="brand">
       <div class="logo">∫</div>
       <div>Analysis · Kap. 3–6
-        <small>Analysis 1 + 2 · Übersicht fürs Team</small>
+        <small>\(\lim_{t\to t_{\text{Klausur}}}(\text{Lebenswille})=0\)</small>
       </div>
     </div>
     <div class="spacer"></div>
@@ -1000,7 +1000,7 @@ function reihenHtml(){ return String.raw`
       <tr><td>Praktisch: \(f\) gerade \(\Rightarrow b_k=0\); \(f\) ungerade \(\Rightarrow a_k=0\)</td></tr>
     </table>
     ${exBox(String.raw`<p>Multipliziere die Reihe mit \(\sin mx\) und integriere über \([-\pi,\pi]\):</p>\[\int_{-\pi}^{\pi}f(x)\sin mx\,dx=\sum_{k}a_k\underbrace{\int\cos kx\sin mx}_{=0}+\sum_{k}b_k\underbrace{\int\sin kx\sin mx}_{=\pi\delta_{km}}=b_m\,\pi.\]<p>Wegen der Orthogonalität überlebt nur der Term \(k=m\) — genau das liefert die Koeffizientenformel. Die Orthogonalität selbst folgt aus Produkt→Summe: \(\sin kx\sin mx=\tfrac12[\cos(k-m)x-\cos(k+m)x]\), und \(\int_{-\pi}^{\pi}\cos(jx)\,dx=0\) für \(j\neq0\).</p>`,"Warum das klappt (Orthogonalität)")}
-    ${exBox(String.raw`<p>\(f(x)=x\) auf \((-\pi,\pi)\) ist ungerade \(\Rightarrow a_k=0\). Für \(b_k\) (partielle Integration):</p>\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}x\sin kx\,dx=\frac{2}{\pi}\Big[-\frac{x\cos kx}{k}\Big]_{0}^{\pi}=-\frac{2\cos k\pi}{k}=\frac{2(-1)^{k+1}}{k}\]\[\Rightarrow\ x\sim 2\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}\sin kx.\]`,"Beispiel: Sägezahn f(x) = x")}
+    ${exBox(String.raw`<p>\(f(x)=x\) auf \(\left]-\pi,\pi\right[\) ist ungerade \(\Rightarrow a_k=0\). Für \(b_k\) (partielle Integration):</p>\[b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}x\sin kx\,dx=\frac{2}{\pi}\Big[-\frac{x\cos kx}{k}\Big]_{0}^{\pi}=-\frac{2\cos k\pi}{k}=\frac{2(-1)^{k+1}}{k}\]\[\Rightarrow\ x\sim 2\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}\sin kx.\]`,"Beispiel: Sägezahn f(x) = x")}
   </div>`; }
 
 function grenzHtml(){ return String.raw`
@@ -1093,7 +1093,7 @@ function konvSummenHtml(){ return String.raw`
           ${exBox(String.raw`<p>\(\displaystyle\sum\Big(\tfrac{k}{k+1}\Big)^{k^{2}}\):</p>\[\sqrt[k]{a_k}=\Big(\frac{k}{k+1}\Big)^{k}=\Big(1+\tfrac{1}{k}\Big)^{-k}\to\frac{1}{e}<1\ \Rightarrow\ \text{konvergent.}\]`,"Beispiel: Σ (k/(k+1))^(k²)")}</td><td class="cond">\(L<1\) konv, \(L>1\) div</td></tr>
         <tr><td><b>Leibniz</b> (alternierend): \(a_k=(-1)^{k}b_k\), \(b_k\ge0\) monoton \(\downarrow 0\) \(\Rightarrow\) konv.<span class="when">Einsetzen bei \((-1)^{k}\cdot(\text{monoton fallende Nullfolge})\) — der Rettungsanker, wenn absolute Konvergenz scheitert.</span>
           ${exBox(String.raw`<p>\(\displaystyle\sum\frac{(-1)^{k+1}}{k}\): \(b_k=\tfrac1k\downarrow0\ \Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert.</p>`,"Beispiel: Σ (−1)^(k+1)/k")}</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
-        <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{\infty}\!f\) gleiches Verhalten.<span class="when">Einsetzen, wenn \(f\) leicht integrierbar ist — Klassiker: \(\sum\frac{1}{k\ln k}\) div., denn \(\int\frac{dx}{x\ln x}=\ln\ln x\to\infty\).</span></td></tr>
+        <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{+\infty}\!f\) gleiches Verhalten.<span class="when">Einsetzen, wenn \(f\) leicht integrierbar ist — Klassiker: \(\sum\frac{1}{k\ln k}\) div., denn \(\int\frac{dx}{x\ln x}=\ln\ln x\to\infty\).</span></td></tr>
       </table>
       <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
     </div>
@@ -1103,7 +1103,7 @@ function konvSummenHtml(){ return String.raw`
     <table class="reftable">
       <tr><td><b>Vergleichs-Skala:</b> \(\sum\frac{1}{k^{p}}\) (konv. \(\Leftrightarrow p>1\)), \(\sum q^{k}\) (\(|q|<1\)), \(\sum k^{a}q^{k}\) konv. für \(|q|<1\) (jedes \(a\))</td></tr>
       <tr><td><b>„Nur höchste Potenzen zählen":</b> \(\dfrac{P(k)}{Q(k)}\sim\dfrac{c}{k^{\deg Q-\deg P}}\) → Grenzwertvergleich mit \(\frac{1}{k^{p}}\)
-        ${exBox(String.raw`<p>\(\displaystyle\sum\frac{2k+3}{k^{3}-k+1}\). Höchste Potenzen: \(\sim\frac{2}{k^{2}}\). Prüfen mit \(b_k=\frac{1}{k^{2}}\):</p>\[\frac{a_k}{b_k}=\frac{(2k+3)k^{2}}{k^{3}-k+1}\longrightarrow 2\in(0,\infty)\ \Rightarrow\ \text{wie }\sum\frac{1}{k^{2}}\ \text{konvergent.}\]`,"Beispiel: Grenzwertvergleich")}</td></tr>
+        ${exBox(String.raw`<p>\(\displaystyle\sum\frac{2k+3}{k^{3}-k+1}\). Höchste Potenzen: \(\sim\frac{2}{k^{2}}\). Prüfen mit \(b_k=\frac{1}{k^{2}}\):</p>\[\frac{a_k}{b_k}=\frac{(2k+3)k^{2}}{k^{3}-k+1}\longrightarrow 2\in\left]0,+\infty\right[\ \Rightarrow\ \text{wie }\sum\frac{1}{k^{2}}\ \text{konvergent.}\]`,"Beispiel: Grenzwertvergleich")}</td></tr>
       <tr><td><b>Beschränktes wegschätzen:</b> \(|\sin k|,|\cos k|\le1\) → \(\Big|\dfrac{\sin k}{k^{2}}\Big|\le\dfrac{1}{k^{2}}\)</td></tr>
       <tr><td><b>Logs sind klein:</b> \(\ln k\le C_\varepsilon\,k^{\varepsilon}\) → z. B. \(\dfrac{\ln k}{k^{2}}\le\dfrac{C\,k^{1/2}}{k^{2}}=\dfrac{C}{k^{3/2}}\) (konv.)</td></tr>
       <tr><td><b>Minoranten für Divergenz:</b> \(\dfrac{1}{\sqrt{k}}\ge\dfrac{1}{k}\); \(\dfrac{k+1}{k^{2}+5}\sim\dfrac{1}{k}\) (div.)</td></tr>
@@ -1111,14 +1111,14 @@ function konvSummenHtml(){ return String.raw`
   </div>
   <div class="refblock">
     <h3>Summierbarkeit divergenter Reihen</h3>
-    <p class="sub">Divergente Reihen bekommen über gemittelte/geglättete Grenzwerte einen sinnvollen „Wert". Beide Verfahren sind <b>regulär</b>: eine schon konvergente Reihe behält ihren Wert. Durchgängiges Beispiel: die <b>Grandi-Reihe</b> \(1-1+1-1+\cdots\) (\(a_k=(-1)^{k}\)).</p>
+    <p class="sub">Divergente Reihen bekommen über gemittelte/geglättete Grenzwerte einen sinnvollen „Wert". Beide Verfahren sind <b>regulär</b>: eine schon konvergente Reihe behält ihren Wert. Durchgängiges Beispiel: die <b>Grandi-Reihe</b> \(1-1+1-1+\cdots\) (\(a_k=(-1)^{k+1}\), Start \(k=1\) wie in der Vorlesung).</p>
     <table class="reftable">
-      <tr><td><b>Cesàro (C,1)</b> — über die <b>Partialsummen</b>: bilde \(s_n=a_0+\cdots+a_n\), dann ihr Mittel \(\displaystyle\sigma_n=\frac{s_0+s_1+\cdots+s_n}{n+1}\). Cesàro-Summe \(=\lim_{n\to\infty}\sigma_n\).<span class="when">Einsetzen, wenn die Partialsummen beschränkt hin- und herspringen — das Mitteln glättet die Sprünge.</span>
-        ${exBox(String.raw`<p><b>Schritt 1 — Partialsummen:</b> \(s_n=1,0,1,0,\dots\) (springt, divergent).</p><p><b>Schritt 2 — aufsummieren:</b> \(S_n=s_0+\cdots+s_n\): \(1,1,2,2,3,3,\dots\), allgemein \(S_{2m}=S_{2m+1}=m+1\).</p><p><b>Schritt 3 — mitteln:</b></p>\[\sigma_{2m}=\frac{m+1}{2m+1}\ \longrightarrow\ \frac12,\qquad \sigma_{2m+1}=\frac{m+1}{2m+2}=\frac12\ \text{(exakt!)}\]<p>Beide Teilfolgen \(\to\tfrac12\) \(\Rightarrow\) <b>Cesàro-Summe \(=\tfrac12\)</b>.</p>`,"Rechenbeispiel: Grandi nach Cesàro")}</td></tr>
+      <tr><td><b>Cesàro (C,1)</b> — über die <b>Partialsummen</b>: bilde \(S_n=a_1+\cdots+a_n\), dann ihr Mittel \(\displaystyle\sigma_n=\frac{S_1+S_2+\cdots+S_n}{n}\). Cesàro-Summe \(S_c=\lim_{n\to\infty}\sigma_n\).<span class="when">Einsetzen, wenn die Partialsummen beschränkt hin- und herspringen — das Mitteln glättet die Sprünge.</span>
+        ${exBox(String.raw`<p><b>Schritt 1 — Partialsummen:</b> \(S_n=1,0,1,0,\dots\) (springt, divergent).</p><p><b>Schritt 2 — aufsummieren:</b> \(S_1+\cdots+S_n\): \(1,1,2,2,3,3,\dots\) — allgemein \(=m\) für \(n=2m\) wie für \(n=2m-1\).</p><p><b>Schritt 3 — mitteln:</b></p>\[\sigma_{2m}=\frac{m}{2m}=\frac12\ \text{(exakt!)},\qquad \sigma_{2m-1}=\frac{m}{2m-1}\ \longrightarrow\ \frac12\]<p>Beide Teilfolgen \(\to\tfrac12\) \(\Rightarrow\) <b>Cesàro-Summe \(S_c=\tfrac12\)</b>.</p>`,"Rechenbeispiel: Grandi nach Cesàro")}</td></tr>
       <tr><td><b>Abel / Poisson-Abel</b> — über die <b>Potenzreihe</b>: bilde \(f(x)=\sum_k a_k x^{k}\) (\(|x|<1\)), dann lasse \(x\to1^{-}\). Abel-Summe \(=\lim_{x\to1^{-}}f(x)\).<span class="when">Einsetzen, wenn \(\sum a_k x^{k}\) eine geschlossene Form hat — meist geometrische Reihe oder deren Ableitung.</span>
-        ${exBox(String.raw`<p><b>Schritt 1 — Potenzreihe aufstellen:</b> mit \(a_k=(-1)^{k}\):</p>\[f(x)=\sum_{k=0}^{\infty}(-1)^{k}x^{k}=\sum_{k=0}^{\infty}(-x)^{k}\]<p><b>Schritt 2 — geschlossene Form</b> (geometrische Reihe mit \(q=-x\), \(|q|<1\)):</p>\[f(x)=\frac{1}{1-(-x)}=\frac{1}{1+x},\qquad |x|<1\]<p><b>Schritt 3 — Randlimes:</b></p>\[\lim_{x\to1^{-}}\frac{1}{1+x}=\frac12\ \Rightarrow\ \textbf{Abel-Summe }=\tfrac12\]<p>— gleicher Wert wie Cesàro, wie es Frobenius verlangt.</p>`,"Rechenbeispiel: Grandi nach Poisson-Abel")}</td></tr>
+        ${exBox(String.raw`<p><b>Schritt 1 — Potenzreihe aufstellen:</b> mit \(a_k=(-1)^{k+1}\), \(k\ge1\):</p>\[f(x)=\sum_{k=1}^{\infty}(-1)^{k+1}x^{k}=x\sum_{j=0}^{\infty}(-x)^{j}\]<p><b>Schritt 2 — geschlossene Form</b> (geometrische Reihe mit \(q=-x\), \(|q|<1\)):</p>\[f(x)=x\cdot\frac{1}{1-(-x)}=\frac{x}{1+x},\qquad |x|<1\]<p><b>Schritt 3 — Randlimes:</b></p>\[\lim_{x\to1^{-}}\frac{x}{1+x}=\frac12\ \Rightarrow\ \textbf{Abel-Summe }=\tfrac12\]<p>— gleicher Wert wie Cesàro, wie es Frobenius verlangt.</p>`,"Rechenbeispiel: Grandi nach Poisson-Abel")}</td></tr>
       <tr><td><b>Hierarchie:</b> konvergent \(\Rightarrow\) Cesàro \(\Rightarrow\) Abel (jeweils derselbe Wert). Also: <b>aus Cesàro folgt Abel</b> (Satz von Frobenius) — Abel ist das stärkste Verfahren. Rückrichtung nur mit Tauber-Bedingung (z. B. \(a_k\to0\)).<span class="when">Merk-Beispiel dafür, dass Abel echt stärker ist: \(1-2+3-4+\cdots\).</span>
-        ${exBox(String.raw`<p>\(1-2+3-4+\cdots\), also \(a_k=(-1)^{k}(k+1)\).</p><p><b>Cesàro scheitert:</b> \(s_n=1,-1,2,-2,3,\dots\); aufsummiert \(S_{2m}=m+1,\ S_{2m+1}=0\), also</p>\[\sigma_{2m}=\frac{m+1}{2m+1}\to\frac12,\qquad \sigma_{2m+1}=0\to0\]<p>— zwei verschiedene Häufungswerte \(\Rightarrow\) \(\sigma_n\) divergiert, <b>nicht Cesàro-summierbar</b>.</p><p><b>Abel klappt:</b> Ableiten der geometrischen Reihe \(\sum_{k\ge0}u^{k}=\frac{1}{1-u}\) gibt \(\sum_{k\ge0}(k+1)u^{k}=\frac{1}{(1-u)^{2}}\). Mit \(u=-x\):</p>\[\sum_{k=0}^{\infty}(-1)^{k}(k+1)x^{k}=\frac{1}{(1+x)^{2}}\ \longrightarrow\ \frac14\quad(x\to1^{-})\]<p>\(\Rightarrow\) <b>Abel-Summe \(=\tfrac14\)</b> — Abel summiert echt „mehr" als Cesàro.</p>`,"Rechenbeispiel: 1 − 2 + 3 − 4 + ⋯")}</td></tr>
+        ${exBox(String.raw`<p>\(1-2+3-4+\cdots\), also \(a_k=(-1)^{k+1}k\), \(k\ge1\).</p><p><b>Cesàro scheitert:</b> \(S_n=1,-1,2,-2,3,\dots\); aufsummiert \(S_1+\cdots+S_n\): \(1,0,2,0,3,0,\dots\), also</p>\[\sigma_{2m-1}=\frac{m}{2m-1}\to\frac12,\qquad \sigma_{2m}=0\to0\]<p>— zwei verschiedene Häufungswerte \(\Rightarrow\) \(\sigma_n\) divergiert, <b>nicht Cesàro-summierbar</b>.</p><p><b>Abel klappt:</b> Ableiten der geometrischen Reihe \(\sum_{k\ge0}u^{k}=\frac{1}{1-u}\) gibt \(\sum_{k\ge1}k\,u^{k}=\frac{u}{(1-u)^{2}}\). Mit \(u=-x\):</p>\[\sum_{k=1}^{\infty}(-1)^{k+1}k\,x^{k}=\frac{x}{(1+x)^{2}}\ \longrightarrow\ \frac14\quad(x\to1^{-})\]<p>\(\Rightarrow\) <b>Abel-Summe \(=\tfrac14\)</b> — Abel summiert echt „mehr" als Cesàro.</p>`,"Rechenbeispiel: 1 − 2 + 3 − 4 + ⋯")}</td></tr>
     </table>
   </div>`; }
 
@@ -1128,42 +1128,42 @@ function konvIntegraleHtml(){ return String.raw`
     <div class="refblock">
       <h3>Definition (immer über Grenzwerte)</h3>
       <table class="reftable">
-        <tr><td>Unbeschränktes Intervall: \(\displaystyle\int_a^{\infty}\!f=\lim_{R\to\infty}\int_a^{R}\!f\)<span class="when">Existiert der Limes in \(\mathbb R\), heißt das Integral <b>konvergent</b>, sonst divergent.</span></td></tr>
+        <tr><td>Unbeschränktes Intervall: \(\displaystyle\int_a^{+\infty}\!f=\lim_{R\to+\infty}\int_a^{R}\!f\)<span class="when">Existiert der Limes in \(\mathbb R\), heißt das Integral <b>konvergent</b>, sonst divergent.</span></td></tr>
         <tr><td>Singularität am Rand \(b\): \(\displaystyle\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}\!f\)</td></tr>
-        <tr><td><b>Mehrere kritische Stellen → aufspalten:</b> \(\displaystyle\int_{-\infty}^{\infty}=\int_{-\infty}^{c}+\int_{c}^{\infty}\), Pol bei \(c\) innen: \(\int_a^{c}+\int_c^{b}\). <b>Jedes Teilintegral muss einzeln konvergieren</b> (unabhängige Grenzwerte!).</td></tr>
-        <tr><td><b>Warnung:</b> \(f(x)\to0\) allein reicht <b>nicht</b>: \(\displaystyle\int_1^{\infty}\frac{dx}{x}=\infty\), obwohl \(\tfrac1x\to0\).</td></tr>
+        <tr><td><b>Mehrere kritische Stellen → aufspalten:</b> \(\displaystyle\int_{-\infty}^{+\infty}=\int_{-\infty}^{c}+\int_{c}^{+\infty}\), Pol bei \(c\) innen: \(\int_a^{c}+\int_c^{b}\). <b>Jedes Teilintegral muss einzeln konvergieren</b> (unabhängige Grenzwerte!).</td></tr>
+        <tr><td><b>Warnung:</b> \(f(x)\to0\) allein reicht <b>nicht</b>: \(\displaystyle\int_1^{+\infty}\frac{dx}{x}=\infty\), obwohl \(\tfrac1x\to0\).</td></tr>
       </table>
       <h3 style="margin-top:16px">p-Test — der erste Reflex</h3>
       <table class="reftable">
-        <tr><td>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Bei \(\infty\) helfen <b>große</b> Exponenten (schneller Abfall).</span></td></tr>
+        <tr><td>\(\displaystyle\int_1^{+\infty}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p>1\)<span class="when">Bei \(\infty\) helfen <b>große</b> Exponenten (schneller Abfall).</span></td></tr>
         <tr><td>\(\displaystyle\int_0^{1}\frac{dx}{x^{p}}\) konv. \(\Leftrightarrow p<1\)<span class="when">Bei \(0\) genau umgekehrt: <b>kleine</b> Exponenten sind harmlos. Grenzfall \(p=1\) divergiert an beiden Enden (\(\ln\)).</span>
-          ${exBox(String.raw`<p>Direkt nachrechnen (\(p\neq1\)): \(\int x^{-p}dx=\frac{x^{1-p}}{1-p}\).</p>\[\int_1^{\infty}\frac{dx}{x^{2}}=\Big[-\frac1x\Big]_1^{\infty}=1\ (\text{konv.}),\qquad \int_1^{\infty}\frac{dx}{x}=\ln x\Big|_1^{\infty}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=\big[2\sqrt{x}\big]_0^{1}=2\ (\text{konv., }p=\tfrac12<1),\qquad \int_0^{1}\frac{dx}{x^{2}}=\infty\ (\text{div., }p=2>1)\]`,"Beispiele: p-Test an beiden Rändern")}</td></tr>
+          ${exBox(String.raw`<p>Direkt nachrechnen (\(p\neq1\)): \(\int x^{-p}dx=\frac{x^{1-p}}{1-p}\).</p>\[\int_1^{+\infty}\frac{dx}{x^{2}}=\Big[-\frac1x\Big]_1^{+\infty}=1\ (\text{konv.}),\qquad \int_1^{+\infty}\frac{dx}{x}=\ln x\Big|_1^{+\infty}=\infty\ (\text{div.})\]\[\int_0^{1}\frac{dx}{\sqrt{x}}=\big[2\sqrt{x}\big]_0^{1}=2\ (\text{konv., }p=\tfrac12<1),\qquad \int_0^{1}\frac{dx}{x^{2}}=\infty\ (\text{div., }p=2>1)\]`,"Beispiele: p-Test an beiden Rändern")}</td></tr>
       </table>
     </div>
     <div class="refblock">
       <h3>Vergleichs-Kriterien</h3>
       <table class="reftable">
         <tr><td><b>Majorante</b> (für Konvergenz): \(0\le f\le g,\ \int g\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen, wenn sich \(f\) gegen \(x^{-p}\) oder \(e^{-x}\) abschätzen lässt.</span>
-          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}e^{-x^{2}}dx\) konvergiert: für \(x\ge1\) ist \(x^{2}\ge x\), also</p>\[e^{-x^{2}}\le e^{-x},\qquad \int_1^{\infty}e^{-x}\,dx=e^{-1}<\infty.\]`,"Beispiel: ∫ e^(−x²)")}</td></tr>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{+\infty}e^{-x^{2}}dx\) konvergiert: für \(x\ge1\) ist \(x^{2}\ge x\), also</p>\[e^{-x^{2}}\le e^{-x},\qquad \int_1^{+\infty}e^{-x}\,dx=e^{-1}<\infty.\]`,"Beispiel: ∫ e^(−x²)")}</td></tr>
         <tr><td><b>Minorante</b> (für Divergenz): \(f\ge g\ge0,\ \int g\) div. \(\Rightarrow\int f\) div.<span class="when">Einsetzen für Divergenz-Nachweise — meist mit \(\tfrac{c}{x}\) als Minorante.</span>
-          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}\frac{dx}{\sqrt{x^{2}+1}}\) divergiert: für \(x\ge1\) ist \(x^{2}+1\le 2x^{2}\), also</p>\[\frac{1}{\sqrt{x^{2}+1}}\ \ge\ \frac{1}{\sqrt{2}\,x},\qquad \int_1^{\infty}\frac{dx}{\sqrt{2}\,x}=\infty.\]`,"Beispiel: ∫ dx/√(x²+1)")}</td></tr>
-        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in(0,\infty)\Rightarrow\) gleiches Verhalten.<span class="when">Einsetzen, wenn nur das führende Verhalten am kritischen Rand zählt (Polynome, Wurzeln) — erspart das Basteln expliziter Schranken.</span>
-          ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}\frac{dx}{\sqrt{x^{3}+1}}\): führendes Verhalten \(x^{-3/2}\). Vergleich mit \(g=x^{-3/2}\):</p>\[\frac{f}{g}=\frac{x^{3/2}}{\sqrt{x^{3}+1}}=\frac{1}{\sqrt{1+x^{-3}}}\ \longrightarrow\ 1\in(0,\infty)\]<p>\(\Rightarrow\) verhält sich wie \(\int x^{-3/2}\) → <b>konvergent</b> (\(p=\tfrac32>1\)).</p>`,"Beispiel: ∫ dx/√(x³+1)")}</td></tr>
-        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln — z. B. \(\int_1^{\infty}\frac{\sin x}{x^{2}}dx\): \(\big|\frac{\sin x}{x^{2}}\big|\le\frac{1}{x^{2}}\).</span></td></tr>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{+\infty}\frac{dx}{\sqrt{x^{2}+1}}\) divergiert: für \(x\ge1\) ist \(x^{2}+1\le 2x^{2}\), also</p>\[\frac{1}{\sqrt{x^{2}+1}}\ \ge\ \frac{1}{\sqrt{2}\,x},\qquad \int_1^{+\infty}\frac{dx}{\sqrt{2}\,x}=\infty.\]`,"Beispiel: ∫ dx/√(x²+1)")}</td></tr>
+        <tr><td><b>Grenzwertvergleich:</b> \(f,g>0,\ \frac{f}{g}\to c\in\left]0,+\infty\right[\Rightarrow\) gleiches Verhalten.<span class="when">Einsetzen, wenn nur das führende Verhalten am kritischen Rand zählt (Polynome, Wurzeln) — erspart das Basteln expliziter Schranken.</span>
+          ${exBox(String.raw`<p>\(\displaystyle\int_1^{+\infty}\frac{dx}{\sqrt{x^{3}+1}}\): führendes Verhalten \(x^{-3/2}\). Vergleich mit \(g=x^{-3/2}\):</p>\[\frac{f}{g}=\frac{x^{3/2}}{\sqrt{x^{3}+1}}=\frac{1}{\sqrt{1+x^{-3}}}\ \longrightarrow\ 1\in\left]0,+\infty\right[\]<p>\(\Rightarrow\) verhält sich wie \(\int x^{-3/2}\) → <b>konvergent</b> (\(p=\tfrac32>1\)).</p>`,"Beispiel: ∫ dx/√(x³+1)")}</td></tr>
+        <tr><td><b>Absolut:</b> \(\int|f|\) konv. \(\Rightarrow\int f\) konv.<span class="when">Einsetzen bei Vorzeichenwechseln — z. B. \(\int_1^{+\infty}\frac{\sin x}{x^{2}}dx\): \(\big|\frac{\sin x}{x^{2}}\big|\le\frac{1}{x^{2}}\).</span></td></tr>
       </table>
       <h3 style="margin-top:16px">Beide Ränder kritisch</h3>
-      ${exBox(String.raw`<p>\(\displaystyle\int_0^{\infty}\frac{dx}{\sqrt{x}\,(1+x)}\) — kritisch bei \(0\) <b>und</b> \(\infty\). Aufspalten bei \(1\):</p><p>Bei \(0\): \(\dfrac{1}{\sqrt{x}(1+x)}\sim\dfrac{1}{\sqrt{x}}\) → konv. (\(p=\tfrac12<1\)).</p><p>Bei \(\infty\): \(\sim\dfrac{1}{x^{3/2}}\) → konv. (\(p=\tfrac32>1\)).</p><p>Beide Teile konvergieren → Integral konvergent (Substitution \(t=\sqrt{x}\) liefert sogar den Wert \(\pi\)).</p>`,"Beispiel: ∫₀^∞ dx/(√x·(1+x))")}
+      ${exBox(String.raw`<p>\(\displaystyle\int_0^{+\infty}\frac{dx}{\sqrt{x}\,(1+x)}\) — kritisch bei \(0\) <b>und</b> \(\infty\). Aufspalten bei \(1\):</p><p>Bei \(0\): \(\dfrac{1}{\sqrt{x}(1+x)}\sim\dfrac{1}{\sqrt{x}}\) → konv. (\(p=\tfrac12<1\)).</p><p>Bei \(\infty\): \(\sim\dfrac{1}{x^{3/2}}\) → konv. (\(p=\tfrac32>1\)).</p><p>Beide Teile konvergieren → Integral konvergent (Substitution \(t=\sqrt{x}\) liefert sogar den Wert \(\pi\)).</p>`,"Beispiel: ∫₀^∞ dx/(√x·(1+x))")}
     </div>
   </div>
   <div class="refblock">
     <h3>Cauchy-Hauptwert (v.p.)</h3>
     <p class="sub">Symmetrischer Grenzwert — kann existieren, obwohl das Integral (mit unabhängigen Grenzwerten) divergiert. Einsetzen, wenn ein Pol <b>im Inneren</b> liegt oder \(\pm\infty\) symmetrisch behandelt werden soll.</p>
     <table class="reftable">
-      <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{\infty}\!f=\lim_{R\to\infty}\int_{-R}^{R}\!f\)<span class="when">Eine gemeinsame Schranke \(R\) statt zwei unabhängiger — deshalb „schwächer" als echte Konvergenz: konvergent \(\Rightarrow\) v.p. existiert (gleicher Wert), aber nicht umgekehrt.</span></td></tr>
-      <tr><td>Pol bei \(c\in(a,b)\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)<span class="when">Symmetrisches Ausschneiden des Pols — dieselbe \(\varepsilon\)-Breite links und rechts.</span>
+      <tr><td>\(\displaystyle \mathrm{v.p.}\!\int_{-\infty}^{+\infty}\!f=\lim_{R\to+\infty}\int_{-R}^{R}\!f\)<span class="when">Eine gemeinsame Schranke \(R\) statt zwei unabhängiger — deshalb „schwächer" als echte Konvergenz: konvergent \(\Rightarrow\) v.p. existiert (gleicher Wert), aber nicht umgekehrt.</span></td></tr>
+      <tr><td>Pol bei \(c\in\left]a,b\right[\): \(\displaystyle \mathrm{v.p.}\!\int_a^{b}\!f=\lim_{\varepsilon\to0^{+}}\Big(\int_a^{c-\varepsilon}\!+\int_{c+\varepsilon}^{b}\Big)f\)<span class="when">Symmetrisches Ausschneiden des Pols — dieselbe \(\varepsilon\)-Breite links und rechts.</span>
         ${exBox(String.raw`<p><b>Schritt für Schritt</b> für \(\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}\) (Pol bei \(0\)) — beide Teilintegrale mit der Stammfunktion \(\ln|x|\) ausrechnen:</p>\[\int_{-1}^{-\varepsilon}\frac{dx}{x}=\ln|x|\Big|_{-1}^{-\varepsilon}=\ln\varepsilon-\ln1=\ln\varepsilon\]\[\int_{\varepsilon}^{1}\frac{dx}{x}=\ln|x|\Big|_{\varepsilon}^{1}=\ln1-\ln\varepsilon=-\ln\varepsilon\]<p>Summe: \(\ln\varepsilon-\ln\varepsilon=0\) für <b>jedes</b> \(\varepsilon>0\), also</p>\[\mathrm{v.p.}\!\int_{-1}^{1}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}0=0.\]<p>Das gewöhnliche Integral divergiert (jedes Teilintegral einzeln \(=\mp\infty\)) — nur im Hauptwert heben sich die \(\ln\varepsilon\)-Terme exakt weg.</p>`,"Rechenbeispiel: v.p. ∫₋₁¹ dx/x = 0")}
         ${exBox(String.raw`<p><b>Unsymmetrische Grenzen</b> liefern einen echten Wert: \(\mathrm{v.p.}\!\int_{-1}^{2}\frac{dx}{x}\):</p>\[\int_{-1}^{-\varepsilon}\frac{dx}{x}=\ln\varepsilon,\qquad \int_{\varepsilon}^{2}\frac{dx}{x}=\ln2-\ln\varepsilon\]\[\Rightarrow\ \mathrm{v.p.}\!\int_{-1}^{2}\frac{dx}{x}=\lim_{\varepsilon\to0^{+}}\big(\ln\varepsilon+\ln2-\ln\varepsilon\big)=\ln 2.\]<p>Die \(\ln\varepsilon\)-Terme heben sich weg; übrig bleibt \(\ln2\) — der Hauptwert „sieht" nur den unsymmetrischen Überhang \([1,2]\).</p>`,"Rechenbeispiel: v.p. ∫₋₁² dx/x = ln 2")}</td></tr>
-      <tr><td>Analog: \(\displaystyle\mathrm{v.p.}\!\int_{-\infty}^{\infty}x\,dx=0\), obwohl \(\int_{-\infty}^{\infty}x\,dx\) divergiert (\(\infty-\infty\)).</td></tr>
+      <tr><td>Analog: \(\displaystyle\mathrm{v.p.}\!\int_{-\infty}^{+\infty}x\,dx=0\), obwohl \(\int_{-\infty}^{+\infty}x\,dx\) divergiert (\(\infty-\infty\)).</td></tr>
     </table>
   </div>`; }
 
@@ -1184,7 +1184,7 @@ function potenzreihenHtml(){ return String.raw`
     <div class="refblock">
       <h3>Eigenschaften & Beispiele</h3>
       <table class="reftable">
-        <tr><td>Innerhalb \((x_0-R,\,x_0+R)\) darf man <b>gliedweise differenzieren/integrieren</b> (gleicher Radius \(R\)); die Summe ist dort beliebig oft differenzierbar.</td></tr>
+        <tr><td>Innerhalb \(\left]x_0-R,\,x_0+R\right[\) darf man <b>gliedweise differenzieren/integrieren</b> (gleicher Radius \(R\)); die Summe ist dort beliebig oft differenzierbar.</td></tr>
       </table>
       <h3 style="margin-top:12px">Beispiele</h3>
       ${exBox(String.raw`<p>\(\sum \frac{x^{k}}{k!}\) (Quotienten-Form):</p>\[R=\lim_k\left|\frac{a_k}{a_{k+1}}\right|=\lim_k (k+1)=\infty\quad(\,=e^{x}\,).\]`)}
@@ -1263,7 +1263,7 @@ function vertauschenHtml(){ return String.raw`
         <tr><td><b>Punktweise:</b> \(\forall x:\ f_n(x)\to f(x)\). Das \(N=N(\varepsilon,x)\) darf von \(x\) abhängen.</td></tr>
         <tr><td><b>Gleichmäßig:</b> \(\displaystyle\sup_{x\in D}|f_n(x)-f(x)|\to0\). Ein \(N(\varepsilon)\) für <b>alle</b> \(x\).</td></tr>
         <tr><td>gleichmäßig \(\Rightarrow\) punktweise (nicht umgekehrt).</td></tr>
-        <tr><td><b>Weierstraß-M-Test</b> (Reihen): \(|f_k|\le M_k,\ \sum M_k<\infty \Rightarrow \sum f_k\) gleichm. konv.</td></tr>
+        <tr><td><b>Majorantenkriterium von Weierstraß</b> (M-Test, Reihen): \(\|a_k(x)\|\le C_k\) für alle \(x\), \(\sum C_k<\infty\ \Rightarrow\ \sum a_k\) konvergiert gleichmäßig.</td></tr>
       </table>
     </div>
     <div class="refblock">
@@ -1278,7 +1278,7 @@ function vertauschenHtml(){ return String.raw`
   <div class="refblock">
     <h3>Gegenbeispiele (nur punktweise!)</h3>
     ${exBox(String.raw`<p>\(f_n(x)=x^{n}\) auf \([0,1]\). <b>1. Grenzfunktion:</b></p>\[f(x)=\lim_{n}x^{n}=\begin{cases}0,&0\le x<1\\1,&x=1\end{cases}\]<p><b>2.–3. Fehler-Supremum:</b> \(\displaystyle\sup_{0\le x<1}|x^{n}-0|=1\) (Wert wird für \(x\to1\) erreicht).</p><p><b>4.</b> \(M_n=1\not\to0\) \(\Rightarrow\) <b>nur punktweise</b>. Deshalb darf der Grenzwert unstetig sein, obwohl alle \(f_n\) stetig sind.</p>`)}
-    ${exBox(String.raw`<p>Integral nicht vertauschbar: \(f_n=n\) auf \((0,\tfrac1n)\), sonst \(0\).</p>\[\int_0^1 f_n\,dx=1\ \text{für alle }n,\quad\text{aber}\quad f_n(x)\to0\ \text{punktweise}\]\[\Rightarrow\ \lim_n\int_0^1 f_n\,dx=1\neq0=\int_0^1\lim_n f_n\,dx.\]`)}
+    ${exBox(String.raw`<p>Integral nicht vertauschbar: \(f_n=n\) auf \(\left]0,\tfrac1n\right[\), sonst \(0\).</p>\[\int_0^1 f_n\,dx=1\ \text{für alle }n,\quad\text{aber}\quad f_n(x)\to0\ \text{punktweise}\]\[\Rightarrow\ \lim_n\int_0^1 f_n\,dx=1\neq0=\int_0^1\lim_n f_n\,dx.\]`)}
   </div>`; }
 
 function kurvenHtml(){ return String.raw`
@@ -1479,7 +1479,7 @@ function funktionswerteHtml(){ return String.raw`
         <tr><td>\(\arctan:\ 0\mapsto0,\ \tfrac{1}{\sqrt3}\mapsto\tfrac{\pi}{6},\ 1\mapsto\tfrac{\pi}{4},\ \sqrt3\mapsto\tfrac{\pi}{3}\)</td></tr>
         <tr><td>\(\arccos x=\tfrac{\pi}{2}-\arcsin x;\quad \arccos1=0,\ \arccos0=\tfrac{\pi}{2},\ \arccos(-1)=\pi\)</td></tr>
         <tr><td>\(\displaystyle\lim_{x\to\pm\infty}\arctan x=\pm\frac{\pi}{2}\); \(\arcsin,\arctan\) ungerade</td></tr>
-        <tr><td>Wertebereiche: \(\arcsin:[-\tfrac{\pi}{2},\tfrac{\pi}{2}]\), \(\arccos:[0,\pi]\), \(\arctan:(-\tfrac{\pi}{2},\tfrac{\pi}{2})\)</td></tr>
+        <tr><td>Wertebereiche: \(\arcsin:[-\tfrac{\pi}{2},\tfrac{\pi}{2}]\), \(\arccos:[0,\pi]\), \(\arctan:\left]-\tfrac{\pi}{2},\tfrac{\pi}{2}\right[\)</td></tr>
       </table>
       <h3 style="margin-top:14px">ln, exp &amp; Sonstiges</h3>
       <table class="reftable">
@@ -1556,7 +1556,7 @@ function saetzeHtml(){ return String.raw`
     </div>
     <div class="subcard">
       <div class="subhead">Riemann-Integrierbarkeit \(f\in R[a,b]\)</div>
-      <div class="subrule">\(f:[a,b]\to\mathbb R\) beschränkt; \(X\) Zerlegung mit Feinheit \(\lambda(X)\), \(\Xi\) Stützstellen.</div>
+      <div class="subrule">\(f:[a,b]\to\mathbb R\) beschränkt; \(X\) Zerlegung mit <b>Rang</b> (Feinheit) \(\lambda(X)=\max_k\Delta x_k\), \(\Xi\) Stützstellen.</div>
       \[f\in R[a,b]\ :\Longleftrightarrow\ \exists\,I\in\mathbb{R}:\ \sigma(f,X,\Xi)=\sum_{k=1}^{n}f(\xi_k)\,\Delta x_k\ \xrightarrow[\ \lambda(X)\to0\ ]{}\ I\]
       <div class="subrule">für <b>jede</b> Zerlegungsfolge und <b>beliebige</b> Stützstellen; dann \(I=\int_a^b f\). Praktische Kriterien: stetig \(\Rightarrow\) intb.; monoton \(\Rightarrow\) intb.; Lebesgue: beschränkt + stetig bis auf Nullmenge \(\Leftrightarrow\) intb.</div>
       ${exBox(String.raw`<p>Zerhacke \([a,b]\) beliebig fein und lies die Funktionshöhe an beliebigen Zwischenstellen ab — bilde Rechtecksummen. \(f\) ist integrierbar, wenn <b>alle</b> diese Summen (egal wie zerlegt, egal wo abgelesen) gegen <b>denselben</b> Wert \(I\) streben. Beschränktheit ist Pflicht; im Alltag prüft man nicht die Definition, sondern: stetig? monoton? höchstens „harmlose" Sprungstellen?</p>`,"In Worten")}
@@ -1566,11 +1566,11 @@ function saetzeHtml(){ return String.raw`
     <div class="subcard">
       <div class="subhead">Konvergenz uneigentlicher Integrale</div>
       <div class="subrule">Voraussetzung: \(f\) ist auf <b>jedem kompakten</b> Intervall \([A,R]\) Riemann-integrierbar (sonst ist \(F(R)\) gar nicht definiert).</div>
-      \[\int_A^{\infty}\!f(x)\,dx\ \text{konvergiert}\ :\Longleftrightarrow\ \lim_{R\to\infty}\ \underbrace{\int_A^{R}\!f(x)\,dx}_{=:F(R)}\ \text{existiert in }\mathbb R\]
+      \[\int_A^{+\infty}\!f(x)\,dx\ \text{konvergiert}\ :\Longleftrightarrow\ \lim_{R\to+\infty}\ \underbrace{\int_A^{R}\!f(x)\,dx}_{=:F(R)}\ \text{existiert in }\mathbb R\]
       <div class="subrule">Analog bei Randsingularität: \(\lim_{\varepsilon\to0^{+}}\int_a^{b-\varepsilon}f\).</div>
-      ${exBox(String.raw`<p>Zwei Zutaten: <b>(1)</b> bis zu jeder endlichen Schranke \(R\) muss \(f\) ganz normal integrierbar sein — deshalb „auf jedem kompakten Intervall R-integrierbar". <b>(2)</b> Die Werte \(F(R)\) müssen sich für \(R\to\infty\) auf eine feste Zahl <b>einpendeln</b>. Divergenz heißt: \(F(R)\to\pm\infty\) <i>oder</i> \(F(R)\) oszilliert ohne Limes.</p>`,"In Worten")}
-      ${exBox(String.raw`<p>\(\displaystyle\int_1^{\infty}\frac{dx}{x^{2}}\): \(x^{-2}\) ist stetig auf jedem \([1,R]\) ✓. Dann \(F(R)\) explizit ausrechnen und den Limes bilden:</p>\[F(R)=\int_1^{R}\frac{dx}{x^{2}}=1-\frac{1}{R}\ \xrightarrow[R\to\infty]{}\ 1\]<p>Limes existiert \(\Rightarrow\) konvergent mit Wert \(1\).</p>`,"✓ So zeigt man: erfüllt")}
-      ${exBox(String.raw`<p>\(\displaystyle\int_0^{\infty}\cos x\,dx\): hier ist \(F(R)=\sin R\) — <b>beschränkt, aber ohne Grenzwert</b> (oszilliert ewig zwischen \(-1\) und \(1\)): divergent, obwohl nichts „explodiert"!</p><p>Und \(\displaystyle\int_1^{\infty}\frac{dx}{x}\): \(F(R)=\ln R\to\infty\) — divergent durch Explosion. Verletzt-Nachweis = \(F(R)\) ausrechnen und zeigen: \(\to\infty\) oder zwei Folgen \(R_n\) mit verschiedenen Limites (z. B. \(\sin\) bei \(2\pi n\) vs. \(2\pi n+\tfrac\pi2\)).</p>`,"✗ So zeigt man: verletzt")}
+      ${exBox(String.raw`<p>Zwei Zutaten: <b>(1)</b> bis zu jeder endlichen Schranke \(R\) muss \(f\) ganz normal integrierbar sein — deshalb „auf jedem kompakten Intervall R-integrierbar". <b>(2)</b> Die Werte \(F(R)\) müssen sich für \(R\to+\infty\) auf eine feste Zahl <b>einpendeln</b>. Divergenz heißt: \(F(R)\to\pm\infty\) <i>oder</i> \(F(R)\) oszilliert ohne Limes.</p>`,"In Worten")}
+      ${exBox(String.raw`<p>\(\displaystyle\int_1^{+\infty}\frac{dx}{x^{2}}\): \(x^{-2}\) ist stetig auf jedem \([1,R]\) ✓. Dann \(F(R)\) explizit ausrechnen und den Limes bilden:</p>\[F(R)=\int_1^{R}\frac{dx}{x^{2}}=1-\frac{1}{R}\ \xrightarrow[R\to+\infty]{}\ 1\]<p>Limes existiert \(\Rightarrow\) konvergent mit Wert \(1\).</p>`,"✓ So zeigt man: erfüllt")}
+      ${exBox(String.raw`<p>\(\displaystyle\int_0^{+\infty}\cos x\,dx\): hier ist \(F(R)=\sin R\) — <b>beschränkt, aber ohne Grenzwert</b> (oszilliert ewig zwischen \(-1\) und \(1\)): divergent, obwohl nichts „explodiert"!</p><p>Und \(\displaystyle\int_1^{+\infty}\frac{dx}{x}\): \(F(R)=\ln R\to+\infty\) — divergent durch Explosion. Verletzt-Nachweis = \(F(R)\) ausrechnen und zeigen: \(\to\infty\) oder zwei Folgen \(R_n\) mit verschiedenen Limites (z. B. \(\sin\) bei \(2\pi n\) vs. \(2\pi n+\tfrac\pi2\)).</p>`,"✗ So zeigt man: verletzt")}
     </div>
     <div class="subcard">
       <div class="subhead">Konvergenz einer Reihe</div>
@@ -1930,7 +1930,9 @@ function renderTopic(tp){
 /* =========================================================================
    8) Router
    ========================================================================= */
-function typeset(){ if(window.renderMathInElement){ try{ renderMathInElement(app,{delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#dc2626"}); }catch(e){} } }
+function typeset(){ if(window.renderMathInElement){ const opt={delimiters:[{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#dc2626"};
+  try{ renderMathInElement(app,opt); }catch(e){}
+  const b=document.querySelector(".brand small"); if(b){ try{ renderMathInElement(b,opt); }catch(e){} } } }
 function route(){
   const h=location.hash.replace(/^#\/?/,"");
   if(!h){ renderHome(); }
