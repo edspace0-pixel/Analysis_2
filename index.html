@@ -946,7 +946,7 @@ function blattCard(b, kind){
 /* Prüfungen (Dateien in assets/analysis2_sources_for_claude/Pruefungen/) */
 const PRUEF = [
  {n:"Scheinklausur · 18.06.2022", sheet:"Pruefungen/Scheinklausur_22_06_18/Scheinklausur_220618.pdf", sol:"Pruefungen/Scheinklausur_22_06_18/Loesung_Scheinklausur_220618.pdf"},
- {n:"Scheinklausur · 21.07.2022", sheet:"Pruefungen/Scheinklausur_22_07_21/Scheinklausur_220721.pdf", sol:null}
+ {n:"Scheinklausur · 21.07.2022", sheet:"Pruefungen/Scheinklausur_22_07_21/Scheinklausur_220721.pdf", sol:"Pruefungen/Scheinklausur_22_07_21/Loesung_Scheinklausur_220721.pdf"}
 ];
 function uebHtml(){
   return `<div class="matgrid">${UEB.blaetter.map(b=>blattCard(b,"Blatt")).join("")}</div>
