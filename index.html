@@ -935,7 +935,7 @@ const UEB = {
    {n:"1", sheet:"Vortragsuebung/Vortragsübungsblatt_1.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_1.pdf"},
    {n:"2", sheet:"Vortragsuebung/Vortragsübungsblatt_2.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_2.pdf"},
    {n:"3", sheet:"Vortragsuebung/Vortragsübungsblatt_3.pdf", sol:null},
-   {n:"4", sheet:"Vortragsuebung/Vortragsübungsblatt_4.pdf", sol:null}
+   {n:"4", sheet:"Vortragsuebung/Vortragsübungsblatt_4.pdf", sol:"Vortragsuebung/Vtue_4_Aufschrieb_Loesungen.pdf"}
  ]
 };
 function blattCard(b, kind){
@@ -995,6 +995,11 @@ function intHtml(){ return String.raw`
         <tr><td>\(\displaystyle\int \frac{dx}{\sin^{2}x}=-\cot x+C\)</td><td class="cond"></td></tr>
         <tr><td>\(\displaystyle\int \frac{dx}{\sin x}=\ln\left|\tan\frac{x}{2}\right|+C\)</td><td class="cond"></td></tr>
         <tr><td>\(\displaystyle\int \frac{dx}{\cos x}=\ln\left|\tan\Big(\frac{x}{2}+\frac{\pi}{4}\Big)\right|+C\)</td><td class="cond"></td></tr>
+      </table>
+      <h3 style="margin-top:16px">Produkte \(e^{x}\cdot\sin/\cos\)</h3>
+      <table class="reftable">
+        <tr><td>\(\displaystyle\int e^{x}\cos x\,dx=\tfrac12\,e^{x}\big(\sin x+\cos x\big)+C\)</td><td class="cond">2× part. Int.</td></tr>
+        <tr><td>\(\displaystyle\int e^{x}\sin x\,dx=\tfrac12\,e^{x}\big(\sin x-\cos x\big)+C\)</td><td class="cond">2× part. Int.</td></tr>
       </table>
       <h3 style="margin-top:16px">Beispiele</h3>
       ${exBox(String.raw`<p>Mit \(a=2\):</p>\[\int \frac{dx}{4+x^{2}}=\frac{1}{2}\arctan\frac{x}{2}+C\]`)}
@@ -1373,8 +1378,19 @@ function konvSummenHtml(){ return String.raw`
           ${exBox(String.raw`<p>\(\displaystyle\sum\frac{(-1)^{k+1}}{k}\): \(b_k=\tfrac1k\downarrow0\ \Rightarrow\) konvergent (bedingt, \(=\ln 2\)); \(\sum\tfrac1k\) selbst divergiert.</p>`,"Beispiel: Σ (−1)^(k+1)/k")}</td><td class="cond">\(|R_n|\le b_{n+1}\)</td></tr>
         <tr><td><b>Integralkriterium:</b> \(f\ge0\) fallend, \(a_k=f(k)\): \(\sum f(k)\) und \(\int_1^{+\infty}\!f\) gleiches Verhalten.<span class="when">Einsetzen, wenn \(f\) leicht integrierbar ist — Klassiker: \(\sum\frac{1}{k\ln k}\) div., denn \(\int\frac{dx}{x\ln x}=\ln\ln x\to\infty\).</span></td></tr>
       </table>
-      <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium.</p>
+      <p class="sub" style="margin-top:8px">Bei \(L=1\): keine Aussage. Das Wurzel- ist „stärker" als das Quotientenkriterium — und wenn auch das mit \(L=1\) versagt, helfen die feineren Kriterien von <b>Raabe &amp; Kummer</b> (unten).</p>
     </div>
+  </div>
+  <div class="refblock">
+    <h3>Wenn \(L=1\): die feineren Kriterien von Raabe &amp; Kummer</h3>
+    <p class="sub">Genau für den blinden Fleck des Quotientenkriteriums (\(\frac{a_{k+1}}{a_k}\to1\)) gedacht. Beide brauchen \(a_k&gt;0\).</p>
+    <table class="reftable">
+      <tr><td><b>Raabe:</b> bilde \(\displaystyle R_k=k\Big(\frac{a_k}{a_{k+1}}-1\Big)\) (gleichwertig \(k\big(1-\frac{a_{k+1}}{a_k}\big)\)). Ist \(\liminf_k R_k&gt;1\) ⇒ <b>konvergent</b>; ist \(\limsup_k R_k&lt;1\) ⇒ <b>divergent</b>.<span class="when">Einsetzen, wenn das Quotientenkriterium \(L=1\) liefert: \(R_k\) misst die <i>Rate</i>, mit der \(\frac{a_{k+1}}{a_k}\to1\). Für die p-Reihe \(a_k=k^{-p}\) ist \(R_k\to p\) — Raabe „sieht" also den Exponenten und gibt konvergent \(\Leftrightarrow p&gt;1\).</span>
+        ${exBox(String.raw`<p>Die Reihe \(\displaystyle\sum_{k\ge1}a_k\) mit \(\displaystyle a_k=\frac{1\cdot3\cdot5\cdots(2k-1)}{2\cdot4\cdot6\cdots(2k)}=\frac{1}{4^{k}}\binom{2k}{k}\).</p><p><b>1. Quotientenkriterium versagt:</b> beim Schritt \(k\to k{+}1\) kommt im Zähler \((2k+1)\), im Nenner \((2k+2)\) hinzu:</p>\[\frac{a_{k+1}}{a_k}=\frac{2k+1}{2k+2}\longrightarrow 1\qquad(L=1,\ \text{keine Aussage}).\]<p><b>2. Raabe ansetzen:</b> mit \(\displaystyle\frac{a_k}{a_{k+1}}=\frac{2k+2}{2k+1}=1+\frac{1}{2k+1}\) folgt</p>\[R_k=k\Big(\frac{a_k}{a_{k+1}}-1\Big)=\frac{k}{2k+1}\longrightarrow\frac12<1.\]<p><b>3. Ergebnis:</b> \(\lim R_k=\tfrac12<1\ \Rightarrow\ \textbf{divergent}\). Passt zur Asymptotik \(a_k\sim\frac{1}{\sqrt{\pi k}}\) (verhält sich wie \(\sum k^{-1/2}\), \(p=\tfrac12\)).</p>`,"Rechenbeispiel: Raabe an der Mittelbinomial-Reihe")}</td><td class="cond">\(R>1\) konv, \(R<1\) div</td></tr>
+      <tr><td><b>Kummer:</b> wähle eine Hilfsfolge \(p_k&gt;0\) und bilde \(\displaystyle K_k=p_k\,\frac{a_k}{a_{k+1}}-p_{k+1}\). Gibt es ein \(c&gt;0\) mit \(K_k\ge c\) für große \(k\) (also \(\liminf_k K_k&gt;0\)) ⇒ <b>konvergent</b>. Ist \(K_k\le 0\) ab einem Index <b>und</b> divergiert \(\sum\frac{1}{p_k}\) ⇒ <b>divergent</b>.<span class="when">Das „Meister-Kriterium", aus dem die anderen fallen: \(p_k=1\) ⇒ Quotientenkriterium, \(p_k=k\) ⇒ Raabe (\(K_k=R_k-1\)), \(p_k=k\ln k\) ⇒ Bertrand. Freie Wahl von \(p_k\) = mehr Feinschärfe.</span>
+        ${exBox(String.raw`<p>Gleiche Reihe \(\displaystyle a_k=\frac{1}{4^{k}}\binom{2k}{k}\), jetzt mit Kummer und der Wahl \(p_k=k\).</p><p><b>1. \(K_k\) ausrechnen</b> (mit \(\frac{a_k}{a_{k+1}}=\frac{2k+2}{2k+1}\)):</p>\[K_k=k\cdot\frac{2k+2}{2k+1}-(k+1)=\frac{k(2k+2)-(k+1)(2k+1)}{2k+1}=\frac{-(k+1)}{2k+1}\longrightarrow-\frac12.\]<p><b>2. Divergenz-Ast:</b> \(K_k<0\) ab \(k=1\) <i>und</i> \(\sum\frac{1}{p_k}=\sum\frac1k\) divergiert \(\Rightarrow\) <b>divergent</b> — dieselbe Aussage wie oben, denn \(p_k=k\) liefert genau \(K_k=R_k-1\).</p><p><b>3. Konvergenz-Ast zur Gegenprobe</b> (\(a_k=\frac1{k^2}\), \(p_k=k\)):</p>\[K_k=k\cdot\frac{(k+1)^2}{k^2}-(k+1)=\frac{(k+1)^2}{k}-(k+1)=\frac{k+1}{k}\longrightarrow 1>0\ \Rightarrow\ \textbf{konvergent.}\]`,"Rechenbeispiel: Kummer mit Hilfsfolge p_k = k")}</td><td class="cond">\(\liminf K_k>0\) konv</td></tr>
+    </table>
+    <p class="sub" style="margin-top:8px">Auch Raabe/Kummer haben einen Grenzfall (\(R=1\) bzw. \(\liminf K_k=0\)) ohne Aussage — dann eine feinere Hilfsfolge \(p_k\) (z. B. Bertrand \(k\ln k\)) wählen oder direkt vergleichen.</p>
   </div>
   <div class="refblock">
     <h3>Tricks: typische Majoranten, Minoranten &amp; Umformungen</h3>
