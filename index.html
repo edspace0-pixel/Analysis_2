@@ -140,6 +140,41 @@ svg.map.grabbing{cursor:grabbing}
 .link.ch3{stroke:var(--ch3)} .link.ch4{stroke:var(--ch4)}
 .link.ch5{stroke:var(--ch5)} .link.ch6{stroke:var(--ch6)} .link.ch7{stroke:var(--ch7)}
 
+/* ---------- Radiale Typ-Mindmap mit Drill-down ----------
+   Präfix bewusst "tm" (Typ-Mindmap): ".rmn"/".rmlink" gehören bereits den
+   Konvergenz-Roadmaps weiter unten und würden sonst gewinnen. */
+/* keine height-transition: render() misst die Box direkt nach dem Umschalten */
+.mapbox.tm{height:62vh; min-height:420px}
+.mapbox.tm.deep{height:82vh; min-height:560px}
+.tmbar{position:absolute; left:0; right:0; top:0; z-index:6; display:flex; align-items:center; gap:10px;
+  padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--line)}
+.tmbar .btn{padding:5px 11px; white-space:nowrap}
+.tmcrumb{font-weight:700; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.tmcrumb .sep{color:var(--muted); font-weight:400; margin:0 7px}
+.tmcount{margin-left:auto; font-size:12px; color:var(--muted); white-space:nowrap}
+.tmspoke{fill:none; stroke-width:2.5; stroke-linecap:round; opacity:.5}
+.tmnode{
+  width:100%; height:100%; border-radius:999px; box-sizing:border-box;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+  text-align:center; padding:6px 14px; overflow:hidden; cursor:pointer; user-select:none;
+  border:2px solid var(--line); background:var(--panel); color:var(--ink);
+  font-size:12.5px; line-height:1.2; box-shadow:var(--shadow);
+  transition:transform .13s ease, box-shadow .13s ease, filter .13s ease;
+}
+.tmnode:hover{transform:translateY(-2px) scale(1.04); filter:brightness(1.06)}
+.tmnode .t{display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+.tmnode .n{font-size:11px; color:var(--muted)}
+.tmnode .id{font-size:10.5px; font-weight:800; color:#fff; padding:1px 7px; border-radius:6px; letter-spacing:.02em}
+.tmnode.cat{font-weight:700; font-size:13.5px}
+.tmnode.small{font-size:11.5px; padding:5px 9px; gap:1px}
+.tmnode.small .id{font-size:10px; padding:0 6px}
+.tmnode.center{font-weight:800; font-size:15.5px; border-width:3px; cursor:default}
+.tmnode.center.back{cursor:pointer}
+.tmpop{animation:tmpop .32s cubic-bezier(.2,.85,.3,1) both}
+@keyframes tmpop{from{opacity:0; transform:scale(.82)} to{opacity:1; transform:scale(1)}}
+@keyframes tmfade{from{opacity:0} to{opacity:.5}}
+@media (prefers-reduced-motion: reduce){ .tmpop{animation:none} .tmspoke{animation:none !important} }
+
 /* ---------- Card grid (alternative Übersicht) ---------- */
 .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px}
 .card{
@@ -3341,6 +3376,238 @@ function Mindmap(svg, tree, opts){
 }
 
 /* =========================================================================
+   6b) Radiale Typ-Mindmap mit Drill-down
+   Ebene 0: Zentrum "Nach Typ", drumherum die Kategorien.
+   Klick auf eine Kategorie -> sie wird zur neuen Mitte, drumherum ihre Einträge.
+   Zurück über die Leiste oben oder Klick auf die Mitte.
+   ========================================================================= */
+const CATCOL = {
+  "Definitionen":        "#2563eb",
+  "Sätze & Formeln":     "#059669",
+  "Kriterien":           "#d97706",
+  "Regeln & Techniken":  "#7c3aed",
+  "Verfahren (numerisch)":"#0891b2",
+  "Anwendungen":         "#db2777"
+};
+const CATPAL = ["#2563eb","#059669","#d97706","#7c3aed","#0891b2","#db2777","#be185d","#0f766e"];
+function catColor(name, i){ return CATCOL[name] || CATPAL[i % CATPAL.length]; }
+function rgbaOf(hex, a){
+  const m = hex.replace("#","");
+  const r=parseInt(m.slice(0,2),16), g=parseInt(m.slice(2,4),16), b=parseInt(m.slice(4,6),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+/* gemerkte Ebene: nach dem Sprung in ein Thema landet man wieder in derselben Kategorie */
+let catLevel = null;
+
+function RadialMap(svg, ui){
+  const NS="http://www.w3.org/2000/svg";
+  const vp=document.createElementNS(NS,"g"); svg.appendChild(vp);
+  let tx=0, ty=0, scale=1, box={x:-1,y:-1,w:2,h:2};
+
+  /* Kinder auf konzentrischen Ellipsen-Ringen verteilen. Die Ellipse richtet sich nach
+     dem Seitenverhältnis der Box, damit die Breite genutzt wird; die Ring-Kapazität kommt
+     aus dem Ellipsenumfang (Ramanujan-Näherung), nicht aus dem Kreisumfang. */
+  function ringPlace(n, cfg){
+    const out=[]; let i=0, ring=0;
+    while(i<n && ring<8){
+      const R = cfg.r0 + ring*cfg.rstep;
+      const a = R*cfg.fx, b = R*cfg.fy;
+      const per = Math.PI*(3*(a+b) - Math.sqrt(Math.max(0,(3*a+b)*(a+3*b))));
+      const cap = Math.max(5, Math.floor(per*0.80/(cfg.w+cfg.gap)));
+      const cnt = Math.min(cap, n-i);
+      const off = (ring%2) ? Math.PI/cnt : 0;
+      for(let k=0;k<cnt;k++){
+        const t = -Math.PI/2 + off + (k/cnt)*2*Math.PI;
+        out.push({ x: Math.cos(t)*a, y: Math.sin(t)*b });
+      }
+      i+=cnt; ring++;
+    }
+    return out;
+  }
+
+  function model(){
+    const names = Object.keys(CAT);
+    if(catLevel && CAT[catLevel]){
+      const col = catColor(catLevel, names.indexOf(catLevel));
+      return {
+        root:false, color:col,
+        center:{ title:catLevel, sub:"↩ zurück zur Übersicht" },
+        count: CAT[catLevel].length + (CAT[catLevel].length===1?" Eintrag":" Einträge"),
+        crumb:["Nach Typ", catLevel],
+        kids: CAT[catLevel].map(it=>({ id:it[0], title:it[1], color:col, route:it[0] }))
+      };
+    }
+    return {
+      root:true, color:"#64748b",
+      center:{ title:"Nach Typ", sub:"Kategorie wählen" },
+      count: names.length+" Kategorien",
+      crumb:["Nach Typ"],
+      kids: names.map((n,i)=>({ title:n, color:catColor(n,i), count:CAT[n].length, cat:n }))
+    };
+  }
+
+  function nodeEl(x, y, w, h, cls, color, html, onClick, delay){
+    const fo=document.createElementNS(NS,"foreignObject");
+    fo.setAttribute("x",x); fo.setAttribute("y",y);
+    fo.setAttribute("width",w); fo.setAttribute("height",h);
+    const div=document.createElement("div");
+    div.className="tmnode tmpop "+cls;
+    div.style.borderColor=color;
+    div.style.background=rgbaOf(color, cls.indexOf("center")>=0 ? 0.20 : 0.13);
+    div.style.animationDelay=delay+"ms";
+    div.innerHTML=html;
+    if(onClick){ div.onclick=(ev)=>{ ev.stopPropagation(); onClick(); }; }
+    fo.appendChild(div); vp.appendChild(fo);
+    return {x, y, w, h};
+  }
+
+  /* Beste Ring-Geometrie suchen: die Kombination aus Radius, Ringabstand und Ellipsenform,
+     bei der am Ende der größte (= lesbarste) Maßstab herauskommt. Billig genug, um sie bei
+     jedem Rendern neu zu bestimmen — so passt sich die Karte an jede Fenstergröße an. */
+  function bestLayout(n, w, h, availW, availH, cw, ch){
+    let best=null;
+    const minA = cw/2 + w/2 + 16, minB = ch/2 + h/2 + 16;   /* Ring 0 darf die Mitte nicht berühren */
+    for(const r0 of [200,240,290,340]){
+      for(const rf of [0.40,0.52,0.64]){
+        for(let ix=0; ix<7; ix++){
+          const fx = 1.0 + ix*0.15;
+          if(r0*fx < minA) continue;
+          for(let iy=0; iy<6; iy++){
+            const fy = 0.50 + iy*0.11;
+            if(r0*fy < minB) continue;
+            const pts = ringPlace(n, {w, gap:24, r0, rstep:Math.round(r0*rf), fx, fy});
+            let X=0, Y=0;
+            for(const p of pts){ X=Math.max(X,Math.abs(p.x)); Y=Math.max(Y,Math.abs(p.y)); }
+            const bw = 2*X + w, bh = 2*Y + h;
+            const s = Math.min(availW/bw, availH/bh, 1.05);
+
+            /* Kollisionen zählen (Blasen untereinander und gegen die Mitte). Elliptischer
+               Test, weil die Blasen rund sind — ein Rechteck-Test würde diagonale Nachbarn
+               unnötig bestrafen und das Layout zu weit auseinanderziehen. */
+            const ax = w+10, ay = h+8, bx = (w+cw)/2+10, by = (h+ch)/2+8;
+            let hits = 0;
+            for(let i=0;i<pts.length;i++){
+              const cx=pts[i].x/bx, cy=pts[i].y/by;
+              if(cx*cx + cy*cy < 1) hits++;
+              for(let j=i+1;j<pts.length;j++){
+                const dx=(pts[i].x-pts[j].x)/ax, dy=(pts[i].y-pts[j].y)/ay;
+                if(dx*dx + dy*dy < 1) hits++;
+              }
+            }
+            /* Rangfolge: erst kollisionsfrei, dann größter Maßstab. */
+            if(!best || hits < best.hits || (hits === best.hits && s > best.s)) best = {s, pts, hits};
+          }
+        }
+      }
+    }
+    /* Rückfallebene, falls keine Kombination die Mindestabstände erfüllt */
+    return best ? best.pts : ringPlace(n, {w, gap:24, r0:300, rstep:150, fx:1.4, fy:0.85});
+  }
+
+  function render(){
+    vp.textContent="";
+    const m=model();
+    /* tiefere Ebene bekommt mehr Höhe — dort stehen bis zu 33 Einträge im Ring */
+    const boxEl = svg.closest(".mapbox");
+    if(boxEl) boxEl.classList.toggle("deep", !m.root);
+
+    const r = svg.getBoundingClientRect();
+    const availW = Math.max(320, (r.width||900) - 52);
+    const availH = Math.max(220, (r.height||420) - 108);
+
+    const many = m.kids.length > 18;
+    const NW = m.root?200:(many?154:176), NH = m.root?80:(many?62:70);
+    const CW = 216, CH_ = 96;
+    const pts = bestLayout(m.kids.length, NW, NH, availW, availH, CW, CH_);
+
+    /* Speiche von Rand zu Rand statt Mittelpunkt zu Mittelpunkt —
+       sonst schimmert die Linie durch die Blasen hindurch. */
+    function edge(dx, dy, rw, rh){
+      const t = 1/Math.sqrt(Math.max(1e-6,(dx/rw)*(dx/rw) + (dy/rh)*(dy/rh)));
+      return [dx*t, dy*t];
+    }
+
+    /* Speichen zuerst, damit die Knoten darüber liegen */
+    pts.forEach((p,i)=>{
+      const [sx,sy] = edge(p.x, p.y, CW/2, CH_/2);
+      const [ex,ey] = edge(-p.x, -p.y, NW/2, NH/2);
+      const ln=document.createElementNS(NS,"path");
+      ln.setAttribute("d",`M${sx.toFixed(1)},${sy.toFixed(1)} L${(p.x+ex).toFixed(1)},${(p.y+ey).toFixed(1)}`);
+      ln.setAttribute("class","tmspoke");
+      ln.setAttribute("stroke", m.kids[i].color);
+      ln.style.animation="tmfade .4s ease both";
+      ln.style.animationDelay=(60+i*9)+"ms";
+      vp.appendChild(ln);
+    });
+
+    const rects=[];
+    /* Mitte */
+    rects.push(nodeEl(-CW/2, -CH_/2, CW, CH_,
+      "center"+(m.root?"":" back"), m.color,
+      `<span class="t">${esc(m.center.title)}</span><span class="n">${esc(m.center.sub)}</span>`,
+      m.root? null : ()=>{ catLevel=null; render(); fit(); }, 0));
+
+    /* Ring */
+    pts.forEach((p,i)=>{
+      const k=m.kids[i];
+      const html = m.root
+        ? `<span class="t">${esc(k.title)}</span><span class="n">${k.count} Einträge</span>`
+        : `<span class="id" style="background:${chColorOf(k.id)}">${esc(k.id)}</span><span class="t">${esc(k.title)}</span>`;
+      const act = m.root
+        ? ()=>{ catLevel=k.cat; render(); fit(); }
+        : ()=>{ go(k.route); };
+      rects.push(nodeEl(p.x-NW/2, p.y-NH/2, NW, NH,
+        m.root?"cat":("leaf"+(many?" small":"")), k.color, html, act, 60+i*14));
+    });
+
+    let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+    rects.forEach(r=>{ x0=Math.min(x0,r.x); y0=Math.min(y0,r.y); x1=Math.max(x1,r.x+r.w); y1=Math.max(y1,r.y+r.h); });
+    box={x:x0, y:y0, w:Math.max(1,x1-x0), h:Math.max(1,y1-y0)};
+
+    ui.back.hidden = m.root;
+    ui.crumb.innerHTML = m.crumb.map((c,i)=> (i? `<span class="sep">›</span>`:"")+esc(c)).join("");
+    ui.count.textContent = m.count;
+    apply();
+  }
+
+  /* Kapitelfarbe aus der Themen-ID (3.x -> --ch3 usw.) */
+  function chColorOf(id){
+    const n=String(id).split(".")[0];
+    return (["3","4","5","6","7"].indexOf(n)>=0)? `var(--ch${n})` : "var(--accent)";
+  }
+
+  function apply(){ vp.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`); }
+  function fit(){
+    const r=svg.getBoundingClientRect(); const padX=26, padTop=62, padBot=46;
+    const s=Math.min((r.width-2*padX)/box.w, (r.height-padTop-padBot)/box.h, 1.05);
+    scale=(isFinite(s)&&s>0)? s : 1;
+    tx = r.width/2 - (box.x+box.w/2)*scale;
+    ty = padTop + (r.height-padTop-padBot)/2 - (box.y+box.h/2)*scale;
+    apply();
+  }
+
+  let drag=null;
+  svg.addEventListener("pointerdown",e=>{ if(e.target.closest(".tmnode")) return;
+    drag={x:e.clientX,y:e.clientY,tx,ty}; svg.classList.add("grabbing"); svg.setPointerCapture(e.pointerId); });
+  svg.addEventListener("pointermove",e=>{ if(!drag)return; tx=drag.tx+(e.clientX-drag.x); ty=drag.ty+(e.clientY-drag.y); apply(); });
+  svg.addEventListener("pointerup",()=>{ drag=null; svg.classList.remove("grabbing"); });
+  svg.addEventListener("pointercancel",()=>{ drag=null; svg.classList.remove("grabbing"); });
+  svg.addEventListener("wheel",e=>{ e.preventDefault(); const r=svg.getBoundingClientRect();
+    const mx=e.clientX-r.left, my=e.clientY-r.top, f=e.deltaY<0?1.12:1/1.12;
+    const ns=Math.max(.3,Math.min(2.4,scale*f)), k=ns/scale;
+    tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply();
+  },{passive:false});
+
+  ui.back.onclick=()=>{ if(catLevel){ catLevel=null; render(); fit(); } };
+
+  render(); fit(); requestAnimationFrame(fit);
+  return {fit, back:()=>ui.back.onclick(),
+    zoom:f=>{ const r=svg.getBoundingClientRect(), mx=r.width/2, my=r.height/2;
+      const ns=Math.max(.3,Math.min(2.4,scale*f)), k=ns/scale;
+      tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply(); }};
+}
+
+/* =========================================================================
    7) Views
    ========================================================================= */
 const app=document.getElementById("app");
@@ -3398,11 +3665,19 @@ function renderHome(){
     </div>
 
     <h2 class="grp">🗂️ Schnellzugriff nach Typ</h2>
-    <p class="sub">Kategorie anklicken zum Aufklappen, Eintrag anklicken zum Hinspringen — Definitionen · Sätze · Kriterien · Regeln · Verfahren · Anwendungen.</p>
-    <div class="mapbox sm">
-      <div class="maphint">🖱️ ziehen &amp; zoomen · Kategorie klicken = auf/zu</div>
+    <p class="sub">Kategorie anklicken — sie wird zur neuen Mitte und zeigt ihre Einträge. Eintrag anklicken springt zur Themen-Karte; die Farbe der Nummer zeigt das Kapitel.</p>
+    <div class="mapbox tm">
+      <div class="tmbar">
+        <button class="btn" id="tmback" hidden>← Zurück</button>
+        <span class="tmcrumb" id="tmcrumb">Nach Typ</span>
+        <span class="tmcount" id="tmcount"></span>
+      </div>
       <svg class="map" id="svgcat"></svg>
-      <div class="maptools"><button class="btn" id="cfit">Einpassen</button></div>
+      <div class="maptools">
+        <button class="btn" id="czout" title="verkleinern">−</button>
+        <button class="btn" id="czin" title="vergrößern">+</button>
+        <button class="btn" id="cfit">Einpassen</button>
+      </div>
     </div>
 
     <h2 class="grp">📚 Nach Kapitel</h2>
@@ -3414,14 +3689,15 @@ function renderHome(){
       Notation durchgehend wie an der Tafel.
     </div>`;
 
-  const catTree = { id:"types", title:"Nach Typ", kind:"root",
-    children: Object.keys(CAT).map(name=>({
-      id:"cat:"+name, title:name, kind:"ch", cls:"cat", badge:String(CAT[name].length), collapsed:true,
-      children: CAT[name].map(it=>({ id:it[0], title:it[1], kind:"leaf", cls:"cat", route:it[0] }))
-    })) };
-  const cm = Mindmap(document.getElementById("svgcat"), catTree, {nodeW:230});
+  const cm = RadialMap(document.getElementById("svgcat"), {
+    back:  document.getElementById("tmback"),
+    crumb: document.getElementById("tmcrumb"),
+    count: document.getElementById("tmcount")
+  });
   currentMap = cm;
   document.getElementById("cfit").onclick=()=>cm.fit();
+  document.getElementById("czin").onclick=()=>cm.zoom(1.2);
+  document.getElementById("czout").onclick=()=>cm.zoom(1/1.2);
 }
 
 function renderRef(key){
