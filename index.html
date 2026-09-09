@@ -21,6 +21,7 @@
   --ch4:#0d9488; --ch4-soft:#ccfbf1;
   --ch5:#b45309; --ch5-soft:#fef3c7;
   --ch6:#be185d; --ch6-soft:#fce7f3;
+  --ch7:#6d28d9; --ch7-soft:#ede9fe;
   --root:#334155;
   --ok:#16a34a; --warn:#d97706;
   --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.08);
@@ -33,6 +34,7 @@
   --ch4:#2dd4bf; --ch4-soft:#11302d;
   --ch5:#fbbf24; --ch5-soft:#332410;
   --ch6:#f472b6; --ch6-soft:#3a1426;
+  --ch7:#a78bfa; --ch7-soft:#241a3d;
   --root:#cbd5e1;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.45);
 }
@@ -130,10 +132,11 @@ svg.map.grabbing{cursor:grabbing}
 .node.ch4{background:var(--ch4-soft)} .node.ch4 .badge{background:var(--ch4)}
 .node.ch5{background:var(--ch5-soft)} .node.ch5 .badge{background:var(--ch5)}
 .node.ch6{background:var(--ch6-soft)} .node.ch6 .badge{background:var(--ch6)}
+.node.ch7{background:var(--ch7-soft)} .node.ch7 .badge{background:var(--ch7)}
 .node .done{color:var(--ok)}
 .link{fill:none; stroke:var(--line); stroke-width:2}
 .link.ch3{stroke:var(--ch3)} .link.ch4{stroke:var(--ch4)}
-.link.ch5{stroke:var(--ch5)} .link.ch6{stroke:var(--ch6)}
+.link.ch5{stroke:var(--ch5)} .link.ch6{stroke:var(--ch6)} .link.ch7{stroke:var(--ch7)}
 
 /* ---------- Card grid (alternative Übersicht) ---------- */
 .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px}
@@ -178,6 +181,7 @@ svg.map.grabbing{cursor:grabbing}
 .chhead.ch4{background:linear-gradient(135deg,var(--ch4),#0f766e)}
 .chhead.ch5{background:linear-gradient(135deg,#d97706,#92400e)}
 .chhead.ch6{background:linear-gradient(135deg,#db2777,#831843)}
+.chhead.ch7{background:linear-gradient(135deg,#7c3aed,#4c1d95)}
 .chhead .cc{margin-left:auto; font-weight:500; font-size:12px; opacity:.92; white-space:nowrap}
 .seclist{display:flex; flex-direction:column}
 .secrow{display:flex; gap:12px; align-items:flex-start; padding:11px 14px; border-top:1px solid var(--line); text-decoration:none; color:var(--ink)}
@@ -1093,7 +1097,19 @@ const KW = {
  "6.6":["lim–∫","gliedweise Integration"],
  "6.7":["I(x)=∫f(x,y)dy","Stetigkeit"],
  "6.9":["u.e. Integrale","glm. bzgl. n"],
- "6.10":["Konvergenzradius","Cauchy-Hadamard","termweise d/dz"]
+ "6.10":["Konvergenzradius","Cauchy-Hadamard","termweise d/dz"],
+ "7.1":["Norm-Axiome","Banachraum","äquivalente Normen","ℓ_p · C([a,b])"],
+ "7.2":["linear + stetig","beschränkt","Operatornorm","L(E,F) vollständig"],
+ "7.3":["f(x₀+h)=f(x₀)+Th+o(‖h‖)","Gradient","Jacobi-Matrix","Kettenregel"],
+ "7.4":["Df(x₀)[h]","Richtungsableitung","schwache Ableitung","Fréchet ⇐ stetig"],
+ "7.5":["Schrankensatz","Verbindungsstrecke","Hahn-Banach"],
+ "7.6":["partiell","totales Differential","stetig partiell ⇒ Fréchet","∇ = steilster Anstieg"],
+ "7.7":["f″ als Bilinearform","Symmetrie","Schwarz","Hesse-Matrix"],
+ "7.8":["Integralrestglied","⟨h,∇⟩ᵏ","Tangentialebene"],
+ "7.9":["kritischer Punkt","positiv/negativ definit","Sattel","Eigenwerte"],
+ "7.10":["Kontraktion","Fixpunkt","Iteration","Fehlerabschätzung"],
+ "7.11":["lokal auflösbar","Φ′_y invertierbar","implizite Ableitung","Umkehrsatz"],
+ "7.12":["Zielfunktion & NB","∇f = λ∇F","Lagrange-Funktion","k+n Gleichungen"]
 };
 
 /* Querschnitt-Index "Nach Typ": Kategorie -> [Themen-ID, Anzeigename].
@@ -1103,7 +1119,15 @@ const CAT = {
    ["3.1.1","Ableitung"],["3.2.1","Landau-Symbole o, O"],["3.7.1","Höhere Ableitungen"],
    ["3.9.1","Differential df"],["3.11.1","Konvex / konkav"],["3.11.3","Wendepunkt"],
    ["4.1.1","Riemann-Integral"],["4.1.2","Stetigkeitsmodul"],["4.1.4","Ober-/Untersumme (Darboux)"],
-   ["4.3.2","Stammfunktion"],["4.9.1","Jordan-Kurve"],["4.9.2","Bogenlänge"],["4.9.4","Krümmungsvektor"]
+   ["4.3.2","Stammfunktion"],["4.9.1","Jordan-Kurve"],["4.9.2","Bogenlänge"],["4.9.4","Krümmungsvektor"],
+   ["5.1.1","Uneigentliches Integral"],["5.1.4","Cauchy-Hauptwert (v.p.)"],["5.2.1","Reihe & Partialsummen"],
+   ["5.5.1","Absolute Konvergenz"],["6.1.1","Punktweise / gleichmäßige Konvergenz"],
+   ["6.2.1","Supremumsnorm ‖·‖C"],["6.10.1","Konvergenzradius"],
+   ["7.1.1","Norm & normierter Raum"],["7.1.7","Banachraum"],["7.2.1","Linearer Operator"],
+   ["7.2.5","Operatornorm"],["7.3.1","Fréchet-Ableitung"],["7.4.1","Richtungsableitung Df(x₀)[h]"],
+   ["7.4.3","Schwache (Gâteaux-)Ableitung"],["7.6.2","Totales Differential"],
+   ["7.7.1","Zweite Fréchet-Ableitung"],["7.7.4","Hesse-Matrix"],["7.9.1","Kritischer Punkt"],
+   ["7.10.1","Kontraktion"],["7.12.2","Lagrange-Funktion"]
  ],
  "Sätze & Formeln": [
    ["3.5.1","Satz von Fermat"],["3.5.2","Satz von Rolle"],["3.5.3","Formel von Cauchy (verallg. MWS)"],
@@ -1111,26 +1135,45 @@ const CAT = {
    ["3.7.2","Satz von Leibniz"],["3.8","Satz von Taylor"],["3.14","Satz von Darboux"],
    ["4.3.1","Formel von Newton-Leibniz"],["4.3.2","Hauptsatz Diff.- & Integralrechnung"],
    ["4.4.5","Formel von Ostrogradskij"],["4.5.1","1. Mittelwertsatz (Integral)"],
-   ["4.5.2","2. Mittelwertsatz (Integral)"],["4.7.1","Taylor mit Restglied"],["4.11.1","Fundamentalsatz der Algebra"]
+   ["4.5.2","2. Mittelwertsatz (Integral)"],["4.7.1","Taylor mit Restglied"],["4.11.1","Fundamentalsatz der Algebra"],
+   ["5.3.3","Umordnungssatz"],["5.3.4","Umordnungssatz von Riemann"],["5.3.6","Cauchy-Produkt"],
+   ["5.6.1","Abelsche Summation"],["6.2.2","Vollständigkeit von C(X,Y)"],["6.3.2","Stetigkeit der Grenzfunktion"],
+   ["6.10.2","Termweise Differentiation"],
+   ["7.2.7","Vollständigkeit von L(E,F)"],["7.5.1","Schrankensatz (Mittelwertungleichung)"],
+   ["7.5.2","Satz von Hahn-Banach"],["7.7.2","Symmetrie der zweiten Ableitung"],["7.7.4","Satz von Schwarz"],
+   ["7.8.1","Satz von Taylor (Integralrestglied)"],["7.10.1","Fixpunktsatz von Banach"],
+   ["7.11.2","Satz über implizite Funktionen"],["7.11.6","Satz über die lokale Umkehrfunktion"]
  ],
  "Kriterien": [
    ["3.10.2","Monotonie-Kriterium (f′)"],["3.10.3","Extremwert-Kriterium"],
    ["3.11.2","Konvexitäts-Kriterium (f″)"],["3.11.3","Wendepunkt-Kriterium"],
-   ["4.1.3","Integrierbarkeit (stetig/monoton)"],["4.1.6","Lebesgue-Kriterium"]
+   ["4.1.3","Integrierbarkeit (stetig/monoton)"],["4.1.6","Lebesgue-Kriterium"],
+   ["5.2.4","Notwendiges Kriterium aₖ → 0"],["5.3.2","Vergleichskriterium"],["5.4.1","Quotientenkriterium"],
+   ["5.4.2","Wurzelkriterium"],["5.4.4","Integralkriterium"],["5.6.2","Dirichlet · Abel · Leibniz"],
+   ["6.4.2","Majorantenkriterium von Weierstraß"],
+   ["7.2.3","stetig ⇔ beschränkt"],["7.4.4","Hinreichend für Fréchet-Diffbarkeit"],
+   ["7.6.3","stetig partiell ⇒ Fréchet"],["7.9.2","Definitheits-Kriterium"],["7.9.4","Eigenwerte der Hesse-Matrix"]
  ],
  "Regeln & Techniken": [
    ["3.3.1","Produkt- & Kettenregel"],["3.3.2","Quotientenregel"],["3.3.3","Implizite Differentiation"],
    ["3.12.1","l’Hospital (0/0)"],["3.12.2","l’Hospital (∞/∞)"],["4.4.1","Polynomdivision"],
-   ["4.4.3","Partialbruchzerlegung"],["4.6.1","Partielle Integration"],["4.6.2","Substitution"]
+   ["4.4.3","Partialbruchzerlegung"],["4.6.1","Partielle Integration"],["4.6.2","Substitution"],
+   ["6.6.2","Gliedweise Integration"],["7.3.3","Gradient bestimmen"],["7.3.4","Jacobi-Matrix aufstellen"],
+   ["7.3.6","Produkt- & Kettenregel (Fréchet)"],["7.8.2","Nabla-Schreibweise ⟨h,∇⟩ᵏ"],
+   ["7.11.5","Implizite Differentiation"]
  ],
  "Verfahren (numerisch)": [
    ["3.15.1","Regula falsi"],["3.15.2","Newton-Verfahren"],["4.8.1","Lagrange-Interpolation"],
-   ["4.8.2","Rechteckformel"],["4.8.3","Trapezformel"],["4.8.4","Simpson-Regel"]
+   ["4.8.2","Rechteckformel"],["4.8.3","Trapezformel"],["4.8.4","Simpson-Regel"],
+   ["7.10.2","Fixpunkt-Iteration & Fehlerabschätzung"]
  ],
  "Anwendungen": [
    ["3.13.1","Tangente & Normale"],["3.13.2","Parametrische Kurven"],["3.13.3","Asymptoten"],
    ["4.9.2","Bogenlänge"],["4.9.6","Krümmung κ"],["4.10.1","Flächeninhalt"],
-   ["4.10.2","Volumen (Rotation)"],["4.10.4","Schwerpunkt"]
+   ["4.10.2","Volumen (Rotation)"],["4.10.4","Schwerpunkt"],
+   ["5.6.3","Cesàro-Summation"],["6.7","Parameterintegrale"],
+   ["7.6.4","Gradient = steilster Anstieg"],["7.8.3","Tangentialebene"],
+   ["7.9.4","Extrema im ℝᵐ bestimmen"],["7.12.4","Lagrange-Multiplikatoren"]
  ]
 };
 
@@ -1210,15 +1253,17 @@ const UEB = {
    {n:"07", sheet:"Uebungsblaetter/Blatt07.pdf", sol:"Uebungsblaetter/Lösung Blatt07.pdf"},
    {n:"08", sheet:"Uebungsblaetter/Blatt08.pdf", sol:"Uebungsblaetter/Lösung Blatt08.pdf"},
    {n:"09", sheet:"Uebungsblaetter/Blatt09.pdf", sol:"Uebungsblaetter/Lösung Blatt09.pdf"},
-   {n:"10", sheet:"Uebungsblaetter/Blatt10.pdf", sol:null},
-   {n:"11", sheet:"Uebungsblaetter/Blatt11.pdf", sol:null},
+   {n:"10", sheet:"Uebungsblaetter/Blatt10.pdf", sol:"Uebungsblaetter/Lösung Blatt10.pdf"},
+   {n:"11", sheet:"Uebungsblaetter/Blatt11.pdf", sol:"Uebungsblaetter/Lösung Blatt11.pdf"},
+   {n:"12", sheet:"Uebungsblaetter/Blatt12.pdf", sol:"Uebungsblaetter/Lösung Blatt12.pdf"},
    {n:"15 · Ana 1", sheet:"Uebungsblaetter/Blatt15 (Analysis 1).pdf", sol:"Uebungsblaetter/Lösung Blatt15 (Analysis 1).pdf"}
  ],
  vortrag:[
    {n:"1", sheet:"Vortragsuebung/Vortragsübungsblatt_1.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_1.pdf"},
    {n:"2", sheet:"Vortragsuebung/Vortragsübungsblatt_2.pdf", sol:"Vortragsuebung/Lösungen_Vortragsübungsblatt_2.pdf"},
    {n:"3", sheet:"Vortragsuebung/Vortragsübungsblatt_3.pdf", sol:null},
-   {n:"4", sheet:"Vortragsuebung/Vortragsübungsblatt_4.pdf", sol:"Vortragsuebung/Vtue_4_Aufschrieb_Loesungen.pdf"}
+   {n:"4", sheet:"Vortragsuebung/Vortragsübungsblatt_4.pdf", sol:"Vortragsuebung/Vtue_4_Aufschrieb_Loesungen.pdf"},
+   {n:"5", sheet:"Vortragsuebung/Vortragsübungsblatt_5.pdf", sol:null}
  ]
 };
 function blattCard(b, kind){
@@ -2445,7 +2490,7 @@ function renderHome(){
     <h2 class="grp">📦 Übungen &amp; Prüfungen</h2>
     <div class="reftiles">
       <a class="reftile i3" href="#/ref/uebungen"><span class="ti">📝</span><span>Übungsblätter<small>Blatt 01–15 · mit Lösungen</small></span></a>
-      <a class="reftile i19" href="#/ref/vortrag"><span class="ti">🗣</span><span>Vortragsübungen<small>Blatt 1–4 · mit Lösungen</small></span></a>
+      <a class="reftile i19" href="#/ref/vortrag"><span class="ti">🗣</span><span>Vortragsübungen<small>Blatt 1–5 · mit Lösungen</small></span></a>
       <a class="reftile i20" href="#/ref/pruefungen"><span class="ti">🎓</span><span>Prüfungen<small>Scheinklausur · Klausur · Lösungen</small></span></a>
     </div>
 
@@ -2461,8 +2506,9 @@ function renderHome(){
     <div class="cols">${cols}</div>
 
     <div class="note" style="margin-top:16px">
-      <b>Stand:</b> Struktur/Gerüst — Navigation, Mindmaps und Spickzettel stehen; die ausführlichen Erklärungen der Themen folgen.
-      Kap. 3–4 folgen dem Skript, Kap. 5–6 sind aus den Vorlesungs-Tafelbildern (Analysis 2) rekonstruiert.
+      <b>Stand:</b> Alle Themenkarten der Kapitel 3–7 sind gefüllt (Definition · in Worten · Beispiel ✓/✗ · gut zu wissen).
+      Kap. 3–4 folgen dem Skript, Kap. 5–7 sind aus den Vorlesungs-Tafelbildern (Analysis 2, Videos 13–34) rekonstruiert —
+      Notation durchgehend wie an der Tafel.
     </div>`;
 
   const catTree = { id:"types", title:"Nach Typ", kind:"root",
