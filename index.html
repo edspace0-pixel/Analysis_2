@@ -163,7 +163,7 @@ svg.map.grabbing{cursor:grabbing}
 }
 .tmnode:hover{transform:translateY(-2px) scale(1.04); filter:brightness(1.06)}
 .tmnode .t{display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
-.tmnode .n{font-size:11px; color:var(--muted)}
+.tmnode .n{font-size:11px; color:var(--muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
 .tmnode .id{font-size:10.5px; font-weight:800; color:#fff; padding:1px 7px; border-radius:6px; letter-spacing:.02em}
 .tmnode.cat{font-weight:700; font-size:13.5px}
 .tmnode.small{font-size:11.5px; padding:5px 9px; gap:1px}
@@ -182,6 +182,7 @@ svg.map.grabbing{cursor:grabbing}
 .tmleg{display:flex; align-items:center; gap:5px; font-size:11.5px; color:var(--muted); white-space:nowrap}
 .tmleg b{font-weight:600; margin-right:2px}
 .tmleg i{width:22px; height:15px; border:2px solid currentColor; opacity:.95; flex:none}
+.tmleg i.fill{background:currentColor}
 .tmleg span{margin-right:7px; color:var(--ink); font-weight:700; font-size:11px}
 @media (max-width:1000px){ .tmleg{display:none} }
 .tmnode.center{font-weight:800; font-size:15.5px; border-width:3px; cursor:default}
@@ -3403,17 +3404,73 @@ const CATCOL = {
   "Kriterien":           "#d97706",
   "Regeln & Techniken":  "#7c3aed",
   "Verfahren (numerisch)":"#0891b2",
-  "Anwendungen":         "#db2777"
+  "Anwendungen":         "#db2777",
+  /* nur in der Kapitel-Karte, für Themen ohne Schnellzugriff-Kategorie —
+     Farbtöne bewusst in den Lücken der sechs oberen gewählt */
+  "Beweise & Herleitungen":    "#dc2626",
+  "Beispiele & Gegenbeispiele":"#65a30d",
+  "Grundbegriffe & Motivation":"#a21caf"
 };
 const CATPAL = ["#2563eb","#059669","#d97706","#7c3aed","#0891b2","#db2777","#be185d","#0f766e"];
-function catColor(name, i){ return CATCOL[name] || CATPAL[i % CATPAL.length]; }
+function catColor(name, i){
+  if(CATCOL[name]) return CATCOL[name];
+  const n=CATPAL.length; return CATPAL[(((i|0)%n)+n)%n];   /* auch für i = -1 sicher */
+}
 function rgbaOf(hex, a){
   const m = hex.replace("#","");
   const r=parseInt(m.slice(0,2),16), g=parseInt(m.slice(2,4),16), b=parseInt(m.slice(4,6),16);
   return `rgba(${r},${g},${b},${a})`;
 }
-/* gemerkte Ebene: nach dem Sprung in ein Thema landet man wieder in derselben Kategorie */
-let catLevel = null;
+/* Kapitel: Kurzname, Farbe als Hex (für die rgba-Tönung) und Nummer aus einer Themen-ID.
+   Codierung in BEIDEN Karten gleich: FORM = KAPITEL, FARBE = TYP. */
+const CHSHORT = { "3":"Differentialrechnung (1D)", "4":"Integralrechnung (1D)",
+                  "5":"Reihen & uneigentliche Integrale", "6":"Funktionenfolgen & Potenzreihen",
+                  "7":"Mehrere Veränderliche" };
+const CHHEX   = { "3":"#2563eb", "4":"#0d9488", "5":"#b45309", "6":"#be185d", "7":"#6d28d9" };
+function chNumOf(id){ const n=String(id).split(".")[0]; return CHHEX[n]? n : ""; }
+function chColorOf(id){ const n=chNumOf(id); return n? `var(--ch${n})` : "var(--accent)"; }
+function chHex(n){ return CHHEX[n] || "#64748b"; }
+
+/* Typ der übrigen Themen. `CAT` ist der kuratierte Schnellzugriff und bleibt unangetastet;
+   diese Liste ergänzt ihn, damit in der Kapitel-Karte JEDES Thema eine Typ-Farbe bekommt.
+   Drei Typen kommen nur hier vor — sie beschreiben Karten, die in keine der sechs
+   Schnellzugriff-Kategorien passen. */
+const EXTRACAT_GROUPS = {
+ "Definitionen":              ["3.1.2","3.9.2","4.9.3","5.1.2","5.1.3","5.2.2","5.3.5","6.4.1","7.6.1","7.7.3"],
+ "Sätze & Formeln":           ["3.9.3","4.1.5","4.2.1","4.2.2","4.2.3","4.3.3","4.7.2","6.3.1","6.5","6.6.1",
+                               "6.9","7.1.2","7.1.3","7.2.6","7.4.2","7.11.4"],
+ "Kriterien":                 ["3.10.1","5.1.5","5.2.3","5.3.1","5.4.3","5.5.2","7.2.2","7.9.3"],
+ "Regeln & Techniken":        ["3.2.2","3.4.1","3.4.2","3.4.3","3.4.4","4.4.2","4.4.4"],
+ "Anwendungen":               ["3.2.4","4.7.3","4.9.5","4.10.3","4.10.5","5.6.4"],
+ "Beweise & Herleitungen":    ["3.6.2","3.6.3","3.6.4","3.6.5","4.11.2","4.11.3","7.5.3","7.11.3","7.12.3"],
+ "Beispiele & Gegenbeispiele":["3.2.3","6.1.2","7.1.4","7.1.5","7.1.6","7.2.4","7.3.2","7.3.5"],
+ "Grundbegriffe & Motivation":["3.1.2b","3.1.3","7.11.1","7.12.1"]
+};
+
+/* Umkehr-Index Thema -> Kategorie; steht ein Thema in mehreren, gilt die erste Nennung. */
+const TOPICCAT = (function(){
+  const m={};
+  Object.keys(CAT).forEach(name=> CAT[name].forEach(e=>{ if(!(e[0] in m)) m[e[0]]=name; }));
+  Object.keys(EXTRACAT_GROUPS).forEach(name=> EXTRACAT_GROUPS[name].forEach(id=>{ if(!(id in m)) m[id]=name; }));
+  return m;
+})();
+function catIndexOf(name){ return Object.keys(CAT).indexOf(name); }
+function topicCat(id){ return TOPICCAT[id] || null; }
+function topicColor(id){ const c=topicCat(id); return c? catColor(c, catIndexOf(c)) : "#64748b"; }
+
+function shapeLegend(shapes){
+  const s=[...new Set(shapes.filter(Boolean))].sort();
+  if(s.length<2) return null;
+  return { title:"Form = Kapitel", items:s.map(n=>({cls:"tmsh"+n, color:`var(--ch${n})`, label:n})) };
+}
+function colorLegend(ids){
+  const cats=[...new Set(ids.map(topicCat).filter(Boolean))];
+  if(cats.length<2) return null;
+  const shown=cats.slice(0,4);
+  const items=shown.map(c=>({cls:"tmsh3", fill:true, color:catColor(c,catIndexOf(c)), label:c}));
+  if(cats.length>shown.length) items.push({cls:"tmsh3", color:"var(--muted)", label:"+"+(cats.length-shown.length)});
+  return { title:"Farbe = Typ", items };
+}
 
 /* Luft im Diagramm. `target` ist die Stellschraube: gewünschter Mindestabstand zweier
    Blasen in Bildschirmpixeln. Das Layout nimmt den größten Maßstab, der das noch einhält —
@@ -3423,7 +3480,7 @@ const AIR = { target:26, gap:34, mid:26 };
    154x62 ist ausgemessen: breiter/flacher schneidet Titel ab UND verkleinert den Maßstab. */
 const NODE = { centerW:216, centerH:96, catW:200, catH:80, leafW:176, leafH:70, manyW:154, manyH:62 };
 
-function RadialMap(svg, ui){
+function RadialMap(svg, ui, nav){
   const NS="http://www.w3.org/2000/svg";
   const vp=document.createElementNS(NS,"g"); svg.appendChild(vp);
   let tx=0, ty=0, scale=1, box={x:-1,y:-1,w:2,h:2};
@@ -3447,27 +3504,6 @@ function RadialMap(svg, ui){
       i+=cnt; ring++;
     }
     return out;
-  }
-
-  function model(){
-    const names = Object.keys(CAT);
-    if(catLevel && CAT[catLevel]){
-      const col = catColor(catLevel, names.indexOf(catLevel));
-      return {
-        root:false, color:col,
-        center:{ title:catLevel, sub:"↩ zurück zur Übersicht" },
-        count: CAT[catLevel].length + (CAT[catLevel].length===1?" Eintrag":" Einträge"),
-        crumb:["Nach Typ", catLevel],
-        kids: CAT[catLevel].map(it=>({ id:it[0], title:it[1], color:col, route:it[0] }))
-      };
-    }
-    return {
-      root:true, color:"#64748b",
-      center:{ title:"Nach Typ", sub:"Kategorie wählen" },
-      count: names.length+" Kategorien",
-      crumb:["Nach Typ"],
-      kids: names.map((n,i)=>({ title:n, color:catColor(n,i), count:CAT[n].length, cat:n }))
-    };
   }
 
   function nodeEl(x, y, w, h, cls, color, html, onClick, delay){
@@ -3533,7 +3569,7 @@ function RadialMap(svg, ui){
 
   function render(){
     vp.textContent="";
-    const m=model();
+    const m=nav.model();
     /* tiefere Ebene bekommt mehr Höhe — dort stehen bis zu 33 Einträge im Ring */
     const boxEl = svg.closest(".mapbox");
     if(boxEl) boxEl.classList.toggle("deep", !m.root);
@@ -3542,9 +3578,11 @@ function RadialMap(svg, ui){
     const availW = Math.max(320, (r.width||900) - 52);
     const availH = Math.max(220, (r.height||420) - 108);
 
+    /* Behälter (Kategorie, Kapitel, Abschnitt) bekommen die große Blase, Themen die kleine */
+    const container = m.kids.some(k=>k.open);
     const many = m.kids.length > 18;
-    const NW = m.root?NODE.catW:(many?NODE.manyW:NODE.leafW);
-    const NH = m.root?NODE.catH:(many?NODE.manyH:NODE.leafH);
+    const NW = container?NODE.catW:(many?NODE.manyW:NODE.leafW);
+    const NH = container?NODE.catH:(many?NODE.manyH:NODE.leafH);
     const CW = NODE.centerW, CH_ = NODE.centerH;
     const pts = bestLayout(m.kids.length, NW, NH, availW, availH, CW, CH_);
 
@@ -3571,23 +3609,19 @@ function RadialMap(svg, ui){
     const rects=[];
     /* Mitte */
     rects.push(nodeEl(-CW/2, -CH_/2, CW, CH_,
-      "center"+(m.root?"":" back"), m.color,
+      "center"+(m.root?"":" back")+" tmsh"+(m.shape||3), m.color,
       `<span class="t">${esc(m.center.title)}</span><span class="n">${esc(m.center.sub)}</span>`,
-      m.root? null : ()=>{ catLevel=null; render(); fit(); }, 0));
+      m.root? null : ()=>{ nav.up(); render(); fit(); }, 0));
 
     /* Ring */
     pts.forEach((p,i)=>{
       const k=m.kids[i];
-      const html = m.root
-        ? `<span class="t">${esc(k.title)}</span><span class="n">${k.count} Einträge</span>`
-        : `<span class="id" style="background:${chColorOf(k.id)}">${esc(k.id)}</span><span class="t">${esc(k.title)}</span>`;
-      const act = m.root
-        ? ()=>{ catLevel=k.cat; render(); fit(); }
-        : ()=>{ go(k.route); };
+      const badge = k.badge? `<span class="id" style="background:${chColorOf(k.badge)}">${esc(k.badge)}</span>` : "";
+      const sub   = k.sub?   `<span class="n">${esc(k.sub)}</span>` : "";
+      const act   = k.open? ()=>{ k.open(); render(); fit(); } : ()=>{ go(k.route); };
       rects.push(nodeEl(p.x-NW/2, p.y-NH/2, NW, NH,
-        m.root ? "cat tmsh3"
-               : ("leaf"+(many?" small":"")+" tmsh"+(chNumOf(k.id)||3)),
-        k.color, html, act, 60+i*14));
+        (k.open?"cat":"leaf")+((!k.open&&many)?" small":"")+" tmsh"+(k.shape||3),
+        k.color, `${badge}<span class="t">${esc(k.title)}</span>${sub}`, act, 60+i*14));
     });
 
     let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
@@ -3598,25 +3632,14 @@ function RadialMap(svg, ui){
     ui.crumb.innerHTML = m.crumb.map((c,i)=> (i? `<span class="sep">›</span>`:"")+esc(c)).join("");
     ui.count.textContent = m.count;
 
-    /* Legende: nur die Kapitel zeigen, die in dieser Kategorie wirklich vorkommen */
+    /* Legende — was auf dieser Ebene wirklich etwas unterscheidet (Form bzw. Farbe) */
     if(ui.leg){
-      const chs = m.root ? [] : [...new Set(m.kids.map(k=>chNumOf(k.id)).filter(Boolean))].sort();
-      ui.leg.hidden = chs.length < 2;
-      ui.leg.innerHTML = chs.length < 2 ? "" :
-        `<b>Form = Kapitel</b>` + chs.map(n=>
-          `<i class="tmsh${n}" style="color:var(--ch${n})"></i><span>${n}</span>`).join("");
+      const L = m.legend;
+      ui.leg.hidden = !L;
+      ui.leg.innerHTML = !L ? "" : `<b>${esc(L.title)}</b>` + L.items.map(it=>
+        `<i class="${it.cls}${it.fill?" fill":""}" style="color:${it.color}"></i><span>${esc(it.label)}</span>`).join("");
     }
     apply();
-  }
-
-  /* Kapitelnummer bzw. -farbe aus der Themen-ID (3.x -> --ch3 usw.) */
-  function chNumOf(id){
-    const n=String(id).split(".")[0];
-    return (["3","4","5","6","7"].indexOf(n)>=0)? n : "";
-  }
-  function chColorOf(id){
-    const n=chNumOf(id);
-    return n? `var(--ch${n})` : "var(--accent)";
   }
 
   function apply(){ vp.setAttribute("transform",`translate(${tx},${ty}) scale(${scale})`); }
@@ -3641,7 +3664,7 @@ function RadialMap(svg, ui){
     tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply();
   },{passive:false});
 
-  ui.back.onclick=()=>{ if(catLevel){ catLevel=null; render(); fit(); } };
+  ui.back.onclick=()=>{ if(nav.up()){ render(); fit(); } };
 
   render(); fit(); requestAnimationFrame(fit);
   return {fit, back:()=>ui.back.onclick(),
@@ -3649,6 +3672,71 @@ function RadialMap(svg, ui){
       const ns=Math.max(.3,Math.min(2.4,scale*f)), k=ns/scale;
       tx=mx-(mx-tx)*k; ty=my-(my-ty)*k; scale=ns; apply(); }};
 }
+
+/* Die beiden Navigationen. Beide merken sich ihre Ebene über die Modul-Variable, damit man
+   nach dem Sprung in ein Thema und zurück wieder dort landet, wo man war. */
+const TypeNav = (function(){
+  let level = null;                       /* Kategorie oder null */
+  return {
+    up(){ if(level===null) return false; level=null; return true; },
+    model(){
+      const names = Object.keys(CAT);
+      if(level && CAT[level]){
+        const col = catColor(level, names.indexOf(level));
+        const kids = CAT[level].map(it=>({
+          id:it[0], title:it[1], badge:it[0], color:col, shape:chNumOf(it[0]), route:it[0] }));
+        return { root:false, color:col, shape:3,
+          center:{ title:level, sub:"↩ zurück zur Übersicht" },
+          count: kids.length + (kids.length===1?" Eintrag":" Einträge"),
+          crumb:["Nach Typ", level], kids,
+          legend: shapeLegend(kids.map(k=>k.shape)) };
+      }
+      return { root:true, color:"#64748b", shape:3,
+        center:{ title:"Nach Typ", sub:"Kategorie wählen" },
+        count: names.length+" Kategorien", crumb:["Nach Typ"],
+        kids: names.map((n,i)=>({ title:n, sub:CAT[n].length+" Einträge",
+          color:catColor(n,i), shape:3, open:()=>{ level=n; } })),
+        legend: null };
+    }
+  };
+})();
+
+const ChapterNav = (function(){
+  let chId = null, secId = null;
+  return {
+    up(){ if(secId){ secId=null; return true; } if(chId){ chId=null; return true; } return false; },
+    model(){
+      if(chId && secId && byId.get(secId)){
+        const se = byId.get(secId);
+        const kids = se.topics.map(tp=>({
+          id:tp.id, title:tp.title, badge:tp.id, color:topicColor(tp.id), shape:chId, route:tp.id }));
+        return { root:false, color:chHex(chId), shape:chId,
+          center:{ title:se.id+"  "+se.title, sub:"↩ zurück zu Kapitel "+chId },
+          count: kids.length + (kids.length===1?" Thema":" Themen"),
+          crumb:["Nach Kapitel", "Kap. "+chId, se.id], kids,
+          legend: colorLegend(kids.map(k=>k.id)) };
+      }
+      if(chId && byId.get(chId)){
+        const ch = byId.get(chId);
+        const kids = ch.sections.map(se=>({
+          id:se.id, title:se.title, badge:se.id, color:chHex(chId), shape:chId,
+          sub: se.topics.length? se.topics.length+" Themen" : "direkt zur Karte",
+          open: se.topics.length? (()=>{ secId=se.id; }) : null,
+          route: se.topics.length? null : se.id }));
+        return { root:false, color:chHex(chId), shape:chId,
+          center:{ title:"Kapitel "+chId, sub:"↩ zurück zur Übersicht" },
+          count: ch.sections.length+" Abschnitte",
+          crumb:["Nach Kapitel", "Kap. "+chId], kids, legend:null };
+      }
+      return { root:true, color:"#64748b", shape:3,
+        center:{ title:"Nach Kapitel", sub:"Kapitel wählen" },
+        count: CH.length+" Kapitel", crumb:["Nach Kapitel"],
+        kids: CH.map(ch=>({ title:"Kapitel "+ch.id, sub:CHSHORT[ch.id]||ch.title,
+          color:chHex(ch.id), shape:ch.id, open:()=>{ chId=ch.id; } })),
+        legend: shapeLegend(CH.map(c=>c.id)) };
+    }
+  };
+})();
 
 /* =========================================================================
    7) Views
@@ -3724,7 +3812,25 @@ function renderHome(){
       </div>
     </div>
 
-    <h2 class="grp">📚 Nach Kapitel</h2>
+    <h2 class="grp">🧭 Schnellzugriff nach Kapitel</h2>
+    <p class="sub">Dieselbe Codierung wie oben — <b>Form = Kapitel</b>, <b>Farbe = Typ</b>. Kapitel anklicken zeigt seine Abschnitte, ein Abschnitt seine Themen.</p>
+    <div class="mapbox tm">
+      <div class="tmbar">
+        <button class="btn" id="kmback" hidden>← Zurück</button>
+        <span class="tmcrumb" id="kmcrumb">Nach Kapitel</span>
+        <span class="tmleg" id="kmleg" hidden></span>
+        <span class="tmcount" id="kmcount"></span>
+      </div>
+      <svg class="map" id="svgkap"></svg>
+      <div class="maptools">
+        <button class="btn" id="kzout" title="verkleinern">−</button>
+        <button class="btn" id="kzin" title="vergrößern">+</button>
+        <button class="btn" id="kfit">Einpassen</button>
+      </div>
+    </div>
+
+    <h2 class="grp">📚 Alle Kapitel im Überblick</h2>
+    <p class="sub">Die vollständige Gliederung in der Reihenfolge der Vorlesung.</p>
     <div class="cols">${cols}</div>
 
     <div class="note" style="margin-top:16px">
@@ -3738,11 +3844,20 @@ function renderHome(){
     crumb: document.getElementById("tmcrumb"),
     count: document.getElementById("tmcount"),
     leg:   document.getElementById("tmleg")
-  });
-  currentMap = cm;
+  }, TypeNav);
+  const km = RadialMap(document.getElementById("svgkap"), {
+    back:  document.getElementById("kmback"),
+    crumb: document.getElementById("kmcrumb"),
+    count: document.getElementById("kmcount"),
+    leg:   document.getElementById("kmleg")
+  }, ChapterNav);
+  currentMap = { fit(){ cm.fit(); km.fit(); } };
   document.getElementById("cfit").onclick=()=>cm.fit();
   document.getElementById("czin").onclick=()=>cm.zoom(1.2);
   document.getElementById("czout").onclick=()=>cm.zoom(1/1.2);
+  document.getElementById("kfit").onclick=()=>km.fit();
+  document.getElementById("kzin").onclick=()=>km.zoom(1.2);
+  document.getElementById("kzout").onclick=()=>km.zoom(1/1.2);
 }
 
 function renderRef(key){
