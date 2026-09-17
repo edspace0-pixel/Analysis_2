@@ -249,6 +249,28 @@ svg.map.grabbing{cursor:grabbing}
 .srgo{flex:none; align-self:center; color:var(--muted); font-size:18px}
 .secrow:hover .srgo{color:var(--accent)}
 
+/* ---------- Aufklappbare Bloecke (Auswendig-Reiter, Kapitel-Liste) ---------- */
+details.fold{margin:0 0 10px; border:1px solid var(--line); border-radius:12px; background:var(--panel); box-shadow:var(--shadow)}
+details.fold>summary{cursor:pointer; padding:10px 14px; font-weight:700; font-size:14px; color:var(--accent); list-style:none; display:flex; align-items:center; gap:8px; user-select:none}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::before{content:"▸"; font-size:12px; color:var(--muted); transition:transform .12s; flex:none}
+details.fold[open]>summary::before{transform:rotate(90deg)}
+details.fold[open]>summary{border-bottom:1px solid var(--line)}
+details.fold>summary small{font-weight:500; margin-left:auto}
+details.fold>.fbody{padding:12px 14px}
+details.fold .reftable{border:0; box-shadow:none}
+.foldbar{display:flex; gap:8px; margin:0 0 12px}
+.foldbar .btn{font-size:12px; padding:4px 10px}
+.mk .katex{white-space:nowrap}
+.mk .katex-display, .memo .katex-display{margin:.4em 0}
+.memo .reftable td p{margin:0 0 2px}
+.memo .tafel p{margin:0 0 2px}
+.tafel p{margin:0 0 2px}
+details.chcol>summary{cursor:pointer; list-style:none}
+details.chcol>summary::-webkit-details-marker{display:none}
+details.chcol>summary .chhead .cc::after{content:" ▾"}
+details.chcol[open]>summary .chhead .cc::after{content:" ▴"}
+
 /* ---------- Schnellzugriff-Kacheln & Gruppen-Header ---------- */
 .grp{font-size:15px; margin:22px 0 4px; display:flex; align-items:center; gap:8px}
 .sub{color:var(--muted); font-size:13px; margin:0 0 10px}
@@ -4108,10 +4130,8 @@ function implizitHtml(){ return String.raw`
 
 function merkSiHtml(){ return String.raw`
 <p class="sub">Alles, was man zu <b>Summen und Integralen</b> ohne Formelsammlung parat haben muss — nur die Formeln, keine Herleitungen. Die ausführlichen Blätter mit Rechenwegen: <a href="#/ref/integrale">Standardintegrale</a>, <a href="#/ref/substitutionen">Substitutionen</a>, <a href="#/ref/reihen">Standardreihen</a>, <a href="#/ref/potenzreihen">Potenzreihen</a>, <a href="#/ref/entwickeln">Funktionen entwickeln</a>, <a href="#/ref/funktionswerte">Funktionswerte</a>.</p>
-
-<div class="refblock">
-  <h3>1 · Die offizielle Liste — 17 Standardintegrale (Weidl/Baur/Beck, „die man kennen sollte")</h3>
-  <div class="twocol">
+<div class="mk"><div class="foldbar"><button class="btn" onclick="foldAll(this,true)">alle aufklappen</button><button class="btn" onclick="foldAll(this,false)">alle zuklappen</button></div>
+<details class="fold"><summary>1 · Die offizielle Liste — 17 Standardintegrale (Weidl/Baur/Beck, „die man kennen sollte")</summary><div class="fbody"><div class="twocol">
     <table class="reftable">
       <tr><td class="cond">1</td><td>\(\displaystyle\int x^{n}\,dx=\frac{x^{n+1}}{n+1}+C\)</td><td class="cond">\(n\neq-1\)</td></tr>
       <tr><td class="cond">2</td><td>\(\displaystyle\int \frac{dx}{x}=\ln|x|+C\)</td><td class="cond"></td></tr>
@@ -4134,26 +4154,20 @@ function merkSiHtml(){ return String.raw`
       <tr><td class="cond">17</td><td>\(\displaystyle\int \frac{dx}{\sinh^{2}(x)}=-\coth(x)+C\)</td><td class="cond"></td></tr>
     </table>
   </div>
-  <div class="note">Nummerierung und Schreibweise wie auf dem Blatt „Analysis 2 – Standardintegrale" (liegt unter <code>assets/analysis2_sources_for_claude/Liste_Standardintegrale.pdf</code>). Nr. 5 hat unter der Wurzel <b>\(x^{2}+a\)</b>, nicht \(a^{2}\) — so deckt eine Formel beide Vorzeichen ab.</div>
-</div>
+  <div class="note">Nummerierung und Schreibweise wie auf dem Blatt „Analysis 2 – Standardintegrale" (liegt unter <code>assets/analysis2_sources_for_claude/Liste_Standardintegrale.pdf</code>). Nr. 5 hat unter der Wurzel <b>\(x^{2}+a\)</b>, nicht \(a^{2}\) — so deckt eine Formel beide Vorzeichen ab.</div></div></details>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>2 · Dazu aus der Ableitungstabelle (rückwärts lesen)</h3>
-  <table class="reftable">
-    <tr><td>\(\displaystyle\int e^{x}\,dx=e^{x}+C,\qquad \int e^{ax}\,dx=\frac{1}{a}e^{ax}+C\)</td><td class="cond">\(a\neq0\)</td></tr>
+<details class="fold"><summary>2 · Dazu aus der Ableitungstabelle (rückwärts lesen)</summary><div class="fbody"><table class="reftable">
+    <tr><td>\(\displaystyle\int e^{x}\,dx=e^{x}+C\)<br>\(\int e^{ax}\,dx=\frac{1}{a}e^{ax}+C\)</td><td class="cond">\(a\neq0\)</td></tr>
     <tr><td>\(\displaystyle\int \ln x\,dx=x\ln x-x+C\)</td><td class="cond">part. Int.</td></tr>
-    <tr><td>\(\displaystyle\int \tan x\,dx=-\ln|\cos x|+C,\qquad \int \cot x\,dx=\ln|\sin x|+C\)</td><td class="cond">\(\frac{f'}{f}\)</td></tr>
-    <tr><td>\(\displaystyle\int \frac{dx}{1+x^{2}}=\arctan x+C,\qquad \int \frac{dx}{\sqrt{1-x^{2}}}=\arcsin x+C\)</td><td class="cond">Nr. 3, 6 mit \(a=1\)</td></tr>
+    <tr><td>\(\displaystyle\int \tan x\,dx=-\ln|\cos x|+C\)<br>\(\int \cot x\,dx=\ln|\sin x|+C\)</td><td class="cond">\(\frac{f'}{f}\)</td></tr>
+    <tr><td>\(\displaystyle\int \frac{dx}{1+x^{2}}=\arctan x+C\)<br>\(\int \frac{dx}{\sqrt{1-x^{2}}}=\arcsin x+C\)</td><td class="cond">Nr. 3, 6 mit \(a=1\)</td></tr>
     <tr><td>\(\displaystyle\int \frac{f'(x)}{f(x)}\,dx=\ln|f(x)|+C\)</td><td class="cond">Zähler = Ableitung des Nenners</td></tr>
     <tr><td>\(\displaystyle\int e^{x}\sin x\,dx=\tfrac12 e^{x}(\sin x-\cos x)+C,\quad \int e^{x}\cos x\,dx=\tfrac12 e^{x}(\sin x+\cos x)+C\)</td><td class="cond">2× part. Int.</td></tr>
     <tr><td>\(\displaystyle\int \frac{dx}{x\ln x}=\ln|\ln x|+C\)</td><td class="cond">\(u=\ln x\)</td></tr>
     <tr><td>\(\displaystyle\int u'v\,dx=uv-\int uv'\,dx\)</td><td class="cond">part. Int.; „LIATE": was links steht, wird abgeleitet</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>3 · Substitutionen — Muster → Ansatz</h3>
-  <table class="reftable">
+  </table></div></details>
+<details class="fold"><summary>3 · Substitutionen — Muster → Ansatz</summary><div class="fbody"><table class="reftable">
     <tr><td>\(\sqrt{a^{2}-x^{2}}\)</td><td>\(x=a\sin t,\ dx=a\cos t\,dt\)</td></tr>
     <tr><td>\(\sqrt{a^{2}+x^{2}}\)</td><td>\(x=a\sinh t\) (oder \(x=a\tan t\))</td></tr>
     <tr><td>\(\sqrt{x^{2}-a^{2}}\)</td><td>\(x=a\cosh t\)</td></tr>
@@ -4165,23 +4179,17 @@ function merkSiHtml(){ return String.raw`
     <tr><td>\(\sin^{2}x,\ \cos^{2}x\)</td><td>\(\sin^{2}x=\frac{1-\cos2x}{2},\ \cos^{2}x=\frac{1+\cos2x}{2}\)</td></tr>
     <tr><td>Grad abbauen</td><td>\(+1-1\): \(\frac{t}{t+2}=1-\frac{2}{t+2}\); quadratische Ergänzung \(x^{2}+px+q=\big(x+\frac{p}{2}\big)^{2}+q-\frac{p^{2}}{4}\) → Nr. 3/4</td></tr>
     <tr><td>Wurzel im Nenner</td><td>konjugiert erweitern: \(\frac{1}{\sqrt a+\sqrt b}=\frac{\sqrt a-\sqrt b}{a-b}\)</td></tr>
-  </table>
-</div>
+  </table></div></details>
 </div>
 
-<div class="refblock">
-  <h3>4 · Partialbruchzerlegung — der Ansatz nach Nennertyp</h3>
-  <table class="reftable">
+<details class="fold"><summary>4 · Partialbruchzerlegung — der Ansatz nach Nennertyp</summary><div class="fbody"><table class="reftable">
     <tr><td>einfache reelle Nullstelle \((x-a)\)</td><td>\(\dfrac{A}{x-a}\)</td><td class="cond">Zuhalten: \(A=\big[(x-a)\frac{P}{Q}\big]_{x=a}\)</td></tr>
     <tr><td>\(k\)-fache Nullstelle \((x-a)^{k}\)</td><td>\(\dfrac{A_1}{x-a}+\dfrac{A_2}{(x-a)^{2}}+\dots+\dfrac{A_k}{(x-a)^{k}}\)</td><td class="cond">höchste Potenz durch Zuhalten</td></tr>
     <tr><td>quadratisch ohne reelle NS \((x^{2}+px+q)\)</td><td>\(\dfrac{Bx+C}{x^{2}+px+q}\)</td><td class="cond">→ quadr. Ergänzung → \(\ln\) + \(\arctan\)</td></tr>
     <tr><td>Zählergrad \(\ge\) Nennergrad</td><td>erst Polynomdivision, dann zerlegen</td><td class="cond"></td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>5 · Uneigentliche Integrale — die Vergleichsstandards</h3>
-  <div class="twocol">
+<details class="fold"><summary>5 · Uneigentliche Integrale — die Vergleichsstandards</summary><div class="fbody"><div class="twocol">
     <table class="reftable">
       <tr><td>\(\displaystyle\int_{1}^{\infty}\frac{dx}{x^{p}}\) konvergiert \(\Leftrightarrow p>1\)</td><td class="cond">\(=\frac{1}{p-1}\)</td></tr>
       <tr><td>\(\displaystyle\int_{0}^{1}\frac{dx}{x^{p}}\) konvergiert \(\Leftrightarrow p< 1\)</td><td class="cond">\(=\frac{1}{1-p}\)</td></tr>
@@ -4194,61 +4202,49 @@ function merkSiHtml(){ return String.raw`
       <tr><td>\(\displaystyle\int_{0}^{\infty}\frac{\sin x}{x}\,dx=\frac{\pi}{2}\)</td><td class="cond">konvergent, nicht absolut</td></tr>
       <tr><td>\(\displaystyle\operatorname{v.p.}\int_{-1}^{1}\frac{dx}{x}=0\), aber \(\displaystyle\int_{-1}^{1}\frac{dx}{x}\) divergent</td><td class="cond">Hauptwert ≠ Konvergenz</td></tr>
     </table>
-  </div>
-</div>
+  </div></div></details>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>6 · Endliche Summen</h3>
-  <table class="reftable">
+<details class="fold"><summary>6 · Endliche Summen</summary><div class="fbody"><table class="reftable">
     <tr><td>\(\displaystyle\sum_{k=1}^{n}k=\frac{n(n+1)}{2}\)</td><td class="cond">Gauß</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{n}k^{2}=\frac{n(n+1)(2n+1)}{6}\)</td><td class="cond"></td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{n}k^{3}=\Big(\frac{n(n+1)}{2}\Big)^{2}\)</td><td class="cond"></td></tr>
     <tr><td>\(\displaystyle\sum_{k=m}^{n}q^{k}=\frac{q^{m}-q^{n+1}}{1-q}\)</td><td class="cond">\(q\neq1\)</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{n}(b_{k}-b_{k+1})=b_{1}-b_{n+1}\)</td><td class="cond">Teleskop</td></tr>
     <tr><td>\(\displaystyle(a+b)^{n}=\sum_{k=0}^{n}\binom{n}{k}a^{k}b^{n-k}\)</td><td class="cond">Binomialsatz</td></tr>
-    <tr><td>\(\displaystyle\sum_{k=0}^{n}\binom{n}{k}=2^{n},\qquad \sum_{k=0}^{n}(-1)^{k}\binom{n}{k}=0\)</td><td class="cond">\(n\ge1\)</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>7 · Reihenwerte</h3>
-  <table class="reftable">
+    <tr><td>\(\displaystyle\sum_{k=0}^{n}\binom{n}{k}=2^{n}\)<br>\(\sum_{k=0}^{n}(-1)^{k}\binom{n}{k}=0\)</td><td class="cond">\(n\ge1\)</td></tr>
+  </table></div></details>
+<details class="fold"><summary>7 · Reihenwerte</summary><div class="fbody"><table class="reftable">
     <tr><td>\(\displaystyle\sum_{k=m}^{\infty}q^{k}=\frac{q^{m}}{1-q}\)</td><td class="cond">\(|q|< 1\)</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{\infty}k\,q^{k}=\frac{q}{(1-q)^{2}}\)</td><td class="cond">\(|q|< 1\); z. B. \(\sum\frac{k}{2^{k}}=2\)</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^{p}}\) konvergiert \(\Leftrightarrow p>1\); \(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k}=+\infty\)</td><td class="cond">p-Reihe / harmonisch</td></tr>
     <tr><td>\(\displaystyle\sum_{k=2}^{\infty}\frac{1}{k\,\ln^{p}k}\) konvergiert \(\Leftrightarrow p>1\)</td><td class="cond">Integralkriterium</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k^{2}}=\frac{\pi^{2}}{6}\)</td><td class="cond">Basel</td></tr>
     <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{1}{k(k+1)}=1\)</td><td class="cond">Teleskop</td></tr>
-    <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}=\ln2,\qquad \sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}=\frac{\pi}{4}\)</td><td class="cond">Leibniz; bedingt konvergent</td></tr>
-    <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{1}{k!}=e,\qquad \sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}=\frac{1}{e}\)</td><td class="cond"></td></tr>
-  </table>
-</div>
+    <tr><td>\(\displaystyle\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}=\ln2\)<br>\(\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}=\frac{\pi}{4}\)</td><td class="cond">Leibniz; bedingt konvergent</td></tr>
+    <tr><td>\(\displaystyle\sum_{k=0}^{\infty}\frac{1}{k!}=e\)<br>\(\sum_{k=0}^{\infty}\frac{(-1)^{k}}{k!}=\frac{1}{e}\)</td><td class="cond"></td></tr>
+  </table></div></details>
 </div>
 
-<div class="refblock">
-  <h3>8 · Umschreiben als Potenzreihe (um \(0\))</h3>
-  <div class="twocol">
+<details class="fold"><summary>8 · Umschreiben als Potenzreihe (um \(0\))</summary><div class="fbody"><div class="twocol">
     <table class="reftable">
       <tr><td>\(\displaystyle e^{x}=\sum_{k=0}^{\infty}\frac{x^{k}}{k!}\)</td><td class="cond">\(\forall x\)</td></tr>
-      <tr><td>\(\displaystyle \sin x=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!},\qquad \cos x=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}\)</td><td class="cond">\(\forall x\)</td></tr>
-      <tr><td>\(\displaystyle \sinh x=\sum_{k=0}^{\infty}\frac{x^{2k+1}}{(2k+1)!},\qquad \cosh x=\sum_{k=0}^{\infty}\frac{x^{2k}}{(2k)!}\)</td><td class="cond">\(\forall x\)</td></tr>
-      <tr><td>\(\displaystyle \frac{1}{1-x}=\sum_{k=0}^{\infty}x^{k},\qquad \frac{1}{1+x}=\sum_{k=0}^{\infty}(-1)^{k}x^{k}\)</td><td class="cond">\(|x|< 1\)</td></tr>
+      <tr><td>\(\displaystyle \sin x=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k+1}}{(2k+1)!}\)<br>\(\cos x=\sum_{k=0}^{\infty}\frac{(-1)^{k}x^{2k}}{(2k)!}\)</td><td class="cond">\(\forall x\)</td></tr>
+      <tr><td>\(\displaystyle \sinh x=\sum_{k=0}^{\infty}\frac{x^{2k+1}}{(2k+1)!}\)<br>\(\cosh x=\sum_{k=0}^{\infty}\frac{x^{2k}}{(2k)!}\)</td><td class="cond">\(\forall x\)</td></tr>
+      <tr><td>\(\displaystyle \frac{1}{1-x}=\sum_{k=0}^{\infty}x^{k}\)<br>\(\frac{1}{1+x}=\sum_{k=0}^{\infty}(-1)^{k}x^{k}\)</td><td class="cond">\(|x|< 1\)</td></tr>
       <tr><td>\(\displaystyle \frac{1}{(1-x)^{2}}=\sum_{k=1}^{\infty}k\,x^{k-1}\)</td><td class="cond">\(|x|< 1\); gliedweise abgeleitet</td></tr>
     </table>
     <table class="reftable">
       <tr><td>\(\displaystyle \ln(1+x)=\sum_{k=1}^{\infty}\frac{(-1)^{k+1}}{k}x^{k}\)</td><td class="cond">\(-1< x\le1\)</td></tr>
-      <tr><td>\(\displaystyle \frac{1}{1+x^{2}}=\sum_{k=0}^{\infty}(-1)^{k}x^{2k},\qquad \arctan x=\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}x^{2k+1}\)</td><td class="cond">\(|x|< 1\) bzw. \(|x|\le1\)</td></tr>
+      <tr><td>\(\displaystyle \frac{1}{1+x^{2}}=\sum_{k=0}^{\infty}(-1)^{k}x^{2k}\)<br>\(\arctan x=\sum_{k=0}^{\infty}\frac{(-1)^{k}}{2k+1}x^{2k+1}\)</td><td class="cond">\(|x|< 1\) bzw. \(|x|\le1\)</td></tr>
       <tr><td>\(\displaystyle (1+x)^{\alpha}=\sum_{k=0}^{\infty}\binom{\alpha}{k}x^{k},\quad \binom{\alpha}{k}=\frac{\alpha(\alpha-1)\cdots(\alpha-k+1)}{k!}\)</td><td class="cond">\(|x|< 1\)</td></tr>
       <tr><td>Konvergenzradius: \(\displaystyle R=\frac{1}{\limsup_{k\to\infty}\sqrt[k]{|a_k|}}\) (Cauchy-Hadamard), \(\displaystyle R=\lim_{k\to\infty}\Big|\frac{a_k}{a_{k+1}}\Big|\) falls existent</td><td class="cond">\(\frac10=\infty,\ \frac1\infty=0\)</td></tr>
       <tr><td>Verschieben: \(f(x)=\sum a_k(x-x_0)^{k}\) durch \(u=x-x_0\); Skalieren: \(\sin(2x)\) → \(x\mapsto2x\) einsetzen</td><td class="cond">Rand immer separat prüfen</td></tr>
     </table>
-  </div>
-</div>
+  </div></div></details>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>9 · Wichtige Funktionswerte</h3>
-  <table class="reftable">
+<details class="fold"><summary>9 · Wichtige Funktionswerte</summary><div class="fbody"><table class="reftable">
     <tr><td></td><td>\(0\)</td><td>\(\frac{\pi}{6}\)</td><td>\(\frac{\pi}{4}\)</td><td>\(\frac{\pi}{3}\)</td><td>\(\frac{\pi}{2}\)</td><td>\(\pi\)</td></tr>
     <tr><td>\(\sin\)</td><td>\(0\)</td><td>\(\frac12\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(1\)</td><td>\(0\)</td></tr>
     <tr><td>\(\cos\)</td><td>\(1\)</td><td>\(\frac{\sqrt3}{2}\)</td><td>\(\frac{\sqrt2}{2}\)</td><td>\(\frac12\)</td><td>\(0\)</td><td>\(-1\)</td></tr>
@@ -4258,185 +4254,137 @@ function merkSiHtml(){ return String.raw`
     <tr><td colspan="7">\(\ln1=0,\ \ln e=1,\ \ln2\approx0{,}69,\ e\approx2{,}72;\quad a^{x}=e^{x\ln a}\)</td></tr>
     <tr><td colspan="7">\(e^{i\pi}=-1,\ e^{i\pi/2}=i;\quad \sinh0=0,\ \cosh0=1,\ \cosh^{2}x-\sinh^{2}x=1\)</td></tr>
     <tr><td colspan="7">\(0!=1,\quad \binom{n}{k}=\frac{n!}{k!\,(n-k)!},\quad (2k)!=2^{k}k!\cdot(2k-1)!!\)</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>10 · Grenzwerte, die in den Kriterien stecken</h3>
-  <table class="reftable">
-    <tr><td>\(\sqrt[n]{n}\to1,\qquad \sqrt[n]{c}\to1\ (c>0),\qquad \sqrt[n]{n!}\to\infty\)</td><td class="cond">Wurzelkriterium</td></tr>
-    <tr><td>\(\displaystyle\Big(1+\frac{x}{n}\Big)^{n}\to e^{x},\qquad \Big(1+\frac1n\Big)^{n}< e< \Big(1+\frac1n\Big)^{n+1}\)</td><td class="cond">Quotientenkriterium bei \(n^{n}\), \(n!\)</td></tr>
-    <tr><td>\(\displaystyle\frac{\sqrt[n]{n!}}{n}\to\frac1e,\qquad \frac{n!}{n^{n}}\to0,\qquad \frac{(n+1)^{n}}{n^{n}}\to e\)</td><td class="cond"></td></tr>
-    <tr><td>\(\displaystyle\frac{n^{k}}{a^{n}}\to0\ (a>1),\qquad \frac{\ln n}{n^{\varepsilon}}\to0\ (\varepsilon>0),\qquad \frac{a^{n}}{n!}\to0\)</td><td class="cond">Wachstumshierarchie \(\ln\ll n^{k}\ll a^{n}\ll n!\ll n^{n}\)</td></tr>
-    <tr><td>\(\displaystyle\frac{\sin x}{x}\to1,\qquad \frac{e^{x}-1}{x}\to1,\qquad \frac{\ln(1+x)}{x}\to1\quad (x\to0)\)</td><td class="cond">Vergleich \(a_k\sim b_k\)</td></tr>
-    <tr><td>\(\displaystyle\sum_{k=1}^{n}\frac1k=\ln n+\gamma+o(1),\qquad n!\sim\sqrt{2\pi n}\Big(\frac ne\Big)^{n}\)</td><td class="cond">Größenordnungen</td></tr>
-  </table>
-</div>
-</div>`; }
+  </table></div></details>
+<details class="fold"><summary>10 · Grenzwerte, die in den Kriterien stecken</summary><div class="fbody"><table class="reftable">
+    <tr><td>\(\sqrt[n]{n}\to1\)<br>\(\sqrt[n]{c}\to1\ (c>0)\)<br>\(\sqrt[n]{n!}\to\infty\)</td><td class="cond">Wurzelkriterium</td></tr>
+    <tr><td>\(\displaystyle\Big(1+\frac{x}{n}\Big)^{n}\to e^{x}\)<br>\(\Big(1+\frac1n\Big)^{n}< e< \Big(1+\frac1n\Big)^{n+1}\)</td><td class="cond">Quotientenkriterium bei \(n^{n}\), \(n!\)</td></tr>
+    <tr><td>\(\displaystyle\frac{\sqrt[n]{n!}}{n}\to\frac1e\)<br>\(\frac{n!}{n^{n}}\to0\)<br>\(\frac{(n+1)^{n}}{n^{n}}\to e\)</td><td class="cond"></td></tr>
+    <tr><td>\(\displaystyle\frac{n^{k}}{a^{n}}\to0\ (a>1)\)<br>\(\frac{\ln n}{n^{\varepsilon}}\to0\ (\varepsilon>0)\)<br>\(\frac{a^{n}}{n!}\to0\)</td><td class="cond">Wachstumshierarchie \(\ln\ll n^{k}\ll a^{n}\ll n!\ll n^{n}\)</td></tr>
+    <tr><td>\(\displaystyle\frac{\sin x}{x}\to1\)<br>\(\frac{e^{x}-1}{x}\to1\)<br>\(\frac{\ln(1+x)}{x}\to1\quad (x\to0)\)</td><td class="cond">Vergleich \(a_k\sim b_k\)</td></tr>
+    <tr><td>\(\displaystyle\sum_{k=1}^{n}\frac1k=\ln n+\gamma+o(1)\)<br>\(n!\sim\sqrt{2\pi n}\Big(\frac ne\Big)^{n}\)</td><td class="cond">Größenordnungen</td></tr>
+  </table></div></details>
+</div></div>`; }
 function merkTricksHtml(){ return String.raw`
 <p class="sub"><b>Teil I</b> ist der Werkzeugkasten: die Ungleichungen selbst, exakt mit Voraussetzungen. <b>Teil II</b> sagt, <b>wann</b> welches Werkzeug dran ist: „Du musst … zeigen → so gehst du vor". Faustregel fürs Abschätzen: <b>nach oben</b> mit Dreiecksungleichung und Cauchy-Schwarz, <b>Nenner nach unten</b> mit der umgekehrten Dreiecksungleichung, <b>Produkte</b> mit AM–GM/Young auseinanderziehen, <b>Differenzen</b> mit Mittelwertsatz/Schrankensatz durch die Ableitung kontrollieren.</p>
-
+<div class="mk"><div class="foldbar"><button class="btn" onclick="foldAll(this,true)">alle aufklappen</button><button class="btn" onclick="foldAll(this,false)">alle zuklappen</button></div>
 <h2 class="grp">Teil I · Werkzeugkasten</h2>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>1 · Beträge &amp; Normen</h3>
-  <table class="reftable">
-    <tr><td>\(|a+b|\le|a|+|b|,\qquad \|x+y\|\le\|x\|+\|y\|\)</td><td class="cond">Dreiecksungleichung</td></tr>
-    <tr><td>\(\big|\,|a|-|b|\,\big|\le|a-b|,\qquad \big|\,\|x\|-\|y\|\,\big|\le\|x-y\|\)</td><td class="cond">umgekehrt — Nenner nach unten</td></tr>
-    <tr><td>\(\Big|\sum_{k}a_k\Big|\le\sum_{k}|a_k|,\qquad \Big|\int_a^b f(x)\,dx\Big|\le\int_a^b|f(x)|\,dx\)</td><td class="cond">Summen / Integrale</td></tr>
+<details class="fold"><summary>1 · Beträge &amp; Normen</summary><div class="fbody"><table class="reftable">
+    <tr><td>\(|a+b|\le|a|+|b|\)<br>\(\|x+y\|\le\|x\|+\|y\|\)</td><td class="cond">Dreiecksungleichung</td></tr>
+    <tr><td>\(\big|\,|a|-|b|\,\big|\le|a-b|\)<br>\(\big|\,\|x\|-\|y\|\,\big|\le\|x-y\|\)</td><td class="cond">umgekehrt — Nenner nach unten</td></tr>
+    <tr><td>\(\Big|\sum_{k}a_k\Big|\le\sum_{k}|a_k|\)<br>\(\Big|\int_a^b f(x)\,dx\Big|\le\int_a^b|f(x)|\,dx\)</td><td class="cond">Summen / Integrale</td></tr>
     <tr><td>\(|x_i|\le\|x\|_p\) für jedes \(i\) und jedes \(p\in[1,\infty]\)</td><td class="cond">Koordinate ≤ Norm</td></tr>
-    <tr><td>\(\|x\|_\infty\le\|x\|_2\le\|x\|_1\le d\,\|x\|_\infty,\qquad \|x\|_2\le\sqrt d\,\|x\|_\infty,\qquad \|x\|_1\le\sqrt d\,\|x\|_2\)</td><td class="cond">\(x\in\mathbb{K}^{d}\); Normäquivalenz konkret</td></tr>
+    <tr><td>\(\|x\|_\infty\le\|x\|_2\le\|x\|_1\le d\,\|x\|_\infty\)<br>\(\|x\|_2\le\sqrt d\,\|x\|_\infty\)<br>\(\|x\|_1\le\sqrt d\,\|x\|_2\)</td><td class="cond">\(x\in\mathbb{K}^{d}\); Normäquivalenz konkret</td></tr>
     <tr><td>\(\|f\|_{L^{1}}=\int_a^b|f(x)|\,dx\le(b-a)\,\|f\|_C\)</td><td class="cond">\(C\)-Norm dominiert \(L^{1}\) — nicht umgekehrt</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>2 · Produkte &amp; Skalarprodukte</h3>
-  <table class="reftable">
+  </table></div></details>
+<details class="fold"><summary>2 · Produkte &amp; Skalarprodukte</summary><div class="fbody"><table class="reftable">
     <tr><td>\(|\langle x,y\rangle|\le\|x\|\,\|y\|\);&nbsp; \(\Big(\sum a_kb_k\Big)^{2}\le\sum a_k^{2}\sum b_k^{2}\);&nbsp; \(\Big(\int fg\Big)^{2}\le\int f^{2}\int g^{2}\)</td><td class="cond">Cauchy-Schwarz</td></tr>
     <tr><td>\(\displaystyle\sum|a_kb_k|\le\Big(\sum|a_k|^{p}\Big)^{1/p}\Big(\sum|b_k|^{q}\Big)^{1/q}\)</td><td class="cond">Hölder, \(\frac1p+\frac1q=1\)</td></tr>
     <tr><td>\(\|x+y\|_p\le\|x\|_p+\|y\|_p\)</td><td class="cond">Minkowski = Dreiecks-UG der \(p\)-Norm</td></tr>
     <tr><td>\(\displaystyle ab\le\frac{a^{p}}{p}+\frac{b^{q}}{q}\) für \(a,b\ge0\)</td><td class="cond">Young, \(\frac1p+\frac1q=1\)</td></tr>
-    <tr><td>\(\displaystyle\sqrt{ab}\le\frac{a+b}{2}\ (a,b\ge0),\qquad |ab|\le\frac{a^{2}+b^{2}}{2},\qquad x+\frac1x\ge2\ (x>0)\)</td><td class="cond">AM–GM</td></tr>
+    <tr><td>\(\displaystyle\sqrt{ab}\le\frac{a+b}{2}\ (a,b\ge0)\)<br>\(|ab|\le\frac{a^{2}+b^{2}}{2}\)<br>\(x+\frac1x\ge2\ (x>0)\)</td><td class="cond">AM–GM</td></tr>
     <tr><td>\(\displaystyle 2|ab|\le\varepsilon a^{2}+\frac{b^{2}}{\varepsilon}\) für jedes \(\varepsilon>0\)</td><td class="cond">\(\varepsilon\)-Trick: Gewicht verschieben</td></tr>
-  </table>
-</div>
+  </table></div></details>
 </div>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>3 · Potenzen, Fakultäten, Binome</h3>
-  <table class="reftable">
+<details class="fold"><summary>3 · Potenzen, Fakultäten, Binome</summary><div class="fbody"><table class="reftable">
     <tr><td>\((1+x)^{n}\ge1+nx\) für \(x\ge-1\), \(n\in\mathbb{N}\)</td><td class="cond">Bernoulli</td></tr>
     <tr><td>\(\displaystyle(1+x)^{n}\ge1+nx+\binom n2x^{2}\) für \(x\ge0\)</td><td class="cond">zwei Binomialterme — z. B. für \(\sqrt[n]{n}\to1\)</td></tr>
-    <tr><td>\(2^{n}\ge n+1,\qquad 2^{n-1}\le n!\le n^{n},\qquad \Big(\frac ne\Big)^{n}\le n!\le\Big(\frac{n+1}{2}\Big)^{n}\)</td><td class="cond">\(n!\) einschachteln</td></tr>
-    <tr><td>\(\displaystyle\binom nk\le\frac{n^{k}}{k!},\qquad \Big(1+\frac1n\Big)^{n}< e< \Big(1+\frac1n\Big)^{n+1}\)</td><td class="cond"></td></tr>
+    <tr><td>\(2^{n}\ge n+1\)<br>\(2^{n-1}\le n!\le n^{n}\)<br>\(\Big(\frac ne\Big)^{n}\le n!\le\Big(\frac{n+1}{2}\Big)^{n}\)</td><td class="cond">\(n!\) einschachteln</td></tr>
+    <tr><td>\(\displaystyle\binom nk\le\frac{n^{k}}{k!}\)<br>\(\Big(1+\frac1n\Big)^{n}< e< \Big(1+\frac1n\Big)^{n+1}\)</td><td class="cond"></td></tr>
     <tr><td>\(|a^{n}-b^{n}|\le n\,\max(|a|,|b|)^{n-1}\,|a-b|\)</td><td class="cond">aus \(a^{n}-b^{n}=(a-b)\sum a^{k}b^{n-1-k}\)</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>4 · Elementare Funktionen</h3>
-  <table class="reftable">
-    <tr><td>\(|\sin x|\le|x|,\qquad |\sin x|,|\cos x|\le1,\qquad 0\le1-\cos x\le\frac{x^{2}}{2}\)</td><td class="cond"></td></tr>
-    <tr><td>\(e^{x}\ge1+x\ (x\in\mathbb{R}),\qquad e^{x}\ge\frac{x^{n}}{n!}\ (x\ge0)\)</td><td class="cond">\(e^{x}\) schlägt jedes Polynom</td></tr>
-    <tr><td>\(\ln x\le x-1\ (x>0),\qquad \frac{x}{1+x}\le\ln(1+x)\le x\ (x>-1)\)</td><td class="cond">\(\ln\) unter der Tangente</td></tr>
-    <tr><td>\(|\arctan x|\le|x|,\qquad |\arctan x|\le\frac{\pi}{2},\qquad |\tanh x|\le1\)</td><td class="cond"></td></tr>
-    <tr><td>\(\sqrt{1+x}\le1+\frac x2\ (x\ge-1),\qquad |\sqrt a-\sqrt b|\le\sqrt{|a-b|}\)</td><td class="cond">Wurzeln</td></tr>
+  </table></div></details>
+<details class="fold"><summary>4 · Elementare Funktionen</summary><div class="fbody"><table class="reftable">
+    <tr><td>\(|\sin x|\le|x|\)<br>\(|\sin x|,|\cos x|\le1\)<br>\(0\le1-\cos x\le\frac{x^{2}}{2}\)</td><td class="cond"></td></tr>
+    <tr><td>\(e^{x}\ge1+x\ (x\in\mathbb{R})\)<br>\(e^{x}\ge\frac{x^{n}}{n!}\ (x\ge0)\)</td><td class="cond">\(e^{x}\) schlägt jedes Polynom</td></tr>
+    <tr><td>\(\ln x\le x-1\ (x>0)\)<br>\(\frac{x}{1+x}\le\ln(1+x)\le x\ (x>-1)\)</td><td class="cond">\(\ln\) unter der Tangente</td></tr>
+    <tr><td>\(|\arctan x|\le|x|\)<br>\(|\arctan x|\le\frac{\pi}{2}\)<br>\(|\tanh x|\le1\)</td><td class="cond"></td></tr>
+    <tr><td>\(\sqrt{1+x}\le1+\frac x2\ (x\ge-1)\)<br>\(|\sqrt a-\sqrt b|\le\sqrt{|a-b|}\)</td><td class="cond">Wurzeln</td></tr>
     <tr><td>\(x^{\alpha}\le x^{\beta}\) für \(0\le x\le1,\ \alpha\ge\beta\);&nbsp; umgekehrt für \(x\ge1\)</td><td class="cond">Potenzen auf \([0,1]\) vs. \([1,\infty[\)</td></tr>
-  </table>
-</div>
+  </table></div></details>
 </div>
 
 <div class="twocol">
-<div class="refblock">
-  <h3>5 · Integrale abschätzen</h3>
-  <table class="reftable">
+<details class="fold"><summary>5 · Integrale abschätzen</summary><div class="fbody"><table class="reftable">
     <tr><td>\(\displaystyle\Big|\int_a^bf(x)\,dx\Big|\le\int_a^b|f(x)|\,dx\le(b-a)\max_{[a,b]}|f|\)</td><td class="cond">Standardkette</td></tr>
     <tr><td>\(f\le g\) auf \([a,b]\) \(\Rightarrow\) \(\displaystyle\int_a^bf\le\int_a^bg\)</td><td class="cond">Monotonie (4.2.3)</td></tr>
     <tr><td>\(\displaystyle\int_a^bf(x)g(x)\,dx=f(\xi)\int_a^bg(x)\,dx\) für ein \(\xi\in[a,b]\)</td><td class="cond">\(f\) stetig, \(g\ge0\) integrierbar — 1. MWS (4.5.1)</td></tr>
     <tr><td>\(\displaystyle\int_1^{n+1}f(x)\,dx\le\sum_{k=1}^{n}f(k)\le f(1)+\int_1^{n}f(x)\,dx\)</td><td class="cond">\(f\ge0\) monoton fallend — Summe vs. Integral</td></tr>
     <tr><td>\(\displaystyle\Big|\int_a^bf(x)\,dx-\int_a^b\tilde f(x)\,dx\Big|\le(b-a)\,\|f-\tilde f\|_C\)</td><td class="cond">Vertauschen \(\lim\)–\(\int\) bei \(f_n\rightrightarrows f\)</td></tr>
-  </table>
-</div>
-<div class="refblock">
-  <h3>6 · Ableitungen als Schranken</h3>
-  <table class="reftable">
+  </table></div></details>
+<details class="fold"><summary>6 · Ableitungen als Schranken</summary><div class="fbody"><table class="reftable">
     <tr><td>\(|f(x)-f(y)|\le\sup|f'|\cdot|x-y|\)</td><td class="cond">Mittelwertsatz (Lagrange) → Lipschitz</td></tr>
     <tr><td>\(\displaystyle\|f(b)-f(a)\|_F\le\sup_{x\in\overline{ab}}\|f'(x)\|_{\mathcal{L}(E,F)}\cdot\|b-a\|_E\)</td><td class="cond">Hauptsatz / Schrankensatz (7.5)</td></tr>
-    <tr><td>\(\|Tx\|_F\le\|T\|_{\mathcal{L}(E,F)}\,\|x\|_E,\qquad \|ST\|\le\|S\|\,\|T\|\)</td><td class="cond">Operatornorm (7.2)</td></tr>
+    <tr><td>\(\|Tx\|_F\le\|T\|_{\mathcal{L}(E,F)}\,\|x\|_E\)<br>\(\|ST\|\le\|S\|\,\|T\|\)</td><td class="cond">Operatornorm (7.2)</td></tr>
     <tr><td>\(\displaystyle\|Mx\|_2\le\Big(\sum_{i,j}m_{ij}^{2}\Big)^{1/2}\|x\|_2\), also \(\displaystyle\|M\|_{\mathcal{L}(\mathbb{R}^{2},\mathbb{R}^{2})}\le\Big(\sum_{i,j}m_{ij}^{2}\Big)^{1/2}\)</td><td class="cond">Cauchy-Schwarz zeilenweise — Scheinklausur 2009</td></tr>
     <tr><td>\(\displaystyle|R_n(x)|\le\frac{\sup|f^{(n+1)}|}{(n+1)!}\,|x-x_0|^{n+1}\)</td><td class="cond">Taylor-Restglied (Lagrange)</td></tr>
-  </table>
-</div>
+  </table></div></details>
 </div>
 
-<div class="refblock">
-  <h3>7 · Reste &amp; Fehler kontrollieren</h3>
-  <table class="reftable">
+<details class="fold"><summary>7 · Reste &amp; Fehler kontrollieren</summary><div class="fbody"><table class="reftable">
     <tr><td>\(\displaystyle\sum_{k=n+1}^{\infty}q^{k}=\frac{q^{n+1}}{1-q}\) für \(0\le q< 1\)</td><td class="cond">geometrischer Rest — der Standard-Majorantenrest</td></tr>
     <tr><td>\(a_k\downarrow0\) \(\Rightarrow\) \(\displaystyle\Big|\sum_{k=0}^{\infty}(-1)^{k}a_k-\sum_{k=0}^{n}(-1)^{k}a_k\Big|\le a_{n+1}\)</td><td class="cond">Leibniz-Rest</td></tr>
-    <tr><td>\(\displaystyle\|x_n-x^{*}\|\le\frac{q^{n}}{1-q}\|x_1-x_0\|,\qquad \|x_n-x^{*}\|\le\frac{q}{1-q}\|x_n-x_{n-1}\|\)</td><td class="cond">Fixpunkt-Iteration, Kontraktionskonstante \(q\) (7.10.2)</td></tr>
+    <tr><td>\(\displaystyle\|x_n-x^{*}\|\le\frac{q^{n}}{1-q}\|x_1-x_0\|\)<br>\(\|x_n-x^{*}\|\le\frac{q}{1-q}\|x_n-x_{n-1}\|\)</td><td class="cond">Fixpunkt-Iteration, Kontraktionskonstante \(q\) (7.10.2)</td></tr>
     <tr><td>\(\displaystyle\|x_n-x_m\|\le\sum_{k=m}^{n-1}\|x_{k+1}-x_k\|\le\sum_{k=m}^{\infty}c_k\to0\)</td><td class="cond">Cauchy-Folge über summierbare Schritte</td></tr>
     <tr><td>\(\displaystyle\sup_{x}|f_n(x)-f(x)|\le\sum_{k=n+1}^{\infty}C_k\to0\)</td><td class="cond">M-Test-Rest: gleichmäßiger Fehler der Partialsummen</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
 <h2 class="grp">Teil II · Du musst … zeigen → so gehst du vor</h2>
 
-<div class="refblock">
-  <h3>8 · Reihe konvergiert / divergiert</h3>
-  <table class="reftable">
+<details class="fold"><summary>8 · Reihe konvergiert / divergiert</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Immer zuerst:</b> \(a_k\to0\)?</td><td>Nein → divergent, fertig. Ja → sagt nichts (harmonische Reihe!). Bei \((-1)^{k}\frac{k^{2}+1}{2k^{2}+5k-1}\) ist \(|a_k|\to\frac12\) → divergent.</td></tr>
     <tr><td><b>Absolut zeigen</b></td><td>\(|a_k|\le C_k\) mit \(\sum C_k< \infty\) (p-Reihe \(p>1\), geometrisch). Grad zählen: \(\frac{k^{3}-1}{k^{5}+k^{3}}\sim\frac{1}{k^{2}}\). Werkzeuge: Dreiecks-UG, \(|\sin|\le1\), Block 3/4.</td></tr>
     <tr><td><b>Fakultäten / Potenzen \(k^{k}\), \(x^{k}\)</b></td><td>Quotientenkriterium \(\frac{|a_{k+1}|}{|a_k|}\to L\) — mit \(\frac{(k+1)^{k}}{k^{k}}\to e\). Wurzelkriterium bei \((\dots)^{k}\): \(\sqrt[k]{|a_k|}\to L\), mit \(\sqrt[k]{k}\to1\). \(L=1\) → Raabe (<a href="#/ref/konv_summen">Konvergenzkriterien</a>).</td></tr>
     <tr><td><b>Alternierend, nicht absolut</b></td><td>Leibniz: \(a_k\downarrow0\) reicht. Allgemeiner Dirichlet (beschränkte Partialsummen × monotone Nullfolge) oder Abel — vgl. 5.6.2.</td></tr>
     <tr><td><b>Divergenz zeigen</b></td><td>Minorante \(a_k\ge\frac{c}{k}\), oder \(a_k\not\to0\), oder Cauchy-Kriterium verletzt: \(\sum_{k=n+1}^{2n}a_k\ge c>0\).</td></tr>
     <tr><td><b>Doppelfolgen / Umordnen</b></td><td>Nur bei absoluter Konvergenz (Umordnungssatz 5.3.3, Doppelreihen 5.3.5, Cauchy-Produkt 5.3.6). Bedingt konvergent → Riemann: jeder Wert erreichbar.</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>9 · Uneigentliches Integral konvergiert / divergiert</h3>
-  <table class="reftable">
+<details class="fold"><summary>9 · Uneigentliches Integral konvergiert / divergiert</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Bei \(\infty\)</b></td><td>Vergleich mit \(\frac{1}{x^{p}}\): \(|f(x)|\le\frac{C}{x^{p}}\), \(p>1\) → konvergent. Grad zählen: \(\frac{x^{2}}{x^{4}+\dots}\sim\frac{1}{x^{2}}\). Divergent: \(f(x)\ge\frac{c}{x}\).</td></tr>
     <tr><td><b>Bei einer Randsingularität</b></td><td>Vergleich mit \(\frac{1}{(x-a)^{p}}\), \(p< 1\) → konvergent. \(\frac{\cos x}{\sqrt x}\) bei \(0\): \(\le\frac{1}{\sqrt x}\), \(p=\frac12\) ✓.</td></tr>
     <tr><td><b>Nur bedingt (oszillierend)</b></td><td>\(\int_1^{\infty}\frac{\sin x}{x^{\gamma}}\,dx\): partielle Integration → Randterm + absolut konvergentes Integral mit \(\frac{1}{x^{\gamma+1}}\). Oder Cauchy-Kriterium (5.1.5) direkt.</td></tr>
     <tr><td><b>Innerer Punkt</b></td><td>In zwei Integrale aufspalten, beide müssen konvergieren. Hauptwert \(\operatorname{v.p.}\) ist etwas anderes: \(\operatorname{v.p.}\int_{-1}^{1}\frac{dx}{x}=0\), das Integral selbst divergiert.</td></tr>
     <tr><td><b>Definition nachweisen</b> (Klausurfrage!)</td><td>\(\displaystyle\lim_{R\to\infty}\int_1^{R}f(x)\,dx\) existiert: Stammfunktion hinschreiben, Grenzwert bilden. Bei \(\frac{1}{x^{\gamma}}\): \(\frac{1-R^{1-\gamma}}{\gamma-1}\to\frac{1}{\gamma-1}\).</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>10 · Gleichmäßige Konvergenz zeigen / widerlegen</h3>
-  <table class="reftable">
+<details class="fold"><summary>10 · Gleichmäßige Konvergenz zeigen / widerlegen</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Zeigen (Folge)</b></td><td>1. Grenzfunktion \(f\) punktweise. 2. \(M_n=\sup_{x\in D}|f_n(x)-f(x)|\) — Supremum über \(\frac{d}{dx}\), Monotonie oder eine Abschätzung ohne \(x\) (\(|\sin|\le1\), \(x^{k}e^{-kx}\le\dots\)). 3. \(M_n\to0\) ⇔ \(f_n\rightrightarrows f\).</td></tr>
     <tr><td><b>Zeigen (Reihe)</b></td><td>M-Test (6.4.2): \(|a_k(x)|\le C_k\) für alle \(x\), \(\sum C_k< \infty\). Auf \([-a,a]\): \(\sin^{2}\frac{x}{k}\le\frac{x^{2}}{k^{2}}\le\frac{a^{2}}{k^{2}}\). Auf ganz \(\mathbb{R}\) oft unmöglich → Intervall einschränken.</td></tr>
     <tr><td><b>Widerlegen</b></td><td>(a) Punkte \(x_n\) mit \(|f_n(x_n)-f(x_n)|\ge c>0\) (typisch \(x_n=\frac1n\), \(x_n=1-\frac1n\)); (b) \(f_n\) stetig, \(f\) unstetig → nicht gleichmäßig (6.3.2); (c) \(\sup\) explizit \(\not\to0\).</td></tr>
     <tr><td><b>Grenzfunktion glatt zeigen</b></td><td>Reihe der Ableitungen gleichmäßig konvergent (M-Test auf \(\sum a_k'(x)\)) + Konvergenz in einem Punkt → gliedweise differenzieren (<a href="#/ref/vertauschen">Vertauschen</a>). Für \(C^{2}\) zweimal.</td></tr>
     <tr><td><b>Vertauschen</b> \(\lim\)–\(\int\), \(\lim\)–\(\lim\)</td><td>Nur mit gleichmäßiger Konvergenz (6.3, 6.6). Gegenbeispiel parat: \(f_n=n\cdot\mathbf 1_{]0,1/n[}\).</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>11 · Stetigkeit &amp; Grenzwerte im \(\mathbb{R}^{m}\)</h3>
-  <table class="reftable">
+<details class="fold"><summary>11 · Stetigkeit &amp; Grenzwerte im \(\mathbb{R}^{m}\)</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Stetig in \(\mathbf 0\) zeigen</b></td><td>Polar-Trick: \(r=\|x\|_2=\sqrt{x^{2}+y^{2}}\), dann \(|x|,|y|\le r\), \(|xy|\le\frac{r^{2}}{2}\), \(|x^{3}+y^{3}|\le2r^{3}\). Ziel: \(|f(x,y)-f(0,0)|\le C\,r^{\alpha}\to0\) mit \(\alpha>0\). Beispiel \(\frac{x^{3}+y^{3}}{x^{2}+y^{2}}\): \(\le\frac{2r^{3}}{r^{2}}=2r\).</td></tr>
     <tr><td><b>Unstetig zeigen</b></td><td>Zwei Wege mit verschiedenen Limites: \(y=mx\) (Steigung bleibt stehen → Grenzwert hängt von \(m\) ab) oder \(y=x^{2}\), \(y=\sqrt x\). Klassiker \(\frac{x^{2}}{x^{2}+y^{2}}\), \(\frac{xy}{x^{2}+y^{2}}\).</td></tr>
     <tr><td><b>Schranken für Koordinaten</b></td><td>Immer \(|h_i|\le\|h\|\) (Block 1) — damit werden Terme wie \(h_1h_2^{2}\) zu \(O(\|h\|^{3})\).</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>12 · Differenzierbarkeit (Fréchet) zeigen / widerlegen</h3>
-  <table class="reftable">
+<details class="fold"><summary>12 · Differenzierbarkeit (Fréchet) zeigen / widerlegen</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Kandidat</b></td><td>Partielle Ableitungen → \(A=\nabla f(x_0)^{T}\) bzw. Jacobi-Matrix. Sind sie in einer Umgebung <b>stetig</b>, ist man fertig (7.6.3) — sonst Restglied prüfen.</td></tr>
     <tr><td><b>Restglied abschätzen</b></td><td>\(\displaystyle\frac{\|f(x_0+h)-f(x_0)-Ah\|}{\|h\|}\to0\) für \(h\to\mathbf 0\): Zähler ausmultiplizieren, jeden Term mit \(|h_i|\le\|h\|\), \(|h_1h_2|\le\frac{\|h\|^{2}}{2}\) auf \(C\|h\|^{2}\) drücken, kürzen.</td></tr>
     <tr><td><b>Widerlegen</b></td><td>(a) Richtungsableitung \(Df(x_0)[h]=\lim_{t\to0}\frac{f(x_0+th)-f(x_0)}{t}\) ist <b>nicht linear</b> in \(h\) (bei \(\frac{x^{3}+y^{3}}{x^{2}+y^{2}}\): \(Df(0)[h]=\frac{h_1^{3}+h_2^{3}}{h_1^{2}+h_2^{2}}\)); (b) partiell differenzierbar, aber unstetig; (c) Restglied entlang \(h=(t,t)\) geht nicht gegen \(0\).</td></tr>
     <tr><td><b>Hierarchie merken</b></td><td>\(C^{1}\Rightarrow\) Fréchet \(\Rightarrow\) Gâteaux \(\Rightarrow\) alle Richtungsableitungen \(\Rightarrow\) partiell; keine Umkehrung gilt (<a href="#/ref/frechet">Ableiten in normierten Räumen</a>).</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>13 · Operatornorm bestimmen</h3>
-  <table class="reftable">
+<details class="fold"><summary>13 · Operatornorm bestimmen</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Obere Schranke</b></td><td>\(\|Tx\|_F\le C\,\|x\|_E\) für alle \(x\): Dreiecks-UG, Cauchy-Schwarz (Zeilen einer Matrix), \(|x_i|\le\|x\|\), \(\int|\dots|\le(b-a)\|\cdot\|_C\). Dann \(\|T\|\le C\).</td></tr>
     <tr><td><b>Zeuge</b></td><td>Ein \(x\neq\mathbf 0\) (oder Folge \(x_n\)) mit \(\|Tx\|=C\|x\|\) bzw. \(\frac{\|Tx_n\|}{\|x_n\|}\to C\). Dann \(\|T\|=C\). Typisch: Eigenvektor, Einheitsvektor \(e_i\), Funktion \(\equiv1\), Spitzen-Funktion \(u_n\).</td></tr>
     <tr><td><b>Unbeschränkt zeigen</b></td><td>Folge mit \(\|x_n\|=1\), \(\|Tx_n\|\to\infty\) — Ableitungsoperator auf \((C^{1},\|\cdot\|_C)\): \(x_n=\sin(nt)\), \(\|x_n'\|_C=n\) (7.2.4).</td></tr>
     <tr><td><b>Stetig ⇔ beschränkt</b></td><td>Für lineares \(T\) reicht Stetigkeit in \(\mathbf 0_E\) (7.2.2/7.2.3). Nachweis der Stetigkeit = Nachweis einer Schranke.</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>14 · Kontraktion &amp; Fixpunkt</h3>
-  <table class="reftable">
+<details class="fold"><summary>14 · Kontraktion &amp; Fixpunkt</summary><div class="fbody"><table class="reftable">
     <tr><td><b>Selbstabbildung</b> \(K(B)\subset B\)</td><td>Für \(u\in B\): \(\|Ku\|\le\dots\le\) Radius. Werkzeuge: Dreiecks-UG, \(\|Mu\|\le\|M\|\,\|u\|\), \(\|u\|\le1\). Beispiel \(Ku=\|u\|Mu+f\): \(\|Ku\|\le\|u\|^{2}\|M\|+\|f\|\le\frac14+\frac34=1\).</td></tr>
     <tr><td><b>Kontraktion</b> \(\|Ku-Kv\|\le q\|u-v\|,\ q< 1\)</td><td>(a) Schrankensatz: \(\sup\|K'\|\le q\) (Block 6); (b) direkt mit Nullergänzung: \(\|u\|Mu-\|v\|Mv=(\|u\|-\|v\|)Mu+\|v\|M(u-v)\), dann umgekehrte Dreiecks-UG \(\big|\|u\|-\|v\|\big|\le\|u-v\|\).</td></tr>
     <tr><td><b>Vollständigkeit</b></td><td>Abgeschlossene Teilmenge eines Banachraums ist vollständig (\(\overline{B_1(0)}\subset\mathbb{R}^{2}\) ✓). Dann Banachscher Fixpunktsatz (7.10.1): genau ein Fixpunkt, Iteration konvergiert, Fehler Block 7.</td></tr>
-  </table>
-</div>
+  </table></div></details>
 
-<div class="refblock">
-  <h3>15 · Beweismuster</h3>
-  <table class="reftable">
+<details class="fold"><summary>15 · Beweismuster</summary><div class="fbody"><table class="reftable">
     <tr><td><b>\(\varepsilon/2\), \(\varepsilon/3\)</b></td><td>Jede Fehlerquelle einzeln klein machen, \(N=\max(N_1,N_2)\). Drei Quellen — gleichmäßig stetig + gleichmäßig konvergent ⇒ Grenzfunktion gleichmäßig stetig: \(|f(x)-f(y)|\le|f(x)-f_n(x)|+|f_n(x)-f_n(y)|+|f_n(y)-f(y)|< 3\cdot\frac{\varepsilon}{3}\).</td></tr>
     <tr><td><b>Nullergänzung</b></td><td>Zwischenterm einschieben: \(fg-\tilde f\tilde g=(f-\tilde f)g+\tilde f(g-\tilde g)\), \(f(x)-f(y)=f(x)-f_n(x)+f_n(x)-\dots\). Danach Dreiecks-UG.</td></tr>
     <tr><td><b>Sandwich</b></td><td>\(a_n\le c_n\le b_n\), \(a_n,b_n\to L\) ⇒ \(c_n\to L\). Für Grenzwerte mit Wurzeln, Fakultäten, Summen (Block 3, 5).</td></tr>
@@ -4445,8 +4393,7 @@ function merkTricksHtml(){ return String.raw`
     <tr><td><b>Widerspruch / Kontraposition</b></td><td>„Nicht gleichmäßig" = \(\exists\varepsilon\ \forall N\ \exists n\ge N,\ x\): \(|f_n(x)-f(x)|\ge\varepsilon\) — Quantoren sauber negieren, dann die Folge \(x_n\) konstruieren.</td></tr>
     <tr><td><b>Induktion &amp; Teleskop</b></td><td>Rekursiv definierte Folgen (\(x_{n+1}=Kx_n\)): Abschätzung \(\|x_{n+1}-x_n\|\le q^{n}\|x_1-x_0\|\) per Induktion, dann Teleskop.</td></tr>
     <tr><td><b>Stetigkeit ausnutzen</b></td><td>Kompaktes Intervall ⇒ Maximum wird angenommen ⇒ \(\sup\) ist ein \(\max\) und endlich. Stetige Funktion mit \(f(a)< 0< f(b)\) ⇒ Nullstelle. Gleichmäßig stetig auf \([a,b]\).</td></tr>
-  </table>
-</div>`; }
+  </table></div></details></div>`; }
 /* Auswendig lernen: alle Def/Satz/Lemma/Kriterien der Tafelbilder V1-V34, wortgetreu (Quelle: Alle_Tafelbilder_Analysis2.pdf) */
 const MEMO = [
  {sec:"4.1", id:"4.1.1", kind:"def", krit:false, num:"", name:"ε-δ-Def des R.I.", src:"V01 T02", unsure:"", tex:String.raw`<p>\(f\) ist Riemann-integrierbar, falls ein \(I\in \mathbb{R}\) existiert, so dass</p><p>\[\lim_{\lambda(X)\to 0} \sigma(f,X,\Xi) = I,\]</p><p>d.h.</p><p>\(\forall_{\varepsilon>0}\ \exists_{\delta_{\varepsilon}>0}\ \forall_{X:\, \lambda(X)< \delta_{\varepsilon}}\ \forall_{\Xi}\)</p><p>\[|\sigma(f,X,\Xi) - I| < \varepsilon. \quad (\ast)\]</p><p>Man nennt \(I\) dann das Riemann-Integral von \(f\) auf \([a,b]\)</p><p>\[I = \int_a^b f(x)\,dx.\]</p>`},
@@ -4735,27 +4682,30 @@ function auswendigHtml(){
       <button class="btn" onclick="memoFilter('krit',this)">Kriterien <span class="tmcount">${cnt.krit}</span></button>
       <span class="mmjump">Springe zu Kap. ${chapters.map(c=>`<button onclick="document.getElementById('mm${c}').scrollIntoView({behavior:'smooth',block:'start'})">${c}</button>`).join(" · ")}</span>
     </div>
+    <div class="foldbar"><button class="btn" onclick="foldAll(this,true)">alle aufklappen</button><button class="btn" onclick="foldAll(this,false)">alle zuklappen</button></div>
     <p class="sub">Quelle je Zeile: Vorlesung und Tafel (z. B. „V13 T2"), dazu der Link zur Themen-Karte. <span class="mmwarn">⚠︎</span> markiert Stellen, an denen die Tafel schwer lesbar war — der Tooltip nennt die Stelle; im Zweifel am Tafelbild gegenprüfen. Namen in eckigen Klammern stammen nicht von der Tafel.</p>`;
   let lastCh=null;
   secOrder.forEach(sec=>{
     const ch=sec.split(".")[0];
     if(ch!==lastCh){ const chn=byId.get(ch); out+=`<h2 class="chh" id="mm${ch}">Kapitel ${ch} — ${esc(chn?chn.title:"")}</h2>`; lastCh=ch; }
     const sn=MEMO_SECTITLE[sec]?null:byId.get(sec);
-    out+=`<div class="refblock"><h3>${esc(sec)} ${esc(MEMO_SECTITLE[sec]||(sn?sn.title:""))}${sn?` <small><a href="#/${sec}">zum Abschnitt ↗</a></small>`:""}</h3><table class="reftable">`;
-    bySec.get(sec).forEach(m=>{
+    const rows=bySec.get(sec);
+    out+=`<details class="fold refblock"><summary>${esc(sec)} ${esc(MEMO_SECTITLE[sec]||(sn?sn.title:""))} <span class="tmcount">${rows.length}</span>${sn?` <small><a href="#/${sec}" onclick="event.stopPropagation()">zum Abschnitt ↗</a></small>`:""}</summary><div class="fbody"><table class="reftable">`;
+    rows.forEach(m=>{
       const [lab,cls]=MEMO_LABEL[m.kind];
       out+=`<tr class="${cls}${m.krit?" krit":""}"><td class="mmk ${cls}">${lab}${m.num?" "+esc(m.num):""}${m.krit&&m.kind!=="krit"?`<span class="mmkrit">Kriterium</span>`:""}</td><td>${m.name?`<b>${esc(m.name)}</b> `:""}${m.tex}</td><td class="cond">${m.unsure?`<span class="mmwarn" title="${esc(m.unsure)}">⚠︎</span> `:""}${esc(m.src)}${m.id?` · <a href="#/${m.id}">${esc(m.id)}</a>`:""}</td></tr>`;
     });
-    out+=`</table></div>`;
+    out+=`</table></div></details>`;
   });
   out+=`</div>`;
   return out;
 }
+function foldAll(btn,open){ const root=btn.closest(".mk, .memo")||document; root.querySelectorAll("details.fold").forEach(d=>{ if(!d.hidden) d.open=open; }); }
 function memoFilter(k,btn){
   const root=document.getElementById("memo"); if(!root) return;
   root.dataset.show=k;
   root.querySelectorAll(".mmtool .btn").forEach(b=>b.classList.toggle("on", b===btn));
-  root.querySelectorAll(".refblock").forEach(bl=>{ bl.hidden = k!=="all" && ![...bl.querySelectorAll("tr")].some(tr=>tr.classList.contains(k)); });
+  root.querySelectorAll(".refblock").forEach(bl=>{ bl.hidden = k!=="all" && ![...bl.querySelectorAll("tr")].some(tr=>tr.classList.contains(k)); if(k!=="all" && !bl.hidden) bl.open=true; });
   root.querySelectorAll("h2.chh").forEach(h=>{ let n=h.nextElementSibling, any=false; while(n && n.tagName!=="H2"){ if(!n.hidden) any=true; n=n.nextElementSibling; } h.hidden=!any; });
 }
 const REF = {
@@ -5249,6 +5199,10 @@ const ChapterNav = (function(){
 const app=document.getElementById("app");
 let currentMap=null;
 
+/* Kapitel-Liste: welche Kapitel aufgeklappt sind, merkt sich der Browser */
+const CHOPEN_KEY="ana34-chopen";
+function chOpen(id){ try{ return (JSON.parse(localStorage.getItem(CHOPEN_KEY)||"[]")).indexOf(id)>=0; }catch(e){ return false; } }
+function chToggle(el){ try{ const a=JSON.parse(localStorage.getItem(CHOPEN_KEY)||"[]").filter(x=>x!==el.dataset.ch); if(el.open) a.push(el.dataset.ch); localStorage.setItem(CHOPEN_KEY, JSON.stringify(a)); }catch(e){} }
 function renderHome(){
   currentMap=null;
   const cols = CH.map(ch=>{
@@ -5264,10 +5218,10 @@ function renderHome(){
         <span class="srgo">→</span>
       </a>`;
     }).join("");
-    return `<section class="chcol">
-      <h2 class="chhead ${ch.key}"><span>Kap. ${ch.id} — ${esc(ch.title)}</span><span class="cc">${ch.sections.length} Abschnitte</span></h2>
+    return `<details class="chcol" data-ch="${ch.id}"${chOpen(ch.id)?" open":""} ontoggle="chToggle(this)">
+      <summary><h2 class="chhead ${ch.key}"><span>Kap. ${ch.id} — ${esc(ch.title)}</span><span class="cc">${ch.sections.length} Abschnitte</span></h2></summary>
       <div class="seclist">${rows}</div>
-    </section>`;
+    </details>`;
   }).join("");
   app.innerHTML = `
     <div class="titlebar"><h1>Übersicht Analysis 2 [S26]</h1></div>
